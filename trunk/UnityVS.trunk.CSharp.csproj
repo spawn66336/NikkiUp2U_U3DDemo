@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4AF7F15-DD56-9942-254A-42EB33E196C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\NGUI\Scripts\Interaction\LanguageSelection.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButton.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonActivate.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonColor.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonKeys.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonMessage.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonOffset.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonRotation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIButtonScale.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UICenterOnChild.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UICenterOnClick.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragCamera.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragDropContainer.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragDropItem.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragDropRoot.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragObject.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragResize.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDragScrollView.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIDraggableCamera.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIEventTrigger.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIForwardEvents.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIGrid.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIImageButton.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIKeyBinding.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIKeyNavigation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlayAnimation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlaySound.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIPlayTween.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIPopupList.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIProgressBar.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UISavedOption.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIScrollBar.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIScrollView.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UISlider.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UISoundVolume.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UITable.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggle.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggledComponents.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIToggledObjects.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIWidgetContainer.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Interaction\UIWrapContent.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\ActiveAnimation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\AnimationOrTween.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\BMFont.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\BMGlyph.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\BMSymbol.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\BetterList.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\ByteReader.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\DataNode.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\EventDelegate.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\Localization.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\NGUIDebug.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\NGUIMath.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\NGUIText.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\NGUITools.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\PropertyBinding.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\PropertyReference.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\RealTime.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\SpringPanel.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\UIDrawCall.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\UIEventListener.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\UIGeometry.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\UIRect.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Internal\UIWidget.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\AnimatedAlpha.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\AnimatedColor.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\SpringPosition.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenAlpha.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenColor.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenFOV.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenHeight.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenOrthoSize.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenPosition.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenRotation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenScale.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenTransform.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenVolume.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\TweenWidth.cs" />
+    <Compile Include="Assets\NGUI\Scripts\Tweening\UITweener.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UI2DSprite.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UI2DSpriteAnimation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIAnchor.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIAtlas.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UICamera.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIFont.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIInput.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UILabel.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UILocalize.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIOrthoCamera.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIPanel.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIRoot.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UISprite.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UISpriteAnimation.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UISpriteData.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIStretch.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UITextList.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
+    <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+    <Compile Include="Assets\Scripts\CoroutineManager.cs" />
+    <Compile Include="Assets\Scripts\DressPanelController.cs" />
+    <Compile Include="Assets\Scripts\GlobalObjects.cs" />
+    <Compile Include="Assets\Scripts\LogicMain.cs" />
+    <Compile Include="Assets\Scripts\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Root.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\UISwitchManager.cs" />
+    <None Include="Assets\NGUI\ReadMe - 3.5.8.txt" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+    <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Resources\Origin\clothes.txt" />
+    <None Include="Assets\Resources\Origin\gardingWithOldTasks_2.0.0.txt" />
+    <None Include="Assets\Resources\Origin\grading.txt" />
+    <None Include="Assets\Resources\Origin\grading_1.0.3.txt" />
+    <None Include="Assets\Resources\Origin\grading_2.0.0.txt" />
+    <None Include="Assets\Resources\Origin\newclothes_1.0.3.txt" />
+    <None Include="Assets\Resources\Origin\newclothes_2.0.0.txt" />
+    <None Include="Assets\Resources\Origin\notsale.txt" />
+    <None Include="Assets\Resources\Origin\taskdialog.txt" />
+    <None Include="Assets\Resources\Origin\taskdialog_1.0.3.txt" />
+    <None Include="Assets\Resources\Origin\taskdialog_2.0.0.txt" />
+    <None Include="Assets\Resources\Origin\tucao.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+</Project>

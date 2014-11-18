@@ -1,0 +1,266 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: DressTypeBarAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: cc4ebc8bb2ad549438abf56f111b69b9, type: 2}
+  mSprites:
+  - name: D_faxing_effect-hd
+    x: 0
+    y: 418
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 16
+    paddingTop: 7
+    paddingBottom: 9
+  - name: D_faxing-hd
+    x: 219
+    y: 135
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 16
+    paddingTop: 8
+    paddingBottom: 10
+  - name: D_lianyiqun_effect-hd
+    x: 0
+    y: 133
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 17
+    paddingTop: 7
+    paddingBottom: 9
+  - name: D_lianyiqun-hd
+    x: 219
+    y: 42
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 17
+    paddingTop: 8
+    paddingBottom: 10
+  - name: D_shangyi_effect-hd
+    x: 219
+    y: 418
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 17
+    paddingTop: 8
+    paddingBottom: 8
+  - name: D_shangyi-hd
+    x: 438
+    y: 420
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 16
+    paddingTop: 9
+    paddingBottom: 9
+  - name: D_shipin_effect-hd
+    x: 0
+    y: 38
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 11
+    paddingRight: 17
+    paddingTop: 7
+    paddingBottom: 9
+  - name: D_shipin-hd
+    x: 656
+    y: 420
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 17
+    paddingTop: 9
+    paddingBottom: 9
+  - name: D_waitao_effect-hd
+    x: 0
+    y: 228
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 16
+    paddingTop: 8
+    paddingBottom: 8
+  - name: D_waitao-hd
+    x: 438
+    y: 327
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 16
+    paddingTop: 9
+    paddingBottom: 9
+  - name: D_wazi_effect-hd
+    x: 0
+    y: 323
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 16
+    paddingTop: 8
+    paddingBottom: 8
+  - name: D_wazi-hd
+    x: 438
+    y: 234
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 17
+    paddingTop: 10
+    paddingBottom: 8
+  - name: D_xiazhuang_effect-hd
+    x: 219
+    y: 323
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 16
+    paddingTop: 8
+    paddingBottom: 8
+  - name: D_xiazhuang-hd
+    x: 438
+    y: 141
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 17
+    paddingTop: 9
+    paddingBottom: 9
+  - name: D_xiezi_effect-hd
+    x: 219
+    y: 228
+    width: 218
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 16
+    paddingTop: 8
+    paddingBottom: 8
+  - name: D_xiezi-hd
+    x: 438
+    y: 48
+    width: 217
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 16
+    paddingTop: 10
+    paddingBottom: 8
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

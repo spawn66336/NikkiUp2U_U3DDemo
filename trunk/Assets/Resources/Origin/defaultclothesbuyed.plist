@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>buyedArray</key>
+	<array>
+		<string>1005</string>
+		<string>1055</string>
+		<string>2033</string>
+		<string>3003</string>
+		<string>4004</string>
+		<string>4007</string>
+		<string>5023</string>
+		<string>5030</string>
+		<string>6002</string>
+		<string>6007</string>
+		<string>7001</string>
+		<string>7012</string>
+		<string>8005</string>
+	</array>
+</dict>
+</plist>
