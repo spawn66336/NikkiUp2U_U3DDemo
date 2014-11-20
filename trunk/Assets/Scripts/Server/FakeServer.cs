@@ -1,0 +1,59 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class ModuleServer
+{
+    public void ReplyToClient( ServerReplyMessage reply )
+    {
+        FakeServer.GetInstance().ReplyToClient(reply);
+    }
+
+
+    //需要继承类实现响应
+    public virtual void HandleRequest( ServerRequestMessage request )
+    {
+        
+    }
+}
+
+public class FakeServer 
+{ 
+
+    public void Init()
+    {
+        servers.Add(new AreaMapModuleServer());
+        servers.Add(new BagModuleServer());
+        servers.Add(new GameItemDBModuleServer());
+        servers.Add(new LevelModuleServer());
+        servers.Add(new PlayerModuleServer());
+        servers.Add(new RatingSysModuleServer());
+    }
+
+
+    public void ReplyToClient( ServerReplyMessage reply )
+    {
+        RequestCenter.GetInstance().OnRecvFakeServerReply(reply);
+    }
+
+    public void RecvClientRequest( ServerRequestMessage request )
+    {
+        foreach( var s in servers )
+        {
+            s.HandleRequest(request);
+        }
+    }
+
+    List<ModuleServer> servers = new List<ModuleServer>();
+
+    public static FakeServer GetInstance()
+    {
+        if( s_instance == null )
+        {
+            s_instance = new FakeServer();
+        }
+        return s_instance;
+    }
+
+    static FakeServer s_instance; 
+}
