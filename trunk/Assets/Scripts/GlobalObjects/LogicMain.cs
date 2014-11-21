@@ -4,6 +4,20 @@ using System.Collections.Generic;
 
 public class LogicMain : MonoBehaviour 
 {
+
+    //获取模块
+    public T GetModule<T>() where T:GameLogicModule
+    {
+        foreach( var m in modules )
+        {
+            if( m.GetType() == typeof(T))
+            {
+                return m as T;
+            }
+        }
+        return null;
+    }
+
     void Init()
     {
         //初始化假服务器
@@ -37,5 +51,11 @@ public class LogicMain : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        FakeServer.GetInstance().Destroy();
+    }
+
+    //模块列表
     List<GameLogicModule> modules = new List<GameLogicModule>();
 }

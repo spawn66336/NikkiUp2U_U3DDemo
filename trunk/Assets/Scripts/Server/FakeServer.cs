@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class ModuleServer
 {
+    public virtual void Init() { }
+
+    public virtual void Destory() { }
+
     public void ReplyToClient( ServerReplyMessage reply )
     {
         FakeServer.GetInstance().ReplyToClient(reply);
@@ -28,7 +32,22 @@ public class FakeServer
         servers.Add(new LevelModuleServer());
         servers.Add(new PlayerModuleServer());
         servers.Add(new RatingSysModuleServer());
+
+        foreach( var s in servers )
+        {
+            s.Init();
+        }
     }
+
+    public void Destroy()
+    {
+        foreach( var s in servers )
+        {
+            s.Destory();
+        }
+        servers.Clear();
+    }
+
 
 
     public void ReplyToClient( ServerReplyMessage reply )

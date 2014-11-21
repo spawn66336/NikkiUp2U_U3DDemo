@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UISwitchManager : MonoBehaviour {
+public enum UIState
+{
+    
+}
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+public class UIStateDesc
+{
+    //UI状态
+    public UIState state;
+    //Prefab路径
+    public string uiPrefabPath;
+}
+
+public class UISwitchManager : MonoBehaviour 
+{
+ 
+
+	 
+	void Update () 
+    {
 	
 	}
 }

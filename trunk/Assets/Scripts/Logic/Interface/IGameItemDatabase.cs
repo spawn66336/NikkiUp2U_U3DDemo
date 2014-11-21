@@ -10,14 +10,14 @@ public enum GameItemType
 
 public enum DressType
 {
-    Hair,
-    Tops,
-    Coat,
-    Dress,
-    Bottoms,
-    Sock,
-    Shoe,
-    Acc
+    Hair = 1,
+    Tops = 2,
+    Coat = 3,
+    Dress = 4,
+    Bottoms = 5,
+    Sock = 6,
+    Shoe = 7,
+    Acc = 8
 }
 
 public class GameItemInfo
@@ -38,6 +38,8 @@ public class GameItemInfo
     public string iconPath;
     //物品图片路径
     public List<string> imgs = new List<string>();
+    //衣服显示位置
+    public Vector2 showPos = Vector2.zero;
     //物品价格(金币)
     public int priceGold;
     //物品价格（钻石）

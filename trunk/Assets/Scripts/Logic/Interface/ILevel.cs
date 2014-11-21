@@ -9,6 +9,8 @@ enum DialogNpcImgShowPos
     Right
 }
 
+
+
 //对话Npc图片信息
 public class DialogNpcImgInfo
 {
