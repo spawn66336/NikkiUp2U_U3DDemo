@@ -10,6 +10,17 @@ public class DressPanelController : UIController
     //右侧边条
     public Transform RightSideBar;
 
+    
+    public void OnBackBtnClick()
+    {
+        GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.AreaMapUI);
+    }
+
+    public void OnFinishDressBtnClick()
+    {
+        GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.RatingUI);
+    }
+
     public void  OnHairDressTypeBtnClick()
     {
         Debug.Log("头发");

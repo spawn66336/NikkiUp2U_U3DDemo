@@ -3,7 +3,11 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-
+public enum ResourceType
+{
+    UI = 1,
+    DressImage
+}
 
 public class ResourceManager : MonoBehaviour 
 {
@@ -55,6 +59,28 @@ public class ResourceManager : MonoBehaviour
         {
             s_instance = this;
         }
+    }
+
+    public UnityEngine.Object Load( ResourceType resType , string name )
+    {
+        string resPath = _GetResourcePath(resType) + name;
+        UnityEngine.Object resObj;
+
+        //先检查缓存中是否已经有资源
+        if (resourceCache.ContainsKey(resPath))
+        { 
+            if( resourceCache.TryGetValue(resPath, out resObj) )
+            { 
+                return resObj;
+            } 
+        }
+
+        resObj = Resources.Load(resPath);
+        if (resObj != null)
+        {
+            resourceCache.Add(resPath,resObj);
+        }
+        return resObj;
     }
 
     public bool Load(string path , OnResourceLoadFinished callback , bool isUrl = false)
@@ -114,6 +140,20 @@ public class ResourceManager : MonoBehaviour
         }
         removeTasks.Clear();
 	}
+
+    string _GetResourcePath( ResourceType resType )
+    {
+        switch(resType)
+        {
+            case ResourceType.UI:
+                return "Art/UI/Prefab/"; 
+            case ResourceType.DressImage:
+                return "Art/Dress/"; 
+            default:
+                break;
+        }
+        return "";
+    }
 
     
     private List<ResourceLoadTask> taskList = new List<ResourceLoadTask>();

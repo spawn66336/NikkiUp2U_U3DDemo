@@ -4,25 +4,28 @@ using System.Collections;
 public class GlobalObjects : MonoBehaviour 
 {
     void Awake()
-    {
+    { 
         DontDestroyOnLoad(this.gameObject);
+
+        coroutineMgr = GetComponentInChildren<CoroutineManager>();
+        logicMain = GetComponentInChildren<LogicMain>();
+        resourceMgr = GetComponentInChildren<ResourceManager>();
+        uiSwitchMgr = GetComponentInChildren<UISwitchManager>();
+
+        s_instance = this; 
     }
-	
+     
+    public CoroutineManager GetCoroutineManager() { return coroutineMgr; }
+
+    public LogicMain GetLogicMain() { return logicMain; }
+
+    public ResourceManager GetResouceManager() { return resourceMgr; }
+
+    public UISwitchManager GetUISwitchManager() { return uiSwitchMgr; }
+
     void OnGUI()
     {
-        Rect rect = new Rect(0, 0, 100, 100);
-        if (GUILayout.Button("切场景"))
-        {
-            int currSceneIndex = i;
-            i = (i + 1) % sceneNames.Length;
-            Application.LoadLevel(sceneNames[currSceneIndex]);
-        }
-          
-        if (GUILayout.Button("读资源"))
-        {
-            ResourceManager.GetInstance().Load("Origin/1006-hd",OnResouceLoadFinished);
-            ResourceManager.GetInstance().Load("Origin/1sd", OnResouceLoadFinished);
-        }
+        
     }
 
     void OnResouceLoadFinished( ResourceManager.ResourceLoadResult result , UnityEngine.Object obj )
@@ -37,7 +40,20 @@ public class GlobalObjects : MonoBehaviour
         }
     }
 
+    public static GlobalObjects GetInstance() { return s_instance;  }
+
+    //协程管理器
+    private CoroutineManager coroutineMgr;
+    //游戏逻辑主模块
+    private LogicMain logicMain;
+    //资源管理器
+    private ResourceManager resourceMgr;
+    //UI切换管理器
+    private UISwitchManager uiSwitchMgr;
+
     private string[] sceneNames = new string[]{"EntranceAnim","Login","Map","CoreGame"};
     private int i = 0;
+
+    private static GlobalObjects s_instance;
 
 }

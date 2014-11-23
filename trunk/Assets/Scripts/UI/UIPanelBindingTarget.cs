@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIController : MonoBehaviour {
+public class UIPanelBindingTarget : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
