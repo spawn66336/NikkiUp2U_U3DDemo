@@ -1,0 +1,1248 @@
+{
+  "armature_data": [
+    {
+      "name": "ship right ipad",
+      "bone_data": [
+        {
+          "name": "Layer103",
+          "parent": "",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 2,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "displayType": 0,
+              "name": "ship right.png"
+            }
+          ]
+        },
+        {
+          "name": "Layer105",
+          "parent": "",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "displayType": 0,
+              "name": "ship_000.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_002.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_004.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_006.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_008.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_010.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_012.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_014.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_016.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_018.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_020.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_022.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_024.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_026.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_028.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_030.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_032.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_034.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_036.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_038.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_040.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_042.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_044.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_046.png"
+            },
+            {
+              "displayType": 0,
+              "name": "ship_048.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "animation_data": [
+    {
+      "name": "ship right ipad",
+      "mov_data": [
+        {
+          "name": "Action2",
+          "dr": 246,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "mov_bone_data": [
+            {
+              "name": "Layer103",
+              "dl": 0.0,
+              "sc": 1.0,
+              "frame_data": [
+                {
+                  "twE": 0,
+                  "dr": 70,
+                  "dI": 0,
+                  "x": -1.0,
+                  "y": 8.0,
+                  "z": 2,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 115,
+                  "dI": 0,
+                  "x": -1.0,
+                  "y": 8.0,
+                  "z": 2,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0174532924,
+                  "kY": -0.0174532924
+                },
+                {
+                  "twE": 0,
+                  "dr": 60,
+                  "dI": 0,
+                  "x": -1.0,
+                  "y": 8.0,
+                  "z": 2,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": -0.0174532924,
+                  "kY": 0.0174532924
+                },
+                {
+                  "twE": 0,
+                  "dr": 1,
+                  "dI": 0,
+                  "x": -1.0,
+                  "y": 8.0,
+                  "z": 2,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "Layer105",
+              "dl": 0.0,
+              "sc": 1.0,
+              "frame_data": [
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 1,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 2,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 3,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 4,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 5,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 6,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 7,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 8,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 9,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 11,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 12,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 16,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 21,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 22,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 10,
+                  "dI": 23,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 24,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 1,
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 2.0,
+                  "cY": 2.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "texture_data": [
+    {
+      "name": "ship right ipad\\ship_000",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_001",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_002",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_003",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_004",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_005",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_006",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_007",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_008",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_009",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_010",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_011",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_012",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_013",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_014",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_015",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_016",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_017",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_018",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_019",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_020",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_021",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_022",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_023",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_024",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_025",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_026",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_027",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_028",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_029",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_030",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_031",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_032",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_033",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_034",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_035",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_036",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_037",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_038",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_039",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_040",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_041",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_042",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_043",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_044",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_045",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_046",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_047",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_048",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship right ipad\\ship_049",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_000",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_001",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_002",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_003",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_004",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_005",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_006",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_007",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_008",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_009",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_010",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_011",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_012",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_013",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_014",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_015",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_016",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_017",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_018",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_019",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_020",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_021",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_022",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_023",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_024",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_025",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_026",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_027",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_028",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_029",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_030",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_031",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_032",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_033",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_034",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_035",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_036",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_037",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_038",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_039",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_040",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_041",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_042",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_043",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_044",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_045",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_046",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_047",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_048",
+      "width": 80.0,
+      "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship_049",
+      "width": 400.0,
+      "height": 400.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "ship  right ipad 1\\ship right",
+      "width": 138.0,
+      "height": 133.0,
+      "pX": 0.5,
+      "pY": 0.5
+    }
+  ],
+  "config_file_path": [
+    "ship right ipad0.plist"
+  ]
+}

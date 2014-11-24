@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="75" height="129" tilewidth="25" tileheight="25">
+ <tileset firstgid="1" name="darkblue" tilewidth="25" tileheight="25">
+  <image source="darkblue.png" width="100" height="100"/>
+ </tileset>
+ <layer name="块层 1" width="75" height="129">
+  <data encoding="base64" compression="zlib">
+   eJztwwENAAAMw6DOv+kLOSSsmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvHygqJcw=
+  </data>
+ </layer>
+ <objectgroup name="route" width="75" height="129">
+  <object name="1" x="1546" y="360"/>
+  <object name="2" x="1502" y="501"/>
+  <object name="3" x="1446" y="642"/>
+  <object name="4" x="1400" y="766"/>
+  <object name="5" x="1288" y="705"/>
+  <object name="6" x="1169" y="655"/>
+  <object name="7" x="1063" y="607"/>
+  <object name="8" x="949" y="573"/>
+  <object name="9" x="812" y="565"/>
+  <object name="10" x="696" y="572"/>
+  <object name="11" x="597" y="606"/>
+  <object name="12" x="489" y="663"/>
+  <object name="13" x="399" y="739"/>
+  <object name="14" x="353" y="830"/>
+  <object name="15" x="335" y="936"/>
+  <object name="16" x="334" y="1046"/>
+  <object name="17" x="345" y="1157"/>
+  <object name="18" x="345" y="1281"/>
+  <object name="19" x="353" y="1425"/>
+  <object name="20" x="300" y="1545"/>
+  <object name="21" x="254" y="1656"/>
+  <object name="22" x="187" y="1771"/>
+  <object name="23" x="129" y="1902"/>
+  <object name="24" x="123" y="2089"/>
+  <object name="25" x="145" y="2303"/>
+  <object name="26" x="237" y="2493"/>
+  <object name="1005" x="1467" y="896"/>
+  <object name="1006" x="1500" y="1024"/>
+  <object name="1007" x="1536" y="1140"/>
+  <object name="1008" x="1541" y="1272"/>
+  <object name="1009" x="1545" y="1382"/>
+  <object name="1010" x="1552" y="1512"/>
+  <object name="1011" x="1549" y="1642"/>
+  <object name="1012" x="1590" y="1776"/>
+  <object name="1013" x="1634" y="1901"/>
+  <object name="1014" x="1685" y="2031"/>
+  <object name="1015" x="1713" y="2152"/>
+  <object name="1016" x="1743" y="2288"/>
+  <object name="1017" x="1744" y="2425"/>
+  <object name="1018" x="1735" y="2555"/>
+  <object name="1019" x="1690" y="2672"/>
+  <object name="1020" x="1650" y="2762"/>
+  <object name="1021" x="1591" y="2882"/>
+ </objectgroup>
+ <objectgroup name="treasure" width="75" height="129">
+  <object name="1" x="1056" y="742"/>
+  <object name="2" x="1552" y="2210"/>
+ </objectgroup>
+ <objectgroup name="item" width="75" height="129">
+  <object name="1" x="910" y="86"/>
+  <object name="2" x="864" y="1177"/>
+  <object name="3" x="1161" y="1576"/>
+  <object name="4" x="939" y="1851"/>
+  <object name="5" x="591" y="3070"/>
+ </objectgroup>
+</map>
