@@ -1,0 +1,491 @@
+{
+  "armature_data": [
+    {
+      "name": "freeChangeCN",
+      "bone_data": [
+        {
+          "name": "Layer102",
+          "parent": "",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "display_data": [
+            {
+              "displayType": 0,
+              "name": "freeChange_001.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_002.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_003.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_004.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_005.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_006.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_007.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_008.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_009.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_010.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_011.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_012.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_013.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_014.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_015.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_016.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_017.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_018.png"
+            },
+            {
+              "displayType": 0,
+              "name": "freeChange_019.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "animation_data": [
+    {
+      "name": "freeChangeCN",
+      "mov_data": [
+        {
+          "name": "Action0",
+          "dr": 91,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "mov_bone_data": [
+            {
+              "name": "Layer102",
+              "dl": 0.0,
+              "sc": 1.0,
+              "frame_data": [
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 0,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 1,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 2,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 3,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 4,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 5,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 6,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 7,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 8,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 9,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 11,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 12,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 16,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 5,
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                },
+                {
+                  "twE": 0,
+                  "dr": 1,
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 1,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "texture_data": [
+    {
+      "name": "freeChange_001",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_002",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_003",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_004",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_005",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_006",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_007",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_008",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_009",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_010",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_011",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_012",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_013",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_014",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_015",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_016",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_017",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_018",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    },
+    {
+      "name": "freeChange_019",
+      "width": 292.0,
+      "height": 167.0,
+      "pX": 0.5,
+      "pY": 0.5
+    }
+  ],
+  "config_file_path": [
+    "freeChangeCN0.plist"
+  ]
+}
