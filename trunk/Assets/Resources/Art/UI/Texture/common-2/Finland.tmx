@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="35" tilewidth="35" tileheight="50">
+ <tileset firstgid="1" name="5x10" tilewidth="5" tileheight="10">
+  <image source="5x10.png" width="5" height="10"/>
+ </tileset>
+ <layer name="块层 1" width="40" height="35">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKH7/qWXY6Dgqqmqqqqq+u4B9MUFeQ==
+  </data>
+ </layer>
+ <objectgroup name="route" width="40" height="35">
+  <object name="20" x="215" y="1008"/>
+  <object name="19" x="296" y="935"/>
+  <object name="18" x="388" y="850"/>
+  <object name="17" x="489" y="775"/>
+  <object name="16" x="604" y="710"/>
+  <object name="15" x="722" y="687"/>
+  <object name="14" x="816" y="671"/>
+  <object name="13" x="931" y="650"/>
+  <object name="12" x="1028" y="649"/>
+  <object name="11" x="1111" y="651"/>
+  <object name="10" x="1213" y="664"/>
+  <object name="9" x="1128" y="735"/>
+  <object name="8" x="1068" y="810"/>
+  <object name="7" x="1015" y="917"/>
+  <object name="6" x="973" y="1037"/>
+  <object name="5" x="937" y="1119"/>
+  <object name="4" x="888" y="1188"/>
+  <object name="3" x="949" y="1260"/>
+  <object name="2" x="1014" y="1315"/>
+  <object name="1" x="1088" y="1385"/>
+ </objectgroup>
+ <objectgroup name="item" width="40" height="35">
+  <object name="1" x="907" y="158"/>
+  <object name="2" x="305" y="297"/>
+  <object name="3" x="1005" y="430"/>
+  <object name="4" x="126" y="1473"/>
+  <object name="5" x="864" y="1692"/>
+ </objectgroup>
+</map>

@@ -17,7 +17,14 @@ public enum DressType
     Bottoms = 5,
     Sock = 6,
     Shoe = 7,
-    Acc = 8
+    AccHead = 8,
+    AccEar = 9,
+    AccNeck = 10,
+    AccHand = 11,
+    AccWaist = 12,
+    AccLeg = 13,
+    AccSpecial = 14,
+    AccFace = 15
 }
 
 public class GameItemInfo

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="40" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="5x10" tilewidth="5" tileheight="10">
+  <image source="5x10.png" width="5" height="10"/>
+ </tileset>
+ <layer name="块层 1" width="25" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6Grf9OTsQ8krJqqqqr6+gCdsgPp
+  </data>
+ </layer>
+ <objectgroup name="route" width="25" height="40">
+  <object name="1051" x="627" y="344"/>
+  <object name="1050" x="618" y="410"/>
+  <object name="1049" x="590" y="463"/>
+  <object name="1048" x="523" y="511"/>
+  <object name="1047" x="453" y="534"/>
+  <object name="1046" x="390" y="549"/>
+  <object name="1045" x="339" y="574"/>
+  <object name="1044" x="276" y="605"/>
+  <object name="1043" x="225" y="645"/>
+  <object name="1042" x="176" y="683"/>
+  <object name="1041" x="172" y="751"/>
+  <object name="1040" x="164" y="811"/>
+  <object name="1039" x="162" y="882"/>
+  <object name="1038" x="163" y="952"/>
+  <object name="1037" x="202" y="1011"/>
+  <object name="36" x="254" y="1059"/>
+  <object name="35" x="253" y="1121"/>
+  <object name="34" x="219" y="1186"/>
+  <object name="33" x="196" y="1250"/>
+  <object name="32" x="183" y="1313"/>
+  <object name="31" x="170" y="1382"/>
+  <object name="30" x="163" y="1467"/>
+  <object name="29" x="177" y="1549"/>
+  <object name="28" x="189" y="1618"/>
+  <object name="27" x="229" y="1667"/>
+  <object name="26" x="224" y="1738"/>
+  <object name="25" x="187" y="1789"/>
+  <object name="24" x="138" y="1827"/>
+  <object name="23" x="120" y="1877"/>
+  <object name="22" x="183" y="1873"/>
+  <object name="21" x="233" y="1848"/>
+  <object name="20" x="290" y="1814"/>
+  <object name="19" x="359" y="1809"/>
+  <object name="18" x="422" y="1831"/>
+  <object name="17" x="491" y="1852"/>
+  <object name="16" x="559" y="1869"/>
+  <object name="15" x="641" y="1873"/>
+  <object name="14" x="713" y="1855"/>
+  <object name="13" x="769" y="1841"/>
+  <object name="12" x="827" y="1815"/>
+  <object name="11" x="871" y="1772"/>
+  <object name="10" x="907" y="1736"/>
+  <object name="9" x="949" y="1693"/>
+  <object name="8" x="980" y="1652"/>
+  <object name="7" x="1010" y="1608"/>
+  <object name="6" x="1041" y="1566"/>
+  <object name="5" x="1068" y="1500"/>
+  <object name="4" x="1090" y="1437"/>
+  <object name="3" x="1100" y="1368"/>
+  <object name="2" x="1106" y="1299"/>
+  <object name="1" x="1103" y="1243"/>
+  <object name="37" x="321" y="1051"/>
+  <object name="38" x="385" y="1048"/>
+  <object name="39" x="450" y="1031"/>
+  <object name="40" x="503" y="1020"/>
+  <object name="41" x="561" y="1001"/>
+  <object name="42" x="615" y="993"/>
+  <object name="43" x="665" y="989"/>
+  <object name="44" x="713" y="989"/>
+  <object name="45" x="760" y="991"/>
+ </objectgroup>
+ <objectgroup name="item" width="25" height="40">
+  <object name="1" x="472" y="83"/>
+  <object name="2" x="1017" y="148"/>
+  <object name="3" x="1090" y="463"/>
+  <object name="4" x="688" y="1423"/>
+  <object name="5" x="978" y="684"/>
+ </objectgroup>
+</map>

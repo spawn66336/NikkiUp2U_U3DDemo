@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="5x10" tilewidth="5" tileheight="10">
+  <image source="5x10.png" width="5" height="10"/>
+ </tileset>
+ <layer name="块层 1" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKH7/qWXY6Dgqqmq+uoB+w0Ccg==
+  </data>
+ </layer>
+ <objectgroup name="route" width="25" height="25">
+  <object name="8" x="789" y="208"/>
+  <object name="7" x="687" y="319"/>
+  <object name="6" x="598" y="410"/>
+  <object name="4" x="650" y="800"/>
+  <object name="3" x="768" y="851"/>
+  <object name="2" x="880" y="920"/>
+  <object name="1" x="1021" y="998"/>
+  <object name="5" x="597" y="639"/>
+ </objectgroup>
+</map>

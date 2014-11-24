@@ -118,7 +118,7 @@ public class ResourceManager : MonoBehaviour
        return true;
     }
  
-	void Update () 
+	void Update() 
     { 
 	    foreach( var t in taskList )
         {
