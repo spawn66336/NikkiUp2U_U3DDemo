@@ -11,9 +11,16 @@ public class GlobalObjects : MonoBehaviour
         logicMain = GetComponentInChildren<LogicMain>();
         resourceMgr = GetComponentInChildren<ResourceManager>();
         uiSwitchMgr = GetComponentInChildren<UISwitchManager>();
+        soundMgr = GetComponentInChildren<SoundManager>();
 
         s_instance = this; 
     }
+
+    void Start()
+    {
+        soundMgr.Play("yk_bgm", true);
+    }
+
      
     public CoroutineManager GetCoroutineManager() { return coroutineMgr; }
 
@@ -22,6 +29,8 @@ public class GlobalObjects : MonoBehaviour
     public ResourceManager GetResouceManager() { return resourceMgr; }
 
     public UISwitchManager GetUISwitchManager() { return uiSwitchMgr; }
+
+    public SoundManager GetSoundManager() { return soundMgr; }
 
     void OnGUI()
     {
@@ -50,6 +59,8 @@ public class GlobalObjects : MonoBehaviour
     private ResourceManager resourceMgr;
     //UI切换管理器
     private UISwitchManager uiSwitchMgr;
+    //音效管理器
+    private SoundManager soundMgr;
 
     private string[] sceneNames = new string[]{"EntranceAnim","Login","Map","CoreGame"};
     private int i = 0;
