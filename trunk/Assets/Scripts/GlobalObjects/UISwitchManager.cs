@@ -115,14 +115,25 @@ public class UISwitchManager : MonoBehaviour
 
     void Awake()
     { 
-        UIStateDesc loginUIDesc = new UIStateDesc(UIState.LoginUI, "LoginPanel", "Login", UIPrepareCallback.PrepareLoginScene, UIPrepareCallback.CleanLoginScene, null, null);
-        UIStateDesc areaMapUIDesc = new UIStateDesc(UIState.AreaMapUI, "AreaMapPanel", "Map", UIPrepareCallback.PrepareMapScene, UIPrepareCallback.CleanMapScene, null, null);
+        UIStateDesc loginUIDesc = new UIStateDesc(UIState.LoginUI, "LoginPanel", "Login", 
+            UIPrepareCallback.PrepareLoginScene, UIPrepareCallback.CleanLoginScene, 
+            null, null);
+
+        UIStateDesc areaMapUIDesc = new UIStateDesc(UIState.AreaMapUI, "AreaMapPanel", "Map", 
+            UIPrepareCallback.PrepareMapScene, UIPrepareCallback.CleanMapScene, 
+            UIPrepareCallback.PrepareAreaMapUI, UIPrepareCallback.CleanAreaMapUI);
+
         UIStateDesc levelDialogUIDesc = new UIStateDesc(UIState.LevelDialogUI, "LevelDialogPanel", "CoreGame",
-            UIPrepareCallback.PrepareCoreGameScene, UIPrepareCallback.CleanCoreGameScene, UIPrepareCallback.PrepareLevelDialogUI,UIPrepareCallback.CleanLevelDialogUI); 
+            UIPrepareCallback.PrepareCoreGameScene, UIPrepareCallback.CleanCoreGameScene, 
+            UIPrepareCallback.PrepareLevelDialogUI,UIPrepareCallback.CleanLevelDialogUI); 
+
         UIStateDesc levelDressUIDesc = new UIStateDesc(UIState.LevelDressUI, "DressPanel", "CoreGame",
-            UIPrepareCallback.PrepareCoreGameScene, UIPrepareCallback.CleanCoreGameScene, UIPrepareCallback.PrepareDressUI, UIPrepareCallback.CleanDressUI);
+            UIPrepareCallback.PrepareCoreGameScene, UIPrepareCallback.CleanCoreGameScene, 
+            UIPrepareCallback.PrepareDressUI, UIPrepareCallback.CleanDressUI);
+
         UIStateDesc ratingUIDesc = new UIStateDesc(UIState.RatingUI, "RatingPanel", "CoreGame", 
-            UIPrepareCallback.PrepareCoreGameScene, UIPrepareCallback.CleanCoreGameScene, UIPrepareCallback.PrepareRatingUI,UIPrepareCallback.CleanRatingUI );
+            UIPrepareCallback.PrepareCoreGameScene, UIPrepareCallback.CleanCoreGameScene, 
+            UIPrepareCallback.PrepareRatingUI,UIPrepareCallback.CleanRatingUI );
 
         RegisterUIState(UIState.LoginUI,loginUIDesc);
         RegisterUIState(UIState.AreaMapUI, areaMapUIDesc);

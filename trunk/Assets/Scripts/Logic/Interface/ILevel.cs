@@ -2,22 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 
-enum DialogNpcImgShowPos
+public enum DialogNpcImgShowPos
 {
     Left = 1,
     Middle,
     Right
 }
-
-
+ 
 
 //对话Npc图片信息
 public class DialogNpcImgInfo
 {
     //Npc图片路径
-    string imgPath;
+    public string imgPath;
     //Npc在对话窗口中的显示位置
-    DialogNpcImgShowPos showPos;
+    public DialogNpcImgShowPos showPos;
 }
 
 //对话内容信息
@@ -28,7 +27,7 @@ public class DialogContentInfo
     //当前对话内容
     public string content;
     //当前Npc图片显示信息
-    List<DialogNpcImgInfo> npcImgInfos = new List<DialogNpcImgInfo>();
+    public List<DialogNpcImgInfo> npcImgInfos = new List<DialogNpcImgInfo>();
 }
 
 //剧情对话信息

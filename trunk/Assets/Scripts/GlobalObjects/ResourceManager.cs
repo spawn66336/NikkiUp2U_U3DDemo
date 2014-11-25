@@ -6,9 +6,11 @@ using System.Collections.Generic;
 public enum ResourceType
 {
     UI = 1,
+    AreaMap,
     DressImage,
     UISound,
-    Npc
+    Npc,
+    LevelDialogBackground
 }
 
 public class ResourceManager : MonoBehaviour 
@@ -149,12 +151,16 @@ public class ResourceManager : MonoBehaviour
         {
             case ResourceType.UI:
                 return "Art/UI/Prefab/"; 
+            case ResourceType.AreaMap:
+                return "Art/UI/Texture/AreaMap/";
             case ResourceType.DressImage:
                 return "Art/Dress/";
             case ResourceType.UISound:
                 return "Art/Sound/UI/";
             case ResourceType.Npc:
                 return "Art/Sound/NPC/";
+            case ResourceType.LevelDialogBackground:
+                return "Art/UI/Texture/LevelDialogBackground/";
             default:
                 break;
         }

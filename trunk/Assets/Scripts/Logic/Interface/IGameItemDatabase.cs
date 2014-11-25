@@ -10,27 +10,31 @@ public enum GameItemType
 
 public enum DressType
 {
-    Hair = 1,
-    Tops = 2,
-    Coat = 3,
-    Dress = 4,
-    Bottoms = 5,
-    Sock = 6,
-    Shoe = 7,
-    AccHead = 8,
-    AccEar = 9,
-    AccNeck = 10,
-    AccHand = 11,
-    AccWaist = 12,
-    AccLeg = 13,
-    AccSpecial = 14,
-    AccFace = 15
+    Hair = 0,
+    Tops,
+    Coat,
+    Dress,
+    Bottoms,
+    Socks,
+    Shoes,
+    AccHead,
+    AccEar,
+    AccNeck,
+    AccHand,
+    AccWaist,
+    AccLeg,
+    AccSpecial,
+    AccFace,        //14
+    
+    DressTypeLength,
 }
 
 public class GameItemInfo
 {
     //物品id
     public int id;
+    //物品名称
+    public string name;
     //物品类型
     public GameItemType type;
     //衣服类型
@@ -47,6 +51,8 @@ public class GameItemInfo
     public List<string> imgs = new List<string>();
     //衣服显示位置
     public Vector2 showPos = Vector2.zero;
+    //衣服显示缩放比例
+    public Vector2 showScale = Vector2.one;
     //物品价格(金币)
     public int priceGold;
     //物品价格（钻石）

@@ -58,6 +58,24 @@ public class UIPrepareCallback
         } 
     }
 
+    public static IEnumerator PrepareAreaMapUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
+    { 
+        yield return 0;
+        if (finishedCallback != null)
+        {
+            finishedCallback();
+        }
+    }
+
+    public static IEnumerator CleanAreaMapUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
+    { 
+        yield return 0;
+        if (finishedCallback != null)
+        {
+            finishedCallback();
+        }
+    }
+
 
     public static IEnumerator PrepareLevelDialogUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
