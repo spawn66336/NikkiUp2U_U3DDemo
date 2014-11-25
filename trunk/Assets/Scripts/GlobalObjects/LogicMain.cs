@@ -33,6 +33,11 @@ public class LogicMain : MonoBehaviour
         modules.Add(new PlayerModule());
         modules.Add(new RatingSystemModule());
 
+        PlayerUIResource.GetInstance().Init();
+        LevelUIResourceManager.GetInstance().Init();
+        GameItemUIResourceManager.GetInstance().Init();
+        AreaMapUIResourceManager.GetInstance().Init();
+
         foreach( var m in modules )
         {
             m.Init();

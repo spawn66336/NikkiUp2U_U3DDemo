@@ -13,7 +13,9 @@ public class GlobalObjects : MonoBehaviour
         uiSwitchMgr = GetComponentInChildren<UISwitchManager>();
         soundMgr = GetComponentInChildren<SoundManager>();
 
-        s_instance = this; 
+        s_instance = this;
+
+        Debug.Log(Application.dataPath);
     }
 
     void Start()
