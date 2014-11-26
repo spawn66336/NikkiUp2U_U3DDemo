@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BagItemBtnController : MonoBehaviour 
 {
-
+    
     public UILabel ItemIDLabel;
     public UILabel ItemName;
     public UITexture ItemIcon;
@@ -17,8 +17,7 @@ public class BagItemBtnController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () { 
 	}
 
     public void SetUsed( bool b )
@@ -48,4 +47,10 @@ public class BagItemBtnController : MonoBehaviour
     {
         dress = d;
     }
+
+    public Dress GetDress()
+    {
+        return dress;
+    }
+
 }

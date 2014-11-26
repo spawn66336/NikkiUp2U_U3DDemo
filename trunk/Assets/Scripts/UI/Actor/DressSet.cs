@@ -81,6 +81,20 @@ public class DressSet : MonoBehaviour
         }
     }
 
+    //当前服装是否已经穿着
+    public bool IsUsed( Dress dress )
+    {
+        foreach( var dpt in dressParts )
+        {
+            if( dpt.dress != null &&
+                dpt.dress.Id == dress.Id 
+                )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     class DressPart
     {

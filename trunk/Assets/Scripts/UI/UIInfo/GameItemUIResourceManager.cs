@@ -57,7 +57,9 @@ public class GameItemUIResourceManager : UIResourceManager
             dress.Pos = info.showPos;
             dress.Scale = info.showScale;
             dress.ClothType = info.dressType; 
-            dress.Icon = ResourceManager.GetInstance().Load(ResourceType.DressImage, info.iconPath) as Texture2D; 
+            dress.Icon = ResourceManager.GetInstance().Load(ResourceType.DressImage, info.iconPath) as Texture2D;
+
+            dress.DressImgs.Add(dress.Icon);
             foreach( var imgName in info.imgs )
             {
                 Texture2D dressImg = ResourceManager.GetInstance().Load(ResourceType.DressImage, imgName) as Texture2D;

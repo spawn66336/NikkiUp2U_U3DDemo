@@ -21,6 +21,11 @@ public class Actor : MonoBehaviour
     {
         dressSet.SetDress( type, dress );
     }
+
+    public DressSet GetDressSet()
+    {
+        return dressSet;
+    }
     
     public void ClearAllDress()
     {
@@ -28,13 +33,5 @@ public class Actor : MonoBehaviour
     }
 
 
-    public void OnGUI()
-    {
-
-        Rect r = new Rect(300, 100, 100, 100);
-        if( GUI.Button(r, "添加Renderable") )
-        {
-            dressSet.AllocDressRenderable();
-        }
-    }
+ 
 }

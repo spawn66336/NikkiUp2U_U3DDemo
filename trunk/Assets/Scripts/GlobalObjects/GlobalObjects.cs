@@ -34,23 +34,7 @@ public class GlobalObjects : MonoBehaviour
 
     public SoundManager GetSoundManager() { return soundMgr; }
 
-    void OnGUI()
-    {
-        
-    }
-
-    void OnResouceLoadFinished( ResourceManager.ResourceLoadResult result , UnityEngine.Object obj )
-    {
-        if (result == ResourceManager.ResourceLoadResult.Ok)
-        {
-            Debug.Log(obj.name + "资源读取成功！");
-        }
-        else
-        {
-            Debug.Log("失败！");
-        }
-    }
-
+ 
     public static GlobalObjects GetInstance() { return s_instance;  }
 
     //协程管理器
