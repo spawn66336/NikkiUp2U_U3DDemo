@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class Dress : GameItem 
 {
-
     public Vector2 Pos
     {
         get { return pos; }

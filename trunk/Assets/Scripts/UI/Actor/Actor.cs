@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Actor : MonoBehaviour 
 {
@@ -26,9 +27,11 @@ public class Actor : MonoBehaviour
         dressSet.ClearDress();
     }
 
+
     public void OnGUI()
     {
-        Rect r = new Rect(100, 100, 100, 100);
+
+        Rect r = new Rect(300, 100, 100, 100);
         if( GUI.Button(r, "添加Renderable") )
         {
             dressSet.AllocDressRenderable();

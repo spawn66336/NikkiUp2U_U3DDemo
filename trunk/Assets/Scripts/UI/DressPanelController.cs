@@ -62,6 +62,62 @@ public class DressPanelController : UIController
         Debug.Log("饰品");
     }
 
+    public void OnAccHeadTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccEarTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccNeckTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccHandTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccWaistTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccLegTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccSpecialTypeBtnClick()
+    {
+
+    }
+
+    public void OnAccFaceTypeBtnClick()
+    {
+
+    }
+
+    //在空白处点击
+    public void OnBlankClick()
+    {
+
+    }
+
+    public void OnLevelDialogBtnClick()
+    {
+
+    }
+
+    public void OnDressFinishedBtnClick()
+    {
+
+    }
+
     //开始换装按钮
     public void OnBeginDressBtnClick()
     {

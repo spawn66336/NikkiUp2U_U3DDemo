@@ -1,34 +1,53 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 public enum GameItemType
 {
+    [XmlEnum("1")]
     Dress = 1,
+    [XmlEnum("2")]
     Other
 }
 
 public enum DressType
 {
+    [XmlEnum("0")]
     Hair = 0,
+    [XmlEnum("1")]
     Tops,
+    [XmlEnum("2")]
     Coat,
+    [XmlEnum("3")]
     Dress,
+    [XmlEnum("4")]
     Bottoms,
+    [XmlEnum("5")]
     Socks,
+    [XmlEnum("6")]
     Shoes,
+    [XmlEnum("7")]
     AccHead,
+    [XmlEnum("8")]
     AccEar,
+    [XmlEnum("9")]
     AccNeck,
+    [XmlEnum("10")]
     AccHand,
+    [XmlEnum("11")]
     AccWaist,
+    [XmlEnum("12")]
     AccLeg,
+    [XmlEnum("13")]
     AccSpecial,
+    [XmlEnum("14")]
     AccFace,        //14
-    
-    DressTypeLength,
+    [XmlEnum("15")]
+    AccBag,
+    [XmlIgnore]
+    DressTypeLength
 }
-
 public class GameItemInfo
 {
     //物品id

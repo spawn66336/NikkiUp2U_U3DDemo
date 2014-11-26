@@ -23,7 +23,7 @@ public class PlayerUIResource : UIResourceManager
     {
         return playerInfo.diamond;
     }
-
+    //albert danqian id
     public int GetCurrLevel()
     {
         return playerInfo.currLevelId;

@@ -3,10 +3,6 @@ using System.Collections;
 
 public class DressRenderable : MonoBehaviour 
 {
-    void Awake()
-    {
-        uiTexture = this.gameObject.GetComponent<UITexture>();
-    }
 
     public void SetPos( Vector2 pos )
     {
@@ -19,15 +15,15 @@ public class DressRenderable : MonoBehaviour
     }
 
     public void SetTexture( Texture2D tex )
-    {  
+    {
         uiTexture.mainTexture = tex;
+        uiTexture.SetDimensions(tex.width, tex.height);
     }
 
     public void SetDepth( int depth )
     {
         uiTexture.depth = depth;
     }
-
  
-    UITexture uiTexture;
+    public UITexture uiTexture;
 }
