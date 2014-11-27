@@ -60,7 +60,7 @@ public class UIPrepareCallback
 
     public static IEnumerator PrepareAreaMapUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     { 
-        yield return 0;
+        yield return 0; 
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -87,17 +87,23 @@ public class UIPrepareCallback
     }
 
     public static IEnumerator CleanLevelDialogUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
-    {
-        yield return new WaitForSeconds(2.0f);
+    { 
         if (finishedCallback != null)
         {
             finishedCallback();
         }
+        yield return 0;
     }
 
     public static IEnumerator PrepareDressUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        //var syncEnumator = PlayerUIResource.GetInstance().Sync();
+        //while (syncEnumator.MoveNext())
+        //{
+        //    yield return 0;
+        //}
+
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -106,7 +112,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanDressUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return 0;
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -114,8 +120,8 @@ public class UIPrepareCallback
     }
 
     public static IEnumerator PrepareRatingUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
-    {
-        yield return new WaitForSeconds(2.0f);
+    { 
+        yield return 0;
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -123,11 +129,11 @@ public class UIPrepareCallback
     }
 
     public static IEnumerator CleanRatingUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
-    {
-        yield return new WaitForSeconds(2.0f);
+    { 
         if (finishedCallback != null)
         {
             finishedCallback();
         }
+        yield return 0;
     }
 }

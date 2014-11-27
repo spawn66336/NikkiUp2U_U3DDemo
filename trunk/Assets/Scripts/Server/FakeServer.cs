@@ -39,6 +39,18 @@ public class FakeServer
         }
     }
 
+    public GameItemDBModuleServer getGameItemDBServer()
+    {
+        foreach (var s in servers)
+        {
+            if (s.GetType() == typeof(GameItemDBModuleServer))
+            {
+                GameItemDBModuleServer gameItemDBServer = (GameItemDBModuleServer)s;
+                return gameItemDBServer;
+            }
+        }
+        return null;
+    }
     public void Destroy()
     {
         foreach( var s in servers )
@@ -62,6 +74,19 @@ public class FakeServer
             s.HandleRequest(request);
         }
     }
+
+	public AreaMapModuleServer GetAreaMapModuleServer()
+	{
+		foreach(var s in servers)
+		{
+			if(s.GetType() == typeof(AreaMapModuleServer))
+			{
+				AreaMapModuleServer ser = (AreaMapModuleServer)s;
+				return ser;
+			}
+		}
+		return null;
+	}
 
     List<ModuleServer> servers = new List<ModuleServer>();
 

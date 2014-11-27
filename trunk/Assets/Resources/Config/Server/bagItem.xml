@@ -1,5 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfBagItemInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BagItemInfo ItemId="10191" ItemCount="1" />
-  <BagItemInfo ItemId="10013" ItemCount="4" />
+  <BagItemInfo ItemId="10001" ItemCount="1" />
+  <BagItemInfo ItemId="11914" ItemCount="1" />
+  <BagItemInfo ItemId="11125" ItemCount="1" />
+  <BagItemInfo ItemId="11373" ItemCount="1" />
+  <BagItemInfo ItemId="11417" ItemCount="1" />
+  <BagItemInfo ItemId="10219" ItemCount="1" />
+  <BagItemInfo ItemId="11431" ItemCount="1" />
+  <BagItemInfo ItemId="10198" ItemCount="1" />
+  <BagItemInfo ItemId="11131" ItemCount="1" />
+  <BagItemInfo ItemId="10493" ItemCount="1" />
+  <BagItemInfo ItemId="11903" ItemCount="1" />
 </ArrayOfBagItemInfo>

@@ -7,17 +7,13 @@ public class AreaMapUIInfo
     //区域地图Id
     public int id;
     //区域地图名
-    public string name;
-    //当前区域地图是否解锁（true表示已解锁）
-    public bool isAvaliable;
+    public string name; 
     //当前区域地图预览图标
     public Texture2D mapIconImg;
     //当前区域地图纹理
     public List<Texture2D> mapImgs = new List<Texture2D>();
     //当前区域地图所对应关卡id列表
-    public int[] levels;
-    //如果当前区域地图未解锁，则用于显示的锁定原因
-    public string lockReason;
+    public int[] levels; 
 }
 
 public class AreaMapUIResourceManager : UIResourceManager 
@@ -82,11 +78,9 @@ public class AreaMapUIResourceManager : UIResourceManager
     {
         AreaMapUIInfo areaMapUIInfo = new AreaMapUIInfo();
         areaMapUIInfo.id = info.id;
-        areaMapUIInfo.name = info.name;
-        areaMapUIInfo.isAvaliable = info.isAvaliable;
+        areaMapUIInfo.name = info.name; 
         areaMapUIInfo.levels = info.levels;
-        areaMapUIInfo.mapIconImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, info.mapIconImgPath) as Texture2D; 
-        areaMapUIInfo.lockReason = info.lockReason;
+        areaMapUIInfo.mapIconImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, info.mapIconImgPath) as Texture2D;  
         foreach( var imgName in info.mapImgPaths )
         {
             Texture2D mapImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, imgName) as Texture2D;

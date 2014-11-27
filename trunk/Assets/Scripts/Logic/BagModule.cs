@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BagModule : GameLogicModule , IBag
 {
@@ -13,9 +14,12 @@ public class BagModule : GameLogicModule , IBag
 
     public override void HandleReply(RequestReplyResult result, ReplyMessage reply, object param)
     {
-        base.HandleReply(result, reply, param);
-        GetBagItemInfoCallback call = (GetBagItemInfoCallback)param;
-        //call()
+        if (result == RequestReplyResult.Ok)
+        {
+            List<BagItemInfo> infos = (List<BagItemInfo>)reply.resultObject;
+            GetBagItemInfoCallback callBack = (GetBagItemInfoCallback)param;
+            callBack(infos);
+        }
         
     }
 }

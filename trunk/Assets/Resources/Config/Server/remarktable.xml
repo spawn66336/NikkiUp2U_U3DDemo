@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GradeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--Id为枚举类型-->
+  <Grade Id="0">
+    <Descs>
+      <Desc>你真弱啊哈哈哈</Desc>
+      <Desc>你真弱啊哈哈哈</Desc>
+    </Descs>
+  </Grade>
+  <Grade Id="1">
+    <Descs>
+      <Desc>你真弱啊哈哈哈</Desc>
+      <Desc>你真弱啊哈哈哈</Desc>
+    </Descs>
+  </Grade>
+</GradeList>

@@ -5,9 +5,9 @@ using System.Xml.Serialization;
 
 public enum GameItemType
 {
+    [XmlEnum("0")]
+    Dress = 0,
     [XmlEnum("1")]
-    Dress = 1,
-    [XmlEnum("2")]
     Other
 }
 
@@ -56,14 +56,12 @@ public class GameItemInfo
     public string name;
     //物品类型
     public GameItemType type;
-    //衣服类型
-    public DressType dressType;
     //物品评级
-    public int rank;
+    public int rareness;
     //物品描述
     public string desc;
     //bodypart
-    public int bodypart;
+    public DressType dressType;
     //图标路径
     public string iconPath;
     //物品图片路径

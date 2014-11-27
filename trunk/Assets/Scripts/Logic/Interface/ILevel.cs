@@ -44,18 +44,16 @@ public class LevelInfo
 {
     //关卡id
     public int id;
+    //关卡所属地图
+    public int areaMapId;
     //关卡名
-    public string name;
-    //关卡是否解锁
-    public bool isAvaliable;
+    public string name; 
     //是否有时限
     public bool isTimeLimit;
     //当前关卡时限
     public float timeLimit;
     //关卡的剧情对话信息
-    public DialogInfo dialogInfo = new DialogInfo();
-    //关卡锁定原因
-    public string lockReason;
+    public DialogInfo dialogInfo = new DialogInfo(); 
 }
 
 public delegate void GetLevelInfoCallback( LevelInfo info );

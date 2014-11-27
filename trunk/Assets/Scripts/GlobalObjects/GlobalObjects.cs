@@ -12,6 +12,7 @@ public class GlobalObjects : MonoBehaviour
         resourceMgr = GetComponentInChildren<ResourceManager>();
         uiSwitchMgr = GetComponentInChildren<UISwitchManager>();
         soundMgr = GetComponentInChildren<SoundManager>();
+         
 
         s_instance = this;
 
@@ -34,8 +35,25 @@ public class GlobalObjects : MonoBehaviour
 
     public SoundManager GetSoundManager() { return soundMgr; }
 
+    public void ShowBusyIcon( bool show )
+    {
+        if( busyPanel.activeInHierarchy != show )
+        {
+            busyPanel.SetActive(show);
+        }
+    }
+
+    public void ShowLoadingPanel( bool show )
+    {
+        if( loadingPanel.activeInHierarchy != show )
+        {
+            loadingPanel.SetActive(show);
+        }
+    }
  
     public static GlobalObjects GetInstance() { return s_instance;  }
+
+   
 
     //协程管理器
     private CoroutineManager coroutineMgr;
@@ -47,6 +65,11 @@ public class GlobalObjects : MonoBehaviour
     private UISwitchManager uiSwitchMgr;
     //音效管理器
     private SoundManager soundMgr;
+
+    //忙等界面
+    public GameObject busyPanel;
+    //读取界面
+    public GameObject loadingPanel;
 
     private string[] sceneNames = new string[]{"EntranceAnim","Login","Map","CoreGame"};
     private int i = 0;

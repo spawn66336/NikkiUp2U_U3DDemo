@@ -149,6 +149,6 @@ public class UIMapController : MonoBehaviour
         // complete event
         playerObj.transform.parent = endTrans;
     }
-    
+    public string[] dilog;
 }
 

@@ -14,33 +14,32 @@ public class GameItemDataBaseBean
     [XmlAttribute("ItemName")]
     //物品名称
     public string name;
-    [XmlAttribute("ItemType", typeof(int))]
+    [XmlAttribute("ItemType")]
     //物品类型
     public GameItemType type;
-    //衣服类型
-    [XmlAttribute("ItemDressType", typeof(int))]
-    public DressType dressType;
-    //物品评级
+    //物品稀有度
     [XmlAttribute("Rareness")]
     public int rareness;
     //物品描述
     [XmlAttribute("Desc")]
     public string desc;
     //bodypart
-    [XmlAttribute("BodyPart")]
-    public int bodypart;
+    [XmlAttribute("DressType")]
+    public DressType dressType;
     //图标路径
     [XmlIgnore]
     public string iconPath;
     //物品图片路径
     [XmlIgnore]
     public List<string> imgs = new List<string>();
-    [XmlAttribute("ShowPoition",typeof(string))]
+    [XmlAttribute("ShowPoition")]
+    public string showPos;
     //衣服显示位置
-    public Vector2 showPos = Vector2.zero;
-    //衣服显示缩放比例
-    [XmlAttribute("ShowScale", typeof(string))]
-    public Vector2 showScale = Vector2.one;
+    [XmlIgnore]
+    public Vector2 showPosVector2;
+    ////衣服显示缩放比例
+    //[XmlAttribute("ShowScale", typeof(string))]
+    //public Vector2 showScale = Vector2.one;
     //物品价格(金币)
     [XmlAttribute("PriceGold")]
     public int priceGold;

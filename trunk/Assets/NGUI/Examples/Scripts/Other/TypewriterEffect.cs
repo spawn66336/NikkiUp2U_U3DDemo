@@ -20,17 +20,23 @@ public class TypewriterEffect : MonoBehaviour
 	int mOffset = 0;
 	float mNextChar = 0f;
 	bool mReset = true;
-
-	void OnEnable () { mReset = true; }
+    void Awake()
+    {
+        mLabel = GetComponent<UILabel>();
+    }
+	/*void OnEnable () 
+    {
+        mReset = true;
+    }*/
 
 	void Update ()
 	{
+        
 		if (mReset)
 		{
 			mOffset = 0;
-			mReset = false;
-			mLabel = GetComponent<UILabel>();
-			mText = mLabel.processedText;
+			mReset = false;			
+			//mText = mLabel.processedText;
 		}
 
 		if (mOffset < mText.Length && mNextChar <= RealTime.time)
@@ -49,4 +55,33 @@ public class TypewriterEffect : MonoBehaviour
 			mLabel.text = mText.Substring(0, ++mOffset);
 		}
 	}
+    public int rightNowIndex;
+    public void ChangeNextTex(string newStr)
+    {
+        
+        if (mOffset < mText.Length)
+        {
+            mOffset = mText.Length;
+            mLabel.text = mText.Substring(0, mOffset);
+        }
+        else
+        {
+            ++rightNowIndex;
+            mText = newStr;
+            mReset = true;
+        }
+    }
+    public void ShowLastTex()
+    {
+        ++rightNowIndex;
+        mOffset = mText.Length;
+        mLabel.text = mText.Substring(0, mOffset);
+    }
+
+    internal void SetInit(string str)
+    {
+        mText = str;
+        mReset = true;
+        rightNowIndex = 1;
+    }
 }

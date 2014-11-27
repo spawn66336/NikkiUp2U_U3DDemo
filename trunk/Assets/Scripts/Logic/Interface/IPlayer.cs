@@ -23,6 +23,17 @@ public class DressSetInfo
     public List<int> dressList = new List<int>();
 }
 
+
+public class PlayerAreaMapRecordInfo
+{
+    //区域地图ID
+    public int areaMapId;
+    //区域地图是否锁定
+    public bool isLocked;
+    //区域地图如果锁定，锁定原因
+    public string lockReason;
+}
+
 //玩家关卡记录信息
 [XmlRoot("PlayerLevelRecortdInfo")]
 public class PlayerLevelRecordInfo
@@ -33,6 +44,11 @@ public class PlayerLevelRecordInfo
     //关卡状态
     [XmlAttribute("State")]
     public LevelState state;
+
+    //如果关卡锁定，则锁定原因
+    [XmlIgnore]
+    public string lockReason;
+
     //此关卡最高分
     [XmlAttribute("HighestScore")]
     public int highestScore;
@@ -56,29 +72,42 @@ public class PlayerLevelRecordInfo
 //当前玩家信息
 [XmlRoot("PlayerInfo")]
 public class PlayerInfo
-{
-
+{ 
     //当前金币数
     [XmlAttribute("Gold")]
     public int gold;
+
     //当前能量
     [XmlAttribute("Energy")]
     public int energy;
+
     //当前钻石
     [XmlAttribute("Diamond")]
     public int diamond;
+     
     //当前关卡id
     [XmlAttribute("CurrLevelId")]
     public int currLevelId;
+
+    //当前地图id
+    [XmlIgnore]
+    public int currAreaMapId;
     //玩家关卡记录列表
     [XmlArray("LevelRecordList"), XmlArrayItem("LevelRecordInfo", typeof(PlayerLevelRecordInfo))]
     public List<PlayerLevelRecordInfo> levelRecordList
         = new List<PlayerLevelRecordInfo>();
+
+    //玩家的区域地图记录信息
+    [XmlIgnore]
+    public List<PlayerAreaMapRecordInfo> areaMapRecordList = new List<PlayerAreaMapRecordInfo>();
 }
 
 public delegate void GetPlayerInfoCallback( PlayerInfo info );
 
 public interface IPlayer 
 {
+
+    
+
     void GetPlayerInfo( GetPlayerInfoCallback callback ); 
 }

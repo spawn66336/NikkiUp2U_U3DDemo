@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LevelDialogList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LevelDialog Id="1" BackgroundImageId="4_1_1_i5">
+    <Content>
+      <NPCS>
+        <NPC Name="暖暖" ImageId="nikki1" Position="2" />
+      </NPCS>
+      <Value>今天天气真好呀呀呀呀呀呀呀</Value>
+      <Item>1147925</Item>
+      <Key>False</Key>
+    </Content>
+    <Content>
+      <NPCS>
+        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
+        <NPC Name="大喵" ImageId="neko2" Position="0" />
+      </NPCS>
+      <Value>今天天气真好呀呀呀呀呀呀呀</Value>
+      <Item>1147936</Item>
+      <Key>False</Key>
+    </Content>
+  </LevelDialog>
+</LevelDialogList>

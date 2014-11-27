@@ -12,7 +12,7 @@ public class DressPanelController : UIController
     public DressListController dressListCtrl;
     //服装类型列表
     public GameObject dressTypeList;
-
+    
     public GameObject dressGroup;
     //任务提示框
     public GameObject levelDialog;
@@ -35,7 +35,20 @@ public class DressPanelController : UIController
     DressPanelState currState = DressPanelState.DressTypeChoose;
     DressPanelState nextState = DressPanelState.DressTypeChoose;
 
-    
+
+    public override void OnEnterUI()
+    {
+        base.OnEnterUI();
+        //LevelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.name;
+        LevelNameLabel.text = "yoyoyoyo";
+    }
+
+    public override void OnLeaveUI()
+    {
+        base.OnLeaveUI();
+
+    }
+
     public void OnBackBtnClick()
     {
         GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.AreaMapUI);
@@ -198,7 +211,9 @@ public class DressPanelController : UIController
         {
             _PlayAnim(dressTypeList, true);
             _PlayAnim(dressListCtrl.gameObject, false);
-        }
+
+            _RebuildDressScrollList();
+        } 
     }
 
     void _OnKickAccTypeChooseStateTransition()
@@ -220,6 +235,8 @@ public class DressPanelController : UIController
         {
             _PlayAnim(dressTypeList, true);
             _PlayAnim(dressListCtrl.gameObject, false);
+
+            _RebuildDressScrollList();
         }
     }
 
@@ -281,6 +298,31 @@ public class DressPanelController : UIController
             {
                 currState = nextState;
                 UILocker.GetInstance().UnLock(gameObject);
+            }
+        }
+    }
+
+    void _RebuildDressScrollList()
+    {
+        _UpdateDressList();
+        _UpdateDressScrollList();
+        _UpdateState();
+    }
+
+    //根据选择类型更新衣服列表
+    void _UpdateDressList()
+    {
+        dressList.Clear(); 
+        var bagItemUIInfos = PlayerUIResource.GetInstance().BagItemUIInfos;
+        foreach( var info in bagItemUIInfos )
+        {
+            Dress dress = info.item as Dress;
+            if( dress != null )
+            {
+                if( dress.ClothType == chosenType )
+                {
+                    dressList.Add(dress);
+                }
             }
         }
     }
@@ -356,7 +398,7 @@ public class DressPanelController : UIController
 
     public void OnDressFinishedBtnClick()
     {
-
+        GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.RatingUI);
     }
 
     //开始换装按钮

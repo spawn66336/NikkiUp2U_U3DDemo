@@ -5,6 +5,11 @@ using System.Collections.Generic;
 public class LogicMain : MonoBehaviour 
 {
 
+    void Start()
+    {
+        Init();
+    }
+
     //获取模块
     public T GetModule<T>() where T:GameLogicModule
     {
@@ -41,8 +46,7 @@ public class LogicMain : MonoBehaviour
         foreach( var m in modules )
         {
             m.Init();
-        }
-
+        } 
         
     }
 

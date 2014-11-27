@@ -7,17 +7,13 @@ public class AreaMapInfo
     //区域地图Id
     public int id;
     //区域地图名
-    public string name;
-    //当前区域地图是否解锁（true表示已解锁）
-    public bool isAvaliable; 
+    public string name; 
     //当前区域地图预览图标路径
     public string mapIconImgPath;
     //当前区域地图纹理路径
     public string[] mapImgPaths;
     //当前区域地图所对应关卡id列表
-    public int[] levels;
-    //如果当前区域地图未解锁，则用于显示的锁定原因
-    public string lockReason;
+    public int[] levels; 
 }
 
 //用于获取区域地图id列表回调

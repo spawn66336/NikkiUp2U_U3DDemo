@@ -36,5 +36,10 @@ public class UIResourceManager
         yield return 0;
     }
 
+    public virtual void Clear()
+    {
+
+    }
+
     protected List<UIResourceSyncRequest> requestList = new List<UIResourceSyncRequest>();
 }

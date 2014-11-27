@@ -2,14 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DressListController : MonoBehaviour 
+public class DressListController : UIController 
 {
 
     UIGrid dressListGrid;
 
     //列表中的衣服按钮
     public List<BagItemBtnController> dressBtnList = new List<BagItemBtnController>();
-     
+
+    public override void OnEnterUI()
+    {
+        base.OnEnterUI(); 
+
+    }
+
+    public override void OnLeaveUI()
+    {
+        base.OnLeaveUI(); 
+    }
+
 	void Start () 
     {
         dressListGrid = GetComponentInChildren<UIGrid>();

@@ -32,18 +32,16 @@ public class LevelUIInfo
 {
     //关卡id
     public int id;
+    //地图id
+    public int areaMapId;
     //关卡名
-    public string name;
-    //关卡是否解锁
-    public bool isAvaliable;
+    public string name; 
     //是否有时限
     public bool isTimeLimit;
     //当前关卡时限
     public float timeLimit;
     //关卡的剧情对话信息
-    public DialogUIInfo dialogInfo = new DialogUIInfo();
-    //关卡锁定原因
-    public string lockReason;
+    public DialogUIInfo dialogInfo = new DialogUIInfo(); 
 }
 
 public class LevelUIResourceManager : UIResourceManager
@@ -92,10 +90,8 @@ public class LevelUIResourceManager : UIResourceManager
     {
         LevelUIInfo newUIInfo = new LevelUIInfo();
         newUIInfo.id = info.id;
-        newUIInfo.name = info.name;
-        newUIInfo.isAvaliable = info.isAvaliable;
-        newUIInfo.isTimeLimit = info.isTimeLimit;
-        newUIInfo.lockReason = info.lockReason;
+        newUIInfo.name = info.name; 
+        newUIInfo.isTimeLimit = info.isTimeLimit; 
         newUIInfo.dialogInfo.bkImg = ResourceManager.GetInstance().Load(ResourceType.LevelDialogBackground, info.dialogInfo.bkImgPath) as Texture2D;
         foreach( var content in info.dialogInfo.contents )
         {
