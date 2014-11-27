@@ -31,16 +31,19 @@ public class BagItemBtnController : MonoBehaviour
     public void SetItemIcon( Texture2D icon )
     {
         ItemIcon.mainTexture = icon;
+        ItemIcon.MakePixelPerfect();
     }
 
     public void SetItemName( string name )
     {
         ItemName.text = name;
+        ItemName.MakePixelPerfect();
     }
 
     public void SetItemID( int id )
     {
         ItemIDLabel.text = id.ToString();
+        ItemIDLabel.MakePixelPerfect();
     }
 
     public void SetDress( Dress d )

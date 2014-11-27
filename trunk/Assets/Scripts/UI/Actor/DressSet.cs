@@ -47,9 +47,9 @@ public class DressSet : MonoBehaviour
         foreach( var r in renderables )
         {
             //找到一个已存在的未启用Renderable
-            if( !r.gameObject.activeInHierarchy )
+            if( !r.IsUsed() )
             {
-                r.gameObject.SetActive(true);
+                r.SetUsed(true);
                 return r;
             }
         }
@@ -61,23 +61,19 @@ public class DressSet : MonoBehaviour
                 typeof(UITexture)});
 
         DressRenderable renderable = go.GetComponent<DressRenderable>();
-        renderable.uiTexture = go.GetComponent<UITexture>();
-
+        renderable.uiTexture = go.GetComponent<UITexture>(); 
         go.transform.parent = this.transform;
-        go.transform.localPosition = Vector3.zero;
-        go.transform.localRotation = Quaternion.identity;
-        go.transform.localScale = Vector3.one;
-
-        DressRenderable newRenderable = go.GetComponent<DressRenderable>();
-        renderables.Add(newRenderable);
-        return newRenderable;
+        renderable.SetUsed(true);
+         
+        renderables.Add(renderable);
+        return renderable;
     }
 
     public void ClearRenderables()
     {
-        foreach( var r in renderables )
+        foreach (var r in renderables)
         {
-            r.gameObject.SetActive(false);
+            r.SetUsed(false);
         }
     }
 

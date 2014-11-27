@@ -306,7 +306,7 @@ public class DressPanelController : UIController
     {
         _UpdateDressList();
         _UpdateDressScrollList();
-        _UpdateState();
+        _UpdateUsedState();
     }
 
     //根据选择类型更新衣服列表
@@ -362,8 +362,18 @@ public class DressPanelController : UIController
         }
 
         Dress dress = ctrl.GetDress();
-        Nikki.SetDress(dress.ClothType, dress);
+        if (Nikki.GetDressSet().IsUsed(dress))
+        {
+            Nikki.SetDress(dress.ClothType, null);
+        }
+        else
+        {
+            Nikki.SetDress(dress.ClothType, dress);
+        }
         _UpdateUsedState();
+
+        var panel = GetComponent<UIPanel>();
+        panel.RebuildAllDrawCalls();
     }
  
     void Update()

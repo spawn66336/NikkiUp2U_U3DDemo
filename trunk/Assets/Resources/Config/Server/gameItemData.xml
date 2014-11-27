@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="gb2312"?>
-<!-- ÎïÆ·Id ItemId -->
-<!-- ÎïÆ·Ãû³Æ ItemName -->
-<!-- ÎïÆ·ÀàÐÍ ItemType: 0-1   0´ú±í·þ×° 1´ú±íÆäËû-->
-<!-- ÎïÆ·Ï¡ÓÐ¶È Rareness£º0-4 -->
-<!-- ÎïÆ·ÃèÊö Desc -->
-<!-- itemType=0Ê±£¬·þ×°ÀàÐÍ DresType: Öµ¹ØÁªÔÚattribute.xmlÖÐµÄbodypartÊý¾Ý
-0 Í··¢£¬1 ÉÏ×°£¬2 ÍâÌ×£¬3 Á¬ÒÂÈ¹£¬4 ÏÂ×°£¬5 Íà×Ó£¬6 Ð¬×Ó£¬7 Í·ÊÎ£¬8 ¶úÊÎ£¬9 ¾±ÊÎ£¬10 ÊÖÊÎ£¬11 ÑüÊÎ£¬12 ½ÅÊÎ£¬13 ÌØÊâÎïÆ·£¬14 ×±ÈÝ£¬15±³°ü
+ï»¿<?xml version="1.0" encoding="gb2312"?>
+<!-- ç‰©å“Id ItemId -->
+<!-- ç‰©å“åç§° ItemName -->
+<!-- ç‰©å“ç±»åž‹ ItemType: 0-1   0ä»£è¡¨æœè£… 1ä»£è¡¨å…¶ä»–-->
+<!-- ç‰©å“ç¨€æœ‰åº¦ Rarenessï¼š0-4 -->
+<!-- ç‰©å“æè¿° Desc -->
+<!-- itemType=0æ—¶ï¼Œæœè£…ç±»åž‹ DresType: å€¼å…³è”åœ¨attribute.xmlä¸­çš„bodypartæ•°æ®
+0 å¤´å‘ï¼Œ1 ä¸Šè£…ï¼Œ2 å¤–å¥—ï¼Œ3 è¿žè¡£è£™ï¼Œ4 ä¸‹è£…ï¼Œ5 è¢œå­ï¼Œ6 éž‹å­ï¼Œ7 å¤´é¥°ï¼Œ8 è€³é¥°ï¼Œ9 é¢ˆé¥°ï¼Œ10 æ‰‹é¥°ï¼Œ11 è…°é¥°ï¼Œ12 è„šé¥°ï¼Œ13 ç‰¹æ®Šç‰©å“ï¼Œ14 å¦†å®¹ï¼Œ15èƒŒåŒ…
 -->
-<!-- ¸ÄÎïÆ·µÄ¼Û¸ñ£¬µ¥Î»½ð±Ò PriceGold:0-21ÒÚ -->
-<!-- ¸ÃÎïÆ·µÄ¼Û¸ñ£¬µ¥Î»×êÊ¯ PriceDiamond:0-21ÒÚ -->
-<!-- ¸ÃÎïÆ·ÔÚ·ç¸ñÉÏµÄ¼ÓÈ¨Öµ¼¯ StyleList£ºattribute.xml±íÖÐ£¬styleÓÐ¼¸ÖÖ£¬ÕâÀïÏà¶ÔÓ¦ÓÐ¼¸Ìõ¡£
-     ¼ÓÈ¨Öµ ratio:0.00-1
+<!-- æ”¹ç‰©å“çš„ä»·æ ¼ï¼Œå•ä½é‡‘å¸ PriceGold:0-21äº¿ -->
+<!-- è¯¥ç‰©å“çš„ä»·æ ¼ï¼Œå•ä½é’»çŸ³ PriceDiamond:0-21äº¿ -->
+<!-- è¯¥ç‰©å“åœ¨é£Žæ ¼ä¸Šçš„åŠ æƒå€¼é›† StyleListï¼šattribute.xmlè¡¨ä¸­ï¼Œstyleæœ‰å‡ ç§ï¼Œè¿™é‡Œç›¸å¯¹åº”æœ‰å‡ æ¡ã€‚
+     åŠ æƒå€¼ ratio:0.00-1
 -->
-<!-- ¸ÃÎïÆ·¶ÔÓÚ·þ×°ÌØÖÊµÄ¼ÓÈ¨Öµ¼¯ AttributeList
-     ·þ×°ÌØÖÊÀàÐÍ Type:0 ÌØÕ÷£¬1 ²ÄÁÏ
-     ·þ×°ÌØÖÊid Id£ºtype=0È¡Öµ0-63£¬type=1È¡Öµ0-3
+<!-- è¯¥ç‰©å“å¯¹äºŽæœè£…ç‰¹è´¨çš„åŠ æƒå€¼é›† AttributeList
+     æœè£…ç‰¹è´¨ç±»åž‹ Type:0 ç‰¹å¾ï¼Œ1 ææ–™
+     æœè£…ç‰¹è´¨id Idï¼štype=0å–å€¼0-63ï¼Œtype=1å–å€¼0-3
 -->
 <ArrayOfGameItemDataBaseBean xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <GameItemDataBaseBean ItemId="10001" ItemName="¼°¼ç¶Ì·¢" ItemType="0" Rareness="1" Desc="¼°¼ç¶Ì·¢" DressType="0" ShowPoition="(656.5,1566)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10001" ItemName="åŠè‚©çŸ­å‘" ItemType="0" Rareness="1" Desc="åŠè‚©çŸ­å‘" DressType="0" ShowPoition="(656.5,1566)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -50,7 +50,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11914" ItemName="Ä¦¿¨" ItemType="0" Rareness="1" Desc="ÇÉ¿ËÁ¦É«µÄÉîÏµÃ«ÒÂ£¬±£Å¯ÓÐÐÍ£¬ÁìÐäÓë±ßÔµµÄ¾í±ßÉè¼Æ¿´ËÆÆÕÍ¨£¬ÊµÔò×ö¹¤¾«Á¼¡£" DressType="1" ShowPoition="(651.5, 1214.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11914" ItemName="æ‘©å¡" ItemType="0" Rareness="1" Desc="å·§å…‹åŠ›è‰²çš„æ·±ç³»æ¯›è¡£ï¼Œä¿æš–æœ‰åž‹ï¼Œé¢†è¢–ä¸Žè¾¹ç¼˜çš„å·è¾¹è®¾è®¡çœ‹ä¼¼æ™®é€šï¼Œå®žåˆ™åšå·¥ç²¾è‰¯ã€‚" DressType="1" ShowPoition="(651.5, 1214.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -83,7 +83,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11125" ItemName="½ðÊôÆ¤¸ï" ItemType="0" Rareness="1" Desc="×ßÒ¡¹ö½ðÊô·çµÄÆ¤¸ïÉÏÒÂ¡£ËäËµÊÇÕâ¸ö·ç¸ñµÄ£¬È´Éè¼ÆµÃ±È½ÏÈáºÍ£¬Ã»ÓÐÄÇÃ´ßÍßÍ±ÆÈË£¬±È½ÏÊÊºÏÅ®Éú´©×Å¡£" DressType="2" ShowPoition="(646,1277.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11125" ItemName="é‡‘å±žçš®é©" ItemType="0" Rareness="1" Desc="èµ°æ‘‡æ»šé‡‘å±žé£Žçš„çš®é©ä¸Šè¡£ã€‚è™½è¯´æ˜¯è¿™ä¸ªé£Žæ ¼çš„ï¼Œå´è®¾è®¡å¾—æ¯”è¾ƒæŸ”å’Œï¼Œæ²¡æœ‰é‚£ä¹ˆå’„å’„é€¼äººï¼Œæ¯”è¾ƒé€‚åˆå¥³ç”Ÿç©¿ç€ã€‚" DressType="2" ShowPoition="(646,1277.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -116,7 +116,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11373" ItemName="ÂäÓ£çÍ·×" ItemType="0" Rareness="1" Desc="ÉÙÅ®ÈçÓ£»¨°ãÃÀÀö½¿Èõ£¬Ò²ÈçÓ£»¨°ã¼áÇ¿ÓÂ¸Ò¡£ÇáÉ´ÂüÎè£¬ÂäÓ£çÍ·×¡£" DressType="3" ShowPoition="(645.5,1126)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11373" ItemName="è½æ¨±ç¼¤çº·" ItemType="0" Rareness="1" Desc="å°‘å¥³å¦‚æ¨±èŠ±èˆ¬ç¾Žä¸½å¨‡å¼±ï¼Œä¹Ÿå¦‚æ¨±èŠ±èˆ¬åšå¼ºå‹‡æ•¢ã€‚è½»çº±æ›¼èˆžï¼Œè½æ¨±ç¼¤çº·ã€‚" DressType="3" ShowPoition="(645.5,1126)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -149,7 +149,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11417" ItemName="¾ü¿ã" ItemType="0" Rareness="1" Desc="ËäÈ»ÊÇÂÔÏÔÍÁÆøµÄ¿îÊ½£¬²»¹ý´îÅä¾ü×°ÉÏÒÂÒ»Æð´©»áºÜÏÔ¾«ÉñÅ¶~Å¯Å¯×öºÃÁËÕ½¶·µÄ×¼±¸£¡" DressType="4" ShowPoition="(643,687.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11417" ItemName="å†›è£¤" ItemType="0" Rareness="1" Desc="è™½ç„¶æ˜¯ç•¥æ˜¾åœŸæ°”çš„æ¬¾å¼ï¼Œä¸è¿‡æ­é…å†›è£…ä¸Šè¡£ä¸€èµ·ç©¿ä¼šå¾ˆæ˜¾ç²¾ç¥žå“¦~æš–æš–åšå¥½äº†æˆ˜æ–—çš„å‡†å¤‡ï¼" DressType="4" ShowPoition="(643,687.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -182,7 +182,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10219" ItemName="éÙÉ«¶ÌÍà" ItemType="0" Rareness="1" Desc="ÈáÈíµÄÃæÁÏ£¬´©ÆðÀ´ºÜÊæ·þÅ¶¡£" DressType="5" ShowPoition="(649.5,231.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10219" ItemName="æ©˜è‰²çŸ­è¢œ" ItemType="0" Rareness="1" Desc="æŸ”è½¯çš„é¢æ–™ï¼Œç©¿èµ·æ¥å¾ˆèˆ’æœå“¦ã€‚" DressType="5" ShowPoition="(649.5,231.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -215,7 +215,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11431" ItemName="Ó£Ö®Áµ" ItemType="0" Rareness="1" Desc="ÄãÖªµÀÓ£»¨Æ®ÂäµÄËÙ¶ÈÃ´£¿" DressType="6" ShowPoition="(646,230.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11431" ItemName="æ¨±ä¹‹æ‹" ItemType="0" Rareness="1" Desc="ä½ çŸ¥é“æ¨±èŠ±é£˜è½çš„é€Ÿåº¦ä¹ˆï¼Ÿ" DressType="6" ShowPoition="(646,230.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -248,7 +248,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10198" ItemName="ÛàÇí" ItemType="0" Rareness="1" Desc="Î²²¿ÎªºüÀêÃ«£¬Í·²¿×°ÊÎÁË»¨°êµÄÊÎÆ·¡£ÕâÃ´¾«¹óµÄ¶«Î÷ÖÆ×÷ÆðÀ´ÊÇÐèÒª»¨·ÑºÜ´ó¾«Á¦µÄ°¡¡£" DressType="7" ShowPoition="(550,1646)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10198" ItemName="å‚ç¼" ItemType="0" Rareness="1" Desc="å°¾éƒ¨ä¸ºç‹ç‹¸æ¯›ï¼Œå¤´éƒ¨è£…é¥°äº†èŠ±ç“£çš„é¥°å“ã€‚è¿™ä¹ˆç²¾è´µçš„ä¸œè¥¿åˆ¶ä½œèµ·æ¥æ˜¯éœ€è¦èŠ±è´¹å¾ˆå¤§ç²¾åŠ›çš„å•Šã€‚" DressType="7" ShowPoition="(550,1646)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -281,7 +281,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11131" ItemName="ÍÃ¶úÁ÷ÐÇ" ItemType="0" Rareness="1" Desc="¹âÊÇÍÃ¶ú¾ÍºÜÃÈÁË£¬ÔÙ¼ÓÉÏÁ÷ÐÇµã×º¡ª¡ªËùÎ½µÄ¡°ÃÈµ½Æð·É¡±´ó¸Å¾ÍÊÇÕâÑù°É¡£" DressType="8" ShowPoition="(727.5,1754)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11131" ItemName="å…”è€³æµæ˜Ÿ" ItemType="0" Rareness="1" Desc="å…‰æ˜¯å…”è€³å°±å¾ˆèŒäº†ï¼Œå†åŠ ä¸Šæµæ˜Ÿç‚¹ç¼€â€”â€”æ‰€è°“çš„â€œèŒåˆ°èµ·é£žâ€å¤§æ¦‚å°±æ˜¯è¿™æ ·å§ã€‚" DressType="8" ShowPoition="(727.5,1754)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -314,7 +314,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10493" ItemName="Æ¤Éþ" ItemType="0" Rareness="1" Desc="Ò»È¦Ò»È¦ÓÖÒ»È¦¡£ÓÃ×î¸ß¼¶µÄÆ¤¸ï×ö³É£¬Èç¹û´ò½áÁËµÄ»°£¬¿É¾Í½â²»¿ªÁËÓ´¡£" DressType="9" ShowPoition="(632.5,1434)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10493" ItemName="çš®ç»³" ItemType="0" Rareness="1" Desc="ä¸€åœˆä¸€åœˆåˆä¸€åœˆã€‚ç”¨æœ€é«˜çº§çš„çš®é©åšæˆï¼Œå¦‚æžœæ‰“ç»“äº†çš„è¯ï¼Œå¯å°±è§£ä¸å¼€äº†å“Ÿã€‚" DressType="9" ShowPoition="(632.5,1434)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>
@@ -347,7 +347,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11903" ItemName="°µ»¨ÊÖÌ×" ItemType="0" Rareness="1" Desc="ÃûæÂ½ñ¶¬×îÁ÷ÐÐµÄÉÝ»ª¿îÆ¤ÖÊÊÖÌ×£¬°µ»¨×°ÊÎ£¬µÍµ÷»ªÀö¡£" DressType="10" ShowPoition="(648.5, 924.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11903" ItemName="æš—èŠ±æ‰‹å¥—" ItemType="0" Rareness="1" Desc="ååª›ä»Šå†¬æœ€æµè¡Œçš„å¥¢åŽæ¬¾çš®è´¨æ‰‹å¥—ï¼Œæš—èŠ±è£…é¥°ï¼Œä½Žè°ƒåŽä¸½ã€‚" DressType="10" ShowPoition="(648.5, 924.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>

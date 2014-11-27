@@ -75,7 +75,10 @@ public class GameItemUIResourceManager : UIResourceManager
             if( dress.DressImgs.Count > 0 )
             {
                 dress.Icon = dress.DressImgs[0];
-            } 
+                dress.DressImgs.RemoveAt(0);
+            }
+
+            
 
             item = dress;
         }

@@ -59,7 +59,8 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400010}
-  m_Layer: 0
+  - 114: {fileID: 11400012}
+  m_Layer: 10
   m_Name: BagItemBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,11 +191,11 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 3.625
-  keepCrispWhenShrunk: 1
+  keepCrispWhenShrunk: 2
   mTrueTypeFont: {fileID: 12800000, guid: 1223d04787429ef42bfb613042821f90, type: 3}
   mFont: {fileID: 0}
   mText: 1
-  mFontSize: 32
+  mFontSize: 16
   mFontStyle: 1
   mAlignment: 1
   mEncoding: 1
@@ -299,13 +300,13 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 9.875
-  keepCrispWhenShrunk: 1
+  keepCrispWhenShrunk: 2
   mTrueTypeFont: {fileID: 12800000, guid: 1223d04787429ef42bfb613042821f90, type: 3}
   mFont: {fileID: 0}
   mText: "\u91D1\u6854\u77ED\u53D1"
-  mFontSize: 32
-  mFontStyle: 1
-  mAlignment: 0
+  mFontSize: 16
+  mFontStyle: 0
+  mAlignment: 2
   mEncoding: 1
   mMaxLineCount: 0
   mEffectStyle: 0
@@ -316,7 +317,7 @@ MonoBehaviour:
   mMaterial: {fileID: 0}
   mApplyGradient: 1
   mGradientTop: {r: 0, g: 0, b: 0, a: 1}
-  mGradientBottom: {r: .29411763, g: .29411763, b: .29411763, a: 1}
+  mGradientBottom: {r: 0, g: 0, b: 0, a: 1}
   mSpacingX: 0
   mSpacingY: 0
   mShrinkToFit: 0
@@ -402,6 +403,43 @@ MonoBehaviour:
   ItemName: {fileID: 11400004}
   ItemIcon: {fileID: 11400002}
   ItemUsed: {fileID: 11400008}
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a20c1b21a3f94bb5b2d3b901c9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 158
+  mHeight: 140
+  mDepth: 4
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1.12857139
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

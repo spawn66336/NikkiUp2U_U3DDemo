@@ -35,12 +35,16 @@ public class DressListController : UIController
     {
        UnityEngine.Object prefab = ResourceManager.GetInstance().Load(ResourceType.UI ,"BagItemBtn" );
        GameObject go = GameObject.Instantiate(prefab) as GameObject;
-
-       dressListGrid.AddChild(go.transform);
+         
+       go.transform.parent = dressListGrid.gameObject.transform;
+       go.transform.localPosition = Vector3.zero;
+       go.transform.localRotation = Quaternion.identity;
+       go.transform.localScale = Vector3.one;
 
        BagItemBtnController bagItemCtrl = go.GetComponent<BagItemBtnController>();
+         
 
-       int indx = dressListGrid.GetChildList().size + 1;
+       int indx = dressBtnList.Count + 1;
 
        bagItemCtrl.SetItemID(indx);
        bagItemCtrl.SetDress(dress);
@@ -48,21 +52,24 @@ public class DressListController : UIController
        bagItemCtrl.SetItemName(dress.Name);
        bagItemCtrl.SetUsed(used);
 
+       
+
        UIEventListener.Get(bagItemCtrl.gameObject).onClick += onClick;
 
+       dressListGrid.Reposition();
        dressBtnList.Add(bagItemCtrl);
     }
 
     public void Clear()
     {
-        dressBtnList.Clear();
+        dressBtnList.Clear(); 
 
-        var btnList = dressListGrid.GetChildList();
+        var btnList = 
+        dressListGrid.transform.GetComponentsInChildren<BagItemBtnController>(); 
         foreach( var btn in btnList )
         {
-            GameObject.Destroy(btn.gameObject);
-        }
-        btnList.Clear();
+            GameObject.DestroyImmediate(btn.gameObject);
+        } 
         dressListGrid.Reposition();
     }
 }

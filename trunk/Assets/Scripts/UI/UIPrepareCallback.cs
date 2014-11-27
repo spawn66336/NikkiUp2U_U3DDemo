@@ -97,11 +97,11 @@ public class UIPrepareCallback
 
     public static IEnumerator PrepareDressUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        //var syncEnumator = PlayerUIResource.GetInstance().Sync();
-        //while (syncEnumator.MoveNext())
-        //{
-        //    yield return 0;
-        //}
+        var syncEnumator = PlayerUIResource.GetInstance().Sync();
+        while (syncEnumator.MoveNext())
+        {
+            yield return 0;
+        }
 
         yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
