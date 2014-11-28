@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class RequestMessage
 { 
@@ -9,13 +10,15 @@ public class RequestMessage
 }
 
 public class ReplyMessage : RequestMessage
-{ 
+{
+    public RequestMessageDef messageType;
     //结果对象
     public object resultObject;
 }
 
 public enum RequestReplyResult
 {
+    TimeOut = -1,
     Error = 0,
     Ok
 }
@@ -38,6 +41,7 @@ public class ServerReplyMessage
 {
     public int serial;
     public object resultObject;
+    public RequestMessageDef message;
 }
 
 public class RequestCenter 
@@ -49,6 +53,8 @@ public class RequestCenter
     {
         //消息序列号
         public int serial;
+        //发送时间戳
+        public int timeTag;
         public RequestMessage msg;
         public RequestReplyCallback replyCallback;
         public object param;
@@ -58,6 +64,7 @@ public class RequestCenter
     {
         RequestInfo reqInfo = new RequestInfo();
         reqInfo.serial = _GenSerial();
+        reqInfo.timeTag = Environment.TickCount;
         reqInfo.msg = msg;
         reqInfo.replyCallback = callback;
         reqInfo.param = param;
@@ -78,7 +85,8 @@ public class RequestCenter
                 if (req.serial == reply.serial)
                 {
                     ReplyMessage replyMsg = new ReplyMessage();
-                    replyMsg.resultObject = reply.resultObject; 
+                    replyMsg.resultObject = reply.resultObject;
+                    replyMsg.messageType = reply.message;
 
                     //调用回调
                     if( req.replyCallback != null )
@@ -97,6 +105,29 @@ public class RequestCenter
 
             tempRequestList.Clear();
         }
+
+        
+        int currTickCount  = Environment.TickCount;
+        foreach( var req in requestInfos )
+        {
+            int elapseTick = currTickCount - req.timeTag;
+            //消息等待已超时
+            if( elapseTick >= timeOutThreshold )
+            {
+                if( req.replyCallback != null )
+                {
+                    req.replyCallback(RequestReplyResult.TimeOut, new ReplyMessage() , req.param);
+                }
+                tempRequestList.Add(req);        
+            }
+        }
+
+        //清除已删除的请求
+        foreach (var removeReq in tempRequestList)
+        {
+            requestInfos.Remove(removeReq);
+        } 
+        tempRequestList.Clear();
        
     }
 
@@ -137,6 +168,9 @@ public class RequestCenter
         }
         return s_instance; 
     }
+
+    //超时阈值
+    const int timeOutThreshold = 2000;
 
     static int _GenSerial()
     {

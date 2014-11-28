@@ -61,6 +61,8 @@ public class AreaMapUIResourceManager : UIResourceManager
         {
             yield return 0;
         }
+
+
     }
 
     bool _IsCached(int id)
@@ -86,7 +88,7 @@ public class AreaMapUIResourceManager : UIResourceManager
             Texture2D mapImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, imgName) as Texture2D;
             areaMapUIInfo.mapImgs.Add(mapImg);
         }
-
+        areaMapUIInfoCache.Add(info.id, areaMapUIInfo);
         syncCount--;
     }
 

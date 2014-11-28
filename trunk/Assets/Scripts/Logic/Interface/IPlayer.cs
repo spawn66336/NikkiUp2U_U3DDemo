@@ -103,11 +103,12 @@ public class PlayerInfo
 }
 
 public delegate void GetPlayerInfoCallback( PlayerInfo info );
+public delegate void ChangeCurrentLevelCallBack(PlayerInfo info);
 
 public interface IPlayer 
 {
 
-    
+    void SetPlayerCurrLevelId(int id);
 
     void GetPlayerInfo( GetPlayerInfoCallback callback ); 
 }

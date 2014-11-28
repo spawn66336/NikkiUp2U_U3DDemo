@@ -168,7 +168,7 @@ GameObject:
   - 4: {fileID: 158083677}
   - 114: {fileID: 158083679}
   - 65: {fileID: 158083678}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LoadingBk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - 4: {fileID: 605710430}
   - 114: {fileID: 605710432}
   - 111: {fileID: 605710431}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: BusyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - 4: {fileID: 654495874}
   - 114: {fileID: 654495876}
   - 111: {fileID: 654495875}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LoadingBk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - 114: {fileID: 773915200}
   - 65: {fileID: 773915199}
   - 114: {fileID: 773915198}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LockerWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 784887858}
   - 114: {fileID: 784887859}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: AnchorCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   - 4: {fileID: 1186627202}
   - 114: {fileID: 1186627204}
   - 65: {fileID: 1186627203}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LockerWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +973,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1280
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
@@ -987,7 +987,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1240741000}
   - 114: {fileID: 1240741001}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: AnchorCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1363925236}
   - 114: {fileID: 1363925237}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,7 +1152,7 @@ GameObject:
   - 4: {fileID: 1445450782}
   - 114: {fileID: 1445450784}
   - 54: {fileID: 1445450783}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LockerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1573063339}
   - 114: {fileID: 1573063340}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: AnchorBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,7 +1287,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1657870482}
   - 114: {fileID: 1657870483}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Dot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1365,7 +1365,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1659139204}
   - 114: {fileID: 1659139205}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Dot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1444,7 @@ GameObject:
   - 4: {fileID: 1690987151}
   - 114: {fileID: 1690987153}
   - 54: {fileID: 1690987152}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: BusyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1532,7 +1532,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1711534255}
   - 114: {fileID: 1711534256}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Dot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   - 4: {fileID: 2058364077}
   - 114: {fileID: 2058364079}
   - 54: {fileID: 2058364078}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LoadingUIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

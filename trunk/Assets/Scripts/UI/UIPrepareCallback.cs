@@ -5,7 +5,7 @@ public class UIPrepareCallback
 { 
     public static IEnumerator PrepareLoginScene(OnProgressChange progressCallback ,OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         { 
             finishedCallback();
@@ -14,7 +14,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanLoginScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -24,7 +24,13 @@ public class UIPrepareCallback
 	 
     public static IEnumerator PrepareMapScene(OnProgressChange progressCallback ,OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        var syncEnumator = PlayerUIResource.GetInstance().Sync();
+        while (syncEnumator.MoveNext())
+        {
+            yield return 0;
+        }
+
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -33,7 +39,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanMapScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -42,7 +48,13 @@ public class UIPrepareCallback
 
     public static IEnumerator PrepareCoreGameScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        var syncEnumator = PlayerUIResource.GetInstance().Sync();
+        while (syncEnumator.MoveNext())
+        {
+            yield return 0;
+        }
+
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -51,7 +63,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanCoreGameScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -87,23 +99,17 @@ public class UIPrepareCallback
     }
 
     public static IEnumerator CleanLevelDialogUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
-    { 
+    {
+        yield return 0;
         if (finishedCallback != null)
         {
             finishedCallback();
         }
-        yield return 0;
     }
 
     public static IEnumerator PrepareDressUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
-    {
-        var syncEnumator = PlayerUIResource.GetInstance().Sync();
-        while (syncEnumator.MoveNext())
-        {
-            yield return 0;
-        }
-
-        yield return new WaitForSeconds(1.0f);
+    { 
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();

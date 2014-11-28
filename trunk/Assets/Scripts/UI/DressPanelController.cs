@@ -8,6 +8,8 @@ public class DressPanelController : UIController
     public Actor Nikki; 
     //关卡名称
     public UILabel LevelNameLabel;
+    //关卡对话内容
+    public UITextList levelDialogContents;
     //服装列表
     public DressListController dressListCtrl;
     //服装类型列表
@@ -39,8 +41,23 @@ public class DressPanelController : UIController
     public override void OnEnterUI()
     {
         base.OnEnterUI();
-        //LevelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.name;
-        LevelNameLabel.text = "yoyoyoyo";
+        if (PlayerUIResource.GetInstance().CurrLevelUIInfo != null)
+        {
+            PlayerLevelUIInfo currLevelUIInfo = PlayerUIResource.GetInstance().CurrLevelUIInfo;
+
+            LevelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.name;
+                        
+            var contents = currLevelUIInfo.levelInfo.dialogInfo.contents;
+            foreach( var c in contents )
+            {
+                levelDialogContents.Add(c.content);
+            }
+        }
+        else
+        {
+            LevelNameLabel.text = "关卡名获取失败！";
+        }
+         
     }
 
     public override void OnLeaveUI()

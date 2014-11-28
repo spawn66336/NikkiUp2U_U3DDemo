@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: sublevel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400004}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 65: {fileID: 6500002}
   - 114: {fileID: 11400008}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400010}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: sublevel_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - 114: {fileID: 11400032}
   - 65: {fileID: 6500012}
   - 114: {fileID: 11400034}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: level_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - 114: {fileID: 11400012}
   - 65: {fileID: 6500004}
   - 114: {fileID: 11400014}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - 114: {fileID: 11400016}
   - 65: {fileID: 6500006}
   - 114: {fileID: 11400018}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - 114: {fileID: 11400020}
   - 65: {fileID: 6500008}
   - 114: {fileID: 11400022}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - 114: {fileID: 11400024}
   - 65: {fileID: 6500010}
   - 114: {fileID: 11400026}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400018}
   - 114: {fileID: 11400028}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: sublevel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400020}
   - 114: {fileID: 11400030}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: sublevel_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

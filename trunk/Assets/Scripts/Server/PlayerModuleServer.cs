@@ -5,13 +5,14 @@ using System.Collections.Generic;
 public class PlayerModuleServer : ModuleServer 
 {
 
-    private static string fileName = "playInfo.xml";
+    private static string fileName = "playerInfo.xml";
     public PlayerInfo playerInfo;
     public override void Init()
     {
         base.Init();
         playerInfo = (PlayerInfo)XMLTools.readXml(fileName, typeof(PlayerInfo));
-
+        Debug.Log("playerInfo......");
+        
     }
 
     public override void HandleRequest(ServerRequestMessage request)
@@ -19,40 +20,48 @@ public class PlayerModuleServer : ModuleServer
         if (request.msg.Message == (int)RequestMessageDef.Request_PlayerInfo)
         {
             // mapId和levelIdList需要调用接口
-            Dictionary<int,List<Level>> dic = FakeServer.GetInstance().GetAreaMapModuleServer().getMapInfo(playerInfo.currLevelId);
-            int mapId=0;
-            foreach(int id in dic.Keys){
-                mapId=id;
-            }
-            List<Level> levelInfoList = dic[mapId];
-            List<PlayerLevelRecordInfo> finalLevelList = new List<PlayerLevelRecordInfo>();
+            LevelInfo currLevel = FakeServer.GetInstance().GetAreaMapModuleServer().getInfo(playerInfo.currLevelId);
+            Debug.Log(currLevel);
+            int mapId=currLevel.areaMapId;
             List<PlayerLevelRecordInfo> recordList = playerInfo.levelRecordList;
             foreach (PlayerLevelRecordInfo record in recordList)
             {
-                foreach (Level levelInfo in levelInfoList)
+                if (record.state == LevelState.Unlocked)
                 {
-                    if (levelInfo.Id == record.levelId)
-                    {
-                        if (record.state == LevelState.Unlocked)
-                        {
-                            // todo 加入条件模块之后去寻找
-                            record.lockReason = "奏是锁住了。咬我啊咬我啊！！！！";
-                        }
-                        finalLevelList.Add(record);
-                        break;
-                    }
+                    // todo 加入条件模块之后去寻找
+                    Level levelInfo = FakeServer.GetInstance().GetAreaMapModuleServer().getLevelInfo(record.levelId);
+                    record.lockReason = "奏是锁住了。咬我啊咬我啊！！！！";
                 }
             }
-            PlayerInfo finalInfo = new PlayerInfo();
-            finalInfo.gold = playerInfo.gold;
-            finalInfo.energy = playerInfo.energy;
-            finalInfo.diamond = playerInfo.diamond;
-            finalInfo.currLevelId = playerInfo.currLevelId;
-            finalInfo.currAreaMapId = mapId;
-            finalInfo.levelRecordList.AddRange(finalLevelList);
+
+            List<Map> areaMapList = FakeServer.GetInstance().GetAreaMapModuleServer().getMapList();
+            List<PlayerAreaMapRecordInfo> mapRecodeList = new List<PlayerAreaMapRecordInfo>();
+            foreach (Map map in areaMapList)
+            {
+                // todo 判断解锁条件
+                PlayerAreaMapRecordInfo mapRecoder = new PlayerAreaMapRecordInfo();
+                mapRecoder.areaMapId = map.Id;
+                mapRecoder.isLocked = false;
+                mapRecoder.lockReason = "我佛慈悲~~~~~~~~";
+                mapRecodeList.Add(mapRecoder);
+                // todo 如果当前地图被锁住，则更改当前地图及当前关卡id，疑问：重新选定的地图规则
+            }
+            playerInfo.areaMapRecordList.AddRange(mapRecodeList);
             ServerReplyMessage replyMsg = new ServerReplyMessage();
             replyMsg.serial = request.serial;
-            replyMsg.resultObject = finalInfo;
+            replyMsg.resultObject = playerInfo;
+            replyMsg.message = RequestMessageDef.Request_PlayerInfo;
+            ReplyToClient(replyMsg);
+        }
+        else if (request.msg.Message == (int)RequestMessageDef.Request_ChangeCurrLevel)
+        {
+            ChangeCurrLevelRequestMsg msg = (ChangeCurrLevelRequestMsg)request.msg;
+            playerInfo.currLevelId = msg.currLevelId;
+            playerInfo.currAreaMapId = msg.currMapId;
+            ServerReplyMessage replyMsg = new ServerReplyMessage();
+            replyMsg.serial = request.serial;
+            replyMsg.resultObject = playerInfo;
+            replyMsg.message = RequestMessageDef.Request_ChangeCurrLevel;
             ReplyToClient(replyMsg);
         }
     }
@@ -104,6 +113,7 @@ public class PlayerModuleServer : ModuleServer
         if (isOpenLevel)
         {
             // TODO 获得下一个level的的info,判断是否解锁
+            Level nexLevel = FakeServer.GetInstance().GetAreaMapModuleServer().getNextLevel(levelId);
             PlayerLevelRecordInfo newRecord = new PlayerLevelRecordInfo();
             
         }
@@ -112,3 +122,5 @@ public class PlayerModuleServer : ModuleServer
     }
    
 }
+
+

@@ -11,13 +11,17 @@ public class XMLTools
 {
     public static System.Object readXml(String fileName,Type type)
     {
-        StreamReader sr=null;
+        TextReader sr=null;
         try
         {
+            String finalFileName = fileName.Remove(fileName.Length - 4, 4);
             XmlSerializer ser = new XmlSerializer(type);
             String filePath = Application.dataPath + "/Resources/Config/Server/" + fileName;
             Debug.Log(filePath);
-            sr = new StreamReader(File.OpenRead(filePath));
+            paths.Add(filePath);
+
+            TextAsset asset = Resources.Load("Config/Server/" + finalFileName) as TextAsset;
+            sr = new StringReader(asset.text); 
             return ser.Deserialize(sr);
         }
         catch (Exception e)
@@ -60,5 +64,7 @@ public class XMLTools
             }
         }
     }
+
+    public static List<string> paths = new List<string>();
 }
 

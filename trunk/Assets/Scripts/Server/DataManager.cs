@@ -1,12 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 using System;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-
+/*
+//序列化类定义
 //区域地图
 public class AreaMaps
 {
@@ -24,9 +24,9 @@ public class Map
 	int id;
 	string name;
 	string iconid;
-	List<Level> levs;
+	List<Level> levs = new List<Level> ();
 	List<string> imageList;
-	List<Unlock> unlockCond;
+	List<Unlock> unlockCond = new List<Unlock>();
 	
 	[XmlAttribute]
 	public int Id
@@ -65,11 +65,12 @@ public class Map
 		set { levs = value; }
 	}
 }
+//关卡
 public class Level
 {
 	int id;
 	string name;
-	int finishGrade;
+	GradeEnum finishGrade;
 	int limiteTime;
 	int rewardid;
 	int dialogid;
@@ -91,7 +92,7 @@ public class Level
 		set { name = value; }
 	}
 	[XmlAttribute]
-	public int FinishGrade
+	public GradeEnum FinishGrade
 	{
 		get { return finishGrade; }
 		set { finishGrade = value; }
@@ -135,7 +136,7 @@ public class Level
 }
 public class RatingRule
 {
-	List<GradeInfo> grdsc;
+	List<GradeInfo> grdsc = new List<GradeInfo>();
 	[XmlElementAttribute("GradeInfo")]
 	public List<GradeInfo> GradeSc
 	{
@@ -146,10 +147,10 @@ public class RatingRule
 
 public class RatingFactor
 {
-	List<Style> styles;
-	List<Atribute> attrs;
-	List<SpecialItem> speItems;
-	List<FixItem> fixItems;
+	List<Style> styles = new List<Style>();
+	List<Atribute> attrs = new List<Atribute>();
+	List<SpecialItem> speItems = new List<SpecialItem>();
+	List<FixItem> fixItems = new List<FixItem>();
 	[XmlElementAttribute("Style")]
 	public List<Style> Stl
 	{
@@ -274,10 +275,10 @@ public class GradeInfo
 
 public class Unlock
 {
-	int type;
+	UnLockCondition type;
 	string val;
 	[XmlAttribute]
-	public int Type
+	public UnLockCondition Type
 	{
 		get { return type; }
 		set { type = value; }
@@ -369,7 +370,7 @@ public class NPC
 {
 	string name;
 	string imageId;
-	int position;
+	DialogNpcImgShowPos position;
 	[XmlAttribute]
 	public string Name
 	{
@@ -383,7 +384,7 @@ public class NPC
 		get {return imageId;}
 	}
 	[XmlAttribute]
-	public int Position
+	public DialogNpcImgShowPos Position
 	{
 		set {position = value;}
 		get {return position;}
@@ -471,185 +472,241 @@ public class RewardItem
 		set { ratio = value; }
 	}
 }
-
-public class AreaMapModuleServer : ModuleServer 
+*/
+//评级枚举
+public enum GradeEnum
 {
-	//序列化
+	[XmlEnum("0")]
+	F = 0,
+	[XmlEnum("1")]
+	D,
+	[XmlEnum("2")]
+	C,
+	[XmlEnum("3")]
+	B,
+	[XmlEnum("4")]
+	A,
+	[XmlEnum("5")]
+	S,
+	[XmlEnum("6")]
+	SS,
+	[XmlEnum("7")]
+	SSS
+}
+//解锁条件枚举
+public enum UnLockCondition
+{
+	[XmlEnum("1")]
+	UnLockCondition_BagDressNum = 1,
+	[XmlEnum("2")]
+	UnLockCondition_SpecTypeDressNum,
+	[XmlEnum("3")]
+	UnLockCondition_LevelRatingResult
+}
 
+public class DataManager
+{
 	public static string areamapPath = "areamap.xml";
 	public static string leveldilogsPath = "leveldialog.xml";
+	public static string remarkPath = "remarktable.xml";
+	public static string rewardsPath = "rewards.xml";
+
 	public static string areamapPic = Application.dataPath + "/UI/Texture/AreaMap/";
 	public static string leveldialogPic = Application.dataPath + "/UI/Texture/LevelDialogBackground/";
 	public static string npcPic = Application.dataPath + "/UI/Texture/NPC/";
 
 	private AreaMaps areaMaps = new AreaMaps();
 	private LevelDialogList diaList = new LevelDialogList();
-	//private GradeList remarkList = new GradeList();
-	//private RewardList rewardList = new RewardList(); 
+	private GradeList remarks = new GradeList();
+	private RewardList rewards = new RewardList();
 
 	Dictionary<int, AreaMapInfo> mapDic = new Dictionary<int, AreaMapInfo>();
 	Dictionary<int, LevelInfo> levelDic = new Dictionary<int, LevelInfo>();
-	//初始化数据
-	public override void Init()
+
+	public AreaMaps AreaMapsData
 	{
-		base.Init();
+		get { return areaMaps;}
+	}
+
+	public LevelDialogList LevelDialogData
+	{
+		get { return diaList; }
+	}
+
+	public Dictionary<int, AreaMapInfo> MapDic
+	{
+		get { return mapDic; }
+	}
+
+	public Dictionary<int, LevelInfo> LevelDic
+	{
+		get { return levelDic; }
+	}
+	//初始化
+	public void Init()
+	{
 		areaMaps = (AreaMaps)XMLTools.readXml(areamapPath, typeof(AreaMaps));
 		diaList = (LevelDialogList)XMLTools.readXml(leveldilogsPath, typeof(LevelDialogList));
-		
-		foreach(Map m in areaMaps.Maps)
-		{
-			AreaMapInfo areaMapInfo = new AreaMapInfo();
-			areaMapInfo.id = m.Id;
-			areaMapInfo.mapIconImgPath = areamapPic + m.IconId + ".png";
-			areaMapInfo.name = m.Name;
-
-			List<string> imgs = new List<string>();
-			foreach(string s in m.ImgList)
-			{
-				imgs.Add(areamapPic + s + ".png");
-			}
-			areaMapInfo.mapImgPaths = imgs.ToArray();
-
-			List<int> ids = new List<int>();
-			foreach(Level l in m.Levs)
-			{
-				LevelInfo levInfo = new LevelInfo();
-				levInfo.areaMapId = areaMapInfo.id;
-				levInfo.id = l.Id;
-				levInfo.name = l.Name;
-				levInfo.isTimeLimit = (l.LimiteTime == 0)?false:true;
-				levInfo.timeLimit = l.LimiteTime;
-				DialogInfo dialog = new DialogInfo();
-				foreach(LevelDialog ld in diaList.LevD)
-				{
-					if(ld.Id == l.DialogId)
-					{
-						dialog.bkImgPath = leveldialogPic + ld.BackgroundImageId + ".png";
-						List<DialogContentInfo> contents = new List<DialogContentInfo>();
-						foreach(Content c in ld.Cntent)
-						{
-							DialogContentInfo ctInfo = new DialogContentInfo();
-							ctInfo.isKey = (c.Key == "True")?true:false;
-							ctInfo.content = c.Value;
-							List<DialogNpcImgInfo> npcImgInfos  = new List<DialogNpcImgInfo>();
-							foreach(NPC npc in c.NPCS)
-							{
-								DialogNpcImgInfo info = new DialogNpcImgInfo();
-								info.imgPath = npcPic + npc.ImageId + ".png";
-								info.showPos = (DialogNpcImgShowPos)npc.Position;
-								npcImgInfos.Add(info);
-							}
-							contents.Add(ctInfo);
-						}
-						dialog.contents = contents;
-						break;
-					}
-				}
-				levInfo.dialogInfo = dialog;
-				levelDic.Add(l.Id,levInfo);
-				ids.Add(l.Id);
-			}
-			areaMapInfo.levels = ids.ToArray();
-			mapDic.Add(m.Id, areaMapInfo);
-		}
+		remarks = (GradeList)XMLTools.readXml(remarkPath, typeof(GradeList));
+		rewards = (RewardList)XMLTools.readXml(rewardsPath, typeof(RewardList));
+		convert();
 	}
-	//处理请求
-	public override void HandleRequest( ServerRequestMessage request )
+
+	private void convert()
 	{
-		//获取区域地图id列表
-        if (request.msg.Message == (int)RequestMessageDef.Request_AreaMapIdList)
-        {
-			List<int> mapIdList = new List<int>();
+		if(areaMaps != null)
+		{
 			foreach(Map m in areaMaps.Maps)
 			{
-				mapIdList.Add(m.Id);
+				AreaMapInfo areaMapInfo = new AreaMapInfo();
+				areaMapInfo.id = m.Id;
+				areaMapInfo.mapIconImgPath = areamapPic + m.IconId + ".png";
+				areaMapInfo.name = m.Name;
+			/*
+			foreach(Unlock u in m.UnlockCond)
+			{
+				Debug.Log(u.Type);
 			}
-			ServerReplyMessage rpl = new ServerReplyMessage();
-            rpl.serial = request.serial;
-			rpl.resultObject = mapIdList;
-            ReplyToClient(rpl);
-        }
-		//获取指定id的区域地图信息
-        else if (request.msg.Message == (int)RequestMessageDef.Request_AreaMapInfo)
-        {
-			int id = ((RequestAreaMapInfoMessage)request.msg).id;
-            ServerReplyMessage rpl = new ServerReplyMessage();
-			rpl.serial = request.serial;
-			rpl.resultObject = mapDic[id];
-			ReplyToClient(rpl);
-        }
+			*/
+				List<string> imgs = new List<string>();
+				foreach(string s in m.ImgList)
+				{
+					imgs.Add(areamapPic + s + ".png");
+				}
+				areaMapInfo.mapImgPaths = imgs.ToArray();
+			
+				List<int> ids = new List<int>();
+				foreach(Level l in m.Levs)
+				{
+					LevelInfo levInfo = new LevelInfo();
+					levInfo.areaMapId = areaMapInfo.id;
+					levInfo.id = l.Id;
+					levInfo.name = l.Name;
+					levInfo.isTimeLimit = (l.LimiteTime == 0)?false:true;
+					levInfo.timeLimit = l.LimiteTime;
+					DialogInfo dialog = new DialogInfo();
+					if(diaList != null)
+					{
+						foreach(LevelDialog ld in diaList.LevD)
+						{
+							if(ld.Id == l.DialogId)
+							{
+								dialog.bkImgPath = leveldialogPic + ld.BackgroundImageId + ".png";
+								List<DialogContentInfo> contents = new List<DialogContentInfo>();
+								foreach(Content c in ld.Cntent)
+								{
+									DialogContentInfo ctInfo = new DialogContentInfo();
+									ctInfo.isKey = (c.Key == "True")?true:false;
+									ctInfo.content = c.Value;
+									List<DialogNpcImgInfo> npcImgInfos  = new List<DialogNpcImgInfo>();
+									foreach(NPC npc in c.NPCS)
+									{
+										DialogNpcImgInfo info = new DialogNpcImgInfo();
+										info.imgPath = npcPic + npc.ImageId + ".png";
+										info.showPos = (DialogNpcImgShowPos)npc.Position;
+										npcImgInfos.Add(info);
+									}
+									contents.Add(ctInfo);
+								}
+								dialog.contents = contents;
+								break;
+							}
+						}
+					}
+					levInfo.dialogInfo = dialog;
+					levelDic.Add(l.Id,levInfo);
+					ids.Add(l.Id);
+				}
+				areaMapInfo.levels = ids.ToArray();
+				mapDic.Add(m.Id, areaMapInfo);
+			}
+		}
 	}
+
 	//由关卡Id返回所在地图信息
 	public Dictionary<int, List<Level>> getMapInfo(int levelId)
 	{
 		Dictionary<int, List<Level>> mp = new Dictionary<int, List<Level>>();
 		bool find = false;
-
-		foreach(Map m in areaMaps.Maps)
+		if(areaMaps != null)
 		{
-			//查找Levelid所在地图
-			foreach(Level lev in m.Levs)
+			foreach(Map m in areaMaps.Maps)
 			{
-				if(lev.Id == levelId)
+				//查找Levelid所在地图
+				foreach(Level lev in m.Levs)
 				{
-					find = true;
-					break;
+					if(lev.Id == levelId)
+					{
+						find = true;
+						break;
+					}
 				}
-			}
-			//添加关卡所属地图的所有关卡信息
-			if(find)
-			{
-				mp.Add(m.Id, m.Levs);
-				return mp;
+				//添加关卡所属地图的所有关卡信息
+				if(find)
+				{
+					mp.Add(m.Id, m.Levs);
+					return mp;
+				}
 			}
 		}
 		return null;
 	}
+
 	//由关卡Id返回关卡信息
 	public Level getLevelInfo(int levelId)
 	{
-		foreach(Map m in areaMaps.Maps)
+		if(areaMaps != null)
 		{
-			//查找Levelid所在地图
-			foreach(Level lev in m.Levs)
+			foreach(Map m in areaMaps.Maps)
 			{
-				if(lev.Id == levelId)
+				//查找Levelid所在地图
+				foreach(Level lev in m.Levs)
 				{
-					return lev;
+					if(lev.Id == levelId)
+					{
+						return lev;
+					}
 				}
 			}
 		}
 		return null;
 	}
+
 	//下一关卡信息
 	public Level getNextLevel(int levelId)
 	{
-		foreach(Map m in areaMaps.Maps)
+		if(areaMaps != null)
 		{
-			//查找Levelid所在地图
-			foreach(Level lev in m.Levs)
+			foreach(Map m in areaMaps.Maps)
 			{
-				if(lev.Id == (levelId+1))
+				//查找Levelid所在地图
+				foreach(Level lev in m.Levs)
 				{
-					return lev;
+					if(lev.Id == (levelId+1))
+					{
+						return lev;
+					}
 				}
 			}
 		}
 		return null;
 	}
-	//获取LevelInfo
-	public LevelInfo getInfo(int levelId)
+
+	public List<Map> getMapList()
 	{
-		if(levelDic.ContainsKey(levelId))
-			return levelDic[levelId];
-		else
-		{
-			return null;
-		}
+		if(areaMaps != null)
+			return areaMaps.Maps;
+		return null;
 	}
 
-    public List<Map> getMapList()
-    {
-        return areaMaps.Maps;
-    }
+	public static DataManager GetInstance()
+	{
+		if( data_instance == null )
+		{
+			data_instance = new DataManager();
+		}
+		return data_instance;
+	}
+	
+	static DataManager data_instance; 
 }

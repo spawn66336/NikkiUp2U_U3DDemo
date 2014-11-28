@@ -19,10 +19,17 @@ public class UIMapController : MonoBehaviour
     List<Transform> buttonTrans = new List<Transform>();
     GameObject playerObj;
     Transform endTrans;
-    void OnEnable()
+    public UILabel levelNameLabel;
+    void Awake()
     {
         Init(levelNowIndex);
+    }
+    void OnEnable()
+    {
         playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerObj.transform.parent = buttonTrans[PlayerUIResource.GetInstance().CurrentMapLevelIndex];
+        playerObj.transform.localPosition = Vector3.zero;
+
     }
     void OnDisable()
     {
@@ -37,9 +44,9 @@ public class UIMapController : MonoBehaviour
             UIEventListener.Get(buttonTrans[i].gameObject).onClick -= ButtonReactEvent;
         }
     }
-    void Init(int levelName)
+    void Init(int levelNameIndex)
     {
-        levelNow = Object.Instantiate(levels[levelName], Vector3.zero, Quaternion.identity) as GameObject;//创建此关位置，看资源管理
+        levelNow = Object.Instantiate(levels[levelNameIndex], Vector3.zero, Quaternion.identity) as GameObject;//创建此关位置，看资源管理
         levelNow.transform.parent = transform;
         levelNow.transform.localScale = Vector3.one*2;
         levelNow.name = levelNowIndex.ToString();
@@ -87,7 +94,9 @@ public class UIMapController : MonoBehaviour
             }
 
         }
-        
+        //PlayerUIResource.GetInstance().CurrentMapLevelIndex = levelName;
+        levelNameLabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[levelNameIndex].levelInfo.name;
+        //PlayerUIResource.GetInstance().CurrLevelId = levelName+1;
     }
     int subLevelIndex;//配置关卡时候，注意名字一定要正确，名字为对应关卡
 
@@ -95,6 +104,7 @@ public class UIMapController : MonoBehaviour
     int newTransIndex;
     void ButtonReactEvent(GameObject subLevelButton)
     {
+       
         subLevelIndex =int.Parse(subLevelButton.name);
         LoadSubLevel(subLevelIndex);
         int tempLength;
@@ -111,6 +121,7 @@ public class UIMapController : MonoBehaviour
             endTrans = buttonTrans[subLevelIndex];
             StartPlayerMove(movePahts);
             playerNowSubLevelIndex = subLevelIndex;
+            UILocker.GetInstance().Lock(gameObject);
         }
         else if (subLevelIndex > playerNowSubLevelIndex)
         {
@@ -125,12 +136,17 @@ public class UIMapController : MonoBehaviour
             endTrans = buttonTrans[subLevelIndex];
             StartPlayerMove(movePahts);
             playerNowSubLevelIndex = subLevelIndex;
+            UILocker.GetInstance().Lock(gameObject);
         }
+        PlayerUIResource.GetInstance().CurrentMapLevelIndex = subLevelIndex;
+        levelNameLabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrentMapLevelIndex].levelInfo.name;
+        PlayerUIResource.GetInstance().CurrLevelId = subLevelIndex + 1;
+
     }
     void LoadSubLevel(int sublevelIndex)
     {
         //此处与服务器对接用于，加载此关任务
-        Debug.Log("sub level is " + sublevelIndex);
+//        Debug.Log("sub level is " + sublevelIndex);
     }
     Hashtable args;
     void StartPlayerMove(Transform[] paths)
@@ -148,6 +164,7 @@ public class UIMapController : MonoBehaviour
     {
         // complete event
         playerObj.transform.parent = endTrans;
+        UILocker.GetInstance().UnLock(gameObject);
     }
     public string[] dilog;
 }

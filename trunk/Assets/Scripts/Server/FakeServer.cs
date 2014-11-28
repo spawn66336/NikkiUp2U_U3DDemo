@@ -26,6 +26,8 @@ public class FakeServer
 
     public void Init()
     {
+		DataManager.GetInstance().Init();
+
         servers.Add(new AreaMapModuleServer());
         servers.Add(new BagModuleServer());
         servers.Add(new GameItemDBModuleServer());
@@ -51,6 +53,32 @@ public class FakeServer
         }
         return null;
     }
+
+	public AreaMapModuleServer GetAreaMapModuleServer()
+	{
+		foreach(var s in servers)
+		{
+			if(s.GetType() == typeof(AreaMapModuleServer))
+			{
+				AreaMapModuleServer server = (AreaMapModuleServer)s;
+				return server;
+			}
+		}
+		return null;
+	}
+    public PlayerModuleServer GetPlayerModuleServer()
+    {
+        foreach (var s in servers)
+        {
+            if (s.GetType() == typeof(PlayerModuleServer))
+            {
+                PlayerModuleServer server = (PlayerModuleServer)s;
+                return server;
+            }
+        }
+        return null;
+    }
+
     public void Destroy()
     {
         foreach( var s in servers )
@@ -74,19 +102,6 @@ public class FakeServer
             s.HandleRequest(request);
         }
     }
-
-	public AreaMapModuleServer GetAreaMapModuleServer()
-	{
-		foreach(var s in servers)
-		{
-			if(s.GetType() == typeof(AreaMapModuleServer))
-			{
-				AreaMapModuleServer ser = (AreaMapModuleServer)s;
-				return ser;
-			}
-		}
-		return null;
-	}
 
     List<ModuleServer> servers = new List<ModuleServer>();
 

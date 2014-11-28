@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlayerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Gold="1000" Energy="30" Diamond="1000" CurrLevelId="1">
+  <LevelRecordList>
+    <LevelRecordInfo LevelId="1" State="3" HighestScore="1200" HighestRank="2" LastestScore="1200" LastestRank="2">
+      <HighestDressSet>
+        <Dress>
+          <ItemId>10001</ItemId>
+          <ItemId>11914</ItemId>
+          <ItemId>11125</ItemId>
+          <ItemId>10198</ItemId>
+          <ItemId>11431</ItemId>
+          <ItemId>10219</ItemId>
+        </Dress>
+      </HighestDressSet>
+      <LastestDressSet>
+        <Dress>
+          <ItemId>10001</ItemId>
+          <ItemId>11914</ItemId>
+          <ItemId>11125</ItemId>
+          <ItemId>10198</ItemId>
+          <ItemId>11431</ItemId>
+          <ItemId>10219</ItemId>
+        </Dress>
+      </LastestDressSet>
+    </LevelRecordInfo>
+    <LevelRecordInfo LevelId="2" State="3" HighestScore="800" HighestRank="1" LastestScore="800" LastestRank="1">
+      <HighestDressSet>
+        <Dress>
+          <ItemId>10001</ItemId>
+          <ItemId>11914</ItemId>
+          <ItemId>11125</ItemId>
+          <ItemId>10198</ItemId>
+          <ItemId>11431</ItemId>
+          <ItemId>10219</ItemId>
+        </Dress>
+      </HighestDressSet>
+      <LastestDressSet>
+        <Dress>
+          <ItemId>10001</ItemId>
+          <ItemId>11914</ItemId>
+          <ItemId>11125</ItemId>
+          <ItemId>10198</ItemId>
+          <ItemId>11431</ItemId>
+          <ItemId>10219</ItemId>
+        </Dress>
+      </LastestDressSet>
+    </LevelRecordInfo>
+  </LevelRecordList>
+</PlayerInfo>

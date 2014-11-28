@@ -11,5 +11,7 @@ public enum RequestMessageDef
     Request_GetBagItemInfos,
 	Request_GetLevelInfo,
     Request_PlayerInfo,
-    Request_GameItemInfoById
+    Request_GameItemInfoById,
+    Request_ChangeCurrLevel,
+    Request_Rating
 }

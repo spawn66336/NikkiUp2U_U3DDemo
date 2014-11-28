@@ -4,12 +4,22 @@ using System.Collections;
 public class LevelDialogPanelController : UIController 
 {
     public TypewriterEffect mTypewriterEffect;
+    [System.NonSerialized]
     public string[] dialogStrs;
+    DialogContentUIInfo[] mDialogContentInfo;
+    public UILabel textName;
     int dialogLength;
     public override void OnEnterUI()
     {
         base.OnEnterUI();
-        dialogLength= dialogStrs.Length;
+        textName.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrentMapLevelIndex].levelInfo.name;
+        mDialogContentInfo = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrentMapLevelIndex].levelInfo.dialogInfo.contents.ToArray();
+        dialogStrs = new string[mDialogContentInfo.Length];
+        for (int i = 0; i < mDialogContentInfo.Length; ++i)
+        {
+            dialogStrs[i] = mDialogContentInfo[i].content;
+        }
+        dialogLength = dialogStrs.Length;
         mTypewriterEffect.SetInit(dialogStrs[0]);
     }
     public override void OnLeaveUI()

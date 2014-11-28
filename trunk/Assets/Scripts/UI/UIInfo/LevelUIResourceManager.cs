@@ -88,8 +88,15 @@ public class LevelUIResourceManager : UIResourceManager
 
     void _OnGetLevelInfoFinished(LevelInfo info)
     {
+        if( info == null )
+        {
+            syncCount--;
+            return;
+        }
+
         LevelUIInfo newUIInfo = new LevelUIInfo();
         newUIInfo.id = info.id;
+        newUIInfo.areaMapId = info.areaMapId;
         newUIInfo.name = info.name; 
         newUIInfo.isTimeLimit = info.isTimeLimit; 
         newUIInfo.dialogInfo.bkImg = ResourceManager.GetInstance().Load(ResourceType.LevelDialogBackground, info.dialogInfo.bkImgPath) as Texture2D;
@@ -109,6 +116,8 @@ public class LevelUIResourceManager : UIResourceManager
 
             newUIInfo.dialogInfo.contents.Add(contentUIInfo);
         }
+
+        levelUIInfoCache.Add(info.id, newUIInfo);
         syncCount--;
     }
 

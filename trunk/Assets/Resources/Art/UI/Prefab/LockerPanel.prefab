@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400004}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LockerWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: LockerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
