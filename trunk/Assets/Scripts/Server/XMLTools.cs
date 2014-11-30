@@ -11,17 +11,15 @@ public class XMLTools
 {
     public static System.Object readXml(String fileName,Type type)
     {
-        TextReader sr=null;
+        StreamReader sr = null;
         try
-        {
-            String finalFileName = fileName.Remove(fileName.Length - 4, 4);
+        { 
             XmlSerializer ser = new XmlSerializer(type);
-            String filePath = Application.dataPath + "/Resources/Config/Server/" + fileName;
+            string filePath = GameUtil.GetServerConfigFilePath(fileName);
             Debug.Log(filePath);
             paths.Add(filePath);
 
-            TextAsset asset = Resources.Load("Config/Server/" + finalFileName) as TextAsset;
-            sr = new StringReader(asset.text); 
+            sr = new StreamReader(filePath); 
             return ser.Deserialize(sr);
         }
         catch (Exception e)
@@ -45,7 +43,7 @@ public class XMLTools
         try
         {
             XmlSerializer ser = new XmlSerializer(obj.GetType());
-            String filePath = Application.dataPath + "/Resources/Config/Server/" + fileName;
+            string filePath = GameUtil.GetServerConfigFilePath(fileName); 
             Debug.Log(filePath);
             sw = new StreamWriter(File.OpenWrite(filePath));
             ser.Serialize(sw, obj);

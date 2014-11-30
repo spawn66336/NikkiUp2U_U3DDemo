@@ -51,7 +51,9 @@ public class DressPanelController : UIController
             foreach( var c in contents )
             {
                 levelDialogContents.Add(c.content);
-            }
+            } 
+
+            levelDialogContents.scrollValue = 0f;
         }
         else
         {
@@ -349,7 +351,7 @@ public class DressPanelController : UIController
         dressListCtrl.Clear();
         foreach( var dress in dressList )
         {
-            dressListCtrl.AddDress(dress, false, _OnDressClick);
+            dressListCtrl.AddDress(dress, false, _OnDressClick); 
         }
     }
 

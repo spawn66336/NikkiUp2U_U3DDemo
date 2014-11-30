@@ -97,6 +97,7 @@ public class UIMapController : MonoBehaviour
         //PlayerUIResource.GetInstance().CurrentMapLevelIndex = levelName;
         levelNameLabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[levelNameIndex].levelInfo.name;
         //PlayerUIResource.GetInstance().CurrLevelId = levelName+1;
+
     }
     int subLevelIndex;//配置关卡时候，注意名字一定要正确，名字为对应关卡
 

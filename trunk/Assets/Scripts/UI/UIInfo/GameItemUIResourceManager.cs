@@ -21,6 +21,8 @@ public class GameItemUIResourceManager : UIResourceManager
     {
         GameItemDatabaseModule gameItemDBModule = GlobalObjects.GetInstance().GetLogicMain().GetModule<GameItemDatabaseModule>();
 
+        gameItemInfos.Clear();
+
         syncCount = requestList.Count;
         foreach (var req in requestList)
         {
@@ -32,6 +34,26 @@ public class GameItemUIResourceManager : UIResourceManager
             {
                 gameItemDBModule.GetGameItemInfoById(req.ResID, _OnGetGameItemInfoFinished);
                 yield return 0;
+            }
+        }
+         
+        
+        while (syncCount != 0)
+        {
+            yield return 0;
+        }
+
+        syncCount = gameItemInfos.Count;
+
+        foreach( var info in gameItemInfos )
+        {
+            if (_IsCached(info.id))
+            {
+                syncCount--;
+            }
+            else
+            {
+                ResourceManager.GetInstance().LoadAsyn(ResourceType.DressImage, info.id.ToString() + ".assetbundle", 1, info, _OnFinishLoadDressImageBundle);
             }
         }
 
@@ -46,52 +68,55 @@ public class GameItemUIResourceManager : UIResourceManager
         return gameItemsCache.ContainsKey(id);
     }
 
-    void _OnGetGameItemInfoFinished(GameItemInfo info)
+    void _OnFinishLoadDressImageBundle(ResourceLoadResult result, UnityEngine.Object[] objs, object param)
     {
-        GameItem item = null;
-        if( info.type == GameItemType.Dress )
+        syncCount--;
+
+        if (result == ResourceLoadResult.Ok)
         {
+
             Dress dress = new Dress();
+            GameItemInfo info = param as GameItemInfo;
+
             dress.Id = info.id;
             dress.Name = info.name;
             dress.Pos = info.showPos;
             dress.Scale = info.showScale;
             dress.ClothType = info.dressType;
 
-            string imgPrefix = "0_" + dress.Id + "_"; 
-            int indx = 0;
-            Texture2D dressImg = null;
-            do
+            foreach( var o in objs )
             {
-                string imgName = imgPrefix + indx.ToString();
-                dressImg = ResourceManager.GetInstance().Load(ResourceType.DressImage, imgName) as Texture2D; 
+                Texture2D dressImg = o as Texture2D;
+
                 if( dressImg != null )
                 {
                     dress.DressImgs.Add(dressImg);
                 }
-                indx++; 
-            }while (dressImg != null);
+            }
 
             if( dress.DressImgs.Count > 0 )
             {
                 dress.Icon = dress.DressImgs[0];
                 dress.DressImgs.RemoveAt(0);
-            }
-
-            
-
-            item = dress;
+            } 
+            gameItemsCache.Add(dress.Id, dress);
         }
+    }
 
-        if( item != null )
-        {
-            gameItemsCache.Add(item.Id, item);
-        } 
+    void _OnGetGameItemInfoFinished(GameItemInfo info)
+    {
         syncCount--;
+        if (info != null)
+        {
+            gameItemInfos.Add(info);
+        }
+     
+        
     }
 
     int syncCount = 0;
     Dictionary<int, GameItem> gameItemsCache = new Dictionary<int, GameItem>();
+    List<GameItemInfo> gameItemInfos = new List<GameItemInfo>();
 
 	public static GameItemUIResourceManager GetInstance()
     {

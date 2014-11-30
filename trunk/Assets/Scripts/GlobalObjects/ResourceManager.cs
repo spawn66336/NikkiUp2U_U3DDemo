@@ -13,95 +13,124 @@ public enum ResourceType
     LevelDialogBackground
 }
 
-public class ResourceManager : MonoBehaviour 
+public enum ResourceLoadResult
 {
+    Failed = 0,
+    Loading,
+    Ok
+}
 
-    public delegate void OnResourceLoadFinished( ResourceLoadResult result ,UnityEngine.Object resource);
+public delegate void OnResourceLoadFinished(ResourceLoadResult result, UnityEngine.Object[] objs , object param );
 
-    public enum ResourceLoadResult
-    { 
-        Failed = 0,
-        Loading,
-        Ok
+public class ResourceManager : MonoBehaviour 
+{ 
+      
+    class CacheObject
+    {
+        public List<UnityEngine.Object> objs = new List<UnityEngine.Object>();
     }
 
+
     class ResourceLoadTask
-    {  
+    { 
+         
         public IEnumerator Load()
         {
-            yield return 0;
+            WWW www = WWW.LoadFromCacheOrDownload(path, version);  
+            yield return www;
 
-            try
+            UnityEngine.Object[] objs = null;
+
+            if( www.isDone )
             {
-                obj = Resources.Load(path);
-                if (obj != null)
+                state = ResourceLoadResult.Ok; 
+                AssetBundle bundle = www.assetBundle;
+                cacheObj = new CacheObject();
+                objs = UnpackBundle<UnityEngine.Object>(bundle);
+                foreach( var o in objs )
                 {
-                    state = ResourceLoadResult.Ok;
-                }
-                else
-                {
-                    state = ResourceLoadResult.Failed;
-                }
-            }catch(Exception err)
-            {
-                state = ResourceLoadResult.Failed;
-                Debug.Log(err.Message);
+                    cacheObj.objs.Add(o);
+                } 
+                bundle.Unload(false); 
+                Debug.Log("资源" + path + "读取成功！");
             }
-            yield return 0;
+            else
+            {
+                state = ResourceLoadResult.Failed;  
+            }
+            onLoadFinishedCallback(state, objs, param);
         }
      
         public string path;
+        public int version = 1;
         public bool isUrl = false;
-        public UnityEngine.Object obj;
+        public CacheObject cacheObj;
+        public object param;
         public ResourceLoadResult state = ResourceLoadResult.Loading;
         public OnResourceLoadFinished onLoadFinishedCallback;
     }
 
     void Awake()
-    {
+    { 
         if( s_instance == null )
         {
             s_instance = this;
         }
     }
 
+
+
     public UnityEngine.Object Load( ResourceType resType , string name )
     {
         string resPath = _GetResourcePath(resType) + name;
-        UnityEngine.Object resObj;
+        CacheObject cacheObj;
 
         //先检查缓存中是否已经有资源
         if (resourceCache.ContainsKey(resPath))
-        { 
-            if( resourceCache.TryGetValue(resPath, out resObj) )
-            { 
-                return resObj;
+        {
+            if (resourceCache.TryGetValue(resPath, out cacheObj))
+            {
+                if (cacheObj.objs.Count > 0)
+                {
+                    return cacheObj.objs[0];
+                }
+                else
+                {
+                    return null;
+                }
             } 
         }
 
-        resObj = Resources.Load(resPath);
+        UnityEngine.Object resObj = Resources.Load(resPath);
         if (resObj != null)
         {
-            resourceCache.Add(resPath,resObj);
+            cacheObj = new CacheObject();
+            cacheObj.objs.Add(resObj);
+            resourceCache.Add(resPath, cacheObj);
         }
         return resObj;
     }
 
-    public bool Load(string path , OnResourceLoadFinished callback , bool isUrl = false)
+    public bool LoadAsyn(ResourceType type , string fileName , int version , object param ,OnResourceLoadFinished callback)
     {
-        if( callback == null || path == string.Empty )
+        if (callback == null || fileName == string.Empty)
         {
+            if( callback != null )
+            {
+                callback(ResourceLoadResult.Failed, null, param);
+            }
             return false;
         }
+
+       string path = _GetResourcePath(type) + fileName;
 
        //先检查缓存中是否已经有资源
        if( resourceCache.ContainsKey(path) )
        {
-           UnityEngine.Object obj = null;
-           if( resourceCache.TryGetValue(path,out obj))
-           {
-               Debug.Log("击中资源管理器缓存！");
-               callback( ResourceLoadResult.Ok , obj);
+           CacheObject cacheObj = null;
+           if (resourceCache.TryGetValue(path, out cacheObj))
+           { 
+               callback(ResourceLoadResult.Ok, cacheObj.objs.ToArray(), param);
                return true;
            }
            else
@@ -113,7 +142,8 @@ public class ResourceManager : MonoBehaviour
 
        ResourceLoadTask task = new ResourceLoadTask();
        task.path = path;
-       task.isUrl = isUrl;
+       task.version = version;
+       task.param = param;
        task.onLoadFinishedCallback = callback; 
        taskList.Add(task);
 
@@ -130,10 +160,8 @@ public class ResourceManager : MonoBehaviour
             {
                 if( t.state == ResourceLoadResult.Ok )
                 {
-                    resourceCache.Add(t.path, t.obj);
-                } 
-                t.onLoadFinishedCallback(t.state, t.obj);
-
+                    resourceCache.Add(t.path, t.cacheObj);
+                }   
                 removeTasks.Add(t);
             }
         }
@@ -145,6 +173,27 @@ public class ResourceManager : MonoBehaviour
         removeTasks.Clear();
 	}
 
+    public static T[] UnpackBundle<T>(AssetBundle bundle) where T : UnityEngine.Object
+    {
+        if (bundle == null)
+        {
+            return null;
+        }
+
+        List<T> resList = new List<T>();
+
+        UnityEngine.Object[] objs = bundle.LoadAll();
+        foreach (var obj in objs)
+        {
+            T res = obj as T;
+            if (res != null)
+            {
+                resList.Add(res);
+            }
+        }
+        return resList.ToArray();
+    }
+
     string _GetResourcePath( ResourceType resType )
     {
         switch(resType)
@@ -154,7 +203,7 @@ public class ResourceManager : MonoBehaviour
             case ResourceType.AreaMap:
                 return "Art/UI/Texture/AreaMap/";
             case ResourceType.DressImage:
-                return "Art/Dress/";
+                return GameUtil.GetDressBaseUrl(); 
             case ResourceType.UISound:
                 return "Art/Sound/UI/";
             case ResourceType.Npc:
@@ -169,7 +218,7 @@ public class ResourceManager : MonoBehaviour
 
     
     private List<ResourceLoadTask> taskList = new List<ResourceLoadTask>();
-    private Dictionary<string, UnityEngine.Object> resourceCache = new Dictionary<string, UnityEngine.Object>();
+    private Dictionary<string, CacheObject> resourceCache = new Dictionary<string,CacheObject>();
 
     //临时列表
     List<ResourceLoadTask> removeTasks = new List<ResourceLoadTask>();

@@ -7,6 +7,8 @@ public class DressListController : UIController
 
     UIGrid dressListGrid;
 
+    public UIScrollBar dressListScrollbar;
+
     //列表中的衣服按钮
     public List<BagItemBtnController> dressBtnList = new List<BagItemBtnController>();
 
@@ -24,6 +26,8 @@ public class DressListController : UIController
 	void Start () 
     {
         dressListGrid = GetComponentInChildren<UIGrid>();
+        dressListGrid.onCustomSort = _DressBtnListCompare; 
+        dressListGrid.sorting = UIGrid.Sorting.Custom;
 	}
 	 
 	void Update () 
@@ -45,19 +49,33 @@ public class DressListController : UIController
          
 
        int indx = dressBtnList.Count + 1;
-
+       bagItemCtrl.gameObject.name = indx.ToString();
        bagItemCtrl.SetItemID(indx);
        bagItemCtrl.SetDress(dress);
        bagItemCtrl.SetItemIcon(dress.Icon);
        bagItemCtrl.SetItemName(dress.Name);
        bagItemCtrl.SetUsed(used);
-
-       
-
+         
        UIEventListener.Get(bagItemCtrl.gameObject).onClick += onClick;
 
-       dressListGrid.Reposition();
+       if (dressListScrollbar != null )
+       {
+           dressListScrollbar.value = 0f;
+       }
+        
+
+       dressListGrid.Reposition(); 
        dressBtnList.Add(bagItemCtrl);
+    }
+
+    int _DressBtnListCompare( Transform a , Transform b )
+    {
+        int ai = 0;
+        int.TryParse(a.gameObject.name,out ai);
+        int bi = 0;
+        int.TryParse(b.gameObject.name,out bi);
+
+        return ai - bi;
     }
 
     public void Clear()
