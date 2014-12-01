@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System;
 using System.Xml;
 using System.Xml.Serialization;
-/*
+
 //序列化类定义
 //区域地图
 public class AreaMaps
@@ -472,7 +472,7 @@ public class RewardItem
 		set { ratio = value; }
 	}
 }
-*/
+
 //评级枚举
 public enum GradeEnum
 {

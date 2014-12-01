@@ -11,7 +11,7 @@ public class RatingSysModuleServer : ModuleServer
             RatingRequestMsg msg = (RatingRequestMsg)request.msg;
             int levelId = msg.levelId;
             DressSetInfo dressSet = msg.dressSet;
-            Level levelInfo = FakeServer.GetInstance().GetAreaMapModuleServer().getLevelInfo(levelId);
+            Level levelInfo = DataManager.GetInstance().getLevelInfo(levelId);
             // todo 计算得分。返回数据
 
             RatingInfo info = new RatingInfo();

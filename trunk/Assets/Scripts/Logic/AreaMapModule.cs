@@ -4,6 +4,29 @@ using System.Collections.Generic;
 
 public class AreaMapModule : GameLogicModule , IAreaMap
 {
+	/*
+	public override void Init ()
+	{
+		base.Init ();
+		GetAreaMapList(output);
+		GetAreaMapInfo(1,outMapInfo);
+	}
+	
+	public void outMapInfo(AreaMapInfo info)
+	{
+		Debug.Log(info.id.ToString());
+		Debug.Log(info.name);
+		Debug.Log(info.mapIconImgPath);
+	}
+	
+	public void output(List<int> l)
+	{
+		foreach(int s in l)
+		{
+			Debug.Log(s.ToString());
+		}
+	}
+	*/
     public void GetAreaMapList(GetAreaMapIdListCallback callback) 
 	{
 		SendRequest(new RequestAreaMapIdListMessage(), callback);

@@ -20,7 +20,7 @@ public class PlayerModuleServer : ModuleServer
         if (request.msg.Message == (int)RequestMessageDef.Request_PlayerInfo)
         {
             // mapId和levelIdList需要调用接口
-            LevelInfo currLevel = FakeServer.GetInstance().GetAreaMapModuleServer().getInfo(playerInfo.currLevelId);
+            LevelInfo currLevel = DataManager.GetInstance().LevelDic[playerInfo.currLevelId];
             Debug.Log(currLevel);
             int mapId=currLevel.areaMapId;
             List<PlayerLevelRecordInfo> recordList = playerInfo.levelRecordList;
@@ -29,12 +29,12 @@ public class PlayerModuleServer : ModuleServer
                 if (record.state == LevelState.Unlocked)
                 {
                     // todo 加入条件模块之后去寻找
-                    Level levelInfo = FakeServer.GetInstance().GetAreaMapModuleServer().getLevelInfo(record.levelId);
+                    Level levelInfo = DataManager.GetInstance().getLevelInfo(record.levelId);
                     record.lockReason = "奏是锁住了。咬我啊咬我啊！！！！";
                 }
             }
 
-            List<Map> areaMapList = FakeServer.GetInstance().GetAreaMapModuleServer().getMapList();
+            List<Map> areaMapList = DataManager.GetInstance().getMapList();
             List<PlayerAreaMapRecordInfo> mapRecodeList = new List<PlayerAreaMapRecordInfo>();
             foreach (Map map in areaMapList)
             {
@@ -113,7 +113,7 @@ public class PlayerModuleServer : ModuleServer
         if (isOpenLevel)
         {
             // TODO 获得下一个level的的info,判断是否解锁
-            Level nexLevel = FakeServer.GetInstance().GetAreaMapModuleServer().getNextLevel(levelId);
+            Level nexLevel = DataManager.GetInstance().getNextLevel(levelId);
             PlayerLevelRecordInfo newRecord = new PlayerLevelRecordInfo();
             
         }

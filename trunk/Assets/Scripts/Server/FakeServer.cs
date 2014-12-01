@@ -54,18 +54,6 @@ public class FakeServer
         return null;
     }
 
-	public AreaMapModuleServer GetAreaMapModuleServer()
-	{
-		foreach(var s in servers)
-		{
-			if(s.GetType() == typeof(AreaMapModuleServer))
-			{
-				AreaMapModuleServer server = (AreaMapModuleServer)s;
-				return server;
-			}
-		}
-		return null;
-	}
     public PlayerModuleServer GetPlayerModuleServer()
     {
         foreach (var s in servers)

@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 public enum DialogNpcImgShowPos
 {
+	[XmlEnum("1")]
     Left = 1,
+	[XmlEnum("2")]
     Middle,
+	[XmlEnum("3")]
     Right
 }
  

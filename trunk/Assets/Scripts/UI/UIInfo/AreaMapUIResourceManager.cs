@@ -32,6 +32,12 @@ public class AreaMapUIResourceManager : UIResourceManager
         return areaMapUIInfo;
     }
 
+    //获取区域地图id列表
+    public List<int> GetAreaMapIdList()
+    {
+        return areaMapIdList;
+    }
+
     public override IEnumerator Sync()
     {
         AreaMapModule areaMapModule = 
@@ -83,11 +89,11 @@ public class AreaMapUIResourceManager : UIResourceManager
         areaMapUIInfo.name = info.name; 
         areaMapUIInfo.levels = info.levels;
         areaMapUIInfo.mapIconImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, info.mapIconImgPath) as Texture2D;  
-        foreach( var imgName in info.mapImgPaths )
-        {
-            Texture2D mapImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, imgName) as Texture2D;
-            areaMapUIInfo.mapImgs.Add(mapImg);
-        }
+        //foreach( var imgName in info.mapImgPaths )
+        //{
+        //    Texture2D mapImg = ResourceManager.GetInstance().Load(ResourceType.AreaMap, imgName) as Texture2D;
+        //    areaMapUIInfo.mapImgs.Add(mapImg);
+        //}
         areaMapUIInfoCache.Add(info.id, areaMapUIInfo);
         syncCount--;
     }

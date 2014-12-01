@@ -12,6 +12,7 @@ public class DressListController : UIController
     //列表中的衣服按钮
     public List<BagItemBtnController> dressBtnList = new List<BagItemBtnController>();
 
+
     public override void OnEnterUI()
     {
         base.OnEnterUI(); 
@@ -35,7 +36,11 @@ public class DressListController : UIController
 	    
 	}
 
-    public void AddDress(  Dress dress , bool used, UIEventListener.VoidDelegate onClick )
+    public void AddDress(  Dress dress , bool used, 
+            UIEventListener.VoidDelegate onClick , 
+            UIEventListener.VoidDelegate onDressDescBegin , 
+            UIEventListener.VoidDelegate onDressDescEnd 
+        )
     {
        UnityEngine.Object prefab = ResourceManager.GetInstance().Load(ResourceType.UI ,"BagItemBtn" );
        GameObject go = GameObject.Instantiate(prefab) as GameObject;
@@ -56,17 +61,20 @@ public class DressListController : UIController
        bagItemCtrl.SetItemName(dress.Name);
        bagItemCtrl.SetUsed(used);
          
-       UIEventListener.Get(bagItemCtrl.gameObject).onClick += onClick;
+       bagItemCtrl.onClickCallback = onClick;
+       bagItemCtrl.onDressDescBeginCallback = onDressDescBegin;
+       bagItemCtrl.onDressDescEndCallback = onDressDescEnd;
 
        if (dressListScrollbar != null )
        {
            dressListScrollbar.value = 0f;
        }
-        
-
+         
        dressListGrid.Reposition(); 
        dressBtnList.Add(bagItemCtrl);
     }
+
+
 
     int _DressBtnListCompare( Transform a , Transform b )
     {

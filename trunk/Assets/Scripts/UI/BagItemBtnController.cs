@@ -10,16 +10,22 @@ public class BagItemBtnController : MonoBehaviour
     public UISprite ItemUsed;
 
     private Dress dress;
+     
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () { 
-	}
+    public UIEventListener.VoidDelegate onClickCallback = null;
+    public UIEventListener.VoidDelegate onDressDescBeginCallback = null;
+    public UIEventListener.VoidDelegate onDressDescEndCallback = null;
 
+    //点击阈值
+    float clickThresholdInterval = 0.5f;
+    //是否鼠标键点下
+    bool pressDown = false;
+    //鼠标键按下时刻
+    int pressBeginTick = 0;
+    //是否提示Desc
+    bool isShowDressDesc = false;
+
+ 
     public void SetUsed( bool b )
     {
         if( ItemUsed.gameObject.activeInHierarchy != b )
@@ -56,4 +62,57 @@ public class BagItemBtnController : MonoBehaviour
         return dress;
     }
 
+    void Update()
+    {
+        if( pressDown )
+        {
+            int currTick = System.Environment.TickCount;
+            int elapseTick = currTick - pressBeginTick;
+            float elapseSec = ((float)elapseTick) * 0.001f;
+
+            if( elapseSec >= clickThresholdInterval )
+            {
+                if ( !isShowDressDesc && onDressDescBeginCallback != null)
+                {
+                    isShowDressDesc = true;
+                    onDressDescBeginCallback(this.gameObject);
+                }
+            }
+        }
+    }
+
+    void OnPress(bool isPressed)
+    {
+        if( isPressed )
+        {
+            pressDown = true;
+            pressBeginTick = System.Environment.TickCount;
+        }
+        else
+        {
+            int currTick = System.Environment.TickCount;
+            int elapseTick = currTick - pressBeginTick;
+            float elapseSec = ((float)elapseTick) * 0.001f;
+
+            if (elapseSec < clickThresholdInterval )
+            {
+                if( onClickCallback != null )
+                {
+                    onClickCallback(this.gameObject);
+                }
+            }
+            else
+            {
+                if ( isShowDressDesc && onDressDescEndCallback != null)
+                {
+                    onDressDescEndCallback(this.gameObject);
+                }
+            }
+
+            isShowDressDesc = false;
+            pressDown = false; 
+            pressBeginTick = 0; 
+        }
+        Debug.Log("Pressed = " + isPressed);
+    }
 }

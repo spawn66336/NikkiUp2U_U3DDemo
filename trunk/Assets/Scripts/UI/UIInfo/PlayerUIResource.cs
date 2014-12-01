@@ -42,7 +42,67 @@ public class PlayerUIResource : UIResourceManager
         get { return playerInfo.diamond; }
         set { playerInfo.diamond = value; }
     }
+
+    //当前区域地图索引(建议使用)
+    public int CurrAreaMapIndex
+    {
+        get 
+        { 
+            return currAreaMapIndex; 
+        }
+
+        set
+        {  
+            if( value >= 0 && value < areaMapIdList.Count )
+            {
+                currAreaMapIndex = value;
+                CurrLevelIndex = 0;
+            }
+        }
+    }
+
+    //相对于当前地图的关卡索引（建议使用）
+    public int CurrLevelIndex
+    {
+        get
+        { 
+            int id = CurrLevelId;
+            int indx = 0;
+
+            if( CurrAreaMapUIInfo.levels == null )
+            {
+                return 0;
+            }
+
+            foreach( var levelId in CurrAreaMapUIInfo.levels )
+            {
+                if( levelId == id )
+                {
+                    return indx;
+                }
+                indx++;
+            } 
+            return 0;
+        }
+
+        set
+        {
+            if (CurrAreaMapUIInfo.levels == null)
+            {
+                return;
+            }
+
+            if( value < 0 || 
+                value >= CurrAreaMapUIInfo.levels.Length )
+            {
+                return;
+            } 
+            CurrLevelId = CurrAreaMapUIInfo.levels[value];
+        }
+    }
     
+    
+
     //当前关卡id 
     public int CurrLevelId
     {
@@ -60,28 +120,35 @@ public class PlayerUIResource : UIResourceManager
     {
         get 
         {
-            foreach( var level in playerCurrAreaMapLevelUIInfos )
-            {
-                if( level.levelInfo.id == CurrLevelId )
-                {
-                    return level;
-                }
-            }
-            return null; 
+            var currAreaMapLevels = CurrAreaMapLevelUIInfos;
+            return currAreaMapLevels[CurrLevelIndex];
         }
     }
      
     //获取当前地图信息
     public AreaMapUIInfo CurrAreaMapUIInfo
     {
-        get { return currAreaMapUIInfo; }
+        get 
+        {
+            return areaMapUIInfos[CurrAreaMapIndex]; 
+        }
     }
  
     //获取当前地图所有关卡信息  
     public List<PlayerLevelUIInfo> CurrAreaMapLevelUIInfos
     {
-        get { return playerCurrAreaMapLevelUIInfos; }
+        get 
+        {
+            if( !levelInfos.ContainsKey(CurrAreaMapIndex) )
+            {
+                return null;
+            }
+
+            return levelInfos[CurrAreaMapIndex];  
+        }
     }
+
+
     public int CurrentMapLevelIndex=0;
    
     //获取背包信息
@@ -132,68 +199,73 @@ public class PlayerUIResource : UIResourceManager
             bagItemUIInfos.Add(itemUIInfo);
         }
 
-        //获取当前关卡数据
-        var levelUIInfo = LevelUIResourceManager.GetInstance().TryGetLevelInfo(CurrLevelId);
-        if (levelUIInfo == null)
+
+        //更新区域地图列表
+        syncEnumator = AreaMapUIResourceManager.GetInstance().Sync();
+        while( syncEnumator.MoveNext() )
         {
-            syncEnumator = LevelUIResourceManager.GetInstance().Sync();
-            while (syncEnumator.MoveNext())
+            yield return 0;
+        }
+
+        //获得区域地图id列表
+        areaMapIdList = AreaMapUIResourceManager.GetInstance().GetAreaMapIdList(); 
+        foreach ( var areaMapId in areaMapIdList )
+        {
+            AreaMapUIResourceManager.GetInstance().TryGetAreaMapUIInfo(areaMapId);
+        }
+
+        syncEnumator = AreaMapUIResourceManager.GetInstance().Sync();
+        while (syncEnumator.MoveNext())
+        {
+            yield return 0;
+        }
+
+        //获取所有区域地图UI信息
+        areaMapUIInfos.Clear();
+        foreach( var areaMapId in areaMapIdList )
+        {
+            var areaMapUIInfo = AreaMapUIResourceManager.GetInstance().TryGetAreaMapUIInfo(areaMapId); 
+            if( areaMapUIInfo != null )
             {
-                yield return 0;
+                areaMapUIInfos.Add(areaMapUIInfo);
             }
-
-            levelUIInfo = LevelUIResourceManager.GetInstance().TryGetLevelInfo(CurrLevelId);
         }
 
-        if( levelUIInfo == null )
-        {//关卡信息获取失败！
-            currAreaMapId = 1; 
-        }
-        else
+        //更新所有关卡信息
+        levelInfos.Clear(); 
+        foreach( var areaMapUIInfo in areaMapUIInfos )
         {
-            currAreaMapId = levelUIInfo.areaMapId;
-        }
-         
-        ////获得当前区域地图信息
-        
-        currAreaMapUIInfo = AreaMapUIResourceManager.GetInstance().TryGetAreaMapUIInfo(currAreaMapId);
-        if (currAreaMapUIInfo == null)
-        {
-            syncEnumator = AreaMapUIResourceManager.GetInstance().Sync();
-            while (syncEnumator.MoveNext())
-            {
-                yield return 0;
-            }
-            currAreaMapUIInfo = AreaMapUIResourceManager.GetInstance().TryGetAreaMapUIInfo(currAreaMapId);
-        }
-        
-        if( currAreaMapUIInfo == null )
-        {//区域地图获取失败
-            yield break;
-        }
-
-        ////更新当前区域关卡信息
-        playerCurrAreaMapLevelUIInfos.Clear();
-        if (currAreaMapUIInfo != null)
-        {//更新当前区域地图所有关卡信息 
-            foreach (var levelId in currAreaMapUIInfo.levels)
+            foreach( var levelId in areaMapUIInfo.levels )
             {
                 LevelUIResourceManager.GetInstance().TryGetLevelInfo(levelId);
             }
+        }
 
-            syncEnumator = LevelUIResourceManager.GetInstance().Sync();
-            while (syncEnumator.MoveNext())
+        syncEnumator = LevelUIResourceManager.GetInstance().Sync();
+        while (syncEnumator.MoveNext())
+        {
+            yield return 0;
+        }
+
+        int mapIndex = 0;
+        foreach (var areaMapUIInfo in areaMapUIInfos)
+        {
+            if( !levelInfos.ContainsKey(mapIndex) )
             {
-                yield return 0;
+                levelInfos.Add(mapIndex, new List<PlayerLevelUIInfo>());
             }
 
-            foreach (var levelId in currAreaMapUIInfo.levels)
+            List<PlayerLevelUIInfo> areaMapLevelUIInfoList;
+            levelInfos.TryGetValue(mapIndex, out areaMapLevelUIInfoList);
+
+            foreach (var levelId in areaMapUIInfo.levels)
             {
-                levelUIInfo = LevelUIResourceManager.GetInstance().TryGetLevelInfo(levelId);
+                LevelUIInfo levelUIInfo = LevelUIResourceManager.GetInstance().TryGetLevelInfo(levelId);
                 if (levelUIInfo != null)
                 {
                     PlayerLevelUIInfo playerLevelUIInfo = new PlayerLevelUIInfo();
                     playerLevelUIInfo.levelInfo = levelUIInfo;
+                    playerLevelUIInfo.state = LevelState.Invisible;
 
                     var recordList = playerInfo.levelRecordList;
                     foreach (var levelRecord in recordList)
@@ -205,15 +277,38 @@ public class PlayerUIResource : UIResourceManager
                             break;
                         }
                     }
-                    playerCurrAreaMapLevelUIInfos.Add(playerLevelUIInfo);
+                    areaMapLevelUIInfoList.Add(playerLevelUIInfo);
                 }
                 else
                 {
                     Debug.LogError("关卡" + levelId + "不存在！");
-                }  
+                }
             }
-        } 
+        }
+
+        _UpdateAreaMapIndex();
+
     }
+
+    void _UpdateAreaMapIndex()
+    {
+        //根据当前关卡id推断区域地图index
+        int mapIndex = 0;
+        foreach (var areaMapUIInfo in areaMapUIInfos)
+        {
+            foreach (var levelId in areaMapUIInfo.levels)
+            {
+                if (levelId == CurrLevelId)
+                {
+                    currAreaMapIndex = mapIndex;
+                    return;
+                }
+            }
+            mapIndex++;
+        }
+        currAreaMapIndex = 0;
+    }
+  
      
     void _KickForceSync()
     {
@@ -250,18 +345,27 @@ public class PlayerUIResource : UIResourceManager
     }
 
     bool isSyncing = false;
-    int currAreaMapId = 0;
-    List<BagItemInfo> bagItems = new List<BagItemInfo>();
+
+    int syncCount = 0;
 
     //当前玩家信息
-    PlayerInfo playerInfo = new PlayerInfo();
+    PlayerInfo playerInfo = new PlayerInfo(); 
+    //背包物品信息列表
+    List<BagItemInfo> bagItems = new List<BagItemInfo>(); 
+    //当前背包物品UI信息列表
+    List<BagItemUIInfo> bagItemUIInfos = new List<BagItemUIInfo>();  
 
-    //当前背包物品UI信息
-    List<BagItemUIInfo> bagItemUIInfos = new List<BagItemUIInfo>(); 
-    //当前区域地图UI信息
-    AreaMapUIInfo currAreaMapUIInfo = new AreaMapUIInfo();
-    //当前区域关卡UI信息
-    List<PlayerLevelUIInfo> playerCurrAreaMapLevelUIInfos = new List<PlayerLevelUIInfo>();
+    //当前区域地图索引
+    int currAreaMapIndex = 0; 
+    //区域地图id列表
+    List<int> areaMapIdList = new List<int>();
+    //区域地图UI信息列表
+    List<AreaMapUIInfo> areaMapUIInfos = new List<AreaMapUIInfo>();
+    
+
+    //所有关卡信息
+    Dictionary<int, List<PlayerLevelUIInfo>> levelInfos = new Dictionary<int, List<PlayerLevelUIInfo>>();
+     
 
     public static PlayerUIResource GetInstance()
     {

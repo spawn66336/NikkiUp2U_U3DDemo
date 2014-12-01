@@ -18,6 +18,9 @@ public class DressPanelController : UIController
     public GameObject dressGroup;
     //任务提示框
     public GameObject levelDialog;
+
+    //衣服描述信息板
+    public DressDescBox dressDescBox;
      
     //选中类型
     DressType chosenType; 
@@ -174,6 +177,19 @@ public class DressPanelController : UIController
         _SetNextState(DressPanelState.AccChoose);
     }
 
+
+    public void ShowDressDescBox(bool show, Dress dress)
+    {
+        if (dressDescBox.gameObject.activeInHierarchy != show)
+        {
+            dressDescBox.gameObject.SetActive(show);
+        }
+
+        if (show && dress != null)
+        {
+            dressDescBox.SetDesc(dress.Name, dress.Desc, dress.Icon);
+        }
+    }
 
     void _SetNextState( DressPanelState state )
     {
@@ -351,7 +367,7 @@ public class DressPanelController : UIController
         dressListCtrl.Clear();
         foreach( var dress in dressList )
         {
-            dressListCtrl.AddDress(dress, false, _OnDressClick); 
+            dressListCtrl.AddDress(dress, false, _OnDressClick, _OnDressDescBegin, _OnDressDescEnd); 
         }
     }
 
@@ -369,6 +385,18 @@ public class DressPanelController : UIController
                 btn.SetUsed(false);
             }
         }
+    }
+
+    void _OnDressDescBegin( GameObject go)
+    {
+        var bagItemCtrl =  go.GetComponent<BagItemBtnController>();
+        Dress dress = bagItemCtrl.GetDress();
+        ShowDressDescBox(true, dress);
+    }
+
+    void _OnDressDescEnd( GameObject go)
+    {
+        ShowDressDescBox(false, null);
     }
 
     void _OnDressClick( GameObject go )
