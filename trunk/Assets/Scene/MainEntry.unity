@@ -122,6 +122,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 80133104}
   - 114: {fileID: 80133105}
+  - 114: {fileID: 80133107}
+  - 54: {fileID: 80133106}
   m_Layer: 0
   m_Name: GlobalObjects
   m_TagString: Untagged
@@ -161,6 +163,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busyPanel: {fileID: 1690987150}
   loadingPanel: {fileID: 2058364076}
+--- !u!54 &80133106
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 80133103}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &80133107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 80133103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  showInPanelTool: 1
+  generateNormals: 0
+  widgetsAreStatic: 0
+  cullWhileDragging: 0
+  alwaysOnScreen: 0
+  anchorOffset: 0
+  renderQueue: 0
+  startingRenderQueue: 3000
+  mAlpha: 1
+  mClipping: 0
+  mClipRange: {x: 0, y: 0, z: 300, w: 200}
+  mClipSoftness: {x: 4, y: 4}
+  mDepth: 0
+  mSortingOrder: 0
+  mClipOffset: {x: 0, y: 0}
 --- !u!1 &158083676
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +231,7 @@ GameObject:
   - 4: {fileID: 158083677}
   - 114: {fileID: 158083679}
   - 65: {fileID: 158083678}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LoadingBk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +320,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 518617097}
   - 114: {fileID: 518617096}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +438,7 @@ GameObject:
   - 4: {fileID: 605710430}
   - 114: {fileID: 605710432}
   - 111: {fileID: 605710431}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BusyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +531,7 @@ GameObject:
   - 4: {fileID: 654495874}
   - 114: {fileID: 654495876}
   - 111: {fileID: 654495875}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LoadingBk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,6 +680,42 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4780cd7e3757647409669d63b6e42675, type: 2}
   m_RootGameObject: {fileID: 2058364076}
@@ -675,7 +771,7 @@ GameObject:
   - 114: {fileID: 773915200}
   - 65: {fileID: 773915199}
   - 114: {fileID: 773915198}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LockerWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +862,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 784887858}
   - 114: {fileID: 784887859}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: AnchorCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +910,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 846245456}
   - 114: {fileID: 846245457}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RewardName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,6 +1031,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f8ed8e4f43ce91c4999be50b9bfde269, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f8ed8e4f43ce91c4999be50b9bfde269, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8ed8e4f43ce91c4999be50b9bfde269, type: 2}
   m_RootGameObject: {fileID: 1445450781}
@@ -949,7 +1053,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 999091752}
   - 114: {fileID: 999091753}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RewardDesc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,6 +1182,22 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -.814921081
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cc1de0ebf0bf1a44fbc8030248b39485, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: cc1de0ebf0bf1a44fbc8030248b39485, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cc1de0ebf0bf1a44fbc8030248b39485, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cc1de0ebf0bf1a44fbc8030248b39485, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc1de0ebf0bf1a44fbc8030248b39485, type: 2}
   m_RootGameObject: {fileID: 1690987150}
@@ -1132,7 +1252,7 @@ GameObject:
   - 4: {fileID: 1186627202}
   - 114: {fileID: 1186627204}
   - 65: {fileID: 1186627203}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LockerWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1307,7 +1427,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1240741000}
   - 114: {fileID: 1240741001}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: AnchorCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1515,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1363925236}
   - 114: {fileID: 1363925237}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1595,7 @@ GameObject:
   - 4: {fileID: 1445450782}
   - 114: {fileID: 1445450784}
   - 54: {fileID: 1445450783}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LockerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1686,7 @@ GameObject:
   - 114: {fileID: 1497712970}
   - 65: {fileID: 1497712969}
   - 114: {fileID: 1497712968}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RewardBk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1711,6 +1831,30 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
   m_RootGameObject: {fileID: 2024996628}
@@ -1725,7 +1869,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1573063339}
   - 114: {fileID: 1573063340}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: AnchorBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1773,7 +1917,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1657870482}
   - 114: {fileID: 1657870483}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Dot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1852,7 +1996,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1659139204}
   - 114: {fileID: 1659139205}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Dot0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1932,7 +2076,7 @@ GameObject:
   - 4: {fileID: 1690987151}
   - 114: {fileID: 1690987153}
   - 54: {fileID: 1690987152}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BusyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2021,7 +2165,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1711534255}
   - 114: {fileID: 1711534256}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Dot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,7 +2244,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1852870674}
   - 114: {fileID: 1852870675}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RewardIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2288,7 +2432,7 @@ GameObject:
   - 114: {fileID: 2024996632}
   - 54: {fileID: 2024996631}
   - 114: {fileID: 2024996630}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RewardPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2441,7 +2585,7 @@ GameObject:
   - 4: {fileID: 2058364077}
   - 114: {fileID: 2058364079}
   - 54: {fileID: 2058364078}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LoadingUIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

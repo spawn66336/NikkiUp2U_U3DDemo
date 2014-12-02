@@ -79,6 +79,7 @@ public class GameItemUIResourceManager : UIResourceManager
             GameItemInfo info = param as GameItemInfo;
 
             dress.Id = info.id;
+            dress.Rareness = info.rareness;
             dress.Desc = info.desc; 
             dress.Name = info.name;
             dress.Pos = info.showPos;

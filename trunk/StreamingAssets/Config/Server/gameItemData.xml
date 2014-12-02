@@ -50,7 +50,7 @@
       <Attribute Type="0" Id="1" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11914" ItemName="摩卡" ItemType="0" Rareness="1" Desc="巧克力色的深系毛衣，保暖有型，领袖与边缘的卷边设计看似普通，实则做工精良。" DressType="1" ShowPoition="(651.5, 1214.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="11914" ItemName="摩卡" ItemType="0" Rareness="5" Desc="巧克力色的深系毛衣，保暖有型，领袖与边缘的卷边设计看似普通，实则做工精良。" DressType="1" ShowPoition="(651.5, 1214.5)" PriceGold="1000" PriceDiamond="20">
     <StyleList>
       <ratio>0.25</ratio>
       <ratio>0.25</ratio>

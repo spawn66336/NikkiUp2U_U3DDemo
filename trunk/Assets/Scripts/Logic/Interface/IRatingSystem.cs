@@ -37,6 +37,8 @@ public class RatingInfo
    public int score;
    //关卡评级
    public LevelRank levelRank;
+   //通关评语
+   public string comment;
    //此关的奖品信息
    public List<LevelRewardInfo> rewards = 
        new List<LevelRewardInfo>();

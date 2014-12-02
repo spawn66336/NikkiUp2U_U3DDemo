@@ -9,6 +9,8 @@ public class DressDescBox : MonoBehaviour
     public UILabel dressName;
     //衣服描述
     public UILabel dressDesc;
+    //衣服稀有度
+    public RankController rankCtrl;
 
 	// Use this for initialization
 	void Start () 
@@ -22,10 +24,11 @@ public class DressDescBox : MonoBehaviour
 	
 	}
 
-    public void SetDesc( string name , string desc , Texture2D icon )
+    public void SetDesc( string name , string desc , Texture2D icon , int rank )
     {
         dressName.text = name;
         dressDesc.text = desc;
         dressIcon.mainTexture = icon;
+        rankCtrl.SetRank(rank);
     }
 }

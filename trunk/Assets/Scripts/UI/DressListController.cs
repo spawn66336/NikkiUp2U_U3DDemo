@@ -60,6 +60,7 @@ public class DressListController : UIController
        bagItemCtrl.SetItemIcon(dress.Icon);
        bagItemCtrl.SetItemName(dress.Name);
        bagItemCtrl.SetUsed(used);
+       bagItemCtrl.SetRank(dress.Rareness);
          
        bagItemCtrl.onClickCallback = onClick;
        bagItemCtrl.onDressDescBeginCallback = onDressDescBegin;

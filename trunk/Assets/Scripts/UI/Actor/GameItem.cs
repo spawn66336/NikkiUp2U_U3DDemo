@@ -21,6 +21,12 @@ public class GameItem
         set { icon = value; }
     }
 
+    public int Rareness
+    {
+        get { return rareness; }
+        set { rareness = value; }
+    }
+
     public string Desc
     {
         get { return desc; }
@@ -29,6 +35,7 @@ public class GameItem
 
     int id;
     string name;
+    int rareness;
     Texture2D icon;
     string desc;
 }

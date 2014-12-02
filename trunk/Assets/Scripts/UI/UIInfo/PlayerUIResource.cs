@@ -16,6 +16,14 @@ public class PlayerLevelUIInfo
     public string lockReason;
 }
 
+public class PlayerLevelRewardUIInfo
+{
+    public int score;
+    public LevelRank levelRank;
+    public string comment;
+    public List<BagItemUIInfo> rewards = new List<BagItemUIInfo>();
+}
+
 public class PlayerUIResource : UIResourceManager 
 {
     public override void Init()
@@ -127,19 +135,30 @@ public class PlayerUIResource : UIResourceManager
             CurrLevelId = CurrAreaMapUIInfo.levels[value];
         }
     }
-    
-    
+
 
     //当前关卡id 
-    public int CurrLevelId
+    private int CurrLevelId
     {
         get { return playerInfo.currLevelId; }
-        set 
-        { 
+        set
+        {
             playerInfo.currLevelId = value;
             PlayerModule playerModule = GlobalObjects.GetInstance().GetLogicMain().GetModule<PlayerModule>();
             playerModule.ChangeCurrLevel(playerInfo.currAreaMapId, playerInfo.currLevelId, null);
         }
+    }
+
+
+    public PlayerLevelRewardUIInfo CurrRaingUIInfo
+    {
+        get { return currLevelRatingUIInfo; }
+    }
+
+    //当前关卡评分信息
+    public RatingInfo CurrRatingInfo
+    { 
+        set { ratingInfo = value; }
     }
 
     //玩家当前关卡信息
@@ -182,7 +201,12 @@ public class PlayerUIResource : UIResourceManager
         get { return bagItemUIInfos; }
     }
      
-    
+    public void DressFinished( DressSetInfo dressSet , RatingResultCallback callback )
+    {
+        RatingSystemModule ratingSysModule = GlobalObjects.GetInstance().GetLogicMain().GetModule<RatingSystemModule>();
+        ratingSysModule.Rate(CurrLevelId, dressSet, callback);
+    }
+
 	public override IEnumerator Sync()
     {
         PlayerModule playerModule = GlobalObjects.GetInstance().GetLogicMain().GetModule<PlayerModule>();
@@ -321,6 +345,40 @@ public class PlayerUIResource : UIResourceManager
 
     }
 
+    //同步奖励信息
+    public IEnumerator SyncReward()
+    {
+        if( ratingInfo != null )
+        {
+            currLevelRatingUIInfo = new PlayerLevelRewardUIInfo();
+            currLevelRatingUIInfo.score = ratingInfo.score;
+            currLevelRatingUIInfo.levelRank = ratingInfo.levelRank;
+            currLevelRatingUIInfo.comment = ratingInfo.comment;
+
+            foreach (var reward in ratingInfo.rewards )
+            { 
+                GameItemUIResourceManager.GetInstance().TryGetGameItem(reward.itemId);
+            }
+
+            //等待物品更新完成
+            IEnumerator syncEnumator = GameItemUIResourceManager.GetInstance().Sync();
+            while (syncEnumator.MoveNext())
+            {
+                yield return 0;
+            }
+             
+            foreach (var reward in ratingInfo.rewards)
+            {
+                GameItem item = GameItemUIResourceManager.GetInstance().TryGetGameItem(reward.itemId);
+                BagItemUIInfo itemUIInfo = new BagItemUIInfo();
+                itemUIInfo.item = item;
+                itemUIInfo.count = reward.itemCount;
+                currLevelRatingUIInfo.rewards.Add(itemUIInfo); 
+            } 
+        }
+        yield return 0;
+    }
+
     void _UpdateAreaMapIndex()
     {
         //根据当前关卡id推断区域地图index
@@ -419,6 +477,11 @@ public class PlayerUIResource : UIResourceManager
     List<BagItemInfo> bagItems = new List<BagItemInfo>(); 
     //当前背包物品UI信息列表
     List<BagItemUIInfo> bagItemUIInfos = new List<BagItemUIInfo>();
+    //当前关卡通关奖励信息
+    PlayerLevelRewardUIInfo currLevelRatingUIInfo;
+
+    //当前关卡通关奖励
+    RatingInfo ratingInfo;
 
     //当前地图S及以上评级的关卡数
     int currAreaMapRankSLevelCount;

@@ -8,6 +8,7 @@ public class BagItemBtnController : MonoBehaviour
     public UILabel ItemName;
     public UITexture ItemIcon;
     public UISprite ItemUsed;
+    public RankController rankCtrl;
 
     private Dress dress;
      
@@ -60,6 +61,11 @@ public class BagItemBtnController : MonoBehaviour
     public Dress GetDress()
     {
         return dress;
+    }
+
+    public void SetRank( int rank )
+    {
+        rankCtrl.SetRank(rank);
     }
 
     void Update()

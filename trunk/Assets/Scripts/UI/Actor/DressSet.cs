@@ -77,6 +77,22 @@ public class DressSet : MonoBehaviour
         }
     }
 
+    //获取用于评分的衣服信息
+    public DressSetInfo GetDressSetInfo()
+    {
+        DressSetInfo newInfo = new DressSetInfo();
+
+        foreach (var part in dressParts)
+        {
+            if (part.dress != null)
+            {
+                newInfo.dressList.Add(part.dress.Id);
+            }
+        }
+
+        return newInfo;
+    }
+
     //当前服装是否已经穿着
     public bool IsUsed( Dress dress )
     {
@@ -120,6 +136,8 @@ public class DressSet : MonoBehaviour
         new DressPart {depth = new int[]{ 7, -1 }},			//    AccFace,        //14  
         new DressPart {depth = new int[]{13, -1 }},			//    AccBag, 
     };
+
+
 
     DressPart GetDressPart(DressType type)
     {

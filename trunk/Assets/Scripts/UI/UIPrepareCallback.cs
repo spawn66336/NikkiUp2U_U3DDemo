@@ -126,8 +126,13 @@ public class UIPrepareCallback
     }
 
     public static IEnumerator PrepareRatingUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
-    { 
-        yield return 0;
+    {
+        var syncEnumator = PlayerUIResource.GetInstance().SyncReward();
+        while (syncEnumator.MoveNext())
+        {
+            yield return 0;
+        }
+
         if (finishedCallback != null)
         {
             finishedCallback();

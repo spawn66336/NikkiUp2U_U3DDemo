@@ -187,7 +187,7 @@ public class DressPanelController : UIController
 
         if (show && dress != null)
         {
-            dressDescBox.SetDesc(dress.Name, dress.Desc, dress.Icon);
+            dressDescBox.SetDesc(dress.Name, dress.Desc, dress.Icon, dress.Rareness);
         }
     }
 
@@ -455,6 +455,15 @@ public class DressPanelController : UIController
 
     public void OnDressFinishedBtnClick()
     {
+        UILocker.GetInstance().Lock(gameObject);
+        PlayerUIResource.GetInstance().DressFinished(Nikki.GetDressSet().GetDressSetInfo(), _OnRatingResultCallback); 
+    }
+
+    
+    void _OnRatingResultCallback( RatingInfo info )
+    {
+        UILocker.GetInstance().UnLock(gameObject);
+        PlayerUIResource.GetInstance().CurrRatingInfo = info;
         GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.RatingUI);
     }
 

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
+using System.Collections; 
 
 public class UIAtlasCommandCounter : MonoBehaviour
 {
