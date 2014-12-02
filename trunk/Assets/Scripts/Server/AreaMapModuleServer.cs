@@ -21,9 +21,12 @@ public class AreaMapModuleServer : ModuleServer
         if (request.msg.Message == (int)RequestMessageDef.Request_AreaMapIdList)
         {
 			List<int> mapIdList = new List<int>();
-			foreach(Map m in DataManager.GetInstance().AreaMapsData.Maps)
+			if(DataManager.GetInstance().AreaMapsData != null)
 			{
-				mapIdList.Add(m.Id);
+				foreach(Map m in DataManager.GetInstance().AreaMapsData.Maps)
+				{
+					mapIdList.Add(m.Id);
+				}
 			}
 			ServerReplyMessage rpl = new ServerReplyMessage();
             rpl.serial = request.serial;
@@ -36,13 +39,11 @@ public class AreaMapModuleServer : ModuleServer
 			int id = ((RequestAreaMapInfoMessage)request.msg).id;
             ServerReplyMessage rpl = new ServerReplyMessage();
 			rpl.serial = request.serial;
-			rpl.resultObject = DataManager.GetInstance().MapDic[id];
+			if(DataManager.GetInstance().MapDic != null && DataManager.GetInstance().MapDic.ContainsKey(id))
+				rpl.resultObject = DataManager.GetInstance().MapDic[id];
+			else
+				rpl.resultObject = null;
 			ReplyToClient(rpl);
         }
 	}
-
-    public List<Map> getMapList()
-    {
-		return DataManager.GetInstance().AreaMapsData.Maps;
-    }
 }

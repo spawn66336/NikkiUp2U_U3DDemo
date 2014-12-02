@@ -36,11 +36,37 @@ public class PlayerUIResource : UIResourceManager
         set { playerInfo.energy = value; }
     }
 
+    //玩家最大能量值
+    public int MaxEnergy
+    {
+        get { return 30; }
+    }
+     
+
     //玩家钻石
     public int Diamond
     {
         get { return playerInfo.diamond; }
         set { playerInfo.diamond = value; }
+    }
+
+    //当前区域地图S及以上评级的关卡数量
+    public int CurrAreaMapRankSLevelCount
+    {
+        get { return currAreaMapRankSLevelCount; }
+    }
+
+    //当前区域地图通过关卡数量
+    public int CurrAreaMapFinishedLevelCount
+    {
+        get { return currAreaMapFinishedLevelCount; }
+    }
+
+    //当前区域地图关卡记录表（key:关卡索引，value:玩家记录）
+    public Dictionary<int,PlayerLevelRecordInfo> 
+        CurrAreaMapLevelRecordTable
+    {
+        get { return currAreaMapLevelRecordTable; }
     }
 
     //当前区域地图索引(建议使用)
@@ -52,11 +78,12 @@ public class PlayerUIResource : UIResourceManager
         }
 
         set
-        {  
+        {
             if( value >= 0 && value < areaMapIdList.Count )
             {
                 currAreaMapIndex = value;
                 CurrLevelIndex = 0;
+                _UpdateCurrAreaMapInfos();
             }
         }
     }
@@ -148,8 +175,6 @@ public class PlayerUIResource : UIResourceManager
         }
     }
 
-
-    public int CurrentMapLevelIndex=0;
    
     //获取背包信息
     public List<BagItemUIInfo> BagItemUIInfos
@@ -167,6 +192,9 @@ public class PlayerUIResource : UIResourceManager
         {
             yield return 0;
         }
+
+       
+        
 
         BagModule bagModule = GlobalObjects.GetInstance().GetLogicMain().GetModule<BagModule>();
         isSyncing = true;
@@ -284,9 +312,12 @@ public class PlayerUIResource : UIResourceManager
                     Debug.LogError("关卡" + levelId + "不存在！");
                 }
             }
+            mapIndex++;
         }
 
         _UpdateAreaMapIndex();
+
+        _UpdateCurrAreaMapInfos();
 
     }
 
@@ -307,6 +338,40 @@ public class PlayerUIResource : UIResourceManager
             mapIndex++;
         }
         currAreaMapIndex = 0;
+    }
+
+    void _UpdateCurrAreaMapInfos()
+    {
+        currAreaMapRankSLevelCount = 0;
+        currAreaMapFinishedLevelCount = 0;
+        currAreaMapLevelRecordTable.Clear();
+
+        AreaMapUIInfo currAreaMap = CurrAreaMapUIInfo;
+
+        if (currAreaMap != null)
+        {
+            int levelIndx = 0;
+            foreach (var levelId in currAreaMap.levels)
+            {
+                foreach( var levelInfo in playerInfo.levelRecordList )
+                {
+                    //若在玩家信息中找到当前关卡信息
+                    if( levelInfo.levelId == levelId )
+                    {
+                        if( levelInfo.state == LevelState.Finished )
+                        {
+                            currAreaMapFinishedLevelCount++;
+                            if( levelInfo.highestRank >= LevelRank.S )
+                            {
+                                currAreaMapRankSLevelCount++;
+                            }
+                        } 
+                        currAreaMapLevelRecordTable.Add(levelIndx, levelInfo);
+                    }
+                } 
+                levelIndx++;
+            } 
+        }
     }
   
      
@@ -353,7 +418,14 @@ public class PlayerUIResource : UIResourceManager
     //背包物品信息列表
     List<BagItemInfo> bagItems = new List<BagItemInfo>(); 
     //当前背包物品UI信息列表
-    List<BagItemUIInfo> bagItemUIInfos = new List<BagItemUIInfo>();  
+    List<BagItemUIInfo> bagItemUIInfos = new List<BagItemUIInfo>();
+
+    //当前地图S及以上评级的关卡数
+    int currAreaMapRankSLevelCount;
+    //当前地图通过关卡数
+    int currAreaMapFinishedLevelCount;
+    //当前区域地图关卡记录表
+    Dictionary<int, PlayerLevelRecordInfo> currAreaMapLevelRecordTable = new Dictionary<int,PlayerLevelRecordInfo>();
 
     //当前区域地图索引
     int currAreaMapIndex = 0; 

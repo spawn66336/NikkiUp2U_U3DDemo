@@ -18,7 +18,7 @@
 	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
       </RatingRule>
       <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="2" value="1" />
       <RatingFactor>
         <Style Id="4" Ratio="0.4" />
         <Style Id="6" Ratio="0.2" />
@@ -65,8 +65,9 @@
 	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
 	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="1" Value="12" />
+      <UnLockCondition Type="2" Value="0,2" />
+      <UnLockCondition Type="3" Value="1,5" />
       <RatingFactor>
         <Style Id="4" Ratio="0.4" />
         <Style Id="6" Ratio="0.2" />

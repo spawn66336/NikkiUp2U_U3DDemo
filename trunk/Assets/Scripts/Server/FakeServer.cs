@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -26,8 +26,10 @@ public class FakeServer
 
     public void Init()
     {
-		DataManager.GetInstance().Init();
+        
 
+        ListenerCenter.getInstance().init();
+        DataManager.GetInstance().Init();
         servers.Add(new AreaMapModuleServer());
         servers.Add(new BagModuleServer());
         servers.Add(new GameItemDBModuleServer());
@@ -39,33 +41,13 @@ public class FakeServer
         {
             s.Init();
         }
+
+        GameDataBaseManager.getInstance().init();
+        PlayerInfoManager.getInstance().init();
+        BagInfoManager.getInstance().init();
+        
     }
 
-    public GameItemDBModuleServer getGameItemDBServer()
-    {
-        foreach (var s in servers)
-        {
-            if (s.GetType() == typeof(GameItemDBModuleServer))
-            {
-                GameItemDBModuleServer gameItemDBServer = (GameItemDBModuleServer)s;
-                return gameItemDBServer;
-            }
-        }
-        return null;
-    }
-
-    public PlayerModuleServer GetPlayerModuleServer()
-    {
-        foreach (var s in servers)
-        {
-            if (s.GetType() == typeof(PlayerModuleServer))
-            {
-                PlayerModuleServer server = (PlayerModuleServer)s;
-                return server;
-            }
-        }
-        return null;
-    }
 
     public void Destroy()
     {

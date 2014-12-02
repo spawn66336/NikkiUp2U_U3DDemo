@@ -15,7 +15,7 @@ public class LevelModuleServer : ModuleServer
 			int id = ((RequestLevelInfoMessage)request.msg).id;
 			ServerReplyMessage rpl = new ServerReplyMessage();
 			rpl.serial = request.serial;
-			if(DataManager.GetInstance().LevelDic.ContainsKey(id))
+			if(DataManager.GetInstance().LevelDic !=null && DataManager.GetInstance().LevelDic.ContainsKey(id))
 				rpl.resultObject = DataManager.GetInstance().LevelDic[id];
 			else
 				rpl.resultObject = null;

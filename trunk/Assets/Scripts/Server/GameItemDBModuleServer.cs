@@ -4,18 +4,7 @@ using System.Collections.Generic;
 
 public class GameItemDBModuleServer : ModuleServer 
 {
-    private static string fileName = "gameItemData.xml";
-    public List<GameItemDataBaseBean> beanList = new List<GameItemDataBaseBean>();
-    public override void Init()
-    {
-        beanList = (List<GameItemDataBaseBean>)XMLTools.readXml(fileName, beanList.GetType());
-        foreach (GameItemDataBaseBean bean in beanList)
-        {
-            string str = bean.showPos.Substring(1, (bean.showPos.Length - 2));
-            string[] strs = str.Split(',');
-            bean.showPosVector2.Set(float.Parse(strs[0]), float.Parse(strs[1]));
-        }
-    }
+
 
     public override void HandleRequest(ServerRequestMessage request)
     {
@@ -24,7 +13,7 @@ public class GameItemDBModuleServer : ModuleServer
             GameItemInfoByIdRequestMsg requestMsg = (GameItemInfoByIdRequestMsg)request.msg;
             int itemId = requestMsg.itemId;
             GameItemInfo info = new GameItemInfo();
-            foreach (GameItemDataBaseBean bean in beanList)
+            foreach (GameItemDataBaseBean bean in GameDataBaseManager.getInstance().beanList)
             {
                 if (bean.id == itemId)
                 {
@@ -48,10 +37,6 @@ public class GameItemDBModuleServer : ModuleServer
             ReplyToClient(replyMsg);
         }
 
-    }
-    public GameItemDataBaseBean getGameItemBean(int itemId)
-    {
-        return new GameItemDataBaseBean();
     }
 	 
 }

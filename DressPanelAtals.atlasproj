@@ -1,0 +1,18 @@
+AtlasOutputPath: Assets/
+SpriteInfoTable:
+- Key: 0_10001_0.png
+  Value:
+    SpritePath: 0_10001_0.png
+    ZoomScale: 1
+- Key: 0_10001_1.png
+  Value:
+    SpritePath: 0_10001_1.png
+    ZoomScale: 1
+- Key: 0_10013_1.png
+  Value:
+    SpritePath: 0_10013_1.png
+    ZoomScale: 1
+- Key: 0_10067_1.png
+  Value:
+    SpritePath: 0_10067_1.png
+    ZoomScale: 1

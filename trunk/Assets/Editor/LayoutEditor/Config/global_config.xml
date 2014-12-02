@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GlobalConfig>
+	<Version>1.0.0.72448</Version>
+	<TargetSize>
+		<Width>720</Width>
+		<Height>1280</Height>
+	</TargetSize>
+	<LayoutPath>
+		<PrefabFolder>Assets/</PrefabFolder>
+		<LayoutFolder>Resource/</LayoutFolder>
+	</LayoutPath>
+	<CmdCountLimit>10000</CmdCountLimit>
+	<Help>http://192.168.2.121:8090/pages/viewpage.action?pageId=4227271</Help>
+</GlobalConfig>

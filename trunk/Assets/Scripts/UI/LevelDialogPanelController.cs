@@ -12,8 +12,8 @@ public class LevelDialogPanelController : UIController
     public override void OnEnterUI()
     {
         base.OnEnterUI();
-        textName.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrentMapLevelIndex].levelInfo.name;
-        mDialogContentInfo = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrentMapLevelIndex].levelInfo.dialogInfo.contents.ToArray();
+        textName.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrLevelIndex].levelInfo.name;
+        mDialogContentInfo = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrLevelIndex].levelInfo.dialogInfo.contents.ToArray();
         dialogStrs = new string[mDialogContentInfo.Length];
         for (int i = 0; i < mDialogContentInfo.Length; ++i)
         {

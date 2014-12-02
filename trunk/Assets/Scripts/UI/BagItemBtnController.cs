@@ -112,7 +112,6 @@ public class BagItemBtnController : MonoBehaviour
             isShowDressDesc = false;
             pressDown = false; 
             pressBeginTick = 0; 
-        }
-        Debug.Log("Pressed = " + isPressed);
+        } 
     }
 }

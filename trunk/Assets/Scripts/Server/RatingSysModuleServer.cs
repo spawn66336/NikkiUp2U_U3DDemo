@@ -24,7 +24,7 @@ public class RatingSysModuleServer : ModuleServer
             rewardList.Add(reward);
             info.rewards.AddRange(rewardList);
 
-            FakeServer.GetInstance().GetPlayerModuleServer().finishLevel(levelId, dressSet.dressList, info);
+            PlayerInfoManager.getInstance().finishLevel(levelId, dressSet.dressList, info);
             ServerReplyMessage replyMsg = new ServerReplyMessage();
             replyMsg.message = RequestMessageDef.Request_Rating;
             replyMsg.resultObject = info;

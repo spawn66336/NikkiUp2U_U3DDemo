@@ -22,7 +22,7 @@
     <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;NGUI_3_5_8</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <DefineConstants>TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;NGUI_3_5_8</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -48,6 +48,15 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEditor.Graphs">
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="YamlDotNet">
+      <HintPath>Assets\Editor\UniversalEditor\Base\ThirdParty\YamlDotNet\YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <HintPath>Assets\Editor\UniversalEditor\UIAtlasEditor\System.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>Assets\Editor\UniversalEditor\UIAtlasEditor\System.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
@@ -71,6 +80,108 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\BundlePacker\NikkiDemoBundlePacker.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\Cmd.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\Controller.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\EditorComSelector.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\EditorTreeView.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\Layout.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\LayoutEditorGUI.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\LayoutEditorGUIStyle.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\LayoutEditorWindow.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\LayoutManager.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\Main.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\MainView.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\Tool.cs" />
+    <Compile Include="Assets\Editor\LayoutEditor\Scripts\Editor\UIInspector.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Command\EditorCommandManager.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\ButtonCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\ColorCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\ComboBoxCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\ControlMessage.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\EditorControl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\HBoxCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\HSpliterCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\InspectorViewCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\LabelCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\LayoutConstraint.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\ListViewCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\MainViewCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\PlayCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\SliderCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\SpliterCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\TabViewCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\TextBoxCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\TimeLineViewCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\TreeViewCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\VBoxCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Control\VSpliterCtrl.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\EditorCoroutine.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\EditorHelper.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\EditorManager.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\EditorRenderer.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\EditorRoot.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Tools\Drawing.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\UnityInternalIconCache.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ButtonRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ColorCtrlRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ComboBoxRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\EditorRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\HBoxRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\HSpliterRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\InspectorRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\LabelCtrlRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ListViewRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\MainViewRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\PlayCtrlRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\SliderRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\TabViewRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\TextBoxRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\TimeLineViewRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\TreeViewRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\VBoxRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\VSpliterRenderStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\DestroyStrategy\EditorDestroyStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\DestroyStrategy\MainViewDestroyStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\DestroyVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\EditorCtrlVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\EditorRenderVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\FindControlByNameVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\FindControlByTypeVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\LayoutUpdateVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\ResetTriggerInfoVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\TriggerVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\UpdateStrategy\EditorUpdateStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\UpdateStrategy\PlayCtrlUpdateStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\UpdateVisitor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\ResourceManageTool\ResourceManageConfig.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\ResourceManageTool\ResourceManageConfigTool.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\ResourceManageTool\ResourceManageToolController.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\ResourceManageTool\ResourceManageToolModel.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\ResourceManageTool\ResourceManageToolUtility.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\ResourceManageTool\U3DAssetDB\U3DAssetDB.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditorCommand.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditorConfig.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditorModel.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditorOption.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditorStyle.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectEditorUtility.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectInspector.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\SpecialEffectEditor\SpecialEffectMenuItems.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\AtlasDialog.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\AtlasProject.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\AtlasSpriteImage.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\AtlasSpriteImageConfig.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\DefaultSpriteImageProcessStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\DefaultTexturePackagingStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\ISpriteImageProcessStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\ITexturePackagingStrategy.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\UIAtlasCommand.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\UIAtlasEditor.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\UIAtlasEditorConfig.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\UIAtlasEditorModel.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\UIAtlasTempTextureManager.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\UIAtlasEditor\Win32Dialog.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
@@ -149,6 +260,11 @@
     <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
     <Compile Include="Assets\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+    <None Include="Assets\Editor\LayoutEditor\Config\global_config.xml" />
+    <None Include="Assets\Editor\LayoutEditor\Examples\Atlas\UICommonAtlas.txt" />
+    <None Include="Assets\Editor\UniversalEditor\Base\ThirdParty\YamlDotNet\YamlDotNet.xml" />
+    <None Include="Assets\Editor\UniversalEditor\UIAtlasEditor\Config\UIAtlasConfig.txt" />
+    <None Include="Assets\Editor\UniversalEditor\UIAtlasEditor\Data\Resources\UIAtlasPreviewShader.shader" />
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
@@ -182,6 +298,9 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Editor\UniversalEditor\Base\ThirdParty\YamlDotNet\YamlDotNet.dll" />
+    <None Include="Assets\Editor\UniversalEditor\UIAtlasEditor\System.Deployment.dll" />
+    <None Include="Assets\Editor\UniversalEditor\UIAtlasEditor\System.Windows.Forms.dll" />
     <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll" />
     <None Include="Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Messaging.dll" />
     <None Include="Assets\UnityVS\Editor\UnityVS.VersionSpecific.dll" />

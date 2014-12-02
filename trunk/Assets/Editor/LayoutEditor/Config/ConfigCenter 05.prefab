@@ -1,0 +1,1103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: ConfigCenter 05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b03b9ffafcf4164e8fd0ab5d0f996c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_joystickLeftConfig:
+    AnchorLeft: 1
+    AnchorTop: 0
+    AnchorPoint: {x: 200, y: 200}
+    OutRadius: 100
+    InnerRadius: .00100000005
+    ButtonRadius: 90
+    BorderThicknessToButton: 20
+    TouchRadius: 200
+  m_joystickRightConfig:
+    AnchorLeft: 0
+    AnchorTop: 0
+    AnchorPoint: {x: 200, y: 200}
+    OutRadius: 50
+    InnerRadius: 30
+    ButtonRadius: 70
+    BorderThicknessToButton: 30
+    TouchRadius: 200
+  m_playerConfig:
+    Life: 1000
+    MaxEnergy: 100
+    Defence: 0
+    WalkSpeed: 3
+    StrafeWalkSpeed: 3
+    BackWalkSpeed: 3
+    RunSpeed: 3
+    StrafeRunSpeed: 3
+    BackRunSpeed: 3
+    BodyTurnSpeed: 6000
+    WaistTurnSpeed: 1000
+    MinWaistSpeedInAutoAim: 600
+    MaxWaistSpeedInAutoAim: 600
+    MinBodySpeedInAutoAim: 600
+    MaxBodySpeedInAutoAim: 800
+    MaxUpperBodyTurnAngle: 180
+    SpeedScaleOnCollision: .800000012
+    AutoAimViewAngle_Double: 360
+    AutoAimViewAngle_Single: 360
+    AutoAimViewDis: 20
+    AutoAssistAngle: 10
+    AutoAssistSwitchAngle: 10
+    AimType: 1
+    BeAttackedTime: .100000001
+    Combat_StickWaveTime: 1
+    Combat_WaveAngle: 120
+    Combat_RangeLength: 2
+    HoldTime: 0
+    HoldTurnRate: 500
+  m_NPCConfig:
+  - Type: 1
+    maxHP: 220
+    maxArmor: 0
+    moveSpeed: 1.5
+    moveSpeedAdd: 0
+    turnSpeed: 180
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: .5
+    innerMeleeRange: .5
+    attackSpeed: 1.5
+    attackDamage: 20
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 4
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 8
+    maxHP: 260
+    maxArmor: 0
+    moveSpeed: 1.5
+    moveSpeedAdd: 0
+    turnSpeed: 180
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: .5
+    innerMeleeRange: .5
+    attackSpeed: 1.5
+    attackDamage: 2
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 8
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 9
+    maxHP: 120
+    maxArmor: 5000
+    moveSpeed: .100000001
+    moveSpeedAdd: 0
+    turnSpeed: 2
+    isAlertness: 1
+    alertnessRange: 100
+    aggroRange: .100000001
+    outerMeleeRange: .5
+    innerMeleeRange: .5
+    attackSpeed: 1.5
+    attackDamage: 2
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 10
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 3
+    maxHP: 70
+    maxArmor: 0
+    moveSpeed: 6
+    moveSpeedAdd: 0
+    turnSpeed: 180
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: 2
+    innerMeleeRange: 1.5
+    attackSpeed: 2
+    attackDamage: 20
+    armor: 0
+    useRagdoll: 0
+    DropProbability: .200000003
+    SkillCoolDown: 5
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 2
+    maxHP: 80
+    maxArmor: 0
+    moveSpeed: 2.5
+    moveSpeedAdd: 0
+    turnSpeed: 90
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: 8
+    innerMeleeRange: 8
+    attackSpeed: 2
+    attackDamage: 20
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 1
+    SkillCoolDown: 4
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 4
+    maxHP: 100
+    maxArmor: 500
+    moveSpeed: 1.39999998
+    moveSpeedAdd: 0
+    turnSpeed: 45
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: 1
+    innerMeleeRange: 1
+    attackSpeed: 1.5
+    attackDamage: 3
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 5
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 5
+    maxHP: 450
+    maxArmor: 0
+    moveSpeed: 3
+    moveSpeedAdd: 0
+    turnSpeed: 180
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: 2.5
+    innerMeleeRange: 2
+    attackSpeed: 1.20000005
+    attackDamage: 4
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 5
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 6
+    maxHP: 2000
+    maxArmor: 1500
+    moveSpeed: 2.5
+    moveSpeedAdd: .5
+    turnSpeed: 180
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: 2.5
+    innerMeleeRange: 2
+    attackSpeed: 1.20000005
+    attackDamage: 6
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 15
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 1.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 7
+    maxHP: 100
+    maxArmor: 0
+    moveSpeed: 1.5
+    moveSpeedAdd: 0
+    turnSpeed: 90
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 100
+    outerMeleeRange: 2.5
+    innerMeleeRange: 2
+    attackSpeed: 2
+    attackDamage: 20
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 15
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 10
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 3
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  - Type: 10
+    maxHP: 120
+    maxArmor: 0
+    moveSpeed: 1.5
+    moveSpeedAdd: 0
+    turnSpeed: 90
+    isAlertness: 0
+    alertnessRange: 100
+    aggroRange: 200
+    outerMeleeRange: 10
+    innerMeleeRange: 8
+    attackSpeed: 2
+    attackDamage: 2
+    armor: 0
+    useRagdoll: 0
+    DropProbability: 0
+    SkillCoolDown: 1
+    npc_skill_config:
+      rush_skill_config:
+        SkillRangeMin: 4
+        SkillRangeMax: 10
+        StartRushAngle: 45
+        ReadyTime: 1
+        DamageDis: 1
+        ChargeSpeed: 8
+        DisOffset: 1.5
+        TurnSpeed: 60
+        CriticalRoll: .400000006
+        DamageValue: 1
+        DamagedValue: 1
+      throw_skill_config:
+        DamageValue: 100
+        SkillReleaseTime: 1.5
+        SkillFinishTime: .5
+        RandomLineRadius: 1
+        RandomCrossOutterRadius: 3
+        RandomCrossInnerRadius: 2.5
+        LandingLineOffset: 2
+        LandingLineInterval: .5
+        LandingCrossOffset: 2
+        LandingCrossInterval: .5
+      shoot_skill_config:
+        ShootRange: 10
+        ReleaseTime: 1.5
+        ReadyTime: .800000012
+        DamageValue: 10
+        OneAngle: 10
+        BatchNum: 3
+        GapTime: .300000012
+        IsCross: 0
+        IsTargetCenter: 1
+        NeedDouble: 0
+        VelocityAdd: 0
+    playerSkill_npcConfig:
+      freeze_skill_config:
+        FreezeTime: 2.5
+        TotalFreeze: 1
+        SpeedReduceRate: 1
+        Damage: 1
+    IsBOSS: 0
+  m_WeaponConfig:
+  - Type: 0
+    Name: ak47
+    Weight: 10
+    MaxAmmo: 180
+    ClipSize: 180
+    BulletPerShootMin: 1
+    BulletPerShootMax: 1
+    SpreadAngleBulletPerBullet: 15
+    Damage: 12
+    EnforceDamage: 10
+    FireRate: .0649999976
+    EnforceFireRate: .5
+    EnforceFirePrepareTime: .5
+    EnforceFirePushbackSpeed: .100000001
+    Accurate: .100000001
+    ReloadTime: 1
+    CriticalHitRate: 20
+    CriticalHitProfit: 1.5
+    BulletSpeed: 60
+    Range: 10
+    ChargeTime: 2
+    SpreadAngle: 10
+    IsContinueFireMode: 1
+    BulletRadius: 0
+    HitDist: 0
+    CriticalHitDist: 0
+    EnforceHitDist: 0
+  - Type: 1
+    Name: shotgun
+    Weight: 10
+    MaxAmmo: 50
+    ClipSize: 10
+    BulletPerShootMin: 5
+    BulletPerShootMax: 9
+    SpreadAngleBulletPerBullet: 5
+    Damage: 11
+    EnforceDamage: 10
+    FireRate: .100000001
+    EnforceFireRate: .100000001
+    EnforceFirePrepareTime: .5
+    EnforceFirePushbackSpeed: .100000001
+    Accurate: .100000001
+    ReloadTime: 1
+    CriticalHitRate: 5
+    CriticalHitProfit: 2
+    BulletSpeed: 20
+    Range: 10
+    ChargeTime: 2
+    SpreadAngle: 90
+    IsContinueFireMode: 0
+    BulletRadius: 0
+    HitDist: .100000001
+    CriticalHitDist: 0
+    EnforceHitDist: 0
+  - Type: 2
+    Name: sniper
+    Weight: 10
+    MaxAmmo: 10
+    ClipSize: 1
+    BulletPerShootMin: 1
+    BulletPerShootMax: 1
+    SpreadAngleBulletPerBullet: 15
+    Damage: 80
+    EnforceDamage: 10
+    FireRate: 1
+    EnforceFireRate: .5
+    EnforceFirePrepareTime: 10
+    EnforceFirePushbackSpeed: .100000001
+    Accurate: 1
+    ReloadTime: 1
+    CriticalHitRate: 10
+    CriticalHitProfit: 2
+    BulletSpeed: 100
+    Range: 15
+    ChargeTime: 2
+    SpreadAngle: 10
+    IsContinueFireMode: 0
+    BulletRadius: 1
+    HitDist: .5
+    CriticalHitDist: 1
+    EnforceHitDist: 0
+  - Type: -1
+    Name: frag
+    Weight: 10
+    MaxAmmo: 30
+    ClipSize: 1
+    BulletPerShootMin: 1
+    BulletPerShootMax: 1
+    SpreadAngleBulletPerBullet: 15
+    Damage: 100
+    EnforceDamage: 10
+    FireRate: 1
+    EnforceFireRate: .5
+    EnforceFirePrepareTime: .5
+    EnforceFirePushbackSpeed: .100000001
+    Accurate: 1
+    ReloadTime: 1
+    CriticalHitRate: 10
+    CriticalHitProfit: 3
+    BulletSpeed: 200
+    Range: 100
+    ChargeTime: 2
+    SpreadAngle: 10
+    IsContinueFireMode: 0
+    BulletRadius: 0
+    HitDist: 0
+    CriticalHitDist: 0
+    EnforceHitDist: 0
+  - Type: 3
+    Name: DefaultPistol
+    Weight: 10
+    MaxAmmo: 40
+    ClipSize: 1
+    BulletPerShootMin: 1
+    BulletPerShootMax: 1
+    SpreadAngleBulletPerBullet: 15
+    Damage: 40
+    EnforceDamage: 10
+    FireRate: .150000006
+    EnforceFireRate: .5
+    EnforceFirePrepareTime: .5
+    EnforceFirePushbackSpeed: .100000001
+    Accurate: 1
+    ReloadTime: 1
+    CriticalHitRate: 15
+    CriticalHitProfit: 2
+    BulletSpeed: 40
+    Range: 8
+    ChargeTime: 2
+    SpreadAngle: 10
+    IsContinueFireMode: 0
+    BulletRadius: 0
+    HitDist: 0
+    CriticalHitDist: 0
+    EnforceHitDist: 0
+  - Type: 4
+    Name: DefaultStick
+    Weight: 10
+    MaxAmmo: 9999999
+    ClipSize: 1
+    BulletPerShootMin: 1
+    BulletPerShootMax: 1
+    SpreadAngleBulletPerBullet: 15
+    Damage: 50
+    EnforceDamage: 10
+    FireRate: .150000006
+    EnforceFireRate: .5
+    EnforceFirePrepareTime: .5
+    EnforceFirePushbackSpeed: .100000001
+    Accurate: 1
+    ReloadTime: 1
+    CriticalHitRate: 5
+    CriticalHitProfit: 3
+    BulletSpeed: 40
+    Range: 2
+    ChargeTime: 2
+    SpreadAngle: 270
+    IsContinueFireMode: 0
+    BulletRadius: 1
+    HitDist: 0
+    CriticalHitDist: 0
+    EnforceHitDist: 0
+  m_DropItems: []
+  m_supplyConfig:
+    SupplyOpen: 1
+    SupplyConfigs:
+    - Type: 0
+      DropPercent: .200000003
+      LifeTime: 300
+      TriggerRange: 1
+      ParamMax: 200
+      ParamMin: 200
+    - Type: 1
+      DropPercent: .800000012
+      LifeTime: 300
+      TriggerRange: 1
+      ParamMax: .400000006
+      ParamMin: .200000003
+  m_skillConfig:
+  - ID: 0
+    Type: 0
+    Energy: 0
+    CDTime: 3
+    ReadyTime: 0
+    ReleaseTime: .5
+    FinishTime: 0
+    AnimStates: 06000000
+    EffRes:
+    - Prefabs/Effects/skill/benpao
+    FloatValues:
+    - 5
+    IntValues: 
+  - ID: 1
+    Type: 1
+    Energy: 0
+    CDTime: 6
+    ReadyTime: 0
+    ReleaseTime: 0
+    FinishTime: 3
+    AnimStates: 
+    EffRes:
+    - Prefabs/Effects/skill/yun_renwu
+    FloatValues:
+    - 4
+    IntValues: 
+  - ID: 2
+    Type: 2
+    Energy: 0
+    CDTime: 2
+    ReadyTime: 0
+    ReleaseTime: .467000008
+    FinishTime: .200000003
+    AnimStates: 0700000008000000
+    EffRes: []
+    FloatValues:
+    - 12
+    - 5
+    - .200000003
+    IntValues: 
+  - ID: 3
+    Type: 3
+    Energy: 10
+    CDTime: 8
+    ReadyTime: .400000006
+    ReleaseTime: 1.20000005
+    FinishTime: 0
+    AnimStates: 09000000
+    EffRes:
+    - Art/skill/frozen_burst/frozen_burst_chr_fashe
+    - Art/skill/frozen_burst/frozen_burst_launch
+    - Objects/Skill/Freeze/bingdong
+    FloatValues:
+    - 7
+    - 0
+    IntValues: 05000000
+  - ID: 4
+    Type: 4
+    Energy: 10
+    CDTime: 8
+    ReadyTime: 1
+    ReleaseTime: 7
+    FinishTime: 0
+    AnimStates: 0e000000
+    EffRes:
+    - Objects/Skill/FireMine/FireMine
+    - Objects/Skill/FireMine/PlayerBuff
+    - Objects/Skill/FireMine/WeaponBuff
+    - Objects/Skill/FireMine/RocketSpe
+    - Objects/Skill/FireMine/EnemyHit
+    FloatValues:
+    - 1
+    - 3
+    - .200000003
+    - .5
+    - 7
+    - 1
+    - 14
+    IntValues: 050000003200000000000000
+  - ID: 5
+    Type: 5
+    Energy: 5
+    CDTime: 8
+    ReadyTime: .300000012
+    ReleaseTime: 7
+    FinishTime: 0
+    AnimStates: 0e000000
+    EffRes:
+    - Objects/Skill/FireMine/FireMine
+    - Objects/Skill/FireMine/PlayerBuff
+    - Objects/Skill/FireMine/WeaponBuff
+    - Objects/Skill/FireMine/RocketSpe
+    FloatValues:
+    - 10
+    - 2
+    - .200000003
+    - .5
+    - 7
+    - 1
+    - 14
+    - 14
+    - 14
+    - 14
+    IntValues: 050000003200000000000000
+  m_playerSkillConfig:
+  - nID: 0
+    sName: ChongCi
+    bPassiveSkill: 0
+    eSkillType: 2
+    eTargetType: 0
+    ePassiveSkillTriggerType: 0
+    fCDTime: 0
+    ConsumeHPCount: 0
+    ConsumeMPCount: 0
+    nLevelupSkillID: 0
+    nAffectNPCCount: 0
+    fPlayTime_ready: 0
+    playEffectPath_ready: 
+    sEffectBindBoneName_ready: 
+    ePlayAnimType_ready: 0
+    fPlayTime_release: 1
+    playEffectPath_release: Prefabs/Effects/skill/benpao
+    sEffectBindBoneName_release: 
+    ePlayAnimType_release: 0
+    fPlayTime_finish: 0
+    playEffectPath_finish: 
+    sEffectBindBoneName_finish: 
+    ePlayAnimType_finish: 0
+    eAffectScopeType: 2
+    fScopeParamLength: 0
+    eDodgeSkillMoveType: 0
+    fMoveDis: 5
+    bUseCollide: 0
+    nBuffID: 0
+    fBuffDurationTime: 0
+    fBuffProbability: 0
+  m_cameraShakeConfig:
+  - shake_type: 0
+    start_point_min_x: 0
+    start_point_max_x: 0
+    start_point_min_y: 0
+    start_point_max_y: 0
+    start_point_min_z: .100000001
+    start_point_max_z: .100000001
+    end_point_min_x: 0
+    end_point_max_x: 0
+    end_point_min_y: 0
+    end_point_max_y: 0
+    end_point_min_z: .100000001
+    end_point_max_z: .100000001
+    play_time: .166999996
+    cycle_times: 1
+  - shake_type: 1
+    start_point_min_x: -.100000001
+    start_point_max_x: -.100000001
+    start_point_min_y: .100000001
+    start_point_max_y: .100000001
+    start_point_min_z: 0
+    start_point_max_z: 0
+    end_point_min_x: .100000001
+    end_point_max_x: .100000001
+    end_point_min_y: -.100000001
+    end_point_max_y: -.100000001
+    end_point_min_z: 0
+    end_point_max_z: 0
+    play_time: .166999996
+    cycle_times: 1
+  - shake_type: 2
+    start_point_min_x: 0
+    start_point_max_x: 0
+    start_point_min_y: .0443396717
+    start_point_max_y: .0443396717
+    start_point_min_z: 0
+    start_point_max_z: 0
+    end_point_min_x: -.00999999978
+    end_point_max_x: .00999999978
+    end_point_min_y: -.0149483299
+    end_point_max_y: -.0149483299
+    end_point_min_z: 0
+    end_point_max_z: .00999999978
+    play_time: .25
+    cycle_times: 1
+  - shake_type: 3
+    start_point_min_x: 0
+    start_point_max_x: 0
+    start_point_min_y: 0
+    start_point_max_y: 0
+    start_point_min_z: 0
+    start_point_max_z: 0
+    end_point_min_x: -.100000001
+    end_point_max_x: .100000001
+    end_point_min_y: -.100000001
+    end_point_max_y: .100000001
+    end_point_min_z: .326000005
+    end_point_max_z: .326000005
+    play_time: .25
+    cycle_times: 1
+  - shake_type: 4
+    start_point_min_x: 0
+    start_point_max_x: 0
+    start_point_min_y: 0
+    start_point_max_y: 0
+    start_point_min_z: 0
+    start_point_max_z: 0
+    end_point_min_x: -.200000003
+    end_point_max_x: .200000003
+    end_point_min_y: -.200000003
+    end_point_max_y: .200000003
+    end_point_min_z: .881643713
+    end_point_max_z: .881643713
+    play_time: .5
+    cycle_times: 1
+  m_fingerCameraControlConfig:
+    Enable: 0
+    AngleSpeed: .300000012
+    ForwardSpeed: .100000001
+    ControlArea:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

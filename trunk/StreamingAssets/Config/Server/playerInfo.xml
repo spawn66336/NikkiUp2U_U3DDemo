@@ -45,5 +45,11 @@
         </Dress>
       </LastestDressSet>
     </LevelRecordInfo>
+    <LevelRecordInfo LevelId="3" State="1" HighestScore="0" HighestRank="0" LastestScore="0" LastestRank="0">
+      <HighestDressSet>
+      </HighestDressSet>
+      <LastestDressSet>
+      </LastestDressSet>
+    </LevelRecordInfo>
   </LevelRecordList>
 </PlayerInfo>
