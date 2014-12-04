@@ -24,6 +24,17 @@ public class GameDataBaseManager : IDataManager
             string str = bean.showPos.Substring(1, (bean.showPos.Length - 2));
             string[] strs = str.Split(',');
             bean.showPosVector2.Set(float.Parse(strs[0]), float.Parse(strs[1]));
+            foreach (Attribute att in bean.attributeList)
+            {
+                if (att.type == 0)
+                {
+                    bean.attStyleList.Add(att);
+                }
+                else if (att.type == 1)
+                {
+                    bean.attMatrialList.Add(att);
+                }
+            }
         }
     }
     public GameItemDataBaseBean getGameItemBean(int itemId)

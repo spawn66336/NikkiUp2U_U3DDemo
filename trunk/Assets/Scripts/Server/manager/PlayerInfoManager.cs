@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -104,18 +104,26 @@ public class PlayerInfoManager : IDataManager
         }
     }
 
-    public void finishLevel(int levelId, List<int> dressIdList, RatingInfo ratingInfo)
+    public void finishLevel(Level level, List<int> dressIdList, RatingInfo ratingInfo,int usePower)
     {
         bool isOpenLevel = false;
         int rank=-1;
+        playerInfo.energy -= usePower;
+        if (playerInfo.energy < 0)
+        {
+            playerInfo.energy = 0;
+        }
         foreach (PlayerLevelRecordInfo recordInfo in playerInfo.levelRecordList)
         {
-            if (recordInfo.levelId == levelId)
+            if (recordInfo.levelId == level.Id)
             {
                 if (recordInfo.state == LevelState.Locked)
                 {
-                    // TODO 判断是否可以通过
-                    LevelInfo levelInfo = new LevelInfo();
+                    if ((int)level.FinishGrade <= (int)ratingInfo.levelRank)
+                    {
+                        isOpenLevel = true;
+                        rank = (int)ratingInfo.levelRank;
+                    }
 
                 }
                 else if (recordInfo.state == LevelState.Finished)
@@ -140,7 +148,7 @@ public class PlayerInfoManager : IDataManager
         if (isOpenLevel)
         {
             PlayerLevelRecordInfo newRecord = new PlayerLevelRecordInfo();
-            Level nexLevel = DataManager.GetInstance().getNextLevel(levelId);
+            Level nexLevel = DataManager.GetInstance().getNextLevel(level.Id);
             newRecord.levelId = nexLevel.Id;
             string str = PlayerRecordManager.getInstance().addLevelCondition(nexLevel.Id);
             if (str.Equals(""))
@@ -155,8 +163,7 @@ public class PlayerInfoManager : IDataManager
             playerInfo.levelRecordList.Add(newRecord);
 
         }
-
-        EventCenter.onLevelInGrade(levelId, rank);
+        EventCenter.onLevelInGrade(level.Id, rank);
     }
 
     internal void changeLevelState(int levelId)

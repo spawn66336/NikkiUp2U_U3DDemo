@@ -617,7 +617,8 @@ namespace H3DEditor
                         {
                             has_ui = true;
                         }
-                        else if (!(components[i] is Transform) && !(components[i] is UIPanel) && !(components[i] is Camera))
+                        else if (!(components[i] is Transform) && !(components[i] is UIPanel) && !(components[i] is Camera)
+                                && !(components[i] is UIAnchor))
                         {
                             Object.DestroyImmediate(components[i]);
                             remove_sth = true;
@@ -655,6 +656,16 @@ namespace H3DEditor
                 }
             }
         }
+
+        public static bool HasUIRoot(GameObject go)
+        {
+            if (go == null)
+            {
+                return false;
+            }
+            return go.GetComponent<UIRoot>() != null;
+        }
+
         public static bool NeedResetPos(GameObject go)
         {
             if (go == null)

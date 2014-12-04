@@ -484,5 +484,31 @@ public class Layout
         }
         return false;
     }
+
+    public void SetCamera(Camera cam)
+    {
+        if (m_root != null)
+        {
+            UIAnchor[] ui_anchors = m_root.GetComponentsInChildren<UIAnchor>(true);
+            for (int i = 0; i < ui_anchors.Length; ++i)
+            {
+                ui_anchors[i].enabled = true;
+                ui_anchors[i].uiCamera = cam;
+                ui_anchors[i].SendMessage("Start");
+            }
+        }
+    }
+
+    public void DisableAnchor()
+    {
+        if(m_root != null)
+        {
+            UIAnchor[] ui_anchors = m_root.GetComponentsInChildren<UIAnchor>(true);
+            for (int i = 0; i < ui_anchors.Length; ++i)
+            {
+                ui_anchors[i].enabled = false;
+            }
+        }
+    }
 }
 

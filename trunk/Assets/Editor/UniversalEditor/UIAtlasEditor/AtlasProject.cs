@@ -302,6 +302,10 @@ public class AtlasProject
     public AtlasSerializeObject Load(string path)
     {//读取工程文件
 
+        if(path == null)
+        {
+            return null;
+        }
         //打开工程文件
         StreamReader yamlReader = File.OpenText(path);
         Deserializer yamlDeserializer = new Deserializer();

@@ -41,34 +41,10 @@ public class PlayerRecordManager : IDataManager
             else if ((ConditionType)con.Type == ConditionType.Type_CollectBodyIndexCloth)
             {
                 action = new CollectionBodyIndexClothAction();
-                //string str = action.complete(con.Value);
-                //bool flag = false;
-                //if (str.Equals(""))
-                //{
-                //    flag = true;
-                //    i++;
-                //}
-                //else
-                //{
-                //    unlockRes += str;
-                //}
-                //conditionDic.Add((ConditionType)con.Type, flag);
             }
             else if ((ConditionType)con.Type == ConditionType.Type_LevelInGrade)
             {
                action = new LevelInGradeAction();
-                //string str = action.complete(con.Value);
-                //bool flag = false;
-                //if (str.Equals(""))
-                //{
-                //    flag = true;
-                //    i++;
-                //}
-                //else
-                //{
-                //    unlockRes += str;
-                //}
-                //conditionDic.Add((ConditionType)con.Type, flag);
             }
             if (action != null)
             {

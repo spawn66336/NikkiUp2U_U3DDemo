@@ -456,7 +456,8 @@ public class DressPanelController : UIController
     public void OnDressFinishedBtnClick()
     {
         UILocker.GetInstance().Lock(gameObject);
-        PlayerUIResource.GetInstance().DressFinished(Nikki.GetDressSet().GetDressSetInfo(), _OnRatingResultCallback); 
+        PlayerUIResource.GetInstance().DressFinished(Nikki.GetDressSet().GetDressSetInfo(), _OnRatingResultCallback);
+        PlayerUIResource.GetInstance().CurrLevelDressList = Nikki.GetDressSet().GetCurrDressList();
     }
 
     

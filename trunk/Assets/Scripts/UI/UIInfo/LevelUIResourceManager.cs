@@ -13,6 +13,8 @@ public class DialogContentUIInfo
 {
     //当前对话内容是否是关键内容
     public bool isKey;
+    //Npc名称
+    public string npcName;
     //当前对话内容
     public string content;
     //当前Npc图片显示信息
@@ -105,7 +107,7 @@ public class LevelUIResourceManager : UIResourceManager
             DialogContentUIInfo contentUIInfo = new DialogContentUIInfo();
             contentUIInfo.isKey = content.isKey;
             contentUIInfo.content = content.content;
-
+            contentUIInfo.npcName = content.npcName;
             foreach( var npcImgInfo in content.npcImgInfos )
             {
                 NpcImgUIInfo npcImgUIInfo = new NpcImgUIInfo();

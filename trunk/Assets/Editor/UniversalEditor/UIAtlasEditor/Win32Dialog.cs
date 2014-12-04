@@ -14,9 +14,9 @@ public class OpenFileName
     public int maxCustFilter = 0;
     public int filterIndex = 0;
     public String file = null;
-    public int maxFile = 0;
+    public int maxFile = 8;
     public String fileTitle = null;
-    public int maxFileTitle = 0;
+    public int maxFileTitle = 8;
     public String initialDir = null;
     public String title = null;
     public int flags = 0;

@@ -70,7 +70,7 @@ public class Level
 {
 	int id;
 	string name;
-	GradeEnum finishGrade;
+	LevelRank finishGrade;
 	int limiteTime;
 	int rewardid;
 	int dialogid;
@@ -92,7 +92,7 @@ public class Level
 		set { name = value; }
 	}
 	[XmlAttribute]
-	public GradeEnum FinishGrade
+	public LevelRank FinishGrade
 	{
 		get { return finishGrade; }
 		set { finishGrade = value; }
@@ -151,6 +151,19 @@ public class RatingFactor
 	List<Atribute> attrs = new List<Atribute>();
 	List<SpecialItem> speItems = new List<SpecialItem>();
 	List<FixItem> fixItems = new List<FixItem>();
+    List<Atribute> attStyleList = new List<Atribute>();
+    List<Atribute> attMatrialList = new List<Atribute>();
+
+    public List<Atribute> AttStyleList
+    {
+        get { return attStyleList; }
+        set{attStyleList = value;}
+    }
+    public List<Atribute> AttMatrialList
+    {
+        get { return attMatrialList; }
+        set { attMatrialList = value; }
+    }
 	[XmlElementAttribute("Style")]
 	public List<Style> Stl
 	{
@@ -473,26 +486,6 @@ public class RewardItem
 	}
 }
 
-//评级枚举
-public enum GradeEnum
-{
-	[XmlEnum("0")]
-	F = 0,
-	[XmlEnum("1")]
-	D,
-	[XmlEnum("2")]
-	C,
-	[XmlEnum("3")]
-	B,
-	[XmlEnum("4")]
-	A,
-	[XmlEnum("5")]
-	S,
-	[XmlEnum("6")]
-	SS,
-	[XmlEnum("7")]
-	SSS
-}
 //解锁条件枚举
 public enum UnLockCondition
 {
@@ -510,10 +503,6 @@ public class DataManager
 	public static string leveldilogsPath = "leveldialog.xml";
 	public static string remarkPath = "remarktable.xml";
 	public static string rewardsPath = "rewards.xml";
-
-	public static string areamapPic = Application.dataPath + "/UI/Texture/AreaMap/";
-	public static string leveldialogPic = Application.dataPath + "/UI/Texture/LevelDialogBackground/";
-	public static string npcPic = Application.dataPath + "/UI/Texture/NPC/";
 
 	private AreaMaps areaMaps = new AreaMaps();
 	private LevelDialogList diaList = new LevelDialogList();
@@ -560,7 +549,7 @@ public class DataManager
 			{
 				AreaMapInfo areaMapInfo = new AreaMapInfo();
 				areaMapInfo.id = m.Id;
-				areaMapInfo.mapIconImgPath = areamapPic + m.IconId + ".png";
+				areaMapInfo.mapIconImgPath = m.IconId;
 				areaMapInfo.name = m.Name;
 			/*
 			foreach(Unlock u in m.UnlockCond)
@@ -571,7 +560,7 @@ public class DataManager
 				List<string> imgs = new List<string>();
 				foreach(string s in m.ImgList)
 				{
-					imgs.Add(areamapPic + s + ".png");
+					imgs.Add(s);
 				}
 				areaMapInfo.mapImgPaths = imgs.ToArray();
 			
@@ -591,21 +580,24 @@ public class DataManager
 						{
 							if(ld.Id == l.DialogId)
 							{
-								dialog.bkImgPath = leveldialogPic + ld.BackgroundImageId + ".png";
+								dialog.bkImgPath = ld.BackgroundImageId;
 								List<DialogContentInfo> contents = new List<DialogContentInfo>();
 								foreach(Content c in ld.Cntent)
 								{
 									DialogContentInfo ctInfo = new DialogContentInfo();
 									ctInfo.isKey = (c.Key == "True")?true:false;
 									ctInfo.content = c.Value;
+									if(c.NPCS.Count != 0)
+										ctInfo.npcName = c.NPCS[0].Name;
 									List<DialogNpcImgInfo> npcImgInfos  = new List<DialogNpcImgInfo>();
 									foreach(NPC npc in c.NPCS)
 									{
 										DialogNpcImgInfo info = new DialogNpcImgInfo();
-										info.imgPath = npcPic + npc.ImageId + ".png";
-										info.showPos = (DialogNpcImgShowPos)npc.Position;
+										info.imgPath = npc.ImageId;
+										info.showPos = npc.Position;
 										npcImgInfos.Add(info);
 									}
+									ctInfo.npcImgInfos = npcImgInfos; 
 									contents.Add(ctInfo);
 								}
 								dialog.contents = contents;
@@ -613,6 +605,17 @@ public class DataManager
 							}
 						}
 					}
+                    foreach (Atribute att in l.Thm.Attrs)
+                    {
+                        if (att.Type == 0)
+                        {
+                            l.Thm.AttStyleList.Add(att);
+                        }
+                        else if (att.Type == 1)
+                        {
+                            l.Thm.AttMatrialList.Add(att);
+                        }
+                    }
 					levInfo.dialogInfo = dialog;
 					levelDic.Add(l.Id,levInfo);
 					ids.Add(l.Id);
@@ -699,6 +702,15 @@ public class DataManager
 		return null;
 	}
 
+    public string getGradeComment(int gradeId)
+    {
+        if (remarks.Grades.Count <= gradeId)
+        {
+            return "数据错误";
+        }
+        System.Random ran = new System.Random();
+        return remarks.Grades[gradeId].Descs[ran.Next(remarks.Grades[gradeId].Descs.Count-1)];
+    }
 	public static DataManager GetInstance()
 	{
 		if( data_instance == null )

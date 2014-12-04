@@ -23,7 +23,7 @@ public class LevelCollectTypeClothListener : IGameEventListener
         for (int i = 0; i < listKeys.Count; i++)
         {
             PlayerLevelRecordForCondition info = PlayerRecordManager.getInstance().dicLevelRecordCon[listKeys[i]];
-            int num = 0;
+            int num = 1;
             List<ConditionType> listTypeKeys = new List<ConditionType>();
             listTypeKeys.AddRange(info.conditionDic.Keys);
             for (int j = 0; j < listTypeKeys.Count; j++)

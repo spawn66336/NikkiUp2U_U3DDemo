@@ -65,47 +65,111 @@ public class XMLTools
     }
     public static void readXMlGeneral(String fileName)
     {
-        string filepath = Application.dataPath + "/../LevelConfig.xml";
+        string filepath = GameUtil.GetServerConfigFilePath(fileName); 
         if (File.Exists(filepath))
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filepath);
-            XmlNodeList nodeList = xmlDoc.SelectSingleNode("LevelConfig").ChildNodes;
-//            GetLevelDate.GetInstance().levelConfigDateList = new List<LevelConfigDate>();
-//            LevelConfigDate mLevelConfigDate;
-//            LevelReadDate mLevelReadDate;
-//            Entity mEntity=new Entity();
-//            //遍历每一个节点，拿节点的属性以及节点的内容
-//            foreach (XmlElement xe in nodeList)
-//            {
-//               // Debug.Log("Attribute :" + xe.GetAttribute("level_id"));
-//              //  Debug.Log("level_id :" + xe.Name);  
-//                mLevelConfigDate = new LevelConfigDate();
-//                mLevelConfigDate.level_ID = int.Parse(xe.GetAttribute("level_id"));
-//                mLevelConfigDate.levels = new List<LevelReadDate>();
-//                foreach (XmlElement xchild in xe.ChildNodes)
-//                {
-//                    mLevelReadDate = new LevelReadDate();
-//                    mLevelReadDate.sublevel_ID = int.Parse(xchild.GetAttribute("sublevel_id"));
-//                    mLevelReadDate.subLevel_Time = float.Parse(xchild.GetAttribute("sublevel_time"));                    
-//                    mLevelReadDate.entitys = new List<Entity>();
-//                    foreach (XmlElement entitychild in xchild.ChildNodes)
-//                    {
-//                        mEntity.entity_ID = int.Parse(entitychild.GetAttribute("id"));
-//                        mEntity.entity_X = int.Parse(entitychild.GetAttribute("x"));
-//                        mEntity.entity_Y = int.Parse(entitychild.GetAttribute("y"));
-//                        mEntity.entity_insTime = float.Parse(entitychild.GetAttribute("insTime"));
-//                        mLevelReadDate.entitys.Add(mEntity);
-////                        Debug.Log("  " + mEntity.entity_ID + "  mEntity.entity_X " + mEntity.entity_X);
-//                    }                    
-//                    mLevelConfigDate.levels.Add(mLevelReadDate);
-//                  //  Debug.Log(" mLevelConfigDate.levels  " + mLevelConfigDate.levels.Count);
-//                }
-//                GetLevelDate.GetInstance().levelConfigDateList.Add(mLevelConfigDate);               
+            StreamReader sr2 = new StreamReader(filepath, Encoding.UTF8);
+            StreamReader sr = File.OpenText(filepath);
+            string nextLine;
+            int flag=-1;
+            string attribyte = "";
+            string bodypart="";
+            string rareness = "";
+            while ((nextLine = sr.ReadLine()) != null)
+            {
+                if (nextLine.Contains("<AttributeList>"))
+                {
+                    flag = 1;
+
+                }
+                else if (nextLine.Contains("<BodyPartList>"))
+                {
+                    flag = 2;
+                }
+                else if (nextLine.Contains("<RarenessList>"))
+                {
+                    flag = 3;
+                }
+                else if (nextLine.Contains("<StyleList>"))
+                {
+                    break;
+                }
+                if (flag == 1)
+                {
+                    attribyte += nextLine + "\n";
+                }else if(flag==2){
+                    bodypart += nextLine + "\n";
+                }
+                else if (flag == 3)
+                {
+                    rareness += nextLine + "\n";
+                }
+                
+            }
+            sr.Close();
+            // 读取attribute
+            XmlDocument xmlDocAtt = new XmlDocument();
+            xmlDocAtt.LoadXml(attribyte);
+            XmlNodeList nodeListAtt = xmlDocAtt.SelectSingleNode("AttributeList").ChildNodes;
+            foreach (XmlElement xe in nodeListAtt)
+            {
+                int id = int.Parse(xe.GetAttribute("id").ToString());
+                XmlNodeList nodeList1 = xe.ChildNodes;
+                foreach (XmlElement xe1 in nodeList1)
+                {
+                    int id1 = int.Parse(xe1.GetAttribute("id").ToString());
+                    string str = xe1.InnerText;
+                    string[] strs = str.Split(' ');
+                    List<double> list = new List<double>();
+                    foreach(string strr in strs){
+                        list.Add(double.Parse(strr));
+                    }
+                    if (id == 0)
+                    {
+                        Attribute_Style style = RankingSystemManager.getInstance().attributeStyle;
+                        Dictionary<int, List<double>> dic = style.attributeType_style;
+                        if (dic.ContainsKey(id1))
+                        {
+                            continue;
+                        }
+                        dic.Add(id1, list);
+                    }
+                    else if (id == 1)
+                    {
+                        Attribute_Material material = RankingSystemManager.getInstance().attributeMaterial;
+                        Dictionary<int, List<double>> dic = material.attributeType_material;
+                        if (dic.ContainsKey(id1))
+                        {
+                            continue;
+                        }
+                        dic.Add(id1, list);
+                    }
+                }
+               }
+            // 读取bodypart
+            XmlDocument xmlDocBody = new XmlDocument();
+            xmlDocBody.LoadXml(bodypart);
+            XmlNodeList nodeListBody = xmlDocBody.SelectSingleNode("BodyPartList").ChildNodes;
+            foreach (XmlElement xe in nodeListBody)
+            {
+                int index = int.Parse(xe.GetAttribute("appear_index").ToString());
+                double ratio = double.Parse(xe.GetAttribute("ratio").ToString());
+                RankingSystemManager.getInstance().bodyPartRatio.Add(ratio);
+                
             }
 
-           // Debug.Log("all = " + xmlDoc.OuterXml);
+            // 读取rareness
+            XmlDocument xmlDocRareness = new XmlDocument();
+            xmlDocRareness.LoadXml(rareness);
+            XmlNodeList nodeListRareness = xmlDocRareness.SelectSingleNode("RarenessList").ChildNodes;
+            foreach (XmlElement xe in nodeListRareness)
+            {
+                int level = int.Parse(xe.GetAttribute("level").ToString());
+                double ratio = double.Parse(xe.GetAttribute("ratio").ToString());
+                RankingSystemManager.getInstance().rarenessRatio.Add(ratio);
+            }
         }
+    }
     
 
     public static List<string> paths = new List<string>();

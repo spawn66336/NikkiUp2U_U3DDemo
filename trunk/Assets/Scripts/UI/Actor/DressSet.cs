@@ -34,8 +34,11 @@ public class DressSet : MonoBehaviour
 {
     void Start()
     {
-        Init();
-        SetDress(DressType.Hair, null);
+        if (initFlag == false)
+        {
+            Init();
+            SetDress(DressType.Hair, null);
+        }
     }
 
     public void ClearDress()
@@ -75,6 +78,20 @@ public class DressSet : MonoBehaviour
         {
             r.SetUsed(false);
         }
+    }
+
+    //获得当前的衣服列表
+    public List<Dress> GetCurrDressList()
+    {
+        List<Dress> dressList = new List<Dress>(); 
+        foreach (var part in dressParts)
+        {
+            if (part.dress != null)
+            {
+                dressList.Add(part.dress);
+            }
+        } 
+        return dressList;
     }
 
     //获取用于评分的衣服信息
@@ -158,6 +175,13 @@ public class DressSet : MonoBehaviour
 
     public void Init()
     {
+        if( initFlag )
+        {
+            return;
+        }
+
+        initFlag = true;
+
         // initial hair
         int id = 11026;
         string path = null;
@@ -202,6 +226,12 @@ public class DressSet : MonoBehaviour
     // 换装实现
     public void SetDress(DressType dressType, Dress dress)
     {
+        if( initFlag == false )
+        {
+            Init();
+            SetDress(DressType.Hair, null);
+        }
+
         ClearRenderables();
 
         GetDressPart(dressType).dress = dress;
@@ -273,6 +303,7 @@ public class DressSet : MonoBehaviour
     }
 
 
+    bool initFlag = false;
     const int NumDressType = (int)DressType.DressTypeLength;
     List<DressRenderable> renderables = new List<DressRenderable>();
 }

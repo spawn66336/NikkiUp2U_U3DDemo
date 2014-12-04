@@ -11,6 +11,7 @@ public class MainView
 
     bool m_show_border = true;
 
+    bool m_bSetCameraToAnchor = false;
     Camera m_camera;
     bool m_normal_camera = true;
     GameObject m_background;
@@ -120,6 +121,17 @@ public class MainView
 
         if (cur_layout != null)
         {
+            if (!m_bSetCameraToAnchor)
+            {
+                cur_layout.SetCamera(m_camera);
+                m_bSetCameraToAnchor = true;
+            }
+            else
+            {
+                cur_layout.DisableAnchor();
+            }
+            
+
             m_view_controller.OnGUI(cur_layout);
 
             List<UIElement> all_uis = cur_layout.GetAllUIs(true);
@@ -230,6 +242,24 @@ public class MainView
         Vector3 rt = WorldToGUI(corners[2]);
 
         return new Rect(lb.x, rt.y, rt.x - lb.x, lb.y - rt.y);
+    }
+
+    public void ChangeResolution(int nW, int nH)
+    {
+        m_camera.orthographicSize = nH / 2;
+        m_camera.aspect = (float)nW / nH;
+
+        m_preview_tex = new RenderTexture(nW, nH, 32);
+        m_camera.targetTexture = m_preview_tex;
+
+        m_view_rect = new Rect(0, 0, nW, nH);
+
+        m_target_view_rect[0] = new Vector3(LayoutTool.s_editor_default_x - nW / 2, LayoutTool.s_editor_default_y - nH / 2);
+        m_target_view_rect[1] = new Vector3(LayoutTool.s_editor_default_x - nW / 2, LayoutTool.s_editor_default_y + nH / 2);
+        m_target_view_rect[2] = new Vector3(LayoutTool.s_editor_default_x + nW / 2, LayoutTool.s_editor_default_y + nH / 2);
+        m_target_view_rect[3] = new Vector3(LayoutTool.s_editor_default_x + nW / 2, LayoutTool.s_editor_default_y - nH / 2);
+
+        m_bSetCameraToAnchor = false;
     }
 }
 

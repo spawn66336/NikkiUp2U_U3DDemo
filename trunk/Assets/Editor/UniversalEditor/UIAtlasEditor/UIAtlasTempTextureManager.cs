@@ -208,12 +208,35 @@ public class UIAtlasTempTextureManager
         //删除临时文件夹
         if (Directory.Exists(UIAtlasEditorConfig.TempPath))
         {
-            File.SetAttributes(UIAtlasEditorConfig.TempPath, File.GetAttributes(UIAtlasEditorConfig.TempPath) & ~FileAttributes.Hidden);
-            File.SetAttributes(UIAtlasEditorConfig.TempPath, File.GetAttributes(UIAtlasEditorConfig.TempPath) & ~(FileAttributes.Archive | FileAttributes.ReadOnly));
-
-           // File.SetAttributes(UIAtlasEditorConfig.TempPath, FileAttributes.Normal);
-            Directory.Delete(UIAtlasEditorConfig.TempPath, true);
+            DirectoryInfo info = new DirectoryInfo(UIAtlasEditorConfig.TempPath);
+            DeleteFileByDirectory(info);
         }
+
+        //if (Directory.Exists(UIAtlasEditorConfig.TempPath))
+        //{
+        //    File.SetAttributes(UIAtlasEditorConfig.TempPath, File.GetAttributes(UIAtlasEditorConfig.TempPath) & ~FileAttributes.Hidden);
+        //    File.SetAttributes(UIAtlasEditorConfig.TempPath, File.GetAttributes(UIAtlasEditorConfig.TempPath) & ~(FileAttributes.Archive | FileAttributes.ReadOnly));
+        //    DirectoryInfo.;
+
+        //   // File.SetAttributes(UIAtlasEditorConfig.TempPath, FileAttributes.Normal);
+        //    Directory.Delete(UIAtlasEditorConfig.TempPath, true);
+        //}
+    }
+
+    public void DeleteFileByDirectory(DirectoryInfo info)
+    {
+        foreach (DirectoryInfo newInfo in info.GetDirectories())
+        {
+            DeleteFileByDirectory(newInfo);
+        }
+        foreach (FileInfo newInfo in info.GetFiles())
+        {
+            newInfo.Attributes = newInfo.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
+            newInfo.Delete();
+        }
+        info.Attributes = info.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
+        info.Delete();
+
     }
 
     private bool _IsTextureAssetAlreadyExistsInTempFolder(string path,out bool bIsNeedRename)

@@ -10,7 +10,8 @@ public enum ResourceType
     DressImage,
     UISound,
     Npc,
-    LevelDialogBackground
+    LevelDialogBackground,
+	CommentNpc
 }
 
 public enum ResourceLoadResult
@@ -207,9 +208,11 @@ public class ResourceManager : MonoBehaviour
             case ResourceType.UISound:
                 return "Art/Sound/UI/";
             case ResourceType.Npc:
-                return "Art/Sound/NPC/";
+                return "Art/UI/Texture/NPC/";
             case ResourceType.LevelDialogBackground:
                 return "Art/UI/Texture/LevelDialogBackground/";
+			case ResourceType.CommentNpc:
+				return"Art/UI/Texture/common-1/";
             default:
                 break;
         }

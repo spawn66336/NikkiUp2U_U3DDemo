@@ -28,6 +28,8 @@ public class DialogContentInfo
 {
     //当前对话内容是否是关键内容
     public bool isKey;
+    //Npc名称
+    public string npcName;
     //当前对话内容
     public string content;
     //当前Npc图片显示信息

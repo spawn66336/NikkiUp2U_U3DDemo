@@ -2,8 +2,8 @@
 <GlobalConfig>
 	<Version>1.0.0.72448</Version>
 	<TargetSize>
-		<Width>720</Width>
-		<Height>1280</Height>
+		<Width>640</Width>
+		<Height>1136</Height>
 	</TargetSize>
 	<LayoutPath>
 		<PrefabFolder>Assets/</PrefabFolder>

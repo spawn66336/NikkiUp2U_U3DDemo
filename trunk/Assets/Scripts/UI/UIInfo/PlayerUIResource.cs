@@ -200,6 +200,13 @@ public class PlayerUIResource : UIResourceManager
     {
         get { return bagItemUIInfos; }
     }
+
+    //当前关卡所用衣服搭配列表
+    public List<Dress> CurrLevelDressList
+    {
+        get { return currLevelDressList; }
+        set { currLevelDressList = value; }
+    }
      
     public void DressFinished( DressSetInfo dressSet , RatingResultCallback callback )
     {
@@ -496,7 +503,9 @@ public class PlayerUIResource : UIResourceManager
     List<int> areaMapIdList = new List<int>();
     //区域地图UI信息列表
     List<AreaMapUIInfo> areaMapUIInfos = new List<AreaMapUIInfo>();
-    
+
+    //当前关卡衣服列表
+    List<Dress> currLevelDressList = new List<Dress>();
 
     //所有关卡信息
     Dictionary<int, List<PlayerLevelUIInfo>> levelInfos = new Dictionary<int, List<PlayerLevelUIInfo>>();

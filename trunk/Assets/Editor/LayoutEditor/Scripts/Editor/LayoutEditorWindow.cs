@@ -403,6 +403,8 @@ public class LayoutEditorWindow : EditorWindow
         {
             Help.BrowseURL(ConfigTool.Instance.help_url);
         }
+
+
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();
     }

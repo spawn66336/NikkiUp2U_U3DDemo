@@ -26,6 +26,9 @@ public class GameItemDataBaseBean
     //bodypart
     [XmlAttribute("DressType")]
     public DressType dressType;
+    //物品基础分
+    [XmlAttribute("Score")]
+    public int score;
     //图标路径
     [XmlIgnore]
     public string iconPath;
@@ -50,6 +53,10 @@ public class GameItemDataBaseBean
     public List<double> styleList = new List<double>();
     [XmlArray("AttributeList"),XmlArrayItem("Attribute")]
     public List<Attribute> attributeList = new List<Attribute>();
+    [XmlIgnore]
+    public List<Attribute> attStyleList = new List<Attribute>();
+    [XmlIgnore]
+    public List<Attribute> attMatrialList = new List<Attribute>();
 }
 
 [XmlRoot("Attribute")]
