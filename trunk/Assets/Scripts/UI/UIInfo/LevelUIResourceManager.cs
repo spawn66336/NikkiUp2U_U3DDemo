@@ -100,7 +100,8 @@ public class LevelUIResourceManager : UIResourceManager
         newUIInfo.id = info.id;
         newUIInfo.areaMapId = info.areaMapId;
         newUIInfo.name = info.name; 
-        newUIInfo.isTimeLimit = info.isTimeLimit; 
+        newUIInfo.isTimeLimit = info.isTimeLimit;
+        newUIInfo.timeLimit = info.timeLimit;
         newUIInfo.dialogInfo.bkImg = ResourceManager.GetInstance().Load(ResourceType.LevelDialogBackground, info.dialogInfo.bkImgPath) as Texture2D;
         foreach( var content in info.dialogInfo.contents )
         {

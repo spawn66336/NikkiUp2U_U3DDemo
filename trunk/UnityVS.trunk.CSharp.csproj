@@ -270,6 +270,7 @@
     <Compile Include="Assets\Scripts\UI\MapControl\UIMapController.cs" />
     <Compile Include="Assets\Scripts\UI\RankController.cs" />
     <Compile Include="Assets\Scripts\UI\RatingPanelController.cs" />
+    <Compile Include="Assets\Scripts\UI\TimeLimitCtrl.cs" />
     <Compile Include="Assets\Scripts\UI\UIController.cs" />
     <Compile Include="Assets\Scripts\UI\UIInfo\AreaMapUIResourceManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIInfo\CommonUIResource.cs" />
@@ -277,6 +278,7 @@
     <Compile Include="Assets\Scripts\UI\UIInfo\LevelUIResourceManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIInfo\PlayerUIResource.cs" />
     <Compile Include="Assets\Scripts\UI\UIInfo\UIResourceManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UINumPos.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelBindingTarget.cs" />
     <Compile Include="Assets\Scripts\UI\UIPrepareCallback.cs" />
     <Compile Include="Assets\Scripts\UIAtlasEditor\UIAtlasCommandCounter.cs" />

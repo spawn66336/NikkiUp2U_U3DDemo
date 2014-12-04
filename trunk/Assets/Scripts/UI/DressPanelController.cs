@@ -6,21 +6,29 @@ public class DressPanelController : UIController
 {
     //换装角色
     public Actor Nikki; 
+
     //关卡名称
     public UILabel LevelNameLabel;
+
     //关卡对话内容
     public UITextList levelDialogContents;
+
     //服装列表
     public DressListController dressListCtrl;
+
     //服装类型列表
     public GameObject dressTypeList;
     
     public GameObject dressGroup;
+
     //任务提示框
     public GameObject levelDialog;
 
     //衣服描述信息板
     public DressDescBox dressDescBox;
+
+    //时限显示
+    public TimeLimitCtrl timeLimitCtrl;
      
     //选中类型
     DressType chosenType; 
@@ -49,6 +57,13 @@ public class DressPanelController : UIController
             PlayerLevelUIInfo currLevelUIInfo = PlayerUIResource.GetInstance().CurrLevelUIInfo;
 
             LevelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.name;
+
+            if (currLevelUIInfo.levelInfo.isTimeLimit)
+            {
+                timeLimitCtrl.remainingSeconds = currLevelUIInfo.levelInfo.timeLimit;
+                timeLimitCtrl.onTimeUpCallback = OnDressFinishedBtnClick;
+                timeLimitCtrl.gameObject.SetActive(true);
+            }
                         
             var contents = currLevelUIInfo.levelInfo.dialogInfo.contents;
             foreach( var c in contents )
