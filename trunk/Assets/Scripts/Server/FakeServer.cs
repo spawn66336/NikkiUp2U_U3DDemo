@@ -43,8 +43,8 @@ public class FakeServer
         }
 
         GameDataBaseManager.getInstance().init();
-        PlayerInfoManager.getInstance().init();
         BagInfoManager.getInstance().init();
+        PlayerInfoManager.getInstance().init();
         RankingSystemManager.getInstance().init();
     }
 

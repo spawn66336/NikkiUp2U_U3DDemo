@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class AtlasImageZoomCommand : IEditorCommand
-{
+{//小图缩放命令
+
     public float m_oldScaleFactor = 0f;
     public float m_newScaleFactor = 0f;
     public string m_SpriteName = null;
 
     public string Name { get { return "Atlas SpriteImage Zoom Change"; } }
-    public bool DontSaved { get { return false; } }
+    public bool DontSaved { get { return true; } }
 
     public void Execute()
     {
@@ -24,11 +25,12 @@ public class AtlasImageZoomCommand : IEditorCommand
 }
 
 public class AtlasAddSpriteImageCommand : IEditorCommand
-{
+{//添加小图命令
+
     public string m_SpriteName = null;
 
     public string Name { get { return "Atlas Add SpriteImage "; } }
-    public bool DontSaved { get { return false; } }
+    public bool DontSaved { get { return true; } }
 
     public void Execute()
     {
@@ -42,11 +44,12 @@ public class AtlasAddSpriteImageCommand : IEditorCommand
 }
 
 public class AtlasDeleteSpriteImageCommand : IEditorCommand
-{
+{//删除小图命令
+
     public string m_SpriteName = null;
 
     public string Name { get { return "Atlas Delete SpriteImage "; } }
-    public bool DontSaved { get { return false; } }
+    public bool DontSaved { get { return true; } }
 
     public void Execute()
     {
@@ -60,9 +63,10 @@ public class AtlasDeleteSpriteImageCommand : IEditorCommand
 }
 
 public class AtlasMakeAtlas : IEditorCommand
-{
+{//生成Atlas命令
+
     public string Name { get { return "Atlas MakeAtlas"; } }
-    public bool DontSaved { get { return false; } } 
+    public bool DontSaved { get { return true; } } 
 
     public void Execute()
     {

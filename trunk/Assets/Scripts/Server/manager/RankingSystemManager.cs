@@ -63,6 +63,7 @@ public class RankingSystemManager : IDataManager
                 styleScore += dress.styleList[style.Id]*style.Ratio;
             }
             foundationScore += baseScore * styleScore;
+             Debug.Log(dress.name+","+baseScore+","+styleScore+","+foundationScore);
             // 2.特征匹配
             copyDressIdList.Remove(id);
             foreach (int copyId in copyDressIdList)
@@ -113,6 +114,7 @@ public class RankingSystemManager : IDataManager
                     }
                 }
             }
+            Debug.Log(dress.name + "," + attributeScore);
             // 3.风格与主题匹配
             if (level.Thm.AttStyleList != null && level.Thm.AttStyleList.Count > 0
                     && dress.attStyleList != null && dress.attStyleList.Count > 0)
@@ -144,8 +146,9 @@ public class RankingSystemManager : IDataManager
                     }
                 }
             }
+            Debug.Log(dress.name + "," + themeScore);
         }
-
+        
         return foundationScore * (1 + attributeScore) * (1 + themeScore);
     }
     

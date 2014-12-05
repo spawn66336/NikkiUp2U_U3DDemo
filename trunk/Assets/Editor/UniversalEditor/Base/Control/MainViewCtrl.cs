@@ -40,7 +40,7 @@ public class MainViewCtrl : EditorControl
 
 
 
-    public MainViewCtrl(){ }
+    public MainViewCtrl() { Init(); }
 
     //在第一次渲染此控件时调用
     public void Init()

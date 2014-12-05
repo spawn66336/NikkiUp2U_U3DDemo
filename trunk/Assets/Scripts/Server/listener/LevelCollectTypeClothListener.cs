@@ -23,7 +23,7 @@ public class LevelCollectTypeClothListener : IGameEventListener
         for (int i = 0; i < listKeys.Count; i++)
         {
             PlayerLevelRecordForCondition info = PlayerRecordManager.getInstance().dicLevelRecordCon[listKeys[i]];
-            int num = 1;
+            int num = 0;
             List<ConditionType> listTypeKeys = new List<ConditionType>();
             listTypeKeys.AddRange(info.conditionDic.Keys);
             for (int j = 0; j < listTypeKeys.Count; j++)
@@ -31,29 +31,30 @@ public class LevelCollectTypeClothListener : IGameEventListener
                 ConditionType type = listTypeKeys[j];
                 if (info.conditionDic[type])
                 {
-                    num++;
-                    continue;
+                    ++num;
                 }
-                if (type == ConditionType.Type_CollectBodyIndexCloth)
+                else
                 {
-                    for (int m = 0; m < info.levelInfo.Cond.Count; m++)
+                    if (type == ConditionType.Type_CollectBodyIndexCloth)
                     {
-                        Unlock unlock = info.levelInfo.Cond[m];
-                        if ((ConditionType)unlock.Type == ConditionType.Type_CollectBodyIndexCloth)
+                        for (int m = 0; m < info.levelInfo.Cond.Count; m++)
                         {
-                            string[] strs = unlock.Value.Split(',');
-                            int targetType = int.Parse(strs[0]);
-                            int targetNum = int.Parse(strs[1]);
-                            if (clothtype==targetType&&clothnum >= targetNum)
+                            Unlock unlock = info.levelInfo.Cond[m];
+                            if ((ConditionType)unlock.Type == ConditionType.Type_CollectBodyIndexCloth)
                             {
-                                num++;
-                                info.conditionDic[type] = true;
+                                string[] strs = unlock.Value.Split(',');
+                                int targetType = int.Parse(strs[0]);
+                                int targetNum = int.Parse(strs[1]);
+                                if (clothtype == targetType && clothnum >= targetNum)
+                                {
+                                    ++num;
+                                    info.conditionDic[type] = true;
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
                 }
-
                 if (num == info.conditionDic.Count)
                 {
                     finishList.Add(info);

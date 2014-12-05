@@ -55,7 +55,7 @@ public class AtlasProject
     {//检查待添加的小图的路径是否正确
         bool bRet = false;
 
-        if (UIAtlasEditorConfig.ImageBasePath == null)
+        if ((path == null) || (UIAtlasEditorConfig.ImageBasePath == null))
         {
             bRet = false;
         }
@@ -69,24 +69,74 @@ public class AtlasProject
         return bRet;
     }
 
+#region 工程操作函数
+    public void Save()
+    {//保存工程文件
+
+        if (Path == null)
+        {
+            return;
+        }
+
+        //创建工程文件
+        StreamWriter yamlWriter = File.CreateText(Path);
+        Serializer yamlSerializer = new Serializer();
+
+        //制作持久化对象
+        object obj = GetSerializeObject();
+
+        //将持久化对象写入工程文件
+        yamlSerializer.Serialize(yamlWriter, obj);
+        yamlWriter.Close();
+    }
+
+    public AtlasSerializeObject Load(string path)
+    {//读取工程文件
+
+        if (path == null)
+        {
+            return null;
+        }
+        //打开工程文件
+        StreamReader yamlReader = File.OpenText(path);
+        Deserializer yamlDeserializer = new Deserializer();
+
+        //读取持久化对象
+        var obj = yamlDeserializer.Deserialize<AtlasSerializeObject>(yamlReader);
+
+        //更新小图信息
+        ApplySerializeObject(obj);
+
+
+        yamlReader.Close();
+        return obj;
+    }
+
     public bool AddSpriteImage(string path)
     {//向工程中添加小图
 
         bool bRet = true;
+
+        if (path == null)
+        {
+            ProjectFailedType = PROJECT_FAILED_TYPE.PROJECT_FAILED_SPRITEIMAGE_PATH_ERROR;
+            return false;
+        }
+
         AtlasSpriteImage spriteImage = new AtlasSpriteImage();
-        
+
         //首次添加时缩放比例默认是1
         spriteImage.ZoomScale = 1f;
 
-        if(CheckSpriteImagePath(path))
+        if (CheckSpriteImagePath(path))
         {//路径合法
 
-            spriteImage.Path = path.Substring(ImageRelativePath.Length);          
+            spriteImage.Path = path.Substring(ImageRelativePath.Length);
             spriteImage.Name = path.Substring(path.LastIndexOfAny(new char[] { '/', '\\' }) + 1);
 
             foreach (var sprite in spriteImages)
             {
-                if(sprite.Path == spriteImage.Path)
+                if (sprite.Path == spriteImage.Path)
                 {
                     //更新错误类型
                     ProjectFailedType = PROJECT_FAILED_TYPE.PROJECT_FAILED_SPRITE_EXIST_ERROR;
@@ -103,7 +153,7 @@ public class AtlasProject
             bRet = false;
         }
 
-        if(bRet)
+        if (bRet)
         {
             //添加小图
             spriteImages.Add(spriteImage);
@@ -118,6 +168,11 @@ public class AtlasProject
 
         bool bRet = true;
         string spritePath = null;
+
+        if (path == null)
+        {
+            return false;
+        }
 
         //查询待删除的小图
         foreach (var ImageInfo in spriteImages)
@@ -138,11 +193,18 @@ public class AtlasProject
     {//获取指定文件名的小图
 
         bool bRet = true;
+
+        if (path == null)
+        {
+            spriteImage = null;
+            return false;
+        }
+
         string tempPath = path.Substring(path.IndexOfAny(ImageRelativePath.ToCharArray()) + ImageRelativePath.Length);
         spriteImage = null;
 
         //查询目标小图
-        foreach(var sprite in spriteImages)
+        foreach (var sprite in spriteImages)
         {
             if (sprite.Path == tempPath)
             {
@@ -166,14 +228,78 @@ public class AtlasProject
         spriteImages.Clear();
     }
 
+    private AtlasSerializeObject GetSerializeObject()
+    {//制作待持久化的对象
+
+        AtlasSerializeObject obj = new AtlasSerializeObject();
+
+        //设定Atals输出路径（相对Until的路径）
+        obj.AtlasOutputPath = AtlasSavePath;
+
+        List<KeyValuePair<string, SpriteImageInfo>> spriteImageInfo = new List<KeyValuePair<string, SpriteImageInfo>>();
+
+        //设定小图路径（相对配置路径）、小图缩放比例
+        foreach (var ImageInfo in spriteImages)
+        {
+            SpriteImageInfo newInfo = new SpriteImageInfo();
+            newInfo.SpritePath = ImageInfo.Path;
+            newInfo.ZoomScale = ImageInfo.ZoomScale;
+
+            KeyValuePair<string, SpriteImageInfo> spriteInfoKeyPair = new KeyValuePair<string, SpriteImageInfo>
+            (ImageInfo.Name, newInfo);
+            spriteImageInfo.Add(spriteInfoKeyPair);
+        }
+
+        obj.SpriteInfoTable = spriteImageInfo;
+
+        return obj;
+    }
+
+    private bool ApplySerializeObject(AtlasSerializeObject obj)
+    {//获取持久化对象
+
+        bool bRet = true;
+
+        if (obj == null)
+        {
+            return false;
+        }
+
+        //获取Atlas输出路径
+        AtlasSavePath = obj.AtlasOutputPath;
+        spriteImages.Clear();
+
+        //获取小图信息
+        foreach (var ImageInfo in obj.SpriteInfoTable)
+        {
+            AtlasSpriteImage image = new AtlasSpriteImage();
+            image.Name = ImageInfo.Key;
+            image.Path = ImageInfo.Value.SpritePath;
+            image.ZoomScale = ImageInfo.Value.ZoomScale;
+            image.Texture = null;
+
+            spriteImages.Add(image);
+        }
+
+        return bRet;
+    }
+#endregion
+
+
+#region Sprite操作函数
     public void SetSpriteImageZoom(string path , float scaleFactor)
     {//变更小图在Atlas中的缩放比例
+
+        if(path == null)
+        {
+            return;
+        }
 
         //查询目标小图
         foreach (var ImageInfo in spriteImages)
         {
-            path = path.Substring(path.IndexOfAny(ImageRelativePath.ToCharArray()) + ImageRelativePath.Length);
-            if (ImageInfo.Path == path)
+            string spritePath = path.Substring(path.IndexOfAny(ImageRelativePath.ToCharArray()) + ImageRelativePath.Length);
+            if (ImageInfo.Path == spritePath)
             {
                 ImageInfo.ZoomScale = scaleFactor;
                 break;
@@ -200,24 +326,41 @@ public class AtlasProject
     {//生成Atlas Png
 
         string newPath = null;
+        bool bRet = false;
+
+        if ((atlasSavePath == null) || (name == null))
+        {
+            return false;
+        }
 
         DefaultTexturePackagingStrategy maker = new DefaultTexturePackagingStrategy();
 
         //打包纹理
         if(maker.Pack(tex, imgs, null))
         {
+            if(tex == null)
+            {
+                return false;
+            }
+
             //创建png文件
             byte[] bytes = tex.EncodeToPNG();
             newPath = atlasSavePath + name + ".png";
             System.IO.File.WriteAllBytes(newPath, bytes);
             bytes = null;
+            bRet = true;
         }
-       
-        return true;
+
+        return bRet;
     }
 
     public void MakeAtlasPrefab(string outputPath)
     {//生成Atlas prefab
+
+        if ((outputPath == null) || (!outputPath.Contains(".prefab")))
+        {
+            return;
+        }
 
         GameObject go = AssetDatabase.LoadAssetAtPath(outputPath, typeof(GameObject)) as GameObject;
         Object prefab = (go != null) ? go : PrefabUtility.CreateEmptyPrefab(outputPath);
@@ -232,96 +375,9 @@ public class AtlasProject
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
       }
+#endregion
 
-    private AtlasSerializeObject GetSerializeObject()
-    {//制作待持久化的对象
-
-        AtlasSerializeObject obj = new AtlasSerializeObject();
-     
-        //设定Atals输出路径（相对Until的路径）
-        obj.AtlasOutputPath = AtlasSavePath;
-     
-        List<KeyValuePair<string, SpriteImageInfo>> spriteImageInfo = new List<KeyValuePair<string, SpriteImageInfo>>();
-    
-        //设定小图路径（相对配置路径）、小图缩放比例
-        foreach (var ImageInfo in spriteImages)
-        {
-            SpriteImageInfo newInfo = new SpriteImageInfo();
-            newInfo.SpritePath = ImageInfo.Path;
-            newInfo.ZoomScale = ImageInfo.ZoomScale;
-
-            KeyValuePair<string, SpriteImageInfo> spriteInfoKeyPair = new KeyValuePair<string, SpriteImageInfo>
-            (ImageInfo.Name, newInfo);
-            spriteImageInfo.Add(spriteInfoKeyPair);
-        }
-
-        obj.SpriteInfoTable = spriteImageInfo;
-
-        return obj;
-    }
-
-    private bool ApplySerializeObject(AtlasSerializeObject obj)
-    {//获取持久化对象
-
-        bool bRet = true;
-
-        //获取Atlas输出路径
-        AtlasSavePath = obj.AtlasOutputPath;
-        spriteImages.Clear();
-
-        //获取小图信息
-        foreach (var ImageInfo in obj.SpriteInfoTable)
-        {
-            AtlasSpriteImage image = new AtlasSpriteImage();
-            image.Name = ImageInfo.Key;
-            image.Path = ImageInfo.Value.SpritePath;
-            image.ZoomScale = ImageInfo.Value.ZoomScale;
-            image.Texture = null;
-
-            spriteImages.Add(image);
-        }
-
-        return bRet;
-    }
-
-    public void Save()
-    {//保存工程文件
-        
-        //创建工程文件
-        StreamWriter yamlWriter = File.CreateText(Path);
-        Serializer yamlSerializer = new Serializer();
-
-        //制作持久化对象
-        object obj = GetSerializeObject();
-
-        //将持久化对象写入工程文件
-        yamlSerializer.Serialize(yamlWriter, obj);
-        yamlWriter.Close();
-    }
-
-    public AtlasSerializeObject Load(string path)
-    {//读取工程文件
-
-        if(path == null)
-        {
-            return null;
-        }
-        //打开工程文件
-        StreamReader yamlReader = File.OpenText(path);
-        Deserializer yamlDeserializer = new Deserializer();
-
-        //读取持久化对象
-        var obj = yamlDeserializer.Deserialize<AtlasSerializeObject>(yamlReader);
-        
-        //更新小图信息
-        ApplySerializeObject(obj);
-        
-
-        yamlReader.Close();
-        return obj;
-    }
-
-    
+#region 成员变量
     private string name = null;                         //工程名（不包含路径信息和扩展名）
     private string path = null;                         //工程路径（绝对路径）
     private string atlasSavePath = null;                //Atals输出路径（相对路径）
@@ -339,4 +395,5 @@ public class AtlasProject
     public PROJECT_TYPE ProjectType { get { return projcetType; } set { projcetType = value; } }
     public PROJECT_FAILED_TYPE ProjectFailedType { get { return failedType; } set { failedType = value; } }
     public string AtlasSavePath { get { return atlasSavePath; } set { atlasSavePath = value; } }
+#endregion
 }

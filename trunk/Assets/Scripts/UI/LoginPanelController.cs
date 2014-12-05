@@ -7,6 +7,7 @@ public class LoginPanelController : UIController
 	 
     public void OnBackgroundClick()
     {
+        GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.CommonButtonClick);
         GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.AreaMapUI);
     }
 }

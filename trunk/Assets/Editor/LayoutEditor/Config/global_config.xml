@@ -11,4 +11,9 @@
 	</LayoutPath>
 	<CmdCountLimit>10000</CmdCountLimit>
 	<Help>http://192.168.2.121:8090/pages/viewpage.action?pageId=4227271</Help>
+	<ResolutionPreview>
+		<Item>1024*768</Item>
+		<Item>1470*720</Item>
+		<Item>640*1136</Item>
+	</ResolutionPreview>
 </GlobalConfig>

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ public class PlayerRecordManager : IDataManager
 {
     public Dictionary<int, PlayerLevelRecordForCondition> dicLevelRecordCon = new Dictionary<int, PlayerLevelRecordForCondition>();
     public Dictionary<int, PlayerMapRecordForCondition> dicMapRecordCon = new Dictionary<int, PlayerMapRecordForCondition>();
-
+    public Hashtable tableMapOpenTime = new Hashtable();
     static PlayerRecordManager _instance;
     public static PlayerRecordManager getInstance()
     {
@@ -102,6 +103,27 @@ public class PlayerRecordManager : IDataManager
                 }
                 conditionDic.Add((ConditionType)con.Type, flag);
             }
+            else if ((ConditionType)con.Type == ConditionType.Type_TimeOpen)
+            {
+                bool flag = false;
+                string[] timestr = con.Value.Split('-');
+                if (timestr.Length != 6)
+                {
+                    continue;
+                }
+                DateTime datetime = new DateTime(int.Parse(timestr[0]), int.Parse(timestr[1]), int.Parse(timestr[2]), int.Parse(timestr[3]), int.Parse(timestr[4]), int.Parse(timestr[5]));
+                if (DateTime.Now >= datetime)
+                {
+                    i++;
+                    flag = true;
+                }
+                else
+                {
+                    tableMapOpenTime.Add(map.Id, datetime);
+                    unlockRes += datetime.ToString() + "开启";
+                }
+                conditionDic.Add((ConditionType)con.Type, flag);
+            }
         }
         if (i == map.UnlockCond.Count)
         {
@@ -119,7 +141,60 @@ public class PlayerRecordManager : IDataManager
         dicLevelRecordCon.Clear();
         dicMapRecordCon.Clear();
     }
-
+    public DateTime updateTime;
+    public void updateMapTime()
+    {
+        DateTime now = DateTime.Now;
+        if (updateTime == null)
+        {
+            updateTime = DateTime.Now;
+        }
+        else
+        {
+            updateTime.AddSeconds(5);
+            if (now < updateTime)
+            {
+                return;
+            }
+            updateTime = now;
+        }
+        List<int> mapIdList = new List<int>();
+        foreach (DictionaryEntry entry in tableMapOpenTime)
+        {
+            string[] timestr = ((string)entry.Value).Split('-');
+            if (timestr.Length != 6)
+            {
+                continue;
+            }
+            DateTime datetime = new DateTime(int.Parse(timestr[0]), int.Parse(timestr[1]), int.Parse(timestr[2]), int.Parse(timestr[3]), int.Parse(timestr[4]), int.Parse(timestr[5]));
+            if (updateTime >= datetime)
+            {
+                mapIdList.Add((int)entry.Key);
+            }
+        }
+        foreach (int mapId in mapIdList)
+        {
+            tableMapOpenTime.Remove(mapId);
+            if (!dicMapRecordCon.ContainsKey(mapId))
+            {
+                continue;
+            }
+            PlayerMapRecordForCondition info = dicMapRecordCon[mapId];
+            info.mapConditionDic[ConditionType.Type_TimeOpen]=true;
+            int flag=0;
+            foreach (ConditionType type in info.mapConditionDic.Keys)
+            {
+                if (info.mapConditionDic[type])
+                {
+                    flag++;
+                }
+            }
+            if(flag==info.mapConditionDic.Count){
+                dicMapRecordCon.Remove(mapId);
+                PlayerInfoManager.getInstance().openMap(mapId);
+            }
+        }
+    }
 }
 
 public class PlayerLevelRecordForCondition

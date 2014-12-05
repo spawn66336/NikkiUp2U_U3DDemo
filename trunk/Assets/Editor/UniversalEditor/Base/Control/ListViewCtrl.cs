@@ -6,6 +6,8 @@ public class ListCtrlItem
 {
     //列表项名
     public string name;
+    //add by liteng for atlas
+    public string tooltip;
     //列表项图标
     public Texture image;
     //项中的用户数据

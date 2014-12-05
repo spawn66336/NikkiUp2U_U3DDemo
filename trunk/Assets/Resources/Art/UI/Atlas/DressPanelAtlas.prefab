@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: b9d177418b9628c4d84a9e51a4ec66ed, type: 2}
   mSprites:
   - name: anback
-    x: 1016
-    y: 1596
+    x: 1699
+    y: 1531
     width: 60
     height: 60
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 14
   - name: back
-    x: 1077
-    y: 1597
+    x: 1761
+    y: 1532
     width: 59
     height: 59
     borderLeft: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 16
     paddingBottom: 17
   - name: ding
-    x: 978
-    y: 1545
+    x: 1375
+    y: 1800
     width: 640
     height: 47
     borderLeft: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: faxing
     x: 0
-    y: 14
+    y: 3
     width: 213
     height: 90
     borderLeft: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: faxing_effect
     x: 0
-    y: 836
+    y: 834
     width: 215
     height: 93
     borderLeft: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 8
   - name: fs_gan
-    x: 1016
+    x: 1375
     y: 1937
     width: 618
     height: 111
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fs_pai
-    x: 230
-    y: 352
+    x: 1233
+    y: 1651
     width: 100
     height: 146
     borderLeft: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: h_rarity
     x: 217
-    y: 966
+    y: 917
     width: 12
     height: 10
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 3
   - name: hz_aes
-    x: 769
-    y: 330
+    x: 981
+    y: 1508
     width: 164
     height: 83
     borderLeft: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 2
   - name: hz_ajs
-    x: 604
-    y: 245
+    x: 1147
+    y: 1508
     width: 163
     height: 83
     borderLeft: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 2
   - name: hz_ass
-    x: 396
-    y: 177
+    x: 606
+    y: 233
     width: 164
     height: 86
     borderLeft: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 1
   - name: hz_atb
-    x: 604
-    y: 414
+    x: 772
+    y: 147
     width: 165
     height: 84
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: hz_ates
-    x: 230
-    y: 3
+    x: 773
+    y: 321
     width: 165
     height: 86
     borderLeft: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: hz_ats
-    x: 230
-    y: 90
+    x: 606
+    y: 321
     width: 165
     height: 86
     borderLeft: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 1
   - name: hz_atuis
-    x: 230
-    y: 177
+    x: 1864
+    y: 1849
     width: 165
     height: 86
     borderLeft: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: hz_ays
-    x: 1847
-    y: 1874
+    x: 606
+    y: 409
     width: 165
     height: 86
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: hz_dw
-    x: 497
-    y: 407
+    x: 981
+    y: 1415
     width: 90
     height: 91
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: hz_es
-    x: 331
-    y: 411
+    x: 401
+    y: 138
     width: 165
     height: 87
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: hz_fzd
-    x: 1229
-    y: 1620
+    x: 1304
+    y: 1612
     width: 67
     height: 37
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 8
   - name: hz_go
-    x: 736
-    y: 1609
+    x: 738
+    y: 1608
     width: 249
     height: 117
     borderLeft: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: hz_hbj
-    x: 1417
-    y: 1599
+    x: 1548
+    y: 1520
     width: 78
     height: 71
     borderLeft: 0
@@ -315,8 +315,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: hz_hy
-    x: 1496
-    y: 1602
+    x: 1628
+    y: 1523
     width: 69
     height: 68
     borderLeft: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_js
-    x: 395
-    y: 265
+    x: 773
+    y: 409
     width: 165
     height: 86
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: hz_ok
-    x: 1504
-    y: 1862
+    x: 1471
+    y: 1517
     width: 75
     height: 74
     borderLeft: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: hz_ready
     x: 0
-    y: 562
+    y: 557
     width: 227
     height: 86
     borderLeft: 0
@@ -367,8 +367,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: hz_rwts
-    x: 1137
-    y: 1615
+    x: 1233
+    y: 1608
     width: 69
     height: 41
     borderLeft: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 8
   - name: hz_shsc
-    x: 1635
-    y: 1697
+    x: 401
+    y: 318
     width: 168
     height: 89
     borderLeft: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_shsca
-    x: 1635
-    y: 1607
+    x: 231
+    y: 318
     width: 168
     height: 89
     borderLeft: 0
@@ -419,8 +419,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_ss
-    x: 604
-    y: 329
+    x: 606
+    y: 60
     width: 164
     height: 84
     borderLeft: 0
@@ -432,8 +432,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: hz_tb
-    x: 396
-    y: 5
+    x: 606
+    y: 146
     width: 164
     height: 85
     borderLeft: 0
@@ -445,8 +445,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: hz_tes
-    x: 770
-    y: 414
+    x: 772
+    y: 61
     width: 164
     height: 84
     borderLeft: 0
@@ -458,8 +458,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: hz_ts
-    x: 396
-    y: 91
+    x: 772
+    y: 234
     width: 165
     height: 85
     borderLeft: 0
@@ -471,8 +471,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: hz_tu
-    x: 1016
-    y: 1850
+    x: 1375
+    y: 1849
     width: 487
     height: 86
     borderLeft: 0
@@ -484,8 +484,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: hz_tuis
-    x: 230
-    y: 264
+    x: 401
+    y: 49
     width: 164
     height: 87
     borderLeft: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: hz_wbbj
-    x: 230
+    x: 231
     y: 1593
     width: 505
     height: 455
@@ -510,8 +510,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_ys
-    x: 1847
-    y: 1961
+    x: 231
+    y: 47
     width: 165
     height: 87
     borderLeft: 0
@@ -523,8 +523,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: hz_zgf
-    x: 1846
-    y: 1694
+    x: 231
+    y: 136
     width: 168
     height: 89
     borderLeft: 0
@@ -536,8 +536,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_zgfa
-    x: 1846
-    y: 1604
+    x: 231
+    y: 227
     width: 168
     height: 89
     borderLeft: 0
@@ -549,8 +549,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_zr
-    x: 1229
-    y: 1658
+    x: 1589
+    y: 1605
     width: 168
     height: 89
     borderLeft: 0
@@ -562,8 +562,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hz_zra
-    x: 1846
-    y: 1784
+    x: 401
+    y: 227
     width: 168
     height: 89
     borderLeft: 0
@@ -574,9 +574,48 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: k_a
+    x: 1312
+    y: 1529
+    width: 157
+    height: 62
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: k_k
+    x: 1019
+    y: 1799
+    width: 354
+    height: 249
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: k_l
+    x: 443
+    y: 433
+    width: 157
+    height: 62
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: lianyiqun
     x: 0
-    y: 196
+    y: 187
     width: 213
     height: 90
     borderLeft: 0
@@ -589,7 +628,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: lianyiqun_effect
     x: 0
-    y: 930
+    y: 929
     width: 216
     height: 93
     borderLeft: 0
@@ -601,8 +640,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 9
   - name: mission_name
-    x: 1016
-    y: 1748
+    x: 1375
+    y: 1696
     width: 400
     height: 50
     borderLeft: 0
@@ -614,8 +653,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pai_f1
-    x: 604
-    y: 499
+    x: 606
+    y: 497
     width: 373
     height: 546
     borderLeft: 0
@@ -627,8 +666,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pai_f2
-    x: 604
-    y: 1046
+    x: 606
+    y: 1045
     width: 373
     height: 546
     borderLeft: 0
@@ -640,8 +679,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pai_f3
-    x: 230
-    y: 499
+    x: 231
+    y: 497
     width: 373
     height: 546
     borderLeft: 0
@@ -653,8 +692,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pai_f4
-    x: 230
-    y: 1046
+    x: 231
+    y: 1045
     width: 373
     height: 546
     borderLeft: 0
@@ -666,7 +705,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: S_0
-    x: 736
+    x: 738
     y: 1727
     width: 279
     height: 321
@@ -679,8 +718,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 47
   - name: scroll_bar
-    x: 217
-    y: 977
+    x: 218
+    y: 976
     width: 5
     height: 46
     borderLeft: 1
@@ -692,8 +731,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: scroll_barbg
-    x: 978
-    y: 1026
+    x: 981
+    y: 895
     width: 5
     height: 518
     borderLeft: 0
@@ -705,8 +744,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shangyi
-    x: 1417
-    y: 1671
+    x: 1375
+    y: 1606
     width: 212
     height: 88
     borderLeft: 0
@@ -719,7 +758,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: shangyi_effect
     x: 0
-    y: 742
+    y: 739
     width: 215
     height: 93
     borderLeft: 0
@@ -731,8 +770,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 9
   - name: shipin
-    x: 1417
-    y: 1760
+    x: 1019
+    y: 1616
     width: 211
     height: 89
     borderLeft: 0
@@ -745,7 +784,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: shipin_effect
     x: 0
-    y: 649
+    y: 645
     width: 216
     height: 92
     borderLeft: 0
@@ -757,8 +796,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 8
   - name: use
-    x: 604
-    y: 157
+    x: 1073
+    y: 1419
     width: 86
     height: 87
     borderLeft: 0
@@ -770,8 +809,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: waitao
-    x: 1635
-    y: 1874
+    x: 1777
+    y: 1623
     width: 211
     height: 86
     borderLeft: 0
@@ -784,7 +823,7 @@ MonoBehaviour:
     paddingBottom: 12
   - name: waitao_effect
     x: 0
-    y: 378
+    y: 464
     width: 214
     height: 91
     borderLeft: 0
@@ -796,8 +835,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 11
   - name: wazi
-    x: 1635
-    y: 1787
+    x: 231
+    y: 409
     width: 210
     height: 86
     borderLeft: 0
@@ -810,7 +849,7 @@ MonoBehaviour:
     paddingBottom: 12
   - name: wazi_effect
     x: 0
-    y: 287
+    y: 279
     width: 214
     height: 90
     borderLeft: 0
@@ -822,8 +861,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 11
   - name: xiazhuang
-    x: 1635
-    y: 1961
+    x: 1777
+    y: 1711
     width: 211
     height: 87
     borderLeft: 0
@@ -836,7 +875,7 @@ MonoBehaviour:
     paddingBottom: 12
   - name: xiazhuang_effect
     x: 0
-    y: 470
+    y: 371
     width: 214
     height: 91
     borderLeft: 0
@@ -848,8 +887,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: xiezi
-    x: 1016
-    y: 1657
+    x: 1019
+    y: 1707
     width: 212
     height: 90
     borderLeft: 0
@@ -862,7 +901,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: xiezi_effect
     x: 0
-    y: 105
+    y: 95
     width: 213
     height: 90
     borderLeft: 0
@@ -874,8 +913,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 11
   - name: xin
-    x: 1580
-    y: 1906
+    x: 1335
+    y: 1767
     width: 35
     height: 30
     borderLeft: 0
@@ -887,8 +926,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_title
-    x: 1016
-    y: 1799
+    x: 1375
+    y: 1748
     width: 400
     height: 50
     borderLeft: 0

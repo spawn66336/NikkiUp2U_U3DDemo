@@ -59,8 +59,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: -223, z: 0}
-  m_LocalScale: {x: .999679863, y: .999679863, z: .999679863}
+  m_LocalPosition: {x: 100, y: -223, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 100
   mHeight: 146
-  mDepth: 4
+  mDepth: 50
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -217,12 +217,12 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3016
+  startingRenderQueue: 3013
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: -104, y: -16, z: 92, w: 128}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 4
+  mDepth: 2
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11400006

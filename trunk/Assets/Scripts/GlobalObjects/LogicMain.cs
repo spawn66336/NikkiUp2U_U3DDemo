@@ -58,6 +58,8 @@ public class LogicMain : MonoBehaviour
         {
             m.Update();
         }
+
+        PlayerRecordManager.getInstance().updateMapTime();
     }
 
     void OnDestroy()

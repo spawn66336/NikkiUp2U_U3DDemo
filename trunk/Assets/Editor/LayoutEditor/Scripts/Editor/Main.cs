@@ -121,14 +121,23 @@ static public class LayoutMenu
         //for (int i = 0; i < all_ui.Length; ++i)
         for (int i = 0; i < all_element.Length; ++i)
         {
+            bool bHasUIWidget = true;
             UIWidget widget = all_element[i].GetWidget();
             if (widget == null)
-                continue;
+                bHasUIWidget = false;
 
-            List<GameObject> ui_list = EditorTool.FindGameObjectByName(new_prefab_obj, widget.name);
+            List<GameObject> ui_list = null;
+            if(bHasUIWidget)
+                ui_list = EditorTool.FindGameObjectByName(new_prefab_obj, widget.name);
+            else
+                ui_list = EditorTool.FindGameObjectByName(new_prefab_obj, all_element[i].Name);
+
             if (ui_list.Count == 0)
             {
-                Debug.LogError("找不到节点\"" + widget.name + "\"");
+                if (bHasUIWidget)
+                    Debug.LogError("找不到节点\"" + widget.name + "\"");
+                else
+                    Debug.LogError("找不到节点\"" + all_element[i].Name + "\"");
             }
             else if (ui_list.Count > 1)
             {
@@ -144,24 +153,42 @@ static public class LayoutMenu
 
                 if (child != null)
                 {
-                    if (!LayoutTool.LoadWidgetInfo(child, widget))
+                    if (bHasUIWidget)
+                    {
+                        if (!LayoutTool.LoadWidgetInfo(child, widget))
+                        {
+                            Debug.LogError("节点\"" + widget.name + "\"类型改变，无法导入数据");
+                        }
+                    }
+                    else
+                    {
+                        LayoutTool.LoadNonWidgetTransformInfo(child, all_element[i]);
+                    }
+                }
+                else
+                {
+                    if (bHasUIWidget)
+                        Debug.LogError("节点名称\"" + widget.name + "\"不唯一");
+                    else
+                        Debug.LogError("节点名称\"" + all_element[i].Name + "\"不唯一");
+                }
+            }
+            else
+            {
+                if (bHasUIWidget)
+                {
+                    if (!LayoutTool.LoadWidgetInfo(ui_list[0], widget))
                     {
                         Debug.LogError("节点\"" + widget.name + "\"类型改变，无法导入数据");
                     }
                 }
                 else
                 {
-                    Debug.LogError("节点名称\"" + widget.name + "\"不唯一");
-                }
-            }
-            else
-            {
-                if (!LayoutTool.LoadWidgetInfo(ui_list[0], widget))
-                {
-                    Debug.LogError("节点\"" + widget.name + "\"类型改变，无法导入数据");
+                    LayoutTool.LoadNonWidgetTransformInfo(ui_list[0], all_element[i]);
                 }
             }
         }
+
         if (need_reset_pos)
         {
             new_prefab_obj.transform.localPosition = pos;

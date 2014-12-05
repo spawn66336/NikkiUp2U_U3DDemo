@@ -18,7 +18,7 @@ public class LevelCollectClothListener : IGameEventListener
         for (int i = 0; i < listKeys.Count; i++)
         {
             PlayerLevelRecordForCondition info = PlayerRecordManager.getInstance().dicLevelRecordCon[listKeys[i]];
-            int num = 1;
+            int num = 0;
             List<ConditionType> listTypeKeys = new List<ConditionType>();
             listTypeKeys.AddRange(info.conditionDic.Keys);
             for (int j=0;j<listTypeKeys.Count;j++)
@@ -26,27 +26,28 @@ public class LevelCollectClothListener : IGameEventListener
                 ConditionType type = listTypeKeys[j];
                 if (info.conditionDic[type])
                 {
-                    num++;
-                    continue;
+                    ++num;
                 }
-                if (type == ConditionType.Type_CollectCloth)
+                else
                 {
-                     for (int m=0;m<info.levelInfo.Cond.Count;m++)
-                     {
-                         Unlock unlock=info.levelInfo.Cond[m];
-                         if ((ConditionType)unlock.Type == ConditionType.Type_CollectCloth)
-                         {
-                             int targetNum = int.Parse(unlock.Value);
-                             if (totalNum >= targetNum)
-                             {
-                                 num++;
-                                 info.conditionDic[type] = true;
-                             }
-                             break;
-                         }
-                     }
+                    if (type == ConditionType.Type_CollectCloth)
+                    {
+                        for (int m = 0; m < info.levelInfo.Cond.Count; m++)
+                        {
+                            Unlock unlock = info.levelInfo.Cond[m];
+                            if ((ConditionType)unlock.Type == ConditionType.Type_CollectCloth)
+                            {
+                                int targetNum = int.Parse(unlock.Value);
+                                if (totalNum >= targetNum)
+                                {
+                                    ++num;
+                                    info.conditionDic[type] = true;
+                                }
+                                break;
+                            }
+                        }
+                    }
                 }
-               
                 if (num == info.conditionDic.Count)
                 {
                     finishList.Add(info);

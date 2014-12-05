@@ -49,7 +49,14 @@ public class ListViewRenderStrategy : EditorRenderStrategy
                 {
                     itemContent.image = item.image; 
                 }  
-                 
+                
+                //add by liteng for atlas begin
+                if ((item.tooltip != "") && (item.tooltip != null))
+                {
+                    itemContent.tooltip = item.tooltip;
+                }
+
+                //add by liteng end
                 EditorGUILayout.BeginHorizontal();
 
                 EditorGUILayout.LabelField(itemContent, itemStyle);
@@ -74,12 +81,22 @@ public class ListViewRenderStrategy : EditorRenderStrategy
                 }
                 //add by liteng for atlas start
                 else if (
-                        FrameInputInfo.GetInstance().rightBtnPress &&
+                        FrameInputInfo.GetInstance().rightButtonDown &&
                         item.lastRect.Contains(localMousePos)
                    )
                 {
                     list.LastSelectItem = count;
                     c.frameTriggerInfo.lastSelectItemR = count;
+
+                    c.RequestRepaint();
+                }
+                else if(
+                        FrameInputInfo.GetInstance().rightBtnPressUp &&
+                        item.lastRect.Contains(localMousePos)                    
+                    )
+                {
+                    list.LastSelectItem = count;
+                    c.frameTriggerInfo.lastSelectItemRU = count;
 
                     c.RequestRepaint();
                 }

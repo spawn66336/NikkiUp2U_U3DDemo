@@ -26,7 +26,7 @@ public class LevelLevelInGradeListener : IGameEventListener
         for (int i = 0; i < listKeys.Count; i++)
         {
             PlayerLevelRecordForCondition info = PlayerRecordManager.getInstance().dicLevelRecordCon[listKeys[i]];
-            int num = 1;
+            int num = 0;
             List<ConditionType> listTypeKeys = new List<ConditionType>();
             listTypeKeys.AddRange(info.conditionDic.Keys);
             for (int j = 0; j < listTypeKeys.Count; j++)
@@ -34,29 +34,30 @@ public class LevelLevelInGradeListener : IGameEventListener
                 ConditionType type = listTypeKeys[j];
                 if (info.conditionDic[type])
                 {
-                    num++;
-                    continue;
+                    ++num;
                 }
-                if (type == ConditionType.Type_LevelInGrade)
+                else
                 {
-                    for (int m = 0; m < info.levelInfo.Cond.Count; m++)
+                    if (type == ConditionType.Type_LevelInGrade)
                     {
-                        Unlock unlock = info.levelInfo.Cond[m];
-                        if ((ConditionType)unlock.Type == ConditionType.Type_LevelInGrade)
+                        for (int m = 0; m < info.levelInfo.Cond.Count; m++)
                         {
-                            string[] strs = unlock.Value.Split(',');
-                            int targetId = int.Parse(strs[0]);
-                            int targetRank = int.Parse(strs[1]);
-                            if (levelId == targetId && curRank >= targetRank)
+                            Unlock unlock = info.levelInfo.Cond[m];
+                            if ((ConditionType)unlock.Type == ConditionType.Type_LevelInGrade)
                             {
-                                num++;
-                                info.conditionDic[type] = true;
+                                string[] strs = unlock.Value.Split(',');
+                                int targetId = int.Parse(strs[0]);
+                                int targetRank = int.Parse(strs[1]);
+                                if (levelId == targetId && curRank >= targetRank)
+                                {
+                                    ++num;
+                                    info.conditionDic[type] = true;
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
                 }
-
                 if (num == info.conditionDic.Count)
                 {
                     finishList.Add(info);

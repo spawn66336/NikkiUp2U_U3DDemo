@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using System.Collections; 
 
 public class SpecialEffectDebugObject : MonoBehaviour {
 
@@ -11,9 +8,7 @@ public class SpecialEffectDebugObject : MonoBehaviour {
 
     private int currFrame = 0;
 
-
- 
-
+     
     void OnGUI()
     {
 #if UNITY_EDITOR

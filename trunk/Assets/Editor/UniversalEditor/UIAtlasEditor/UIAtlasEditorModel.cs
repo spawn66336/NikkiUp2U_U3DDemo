@@ -7,33 +7,7 @@ using System.IO;
 public class UIAtlasEditorModel 
 {//Atlas编辑器工程实现
 
-    public AtlasProject m_Project = null;
-
-    static private UIAtlasEditorModel m_Instance = null;
-
-    public static UIAtlasEditorModel GetInstance()
-    {
-        if (m_Instance == null)
-        {
-            m_Instance = new UIAtlasEditorModel();
-        }
-        return m_Instance;
-    }
-
-    public void DestoryInstance()
-    {
-        ClearCurrentProject();
-        if (m_Instance != null)
-        {
-            m_Instance = null;
-        }
-    }
-    public void ShowCreateDialog()
-    {//显示创建新工程窗口
-
-        EditorWindow.GetWindow<AtlasDialog>(false, "Create Project", true);  
-    }
-
+#region 工程相关处理函数
     public bool NewPorject(string projectName)
     {//创建工程
 
@@ -52,7 +26,7 @@ public class UIAtlasEditorModel
         //执行新建工程回调
         if (onNewProject != null)
         {
-            onNewProject(this);
+            onNewProject();
         }
 
         //设定工程类型
@@ -60,20 +34,6 @@ public class UIAtlasEditorModel
 
         return bRet;
      }
-
-    public void ClearCurrentProject()
-    {//清空当前工程
-
-        if (m_Project != null)
-        {
-            //清除工程中小图信息
-            m_Project.ClearSpriteImage();
-            m_Project = null;
-        }
-
-        //清除临时目录中的资源
-        UIAtlasTempTextureManager.GetInstance().Clear();
-    }
 
     public bool SaveProject(string projectName)
     {//保存工程
@@ -133,12 +93,32 @@ public class UIAtlasEditorModel
 
         return bRet;
     }
+
+    public void ClearCurrentProject()
+    {//清空当前工程
+
+        if (m_Project != null)
+        {
+            //清除工程中小图信息
+            m_Project.ClearSpriteImage();
+            m_Project = null;
+        }
+
+        //清除临时目录中的资源
+        UIAtlasTempTextureManager.GetInstance().Clear();
+
+        if (onClearCurrentProject != null)
+        {
+            onClearCurrentProject();
+        }
+    }
+
     public string GetAtlasSavePath()
     {//获取Atlas输出路径
 
         string path = null;
 
-        if(m_Project != null)
+        if (m_Project != null)
         {
             path = m_Project.AtlasSavePath;
         }
@@ -149,34 +129,10 @@ public class UIAtlasEditorModel
     public void SetAtlasSavePath(string path)
     {//设定Atlas输出路径
 
-        if(m_Project != null)
+        if (m_Project != null)
         {
             m_Project.AtlasSavePath = path;
         }
-    }
-
-    public Texture2D LoadSpriteImage(string path)
-    {//载入小图资源
-
-        Texture2D retTex = UIAtlasTempTextureManager.GetInstance().LoadTexture(path);
-        return retTex;
-    }
-
-    public Texture2D GetSpriteTexture(string path)
-    {//取得小图纹理
-
-        Texture2D retTex = UIAtlasTempTextureManager.GetInstance().GetSpriteTexture(path);
-        return retTex;
-    }
-
-    public bool UnloadSpriteImage(string path)
-    {//卸载小图资源
-
-        bool bRet = false;
-
-        bRet = UIAtlasTempTextureManager.GetInstance().UnloadTexture(path);
-
-        return bRet;
     }
 
     public bool AddSpriteImage(string path)
@@ -245,12 +201,29 @@ public class UIAtlasEditorModel
             }
         }
 
-        if(onDeleteSpriteImageCommand != null)
+        if (onDeleteSpriteImageCommand != null)
         {
-            onDeleteSpriteImageCommand(bRet);
+            onDeleteSpriteImageCommand(bRet, path);
         }
 
-        return bRet;   
+        return bRet;
+    }
+
+    public Texture2D LoadSpriteImage(string path)
+    {//载入小图资源
+
+        Texture2D retTex = UIAtlasTempTextureManager.GetInstance().LoadTexture(path);
+        return retTex;
+    }
+
+    public bool UnloadSpriteImage(string path)
+    {//卸载小图资源
+
+        bool bRet = false;
+
+        bRet = UIAtlasTempTextureManager.GetInstance().UnloadTexture(path);
+
+        return bRet;
     }
 
     public bool GetSpriteImage(string path, out AtlasSpriteImage spriteImage)
@@ -260,7 +233,7 @@ public class UIAtlasEditorModel
 
         spriteImage = null;
 
-        if(m_Project != null)
+        if (m_Project != null)
         {
             bRet = m_Project.GetSpriteImage(path, out spriteImage);
         }
@@ -268,13 +241,155 @@ public class UIAtlasEditorModel
         return bRet;
     }
 
+    public Texture2D GetSpriteTexture(string path)
+    {//取得小图纹理
+
+        Texture2D retTex = UIAtlasTempTextureManager.GetInstance().GetSpriteTexture(path);
+        return retTex;
+    }
+
+    public Texture2D GetSpriteZoomTexture(string path)
+    {//取得小图纹理
+
+        Texture2D retTex = UIAtlasTempTextureManager.GetInstance().GetSpriteZoomTexture(path);
+        return retTex;
+    }
 
     public void ClearSpriteImage()
     {//清空所有小图
 
-        if(m_Project != null)
+        if (m_Project != null)
         {
             m_Project.ClearSpriteImage();
+        }
+    }
+
+    public void UpdateSprite()
+    {//更新全部小图资源
+
+        UIAtlasTempTextureManager.GetInstance().Update();
+    }
+
+    public bool IsProjectExist()
+    {//判断是否存在工程
+
+        bool bRet = true;
+
+        if (m_Project == null)
+        {
+            bRet = false;
+        }
+
+        return bRet;
+    }
+
+    public string GetProjectName()
+    {//获取工程名
+
+        string name = null;
+
+        if (m_Project != null)
+        {
+            name = m_Project.Name;
+        }
+
+        return name;
+    }
+
+    public string GetProjectPath()
+    {//获取工程路径
+
+        string path = null;
+
+        if (m_Project != null)
+        {
+            path = m_Project.Path;
+        }
+
+        return path;
+    }
+
+    public PROJECT_FAILED_TYPE GetProjectFailedType()
+    {//获取工程失败类型
+
+        PROJECT_FAILED_TYPE type = PROJECT_FAILED_TYPE.PROJECT_FAILED_DEFAULT;
+
+        if (m_Project != null)
+        {
+            type = m_Project.ProjectFailedType;
+        }
+
+        return type;
+    }
+
+    public string GetImageRelativePath()
+    {//获取图库路径
+
+        string path = null;
+
+        if (m_Project != null)
+        {
+            path = m_Project.ImageRelativePath;
+        }
+
+        return path;
+    }
+
+    public PROJECT_TYPE GetProjectType()
+    {//获取工程类型
+
+        PROJECT_TYPE type = PROJECT_TYPE.PROJECT_TYPE_NEW;
+
+        if (m_Project != null)
+        {
+            type = m_Project.ProjectType;
+        }
+
+        return type;
+    }
+
+    public void SetProjectType(PROJECT_TYPE type)
+    {//设定工程类型
+
+        if (m_Project != null)
+        {
+            m_Project.ProjectType = type;
+        }
+    }
+
+    public void WriteImagePathConfig(string path)
+    {//写配置文件
+
+        UIAtlasEditorConfig.WriteImageBasePath(path);
+    }
+
+    public void ReadImagePathConfig()
+    {//读配置文件
+
+        UIAtlasEditorConfig.ReadImageBasePath();
+    }
+
+    public static void OnBasePathChange(string newBasePaht)
+    {//图库路径变更处理函数
+
+        UIAtlasEditorConfig.ReadImageBasePath();
+    }
+#endregion
+
+#region Sprite操作函数
+    public void ZoomSpriteImage(string path, float scaleFactor)
+    {//小图缩放比例变更
+
+        if (m_Project == null)
+        {
+            return;
+        }
+
+        UIAtlasTempTextureManager.GetInstance().ZoomTexture(path, scaleFactor);
+        m_Project.SetSpriteImageZoom(path, scaleFactor);
+        if (onSpriteZoomChangedCommand != null)
+        {
+            onSpriteZoomChangedCommand(path);
         }
     }
    
@@ -371,7 +486,8 @@ public class UIAtlasEditorModel
     }
 
     public void DeleteAtlas()
-    {
+    {//删除Atlas
+
         string atlasName = null;
         string prefabName = null;
 
@@ -397,147 +513,46 @@ public class UIAtlasEditorModel
             File.Delete(atlasName);
         }
     }
+#endregion
 
-    public void UpdateSprite()
-    {//更新全部小图资源
+#region 成员变量
+    public AtlasProject m_Project = null;
+    static private UIAtlasEditorModel m_Instance = null;
 
-        UIAtlasTempTextureManager.GetInstance().Update();
-    }
-
-    public bool IsProjectExist()
-    {//判断是否存在工程
-
-        bool bRet = true;
-
-        if(m_Project == null)
-        {
-            bRet = false;
-        }
-
-        return bRet;
-    }
-
-    public string GetProjectName()
-    {//获取工程名
-
-        string name = null;
-
-        if (m_Project != null)
-        {
-            name = m_Project.Name;
-        }
-
-        return name;
-    }
-
-    public string GetProjectPath()
-    {//获取工程路径
-
-        string path = null;
-
-        if (m_Project != null)
-        {
-            path = m_Project.Path;
-        }
-
-        return path;
-    }
-
-    public PROJECT_FAILED_TYPE GetProjectFailedType()
-    {//获取工程失败类型
-
-        PROJECT_FAILED_TYPE type = PROJECT_FAILED_TYPE.PROJECT_FAILED_DEFAULT;
-
-        if(m_Project != null)
-        {
-            type = m_Project.ProjectFailedType;
-        }
-
-        return type;
-    }
-
-    public string GetImageRelativePath()
-    {//获取图库路径
-
-        string path = null;
-
-        if(m_Project != null)
-        {
-            path = m_Project.ImageRelativePath;
-        }
-
-        return path;
-    }
-
-    public PROJECT_TYPE GetProjectType()
-    {//获取工程类型
-
-        PROJECT_TYPE type = PROJECT_TYPE.PROJECT_TYPE_NEW;
-
-        if (m_Project != null)
-        {
-            type = m_Project.ProjectType;
-        }
-
-        return type;
-    }
-
-    public void SetProjectType(PROJECT_TYPE type)
-    {//设定工程类型
-
-        if(m_Project != null)
-        {
-            m_Project.ProjectType = type;
-        }
-    }
-
-    public void WriteImagePathConfig(string path)
-    {//写配置文件
-
-        UIAtlasEditorConfig.WriteImageBasePath(path);
-    }
-
-    public void ReadImagePathConfig()
-    {//读配置文件
-
-        UIAtlasEditorConfig.ReadImageBasePath();
-    }
-
-    public static void OnBasePathChange(string newBasePaht)
-    {//图库路径变更处理函数
-
-        UIAtlasEditorConfig.ReadImageBasePath();
-    }
-
-    public void ZoomSpriteImage(string path, float scaleFactor)
-    {//小图缩放比例变更
-
-        if(m_Project == null)
-        {
-            return;
-        }
-
-        UIAtlasTempTextureManager.GetInstance().ZoomTexture(path, scaleFactor);
-        m_Project.SetSpriteImageZoom(path, scaleFactor);
-        if(onSpriteZoomChangedCommand != null)
-        {
-            onSpriteZoomChangedCommand(path);
-        }
-    }
-
-    public delegate void ModelChangeNotify(UIAtlasEditorModel mode);
+    public delegate void ModelChangeNotify();
     public delegate void SpriteImageLoadNotify(string spritePath);
+    public delegate void ClearCurrentProjectNotify();
 
     public delegate void SpriteZoomChangedCommand(string spritePath);
     public delegate void AddSpriteImageCommand(bool bResult, string spriteName);
-    public delegate void DeleteSpriteImageCommand(bool bResult);
+    public delegate void DeleteSpriteImageCommand(bool bResult, string spriteName);
     public delegate void MakeAtlasCommand(bool bResult);
 
     public ModelChangeNotify onNewProject;
     public SpriteImageLoadNotify onSpriteImageLoad;
+    public ClearCurrentProjectNotify onClearCurrentProject;
 
     public SpriteZoomChangedCommand onSpriteZoomChangedCommand;
     public AddSpriteImageCommand onAddSpriteImageCommand;
     public DeleteSpriteImageCommand onDeleteSpriteImageCommand;
     public MakeAtlasCommand onMakeAtlasCommand;
+
+    public static UIAtlasEditorModel GetInstance()
+    {
+        if (m_Instance == null)
+        {
+            m_Instance = new UIAtlasEditorModel();
+        }
+        return m_Instance;
+    }
+
+    public void DestoryInstance()
+    {
+        ClearCurrentProject();
+        if (m_Instance != null)
+        {
+            m_Instance = null;
+        }
+    }
+#endregion
 }

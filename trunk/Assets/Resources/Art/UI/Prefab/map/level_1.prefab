@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1074, y: 382, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 5
@@ -222,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 811, y: 382, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 4
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 837, y: 230, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 3
@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 657, y: 130, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 2
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 100034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 312, y: 105, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 1
@@ -270,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40, y: 130, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 0
@@ -324,7 +324,7 @@ Transform:
   m_GameObject: {fileID: 100080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400078}
   - {fileID: 400040}
@@ -354,8 +354,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 99.7601929, y: 100, z: 0}
-  m_Center: {x: -.119903564, y: 0, z: 0}
+  m_Size: {x: 53.8705063, y: 30, z: 0}
+  m_Center: {x: -.0647478104, y: 0, z: 0}
 --- !u!65 &6500028
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -366,8 +366,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 99.7601929, y: 100, z: 0}
-  m_Center: {x: -.119903564, y: 0, z: 0}
+  m_Size: {x: 53.8705063, y: 30, z: 0}
+  m_Center: {x: -.0647478104, y: 0, z: 0}
 --- !u!65 &6500030
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -378,8 +378,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 99.7601929, y: 100, z: 0}
-  m_Center: {x: -.119903564, y: 0, z: 0}
+  m_Size: {x: 53.8705063, y: 30, z: 0}
+  m_Center: {x: -.0647478104, y: 0, z: 0}
 --- !u!65 &6500032
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -390,8 +390,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 99.7601929, y: 100, z: 0}
-  m_Center: {x: -.119903564, y: 0, z: 0}
+  m_Size: {x: 53.8705063, y: 30, z: 0}
+  m_Center: {x: -.0647478104, y: 0, z: 0}
 --- !u!65 &6500034
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -402,8 +402,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 99.7601929, y: 100, z: 0}
-  m_Center: {x: -.119903564, y: 0, z: 0}
+  m_Size: {x: 53.8705063, y: 30, z: 0}
+  m_Center: {x: -.0647478104, y: 0, z: 0}
 --- !u!65 &6500036
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -414,8 +414,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 99.7601929, y: 100, z: 0}
-  m_Center: {x: -.119903564, y: 0, z: 0}
+  m_Size: {x: 53.8705063, y: 30, z: 0}
+  m_Center: {x: -.0647478104, y: 0, z: 0}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -584,15 +584,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
-  mDepth: 2
+  mWidth: 54
+  mHeight: 30
+  mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
-  mSpriteName: guide_circle
+  mSpriteName: zhix_5
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -656,15 +656,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
-  mDepth: 2
+  mWidth: 54
+  mHeight: 30
+  mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
-  mSpriteName: guide_circle
+  mSpriteName: zhix_5
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -728,15 +728,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
-  mDepth: 2
+  mWidth: 54
+  mHeight: 30
+  mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
-  mSpriteName: guide_circle
+  mSpriteName: zhix_5
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -800,15 +800,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
-  mDepth: 2
+  mWidth: 54
+  mHeight: 30
+  mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
-  mSpriteName: guide_circle
+  mSpriteName: zhix_5
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -872,15 +872,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
-  mDepth: 2
+  mWidth: 54
+  mHeight: 30
+  mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
-  mSpriteName: guide_circle
+  mSpriteName: zhix_5
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -922,15 +922,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
-  mDepth: 2
+  mWidth: 54
+  mHeight: 30
+  mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
-  mSpriteName: guide_circle
+  mSpriteName: zhix_5
   mType: 0
   mFillDirection: 4
   mFillAmount: 1

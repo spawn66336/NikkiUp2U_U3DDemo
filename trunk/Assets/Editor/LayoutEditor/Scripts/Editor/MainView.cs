@@ -19,6 +19,9 @@ public class MainView
     Rect m_view_rect;
     Vector3[] m_target_view_rect;
 
+    int nResWidth = 0;
+    int nResHeight = 0;
+
     public void Init(LayoutManager layout_mng)
     {
         m_camera = LayoutTool.CreateCamera(true);
@@ -41,6 +44,9 @@ public class MainView
 
         BackColor = LayoutTool.DefaultBackColor;
         BackTexture = EditorPrefs.GetString("BackTexture");
+
+        nResWidth = ConfigTool.Instance.target_width;
+        nResHeight = ConfigTool.Instance.target_height;
     }
     public void Dispose()
     {
@@ -260,6 +266,21 @@ public class MainView
         m_target_view_rect[3] = new Vector3(LayoutTool.s_editor_default_x + nW / 2, LayoutTool.s_editor_default_y - nH / 2);
 
         m_bSetCameraToAnchor = false;
+        nResWidth = nW;
+        nResHeight = nH;
+        LayoutEditorWindow.RequestRepaint();
+    }
+
+    public bool CheckResolutionBeforeSave()
+    {
+        if (nResWidth == ConfigTool.Instance.target_width && nResHeight == ConfigTool.Instance.target_height)
+            return true;
+
+        if (!EditorUtility.DisplayDialog("提示", "当前分辨率与默认配置分辨率不一致， 继续保存么？", "确定", "取消"))
+        {
+            return false;
+        }
+        return true;
     }
 }
 

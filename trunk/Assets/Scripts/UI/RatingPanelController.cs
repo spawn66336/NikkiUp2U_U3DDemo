@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class RatingPanelController : UIController 
 {
+	//关卡名
 	public UILabel LevelName;
 	//评级
 	public UITexture Rank;
 	//评语
 	public UILabel Remark;
+	//大喵头像
 	public UITexture Miao;
 	//评分板
 	public GameObject ScorePanel; 
@@ -32,17 +34,110 @@ public class RatingPanelController : UIController
 		Leave
 	}
 
+
 	private PlayerLevelRewardUIInfo info;
-	private RatingPanelState curState = RatingPanelState.Enter;
+	private RatingPanelState curState;
 	private List<Dress> dresses;
 	private string rank = "F";
+
+	private float fromStarttime  = 0f;
+	private float startTime = 0f;
+	private bool playflag = false;
+	private bool playrank = false;
+	private bool locked = false;
+
+	public void Update()
+	{
+		if(startTime == 0f)
+			return;
+		if(curState == RatingPanelState.Enter)
+		{
+			fromStarttime = Time.time - startTime;
+			//计分板滚动
+			if(fromStarttime >= 0 && fromStarttime < 1.0)
+			{
+				S_5.PlayAnimation();
+			}
+
+			if(fromStarttime >= 0.2 && fromStarttime < 1.2)
+			{
+				S_4.PlayAnimation();
+			}
+
+			if(fromStarttime >= 0.4 && fromStarttime < 1.4)
+			{
+				S_3.PlayAnimation();
+			}
+
+			if(fromStarttime >= 0.6 && fromStarttime < 1.6)
+			{
+				S_2.PlayAnimation();
+			}
+			if(fromStarttime >= 0.8 && fromStarttime < 1.8)
+			{
+				S_1.PlayAnimation();
+			}
+			//计分板移动缩放
+			if(fromStarttime >= 2.0 && !playflag)
+			{
+				GlobalObjects.GetInstance().GetSoundManager().Stop(SoundManager.SoundType.ScoreBoardSound);
+				_playAnimation(ScorePanel);
+				playflag = true;
+			}
+			//计分板停止
+			if(fromStarttime >= 1.0)
+			{
+				Defen.gameObject.SetActive(false);
+				S_5.SetPos(info.score%10);
+			}
+			if(fromStarttime >= 1.2)
+			{
+				S_4.SetPos(info.score/10%10);
+			}
+			if(fromStarttime >= 1.4)
+			{
+				S_3.SetPos(info.score/100%10);
+			}
+			if(fromStarttime >= 1.6)
+			{
+				S_2.SetPos(info.score/1000%10);
+			}
+			if(fromStarttime >= 1.8)
+			{
+				S_1.SetPos(info.score/10000%10);
+			}
+
+			if(locked && playflag && fromStarttime >= 3.0)
+			{
+				locked = false;
+				fromStarttime = 0;
+				startTime = 0f;
+			}
+		}else if(curState == RatingPanelState.Rank)
+		{
+			fromStarttime = Time.time - startTime;
+			if(locked && playrank && fromStarttime > 1.0f)
+			{
+				locked = false;
+			}
+		}
+	}
 
 	public override void OnEnterUI ()
 	{
 		base.OnEnterUI ();
-		Rank.gameObject.SetActive(false);
+
+		curState = RatingPanelState.Enter;
+		playflag = false;
+		playrank = false;
+		fromStarttime = 0f;
+
 		info = PlayerUIResource.GetInstance().CurrRaingUIInfo;
-		
+		_RankToString();
+
+		if(info.score < 0)
+			info.score = 0;
+		//关卡名
 		if (PlayerUIResource.GetInstance().CurrLevelUIInfo != null
 		    && PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo != null)
 		{	
@@ -52,65 +147,25 @@ public class RatingPanelController : UIController
 		{
 			LevelName.text = "关卡名获取失败！";
 		}
-
+		//服饰搭配
 		dresses = PlayerUIResource.GetInstance().CurrLevelDressList;
 		foreach(Dress drs in dresses)
 		{
 			Nikki.SetDress(drs.ClothType, drs);
-		}
+		}   
+		//大喵表情
+		string icon;
+		if(rank == "F")
+			icon = "p_dm_F2";
+		else
+			icon = "p_dm_" + rank;
+		Miao.mainTexture = ResourceManager.GetInstance().Load(ResourceType.Npc, icon) as Texture;
 
-		UILocker.GetInstance().Lock(gameObject);
-	    
-		_PlayScorePanel();
-
-		UILocker.GetInstance().UnLock(gameObject);
+		startTime = Time.time;
+		locked = true;
+		GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.ScoreBoardSound);
 	}
 
-	private void _PlayScorePanel()
-	{
-		if(info.score < 0)
-			info.score = 0;
-		
-		StartCoroutine(_WaitPlayNum(0.2f,S_1));
-		StartCoroutine(_WaitSet(1.2f, S_1, info.score/10000%10));
-		StartCoroutine(_WaitPlayNum(0.4f,S_2));
-		StartCoroutine(_WaitSet(1.4f, S_2, info.score/1000%10));
-		StartCoroutine(_WaitPlayNum(0.8f,S_3));
-		StartCoroutine(_WaitSet(1.6f, S_3, info.score/100%10));
-		StartCoroutine(_WaitPlayNum(1.0f,S_4));
-		StartCoroutine(_WaitSet(1.8f, S_4, info.score/10%10));
-		StartCoroutine(_WaitPlayNum(1.2f,S_5));
-		StartCoroutine(_WaitSet(2.0f, S_5, info.score/10%10));
-		
-		Defen.gameObject.SetActive(false);
-		
-		StartCoroutine(_WaitPlayAnimation(2.0f));
-	}
-
-	IEnumerator _WaitSet(float waitTime, UINumPos num, int i)
-	{
-		yield return new WaitForSeconds(waitTime);
-
-		num.SetPos(i);
-	}
-
-	IEnumerator _WaitPlayAnimation(float waitTime)
-	{
-		yield return new WaitForSeconds(waitTime);
-		_playAnimation(ScorePanel);
-	}
-
-	IEnumerator _WaitPlayNum(float waitTime, UINumPos num)
-	{
-		yield return new WaitForSeconds(waitTime);
-		num.PlayAnimation();
-	}
-
-	public void AnimFinish()
-	{
-		UILocker.GetInstance().UnLock(gameObject);
-		StopAllCoroutines();
-	}
 
 	void _playAnimation(GameObject go)
 	{
@@ -125,12 +180,12 @@ public class RatingPanelController : UIController
 		if (defaultClip == null)
 			return;
 		
-		float speed = 1f;
+		float speed = 1.2f;
+		float time = 0f;
 
-		anim[defaultClip.name].wrapMode = WrapMode.Once;
+		anim[defaultClip.name].normalizedTime = time;
 		anim[defaultClip.name].speed = speed;
-		
-		ActiveAnimation.Play(anim, AnimationOrTween.Direction.Forward);
+		ActiveAnimation.Play(anim,AnimationOrTween.Direction.Forward);
 	}
 
 	void _SetNextState(RatingPanelState state)
@@ -155,76 +210,59 @@ public class RatingPanelController : UIController
 		}
 	}
 
-	void _OnKickRankShowTransition()
+	void _RankToString()
 	{
 		switch(info.levelRank)
 		{
-			case LevelRank.S:
-				rank = "S";
-				break;
-			case LevelRank.A:
-				rank = "A";
-				break;
-			case LevelRank.B:
-				rank = "B";
-				break;
-			case LevelRank.C:
-				rank = "C";
-				break;
-			case LevelRank.D:
-				rank = "D";
-				break;
-			case LevelRank.F:
-				rank = "F";
-				break;
-			default:
-				rank = "F";
-				break;
+		case LevelRank.SSS:
+		case LevelRank.SS:
+		case LevelRank.S:
+			rank = "S";
+			break;
+		case LevelRank.A:
+			rank = "A";
+			break;
+		case LevelRank.B:
+			rank = "B";
+			break;
+		case LevelRank.C:
+		case LevelRank.D:
+			rank = "C";
+			break;
+		case LevelRank.F:
+			rank = "F";
+			break;
+		default:
+			rank = "F";
+			break;
 		}
+	}
+
+	void _OnKickRankShowTransition()
+	{
 		_ActiveRank();
 	}
 
 	void _ActiveRank()
 	{
+		locked = true;
+
 		string icon = rank + "_0";
 		Rank.mainTexture = ResourceManager.GetInstance().Load(ResourceType.CommentNpc, icon) as Texture;
 
 		Rank.gameObject.SetActive(true);
 
-		Animation anim = Rank.animation;
-		if (anim == null)
-		{
-			return;
-		}
-		
-		AnimationClip defaultClip = anim.clip;
-		
-		if (defaultClip == null)
-			return;
-		
-		float speed = 1f;
-		
-		anim[defaultClip.name].wrapMode= WrapMode.Once;
-		anim[defaultClip.name].speed = speed;
-		anim.Play();
+		startTime = Time.time;
+		_playAnimation(Rank.gameObject);
+		playrank = true;
 	}
 
 	void _OnKickRemarkShowTransition()
 	{
-		string icon;
-
-		if(rank != "A" && rank != "B" && rank != "C" && rank != "S")
-			icon = "p_dm_C"; 
-		else
-			icon = "p_dm_" + rank;
-		
-		Miao.mainTexture = ResourceManager.GetInstance().Load(ResourceType.CommentNpc, icon) as Texture;
-		//Miao.gameObject.SetActive(true);
-
 		if(info.comment != null)
 			Remark.text = info.comment;
 		else
-			Remark.text = "VeryGood";
+			Remark.text = "NULL Comment!";
 	}
 	void _OnKickRewardShowTransition()
 	{
@@ -236,20 +274,23 @@ public class RatingPanelController : UIController
 
     public void OnClickBackground()
     {
-		switch(curState)
+		if(!locked)
 		{
-			case RatingPanelState.Enter:
-				_SetNextState(RatingPanelState.Rank);
-				break;
-			case RatingPanelState.Rank:
-				_SetNextState(RatingPanelState.Remark);
-				break;
-			case RatingPanelState.Remark:
-				_SetNextState(RatingPanelState.Reward);
-				break;
-			case RatingPanelState.Reward:
-				GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.AreaMapUI);
-				break;
+			switch(curState)
+			{
+				case RatingPanelState.Enter:
+					_SetNextState(RatingPanelState.Rank);
+					break;
+				case RatingPanelState.Rank:
+					_SetNextState(RatingPanelState.Remark);
+					break;
+				case RatingPanelState.Remark:
+					_SetNextState(RatingPanelState.Reward);
+					break;
+				case RatingPanelState.Reward:
+					GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.AreaMapUI);
+					break;
+			}
 		}
     }
     

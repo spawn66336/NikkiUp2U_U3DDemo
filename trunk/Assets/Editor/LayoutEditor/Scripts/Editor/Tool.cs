@@ -953,6 +953,21 @@ namespace H3DEditor
             }
         }
 
+        public static void LoadNonWidgetTransformInfo(GameObject go, UIElement ui)
+        {
+            if (go != null && ui != null)
+            {
+                Vector3 pos = ui.transform.position;
+                GameObject[] children = EditorTool.GetSubChildren(go);
+                Vector3 inv_pos_delta = (go.transform.position - pos);
+
+                go.transform.position = pos;
+                for (int i = 0; i < children.Length; ++i)
+                {
+                    children[i].transform.Translate(inv_pos_delta);
+                }
+            }
+        }
         public static bool LoadWidgetInfo(GameObject go, UIWidget ui)
         {
             UIWidget go_ui = go.GetComponent<UIWidget>();
@@ -1016,6 +1031,7 @@ namespace H3DEditor
         static string s_config_file = "Assets/Editor/LayoutEditor/Config/global_config.xml";
         static string back_texture = "Assets/Editor/LayoutEditor/Config/back_texture.png";
 
+        public List<string> vResolutionPreview = new List<string>();
         public static ConfigTool Instance
         {
             get
@@ -1047,6 +1063,7 @@ namespace H3DEditor
 
         private void LoadConfig()
         {
+            vResolutionPreview.Clear();
             XmlDocument doc = new XmlDocument();
 
             doc.Load(s_config_file);
@@ -1099,6 +1116,22 @@ namespace H3DEditor
                 if (help_node != null)
                 {
                     help_url = help_node.InnerText;
+                }
+                XmlNode res_node = root.SelectSingleNode("ResolutionPreview");
+                if(res_node != null)
+                {
+                    XmlNodeList childnodes = res_node.ChildNodes;
+                    foreach(XmlNode cNode in childnodes)
+                    {
+                        if(cNode.Name == "Item")
+                        {
+                            string s = cNode.InnerText;
+                            if(s.Length > 0)
+                            {
+                                vResolutionPreview.Add(s);
+                            }
+                        }
+                    }
                 }
             }
         }

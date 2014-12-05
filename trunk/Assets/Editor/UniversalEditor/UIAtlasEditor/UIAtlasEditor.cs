@@ -163,6 +163,7 @@ public class UIAtlasEditor
         m_spriteListView.Name = "spriteTreeView";
         m_spriteListView.onItemSelected = OnSelectListItem;
         m_spriteListView.onItemSelectedR = OnSelectListItemR;
+        m_spriteListView.onItemSelectedRU = OnSelectListItemRU;
         vb2_1_1.Add(m_spriteListView);
         vb2_1_2.Add(hs2_1_2_1);
 
@@ -240,6 +241,8 @@ public class UIAtlasEditor
         //注册UIAtlasEditorModel回调函数
         UIAtlasEditorModel.GetInstance().onNewProject = OnNewProject;
         UIAtlasEditorModel.GetInstance().onSpriteImageLoad = OnSpriteImageLoad;
+        UIAtlasEditorModel.GetInstance().onClearCurrentProject = OnClearCurrentProject;
+
         UIAtlasEditorModel.GetInstance().onAddSpriteImageCommand = OnAddSpriteImageCommand;
         UIAtlasEditorModel.GetInstance().onDeleteSpriteImageCommand = OnDeleteSpriteImageCommand;
         UIAtlasEditorModel.GetInstance().onMakeAtlasCommand = OnMakeAtlasCommand;
@@ -254,6 +257,58 @@ public class UIAtlasEditor
         m_CommandCounter = m_Counter.GetComponent<UIAtlasCommandCounter>();
     }
 
+    static void OnEnable(EditorRoot root)
+    {//窗口有效回调函数
+
+        UIAtlasEditorModel.GetInstance().ReadImagePathConfig();
+        Undo.undoRedoPerformed += OnUndoRedo;
+
+        RequestRepaint();
+    }
+
+    static void OnDisable(EditorRoot root)
+    {//窗口无效回调函数
+
+        UIAtlasTempTextureManager.DestroyInstance();
+        UIAtlasEditorModel.GetInstance().DestoryInstance();
+        EditorCommandManager.GetInstance().Clear();
+        Undo.undoRedoPerformed -= OnUndoRedo;
+        GameObject.DestroyImmediate(m_Counter);
+        GameObject.DestroyImmediate(m_previewObj);
+    }
+
+    static void OnUndoRedo()
+    {//Undo/Redo 命令响应函数
+
+        int commandCount = 0;
+
+        if (m_CommandCounter == null)
+        {
+            return;
+        }
+
+        if (m_CommandCounter.IsRedo(out commandCount))
+        {//当前操作是Redo
+
+            for (int i = 0; i < commandCount; i++)
+            {
+                EditorCommandManager.GetInstance().PerformRedo();
+            }
+        }
+        else
+        {//当前操作是Undo
+
+            for (int i = 0; i < commandCount; i++)
+            {
+                EditorCommandManager.GetInstance().PerformUndo();
+            }
+        }
+
+        //更新前次命令计数器
+        m_CommandCounter.PreCommandCounter = m_CommandCounter.CommandCounter;
+    }
+
+#region 操作工程回调函数
     static void OnEditorGUI(EditorRoot root)
     {//编辑器响应窗口OnGuI回调函数
 
@@ -270,21 +325,25 @@ public class UIAtlasEditor
                 return;
             }
 
-            //销毁预览GameObject
-            GameObject.DestroyImmediate(m_previewObj);
             //Inspecetor试图清空
             if (m_inspector.onInspector == OnSpriteInspector)
             {
-                 m_inspector.onInspector = null;
+                ClearSpriteView();
             }
 
             //更新小图资源
             UIAtlasEditorModel.GetInstance().UpdateSprite();
         }
+
+        if ((Event.current.type == EventType.MouseDrag)
+            || (Event.current.type == EventType.ScrollWheel))
+        {
+            RequestRepaint();
+        }
     }
 
     static void OnNewProjBtn(EditorControl c)
-    {//新建工程
+    {//[新建工程]按钮押下处理函数
 
         if(UIAtlasEditorModel.GetInstance().IsProjectExist())
         {
@@ -301,45 +360,38 @@ public class UIAtlasEditor
     }
 
     static void OnOpenProjBtn(EditorControl c)
-    {//打开工程
+    {//[打开工程]按钮压下处理函数
 
-        if((m_spriteListView == null) || (m_projTreeView == null))
+        if (UIAtlasEditorModel.GetInstance().IsProjectExist())
         {
-            return;
+            if (EditorUtility.DisplayDialog("保存工程", "是否保存当前工程", "保存", "取消"))
+            {
+                OnSaveProjBtn(c);
+            }
         }
 
         //显示打开工程对话框
         string path = EditorUtility.OpenFilePanel("Load png Textures of Directory", "", "atlasproj");
-        //清空小图List
-        m_spriteListView.ClearItems();
 
-        //读取工程
-        if(UIAtlasEditorModel.GetInstance().LoadProject(path))
-        {//读取成功
+        if((path != null) && (path != ""))
+        {
+            //读取工程
+            if (UIAtlasEditorModel.GetInstance().LoadProject(path))
+            {//读取成功
 
-            //清空工程List
-            m_projTreeView.ClearItems();
+                //向工程List中添加新的工程项目
+                AddProjectItem(UIAtlasEditorModel.GetInstance().GetProjectName());
 
-            //向工程List中添加新的工程项目
-            ListCtrlItem newItem = new ListCtrlItem();
-            newItem.name = UIAtlasEditorModel.GetInstance().GetProjectName();
-            newItem.color = Color.white;
-            newItem.onSelectColor = Color.blue;
-            m_projTreeView.AddItem(newItem);
+                //更新Inspector视图至工程属性
+                m_projOutputPath = UIAtlasEditorModel.GetInstance().GetAtlasSavePath();
 
-            //更新Inspector视图至工程属性
-            m_projOutputPath = UIAtlasEditorModel.GetInstance().GetAtlasSavePath();
-
-            //清空预览区域
-            GameObject.DestroyImmediate(m_previewObj);
-            m_spriteListView.LastSelectItem = -1;
-
-            RequestRepaint();
+                RequestRepaint();
+            }
         }
     }
 
     static void OnSaveProjBtn(EditorControl c)
-    {//保存工程
+    {//[保存工程]按钮压下处理函数
 
         if (!UIAtlasEditorModel.GetInstance().IsProjectExist())
         {//工程不存在
@@ -372,8 +424,56 @@ public class UIAtlasEditor
 
     }
 
+    static void OnNewProject()
+    {//工程创建完成响应函数
+
+        //添加新建工程至工程List
+        AddProjectItem(UIAtlasEditorModel.GetInstance().GetProjectName());
+
+        RequestRepaint();
+    }
+
+    static void OnSpriteImageLoad(string spriteName)
+    {//小图读取完成影响函数(打开工程时读取小图)
+
+        //向List中添加新的小图
+        AddSpriteItem(spriteName);
+
+        RequestRepaint();
+    }
+
+    static void OnClearCurrentProject()
+    {//清空当前工程信息
+
+        if ((m_spriteListView == null) || (m_projTreeView == null))
+        {
+            return;
+        }
+
+        //清空小图List
+        m_spriteListView.ClearItems();
+        m_spriteListView.LastSelectItem = -1;
+
+        //清空工程List
+        m_projTreeView.ClearItems();
+
+        //初始化画面显示
+        ClearCurrentView();
+
+        //清空命令
+        EditorCommandManager.GetInstance().Clear();
+
+        //清空命令计数器
+        m_CommandCounter.CommandCounter = 0;
+        m_CommandCounter.PreCommandCounter = 0;
+
+        RequestRepaint();
+    }
+#endregion
+
+#region 操作Sprite回调函数
     static void OnAddImageBtn(EditorControl c)
-    {//添加小图
+    {//[添加小图]按钮压下处理函数
 
         if(!UIAtlasEditorModel.GetInstance().IsProjectExist())
         {//工程不存在
@@ -388,21 +488,19 @@ public class UIAtlasEditor
 
             //初始化添加小图对话框信息
             OpenFileDialog openfiledialog1 = new OpenFileDialog();
-            openfiledialog1.Multiselect = true;//允许同时选择多个文件
-            openfiledialog1.InitialDirectory = UIAtlasEditorConfig.ImageBasePath;
-            openfiledialog1.Filter = "图片文件(*.jpg*.jpeg*.png*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            openfiledialog1.FilterIndex = 2;
-            openfiledialog1.RestoreDirectory = true;
-            openfiledialog1.Title = "添加图片";
+            InitializeOpenFileDialog(openfiledialog1);
 
             //显示添加小图对话框
             if (openfiledialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 for (int fi = 0; fi < openfiledialog1.FileNames.Length; fi++)
                 {
+                    //执行添加小图命令
                     AtlasAddSpriteImageCommand cmd = new AtlasAddSpriteImageCommand();
                     cmd.m_SpriteName = openfiledialog1.FileNames[fi].ToString();
                     EditorCommandManager.GetInstance().Add(cmd);
+
+                    RegisterUndo("Add SpriteImage");
                 }
             }
 
@@ -411,52 +509,8 @@ public class UIAtlasEditor
 
     }
 
-    static void OnAddSpriteImageCommand(bool bResult, string spriteName)
-    {
-        if(bResult)
-        {//添加成功
-
-            //更新小图LIst显示
-            ListCtrlItem newItem = new ListCtrlItem();
-            newItem.name = spriteName;
-            newItem.color = Color.white;
-            newItem.onSelectColor = Color.blue;
-            m_spriteListView.AddItem(newItem);
-
-            //初始化预览窗口、Inspector视图
-            //清除Inspector视图信息
-            m_inspector.onInspector = null;
-            //销毁预览GameObject
-            GameObject.DestroyImmediate(m_previewObj);
-        }
-        else
-        {//添加失败
-
-            if (PROJECT_FAILED_TYPE.PROJECT_FAILED_SPRITEIMAGE_PATH_ERROR
-                == UIAtlasEditorModel.GetInstance().GetProjectFailedType())
-            {//小图路径错误
-
-                //提示正确路径的message
-                EditorUtility.DisplayDialog("添加失败",
-                                             "请重新配置图库路径",
-                                             "确认");
-            }
-            else if (PROJECT_FAILED_TYPE.PROJECT_FAILED_SPRITE_EXIST_ERROR
-                == UIAtlasEditorModel.GetInstance().GetProjectFailedType())
-            {//小图已存在
-
-                //提示小图已存在的message
-                EditorUtility.DisplayDialog("添加失败",
-                                             "该小图已存在",
-                                             "确认");
-            }
-
-        }
-        
-        RequestRepaint();
-    }
     static void OnPreviewBtn(EditorControl c)
-    {//预览Atlas
+    {//[预览Atlas]按钮压下处理函数
 
         if (!UIAtlasEditorModel.GetInstance().IsProjectExist())
         {//工程未创建
@@ -487,6 +541,8 @@ public class UIAtlasEditor
             else
             {//预览成功
 
+                ClearSpriteView();
+
                 //更新预览窗口
                 UpdatePreViewWnd(tex);
             }
@@ -496,7 +552,7 @@ public class UIAtlasEditor
     }
 
     static void OnMakeAtlasBtn(EditorControl c)
-    {//生成Atlas
+    {//[生成Atlas]按钮压下处理函数
 
         if (!UIAtlasEditorModel.GetInstance().IsProjectExist())
         {//工程未创建
@@ -510,13 +566,119 @@ public class UIAtlasEditor
         {//工程已存在
             AtlasMakeAtlas cmd = new AtlasMakeAtlas();
             EditorCommandManager.GetInstance().Add(cmd);
+            RegisterUndo("Make Atlas");
         }
         
         RequestRepaint();
     }
 
+    static void OnConfigImageBaseBtn(EditorControl c)
+    {//[配置小图路径]按钮压下处理函数
+
+        //显示保存路径对话框
+        string savePath = EditorUtility.SaveFolderPanel("Image Path Config", "", "");
+
+        //将路径写入配置文件
+        UIAtlasEditorModel.GetInstance().WriteImagePathConfig(savePath + "/");
+    }
+
+    static void OnAddSpriteImageCommand(bool bResult, string spriteName)
+    {//小图添加完成响应函数
+
+        if (bResult)
+        {//添加成功
+
+            //更新小图LIst显示
+            AddSpriteItem(spriteName);
+
+            //清除SpriteList选择状态
+            ClearSpriteView();
+        }
+        else
+        {//添加失败
+
+            if (PROJECT_FAILED_TYPE.PROJECT_FAILED_SPRITEIMAGE_PATH_ERROR
+                == UIAtlasEditorModel.GetInstance().GetProjectFailedType())
+            {//小图路径错误
+
+                //提示正确路径的message
+                EditorUtility.DisplayDialog("添加失败",
+                                             "请重新配置图库路径",
+                                             "确认");
+            }
+            else if (PROJECT_FAILED_TYPE.PROJECT_FAILED_SPRITE_EXIST_ERROR
+                == UIAtlasEditorModel.GetInstance().GetProjectFailedType())
+            {//小图已存在
+
+                //提示小图已存在的message
+                EditorUtility.DisplayDialog("添加失败",
+                                             Path.GetFileName(spriteName) + "已存在",
+                                             "确认");
+            }
+
+        }
+
+        RequestRepaint();
+    }
+
+    static void OnDeleteSpriteImageCommand(bool bRet, string spritePath)
+    {//删除小图操作完成响应函数
+
+        if (spritePath == null)
+        {
+            return;
+        }
+
+        if (bRet)
+        {//删除成功
+
+            //从List中移除小图
+            RemoveSpriteItem(spritePath);
+
+            //清除Sprite List选中状态
+            ClearSpriteView();
+
+            RequestRepaint();
+        }
+    }
+
+    static void OnSpriteImageZoomChangedCommand(string spritePath)
+    {//小图缩放比例变更完成响应函数
+
+        if ((m_spriteListView == null) || (m_inspector == null))
+        {
+            return;
+        }
+
+        //获取小图纹理
+        Texture2D tex = null;
+        tex = UIAtlasEditorModel.GetInstance().GetSpriteZoomTexture(spritePath);
+        if (tex == null)
+        {
+            return;
+        }
+
+        //更新小图尺寸
+        UpdateSpriteSize(tex);
+
+        //更新Sprite List选择Index
+        for (int i = 0; i < m_spriteListView.GetItemCount(); i++)
+        {
+            if (m_spriteListView.Items[i].tooltip == spritePath)
+            {
+                m_spriteListView.LastSelectItem = i;
+            }
+        }
+
+        //更新Sprite List选中状态
+        m_inspector.onInspector = OnSpriteInspector;
+
+        //更新预览窗口
+        UpdatePreViewWnd(tex);
+    }
+
     static void OnMakeAtlasCommand(bool bRet)
-    {
+    {//Atlas生成完响应函数
         if(bRet)
         {
             //提示生成成功
@@ -541,8 +703,11 @@ public class UIAtlasEditor
                     //设定Atlas输出路径
                     UIAtlasEditorModel.GetInstance().SetAtlasSavePath(savePath + "/");
                    
+                    //执行“生成Atlas”命令
                     AtlasMakeAtlas cmd = new AtlasMakeAtlas();
                     EditorCommandManager.GetInstance().Add(cmd);
+
+                    RegisterUndo("Make Atlas");
                 }
                 else
                 {
@@ -569,123 +734,58 @@ public class UIAtlasEditor
 
         RequestRepaint();
     }
-    static void OnConfigImageBaseBtn(EditorControl c)
-    {//配置小图路径
 
-        //显示保存路径对话框
-        string savePath = EditorUtility.SaveFolderPanel("Image Path Config", "", "");
+#endregion
 
-        //将路径写入配置文件
-        UIAtlasEditorModel.GetInstance().WriteImagePathConfig(savePath + "/");
-    }
 
-    static void OnNewProject(UIAtlasEditorModel mode)
-    {//响应工程创建回调函数
- 
-        if ((m_projTreeView == null) || (m_spriteListView == null) || (m_inspector == null))
-        {
-            return;
-        }
-
-        //初始化窗口显示
-        //清空工程List、小图List
-        m_projTreeView.ClearItems();
-        m_spriteListView.ClearItems();
-        //清空预览窗口、Inspector窗口
-        GameObject.DestroyImmediate(m_previewObj);
-        m_inspector.onInspector = null;
-
-        //添加新建工程至工程List
-        ListCtrlItem newItem = new ListCtrlItem();
-        newItem.name = mode.GetProjectName();
-        newItem.color = Color.white;
-        newItem.onSelectColor = Color.blue;
-        m_projTreeView.AddItem(newItem);
-        
-        RequestRepaint();
-    }
-
-    static void OnSpriteImageLoad(string spriteName)
-    {//小图读取完成回调函数
-
-        //向List中添加新的小图
-        ListCtrlItem newItem = new ListCtrlItem();
-        newItem.name = spriteName;
-        newItem.color = Color.white;
-        newItem.onSelectColor = Color.blue;
-        m_spriteListView.AddItem(newItem);
-      
-        RequestRepaint();
-    }
-
-    static void OnSelectProjectListItem(EditorControl c, int i)
+#region 画面表示相关回调函数
+    static void OnSelectProjectListItem(EditorControl c, int index)
     {//点击工程List处理函数
 
-        if ((m_spriteListView == null) || (m_inspector == null))
+        if (index < 0)
         {
             return;
         }
 
-        //更新Inspector视图至工程属性
-        m_inspector.onInspector = OnProjectInspector;
-        m_projOutputPath = UIAtlasEditorModel.GetInstance().GetAtlasSavePath();
-
-        //清空预览区域
-        GameObject.DestroyImmediate(m_previewObj);
-        m_spriteListView.LastSelectItem = -1;
-
-        RequestRepaint();
+        //切换至工程List选择状态
+        ChangeProjectView();
     }
 
-    static void OnSelectListItem(EditorControl c, int i)
+    static void OnSelectListItem(EditorControl c, int index)
     {//点击小图List处理函数
 
-        Texture2D tex = null;
-        string SpriteName = null;
-
-        if ((m_spriteListView == null) || (m_inspector == null) || (m_spriteListView.LastSelectItem < 0))
+        if(index < 0)
         {
             return;
         }
 
-        //获取小图纹理
-        ListCtrlItem deleteItem = m_spriteListView.Items[m_spriteListView.LastSelectItem];
-        SpriteName = deleteItem.name;
-        tex = UIAtlasEditorModel.GetInstance().LoadSpriteImage(SpriteName);
-
-        if(tex == null)
-        {
-            return;
-        }
-
-        //更新预览区域
-        UpdatePreViewWnd(tex);
-
-        //更新Inspector视图至小图属性
-        m_inspector.onInspector = OnSpriteInspector;
-
-        //更新当前小图的宽、高、缩放比例信息
-        m_spriteWidth = tex.width;
-        m_spriteHeight = tex.height;
-        m_aspecet = (float)m_spriteWidth / (float)m_spriteHeight;
-        m_spriteWidthStr = m_spriteWidth.ToString();
-        m_spriteHeightStr = m_spriteHeight.ToString();
-
-        RequestRepaint();
+        //切换至小图List选择状态
+        ChangeSpriteView(index);
     }
 
-    static void OnSelectListItemR(EditorControl c, int i)
+    static void OnSelectListItemR(EditorControl c, int index)
     {//右键单击小图List
 
+        if (index < 0)
+        {
+            return;
+        }
+
+        //切换Sprite List选择状态
+        ChangeSpriteView(index);
+    }
+
+    static void OnSelectListItemRU(EditorControl c, int index)
+    {//右键抬起处理函数
         GenericMenu menu = new GenericMenu();
         //弹出删除小图下拉菜单
-        menu.AddItem(new GUIContent("删除图片"), false, OnDeleteSpriteImage, "item 1");
+        menu.AddItem(new GUIContent("删除图片"), false, DeleteSpriteImage, "item 1");
         menu.ShowAsContext();
 
         RequestRepaint();
     }
 
-    static void OnDeleteSpriteImage(object command)
+    static void DeleteSpriteImage(object command)
     {//删除小图
 
         if ((m_spriteListView == null) || (m_spriteListView.LastSelectItem < 0))
@@ -695,34 +795,15 @@ public class UIAtlasEditor
 
         string deleteSpriteName = null;
         ListCtrlItem deleteItem = m_spriteListView.Items[m_spriteListView.LastSelectItem];
-        deleteSpriteName = deleteItem.name;
+        deleteSpriteName = deleteItem.tooltip;
 
         AtlasDeleteSpriteImageCommand cmd = new AtlasDeleteSpriteImageCommand();
         cmd.m_SpriteName = deleteSpriteName;
         EditorCommandManager.GetInstance().Add(cmd);
 
+        RegisterUndo("Delete SpriteImage");
+
         RequestRepaint();
-    }
-
-    static void OnDeleteSpriteImageCommand(bool bRet)
-    {
-        if(bRet)
-        {//删除成功
-            if ((m_spriteListView == null) || (m_inspector == null) || (m_spriteListView.LastSelectItem < 0))
-            {
-                return;
-            }
-
-            ListCtrlItem deleteItem = m_spriteListView.Items[m_spriteListView.LastSelectItem];
-            //从List中移除小图
-            m_spriteListView.RemoveItem(deleteItem);
-            //更新Inspector视图
-            m_inspector.onInspector = null;
-            //清空预览窗口
-            GameObject.DestroyImmediate(m_previewObj);
-            
-            RequestRepaint();
-        }
     }
 
     static void OnProjectInspector(EditorControl c, object target)
@@ -731,7 +812,9 @@ public class UIAtlasEditor
         GUILayout.Space(20f);
       
         GUILayout.BeginHorizontal();
+
         GUILayout.Label("Atlas输出路径", GUILayout.Width(80f));
+
         GUI.SetNextControlName("Atlas输出路径");
         m_projOutputPath = EditorGUILayout.TextField(m_projOutputPath, GUILayout.Width(150));
         
@@ -744,9 +827,10 @@ public class UIAtlasEditor
                 UIAtlasEditorModel.GetInstance().SetAtlasSavePath(m_projOutputPath);
             }
         }
+
         GUILayout.EndHorizontal();
         
-        RequestRepaint();
+       // RequestRepaint();
     }
 
     static void OnSpriteInspector(EditorControl c, object target)
@@ -761,7 +845,7 @@ public class UIAtlasEditor
         }
 
         ListCtrlItem deleteItem = m_spriteListView.Items[m_spriteListView.LastSelectItem];
-        SpriteName = deleteItem.name;
+        SpriteName = deleteItem.tooltip;
 
         GUILayout.Space(20f);
 
@@ -797,77 +881,240 @@ public class UIAtlasEditor
         }
         GUILayout.Label("pix", GUILayout.Width(50f));
         GUILayout.EndHorizontal();
-
+  
         if(Event.current.keyCode == KeyCode.Return && Event.current.type == EventType.Used)
         {
             if (GUI.GetNameOfFocusedControl() == "高度" || GUI.GetNameOfFocusedControl() == "宽度")
             {
+                AtlasSpriteImage spriteImage = null;
+                AtlasImageZoomCommand cmd = null;
+                Texture2D tex = null;
+  
                 int.TryParse(m_spriteWidthStr, out w);
                 int.TryParse(m_spriteHeightStr, out h);
 
-                AtlasImageZoomCommand cmd = new AtlasImageZoomCommand();
-                AtlasSpriteImage spriteImage = null;
+                cmd = new AtlasImageZoomCommand();
                 UIAtlasEditorModel.GetInstance().GetSpriteImage(SpriteName, out spriteImage);
+                tex = UIAtlasEditorModel.GetInstance().GetSpriteTexture(SpriteName);
+                if(tex == null)
+                {
+                    return;
+                }
 
                 cmd.m_oldScaleFactor = spriteImage.ZoomScale;
-                cmd.m_newScaleFactor = (float)w / (float)m_spriteWidth;
+                cmd.m_newScaleFactor = (float)w / (float)tex.width;
                 cmd.m_SpriteName = SpriteName;
                 EditorCommandManager.GetInstance().Add(cmd);
-#if UNITY_4_5
-                Undo.RecordObject(m_CommandCounter, "Zoom Image");
-                //Undo.RecordObject(p, "Zoom Image");
-                //Undo.RegisterCompleteObjectUndo(p, "Zoom Image");
-                //Undo.RegisterCreatedObjectUndo(p, "Zoom Image");
-#endif
-                m_CommandCounter.CommandCounter++;
-                int test = m_CommandCounter.CommandCounter;
+
+                RegisterUndo("Zoom Image");
             }
         }
         
+        //RequestRepaint();
+    }
+#endregion
+
+#region 其他私有函数
+    static private void AddSpriteItem(string spriteName)
+    {//添加SpriteList Item
+
+        if ((m_spriteListView == null) || (spriteName == null))
+        {
+            return;
+        }
+
+        ListCtrlItem newItem = new ListCtrlItem();
+        newItem.name = Path.GetFileName(spriteName);
+        newItem.tooltip = spriteName;
+        newItem.color = Color.white;
+        newItem.onSelectColor = Color.blue;
+        m_spriteListView.AddItem(newItem);     
+    }
+
+    static private void RemoveSpriteItem(string spriteName)
+    {//删除SpriteList Item
+
+        if (m_spriteListView == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < m_spriteListView.GetItemCount(); i++)
+        {
+            if (m_spriteListView.Items[i].tooltip == spriteName)
+            {
+                ListCtrlItem deleteItem = m_spriteListView.Items[i];
+
+                //从List中移除小图
+                m_spriteListView.RemoveItem(deleteItem);
+            }
+        }
+    }
+
+    static private void AddProjectItem(string projectName)
+    {//添加ProjectList Item
+
+        if ((m_projTreeView == null) || (projectName == null))
+        {
+            return;
+        }
+
+        ListCtrlItem newItem = new ListCtrlItem();
+        newItem.name = projectName;
+        newItem.color = Color.white;
+        newItem.onSelectColor = Color.blue;
+        m_projTreeView.AddItem(newItem);
+    }
+
+    static private void ChangeProjectView()
+    {//Inspector变更至工程List 选择状态
+        if ((m_spriteListView == null) || (m_inspector == null))
+        {
+            return;
+        }
+
+        //更新Inspector视图至工程属性
+        m_inspector.onInspector = OnProjectInspector;
+        m_projOutputPath = UIAtlasEditorModel.GetInstance().GetAtlasSavePath();
+
+        //清空预览区域
+        GameObject.DestroyImmediate(m_previewObj);
+        
+        //初始化小图List选择状态
+        m_spriteListView.LastSelectItem = -1;
+
         RequestRepaint();
     }
 
-    static void OnSpriteImageZoomChangedCommand(string spritePath)
-    {//小图缩放比例变更回调函数
+    static private void ChangeSpriteView(int index)
+    {//Inspector变更为SpriteList选择状态
 
         Texture2D tex = null;
+        string SpriteName = null;
+
+        if ((m_projTreeView == null) || (m_spriteListView == null) || (m_inspector == null) || (index < 0))
+        {
+            return;
+        }
+
         //获取小图纹理
-        tex = UIAtlasEditorModel.GetInstance().GetSpriteTexture(spritePath);
+        ListCtrlItem deleteItem = m_spriteListView.Items[m_spriteListView.LastSelectItem];
+        SpriteName = deleteItem.tooltip;
+        tex = UIAtlasEditorModel.GetInstance().LoadSpriteImage(SpriteName);
+        if (tex == null)
+        {
+            return;
+        }
 
-        //更新预览窗口
+        ClearProjectView();
+
+        //更新Inspector视图至小图属性
+        m_inspector.onInspector = OnSpriteInspector;
+
+        m_spriteListView.LastSelectItem = index;
+
+        //更新当前小图的宽、高、缩放比例信息
+        UpdateSpriteSize(tex);
+
+        //更新预览区域
         UpdatePreViewWnd(tex);
-    }
 
-    static void OnEnable(EditorRoot root)
-    {
-        UIAtlasEditorModel.GetInstance().ReadImagePathConfig();
-        Undo.undoRedoPerformed += OnUndoRedo;
-        
         RequestRepaint();
     }
 
-    static void OnDisable(EditorRoot root)
-    {
-        UIAtlasTempTextureManager.DestroyInstance();
-        UIAtlasEditorModel.GetInstance().DestoryInstance();
-        EditorCommandManager.GetInstance().Clear();
-        Undo.undoRedoPerformed -= OnUndoRedo;
-        GameObject.DestroyImmediate(m_Counter);
+    static private void ClearProjectView()
+    {//清除ProjectList选择状态
+
+        if ((m_inspector == null) || (m_projTreeView == null))
+        {
+            return;
+        }
+
+        if(m_inspector.onInspector == OnProjectInspector)
+        {
+            m_inspector.onInspector = null;
+        }
+
+        m_projTreeView.LastSelectItem = -1;
+
+        RequestRepaint();
+    }
+
+    static private void ClearSpriteView()
+    {//清除SpriteList选择状态
+
+        if ((m_inspector == null) || (m_spriteListView == null))
+        {
+            return;
+        }
+
+        if (m_inspector.onInspector == OnSpriteInspector)
+        {
+            m_inspector.onInspector = null;
+        }
+
+        m_spriteListView.LastSelectItem = -1;
+
+        //清空预览窗口
         GameObject.DestroyImmediate(m_previewObj);
+
+        RequestRepaint();
     }
 
-    static void OnProjectOutputTextBoxChange(EditorControl c, float value)
-    {
+    static private void ClearCurrentView()
+    {//初始化画面显示
+        if(m_inspector == null)
+        {
+            return;
+        }
 
+        //清除ProjectList选择状态
+        ClearProjectView();
+
+        //清除SpriteList选择状态
+        ClearSpriteView();
+
+        RequestRepaint();
     }
 
-    static GameObject _GenTexturePreviewObject( float width , float height , Texture tex )
+    static private void UpdateSpriteSize(Texture2D tex)
+    {//更新小图尺寸信息
+
+        if(tex == null)
+        {
+            return;
+        }
+
+        m_spriteHeight = tex.height;
+        m_spriteWidth = tex.width;
+        m_aspecet = (float)m_spriteWidth / (float)m_spriteHeight;
+        m_spriteWidthStr = m_spriteWidth.ToString();
+        m_spriteHeightStr = m_spriteHeight.ToString();
+    }
+
+    static private void InitializeOpenFileDialog(OpenFileDialog dialog)
+    {//初始化添加小图Dialog
+
+        if(dialog == null)
+        {
+            return;
+        }
+
+        dialog.Multiselect = true;//允许同时选择多个文件
+        dialog.InitialDirectory = UIAtlasEditorConfig.ImageBasePath;
+        dialog.Filter = "图片文件(*.jpg*.jpeg*.png*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
+        dialog.FilterIndex = 2;
+        dialog.RestoreDirectory = true;
+        dialog.Title = "添加图片";
+    }
+
+    static private GameObject _GenTexturePreviewObject(float width, float height, Texture tex)
     {
         GameObject previewObj = new GameObject();
-        previewObj.transform.localScale = new Vector3(width, height,1.0f);
+        previewObj.transform.localScale = new Vector3(width, height, 1.0f);
         MeshRenderer meshRenderer = previewObj.AddComponent<MeshRenderer>();
-        MeshFilter   meshFilter   = previewObj.AddComponent<MeshFilter>();
-        
+        MeshFilter meshFilter = previewObj.AddComponent<MeshFilter>();
+
         Mesh mesh = new Mesh();
         Vector3[] verts = new Vector3[4];
         verts[0].Set(-0.5f, 0.5f, 0.0f);
@@ -903,53 +1150,31 @@ public class UIAtlasEditor
         mesh.normals = norms;
         mesh.uv = uv;
         mesh.colors = vertcolor;
-        mesh.SetIndices(indices, MeshTopology.Quads,0);
+        mesh.SetIndices(indices, MeshTopology.Quads, 0);
 
         meshFilter.mesh = mesh;
 
-        Shader shader = Resources.Load<Shader>("UIAtlasPreviewShader"); 
+        Shader shader = Resources.Load<Shader>("UIAtlasPreviewShader");
         Material mat = new Material(shader);
         mat.mainTexture = tex;
         tex.filterMode = FilterMode.Point;
 
-        meshRenderer.material = mat;       
+        meshRenderer.material = mat;
 
         return previewObj;
     }
 
-   static private void MakeDialogProp(OpenFileName ofn)
-    {
-        ofn.structSize = Marshal.SizeOf(ofn);
-
-        ofn.filter = "图片文件(*.jpg*.jpeg*.png*.bmp)\0*.jpg;*.jpeg;*.png;*.bmp";
-
-        ofn.file = new string(new char[256]);
-
-        ofn.maxFile = ofn.file.Length;
-
-        ofn.fileTitle = new string(new char[64]);
-
-        ofn.maxFileTitle = ofn.fileTitle.Length;
-
-        ofn.initialDir = UnityEngine.Application.dataPath;//默认路径
-
-        ofn.title = "Open Project";
-
-        //ofn.defExt = "JPG";//显示文件的类型
-        //注意 一下项目不一定要全选 但是0x00000008项不要缺少
-        ofn.flags = 0x00080000 | 0x00001000 | 0x00000800 | 0x00000200 | 0x00000008;//OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST| OFN_ALLOWMULTISELECT|OFN_NOCHANGEDIR
-    }
-
     static private void UpdatePreViewWnd(Texture2D tex)
-    {
-        if(tex == null)
+    {//更新MainView显示
+
+        if (tex == null)
         {
             return;
         }
 
         float aspect = (float)tex.width / (float)tex.height;
         float w1 = 10.0f;
-        float h1 = w1 / aspect;        
+        float h1 = w1 / aspect;
 
         //更新预览窗口
         GameObject.DestroyImmediate(m_previewObj);
@@ -965,33 +1190,22 @@ public class UIAtlasEditor
         RequestRepaint();
     }
 
-    static private void RequestRepaint() 
+    static private void RegisterUndo(string cmdName)
     {
-        if(s_root != null)
+#if UNITY_4_5
+        Undo.RegisterCompleteObjectUndo(m_CommandCounter, cmdName);
+#endif
+        m_CommandCounter.CommandCounter += 1;
+        m_CommandCounter.PreCommandCounter = m_CommandCounter.CommandCounter;
+    }
+
+    static private void RequestRepaint()
+    {
+        if (s_root != null)
         {
             s_root.RequestRepaint();
         }
     }
 
-    static void OnUndoRedo()
-    {
-        int commandCount = 0;
-
-        if (m_CommandCounter.IsRedo(out commandCount))
-        {
-            for(int i = 0; i < commandCount; i++)
-            {
-                EditorCommandManager.GetInstance().PerformRedo();
-            }
-        }
-        else
-        {
-            for (int i = 0; i < commandCount; i++)
-            {
-                EditorCommandManager.GetInstance().PerformUndo();
-            }
-        }
-
-        m_CommandCounter.PreCommandCounter = m_CommandCounter.CommandCounter;
-    }
+#endregion
 }

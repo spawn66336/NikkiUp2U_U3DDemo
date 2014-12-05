@@ -187,8 +187,9 @@ public class EditorRoot : EditorWindow
     }
     public static Rect windowRect = new Rect(20, 20, 120, 50);
 
-    void OnGUI()
+    public void RenderOneFrame()
     {
+
         if (isClosed)
         {
             Close();
@@ -196,14 +197,14 @@ public class EditorRoot : EditorWindow
         }
 
         if (rootCtrl == null)
-        { 
+        {
             return;
         }
 
         //若当前窗口不是当前窗口，则不更新此
         //窗口的输入信息
         if (this == EditorWindow.focusedWindow)
-        { 
+        {
             InputInfo.Update();
         }
 
@@ -220,12 +221,16 @@ public class EditorRoot : EditorWindow
         {
             onGUI(this);
         }
-        
+
         if (renderer.IsRepaintRequested())
         {
             Repaint();
         }
-        
+    }
+
+    void OnGUI()
+    {
+        RenderOneFrame();
     }
 
     void Update()

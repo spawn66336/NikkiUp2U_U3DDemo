@@ -45,6 +45,14 @@ public class TriggerVisitor : EditorCtrlVisitor
                 c.onItemSelectedR(c, c.frameTriggerInfo.lastSelectItemR);
             }
         }
+
+        if (c.frameTriggerInfo.lastSelectItemRU != -1)
+        {
+            if (null != c.onItemSelectedRU)
+            {
+                c.onItemSelectedRU(c, c.frameTriggerInfo.lastSelectItemRU);
+            }
+        }
         //add by liteng end
         if( c.frameTriggerInfo.isScroll )
         {

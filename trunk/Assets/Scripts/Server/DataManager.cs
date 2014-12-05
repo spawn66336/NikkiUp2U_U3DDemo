@@ -449,6 +449,8 @@ public class Reward
 	int id;
 	int num;
 	List<RewardItem> itms = new List<RewardItem>();
+
+    public Dictionary<int, int> dicItemRatio = new Dictionary<int, int>();
 	[XmlAttribute]
 	public int Id
 	{
@@ -543,6 +545,18 @@ public class DataManager
 
 	private void convert()
 	{
+        if (rewards != null)
+        {
+            foreach (Reward rewardInfo in rewards.RewardL)
+            {
+                int ratio = 0;
+                foreach (RewardItem item in rewardInfo.RwItems)
+                {
+                    ratio += item.Ratio * 100;
+                    rewardInfo.dicItemRatio.Add(ratio, item.Id);
+                }
+            }
+        }
 		if(areaMaps != null)
 		{
 			foreach(Map m in areaMaps.Maps)
@@ -701,7 +715,20 @@ public class DataManager
 			return areaMaps.Maps;
 		return null;
 	}
-
+    public List<Level> getLevelListForMapId(int mapId)
+    {
+        if (areaMaps != null)
+        {
+            foreach (Map map in areaMaps.Maps)
+            {
+                if (map.Id == mapId)
+                {
+                    return map.Levs;
+                }
+            }
+        }
+        return null;
+    }
     public string getGradeComment(int gradeId)
     {
         if (remarks.Grades.Count <= gradeId)
@@ -710,6 +737,35 @@ public class DataManager
         }
         System.Random ran = new System.Random();
         return remarks.Grades[gradeId].Descs[ran.Next(remarks.Grades[gradeId].Descs.Count-1)];
+    }
+
+    public List<int> getRewardList(int rewardId)
+    {
+        List<int> finalId = new List<int>();
+        foreach (Reward reward in rewards.RewardL)
+        {
+            if (reward.Id == rewardId)
+            {
+                for (int i = 0; i < reward.Num; i++)
+                {
+                    System.Random ran = new System.Random();
+                    int flag=ran.Next(0, 100);
+                    foreach (int ratio in reward.dicItemRatio.Keys)
+                    {
+                        if (flag <= ratio)
+                        {
+                            if (finalId.Contains(reward.dicItemRatio[ratio]))
+                            {
+                                i--;
+                                break;
+                            }
+                            finalId.Add(reward.dicItemRatio[ratio]);
+                        }
+                    }
+                }
+            }
+        }
+        return finalId;
     }
 	public static DataManager GetInstance()
 	{

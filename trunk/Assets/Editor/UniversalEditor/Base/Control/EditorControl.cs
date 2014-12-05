@@ -16,8 +16,10 @@ public class TriggerInfo
     public bool isDropObjs = false;
      
     public int lastSelectItem = -1;
-    //add by liteng for atlas
+    //add by liteng for atlas start
     public int lastSelectItemR = -1;
+    public int lastSelectItemRU = -1;
+    //add by liteng for atlas end
     public Vector2 scrollPos = new Vector2();
     public void Reset()
     {
@@ -26,8 +28,10 @@ public class TriggerInfo
         isValueChanged = false;
         isScroll = false;  
         lastSelectItem = -1;
-        //add by liteng for atlas
+        //add by liteng for atlas start
         lastSelectItemR = -1;
+        lastSelectItemRU = -1;
+        //add by liteng for atlas end
         scrollPos.Set(0f, 0f);
 
         isDraggingObjs = false;
@@ -124,9 +128,10 @@ public class EditorControl
     public VoidDelegate  onHover = null;
     public FloatDelegate onValueChange = null;
     public IntDelegate   onItemSelected = null;
-    //Add by liteng for atlas
+    //Add by liteng for atlas start
     public IntDelegate onItemSelectedR = null;
-
+    public IntDelegate onItemSelectedRU = null;
+    //Add by liteng for atlas end
     public Vec2Delegate  onScroll = null;
 
     public IntDelegate onDragItemBegin = null;

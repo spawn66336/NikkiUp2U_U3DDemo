@@ -893,7 +893,8 @@ public class SpecialEffectEditorModel
         //若打开特效为Prefab
         if( PrefabUtility.GetPrefabType(go) == PrefabType.Prefab )
         {
-            GameObject speInst = PrefabUtility.InstantiatePrefab(go) as GameObject; 
+            //GameObject speInst = PrefabUtility.InstantiatePrefab(go) as GameObject;
+            GameObject speInst = GameObject.Instantiate(go) as GameObject;
             prefab = go;
             newSpe = speInst.GetComponent<SpecialEffect>();
         }

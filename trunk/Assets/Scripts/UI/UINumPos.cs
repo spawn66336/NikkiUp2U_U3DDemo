@@ -5,12 +5,11 @@ public class UINumPos : MonoBehaviour {
 	
 	public Transform num;
 
-	private float[] pos_y = new float[]{-479f, -367f, -273f, -172f, -73f, 34f, 137f, 238f, 339f, 443f};
+	private float[] pos_y = new float[]{-479f, -375f, -272f, -172f, -72f, 32f, 135f, 238f, 339f, 443f};
 	private Animation anim;
 	private float curtime;
 	// Use this for initialization
 	void Start () {
-		curtime = Time.time;
 	}
 
 	public void PlayAnimation()

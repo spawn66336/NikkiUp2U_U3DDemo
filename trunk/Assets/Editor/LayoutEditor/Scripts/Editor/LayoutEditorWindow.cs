@@ -298,7 +298,7 @@ public class LayoutEditorWindow : EditorWindow
         GUI.enabled = (cur_layout != null && cur_layout.Dirty);
         if (GUILayout.Button("保存"))
         {
-            if (cur_layout != null)
+            if (cur_layout != null && m_view.CheckResolutionBeforeSave())
             {
                 cur_layout.Save();
             }
@@ -398,17 +398,22 @@ public class LayoutEditorWindow : EditorWindow
         {
             m_view.ResetCamera();
         }
+        GUI.enabled = (cur_layout != null);
+        if (GUILayout.Button("调整分辨率"))
+        {
+            ResDialog dlg = EditorWindow.GetWindow<ResDialog>(false, "选择分辨率", true);
+            dlg.mainview = m_view;
+        }
         GUI.enabled = true;
         if (GUILayout.Button("使用文档"))
         {
             Help.BrowseURL(ConfigTool.Instance.help_url);
         }
-
-
+        
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();
     }
-
+   
     public void ResetUITree()
     {
         curSelUI = null;

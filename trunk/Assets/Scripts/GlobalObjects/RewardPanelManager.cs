@@ -67,6 +67,7 @@ public class RewardPanelManager : MonoBehaviour
 
     public void OnClickRewardPanel()
     {
+        GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.RewardSound);
         currRewardInfo = null;
     }
 

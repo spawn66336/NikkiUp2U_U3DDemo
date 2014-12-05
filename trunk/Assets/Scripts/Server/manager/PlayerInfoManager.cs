@@ -117,14 +117,26 @@ public class PlayerInfoManager : IDataManager
         {
             if (recordInfo.levelId == level.Id)
             {
-                if (recordInfo.state == LevelState.Locked)
+                if (recordInfo.state == LevelState.Unlocked)
                 {
                     if ((int)level.FinishGrade <= (int)ratingInfo.levelRank)
                     {
                         isOpenLevel = true;
-                        rank = (int)ratingInfo.levelRank;
+                        recordInfo.state = LevelState.Finished;
                     }
+                    recordInfo.latestRank = ratingInfo.levelRank;
+                    recordInfo.latestScore = ratingInfo.score;
+                    recordInfo.latestDressSet.dressList.Clear();
+                    recordInfo.latestDressSet.dressList.AddRange(dressIdList);
+                    if (recordInfo.highestScore <= ratingInfo.score)
+                    {
+                        recordInfo.highestRank = ratingInfo.levelRank;
+                        recordInfo.highestScore = ratingInfo.score;
+                        recordInfo.highestDressSet.dressList.Clear();
+                        recordInfo.highestDressSet.dressList.AddRange(dressIdList);
 
+                    }
+                    rank = (int)recordInfo.highestRank;
                 }
                 else if (recordInfo.state == LevelState.Finished)
                 {
@@ -201,5 +213,45 @@ public class PlayerInfoManager : IDataManager
             }
         }
         return -1;
+    }
+
+    public void openMap(int mapId)
+    {
+        foreach (PlayerAreaMapRecordInfo info in playerInfo.areaMapRecordList)
+        {
+            if (info.areaMapId == mapId && info.isLocked)
+            {
+                info.isLocked = false;
+                List<Level> levelList = DataManager.GetInstance().getLevelListForMapId(info.areaMapId);
+                if (levelList == null)
+                {
+                    return;
+                }
+                foreach (Level level in levelList)
+                {
+                    PlayerLevelRecordInfo record = new PlayerLevelRecordInfo();
+                    record.levelId = level.Id;
+                    string str = PlayerRecordManager.getInstance().addLevelCondition(level.Id);
+                    if (str.Equals(""))
+                    {
+                        record.state = LevelState.Unlocked;
+                    }
+                    else
+                    {
+                        record.state = LevelState.Locked;
+                        record.lockReason = str;
+                    }
+                    for (int i = 0; i < playerInfo.levelRecordList.Count; i++)
+                    {
+                        PlayerLevelRecordInfo old = playerInfo.levelRecordList[i];
+                        if (old.levelId == level.Id)
+                        {
+                            playerInfo.levelRecordList.Remove(old);
+                        }
+                    }
+                    playerInfo.levelRecordList.Add(record);
+                }
+            }
+        }
     }
 }

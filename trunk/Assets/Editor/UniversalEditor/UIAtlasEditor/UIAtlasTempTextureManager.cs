@@ -10,10 +10,13 @@ public class TempTextureInfo
 {//Temp文件夹中资源信息
 
     private Texture2D m_texture = null;         //纹理
+    private Texture2D m_ZoomTexture = null;     //缩放纹理
     private string m_sourcePath = null;         //源文件绝对路径
     private string m_tempPath = null;           //Temp文件路径
 
     public Texture2D Texture { get { return m_texture; } set { m_texture = value; } }
+    public Texture2D ZoomTexture { get { return m_ZoomTexture; } set { m_ZoomTexture = value; } }
+
     public string SourcePath { get { return m_sourcePath; } set { m_sourcePath = value; } }
     public string TempPath { get { return m_tempPath; } set { m_tempPath = value; } }
 
@@ -23,9 +26,9 @@ public class UIAtlasTempTextureManager
 
     public UIAtlasTempTextureManager() { }
 
-    //载入纹理（支持载入磁盘任意位置的纹理）
     public Texture2D LoadTexture( string path )
-    {
+    {//载入纹理（支持载入磁盘任意位置的纹理）
+
         _TouchTempDir();
 
         string fileName = Path.GetFileName(path);
@@ -105,6 +108,7 @@ public class UIAtlasTempTextureManager
 
             if (newTexInfo.Texture != null)
             {
+                newTexInfo.ZoomTexture = newTexInfo.Texture;
                 textureCache.Add(path, newTexInfo);
             }
             
@@ -115,12 +119,17 @@ public class UIAtlasTempTextureManager
             textureCache.TryGetValue(path, out retTexInfo);
         }
 
-        return retTexInfo.Texture;
+        return retTexInfo.ZoomTexture;
     }
 
     public bool UnloadTexture(string path)
     {//卸载纹理
         bool bRet = true;
+
+        if(path == null)
+        {
+            return false;
+        }
 
         foreach (var textureInfo in textureCache)
         {
@@ -136,10 +145,51 @@ public class UIAtlasTempTextureManager
         return bRet;
     }
 
-    public Texture2D GetSpriteTexture(string path)
-    {
+    public Texture2D ZoomTexture(string path, float scaleFactor)
+    {//缩放纹理
+
         Texture2D tex = null;
-        
+
+        if ((path == null) ||
+            ((-0.000001f < scaleFactor) && (scaleFactor < 0.000001f)))
+        {
+            return null;
+        }
+
+        if (textureCache.ContainsKey(path))
+        {
+            TempTextureInfo sourceTexInfo = null;
+
+            textureCache.TryGetValue(path, out sourceTexInfo);
+
+            sourceTexInfo.ZoomTexture = ScaleTextureBilinear(sourceTexInfo.Texture, scaleFactor);
+
+            byte[] bytes = sourceTexInfo.ZoomTexture.EncodeToPNG();
+            string newPath = Path.GetFileNameWithoutExtension(sourceTexInfo.TempPath);
+            newPath = UIAtlasEditorConfig.TempPath + newPath + "zoomed.png";
+            System.IO.File.WriteAllBytes(newPath, bytes);
+            bytes = null;
+
+            AssetDatabase.ImportAsset(newPath);
+            MakeTextureReadable(newPath, false);
+            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+
+            sourceTexInfo.ZoomTexture = AssetDatabase.LoadAssetAtPath(newPath, typeof(Texture)) as Texture2D;
+
+            tex = sourceTexInfo.ZoomTexture;
+        }
+        return tex;
+    }
+
+    public Texture2D GetSpriteTexture(string path)
+    {//获取原始纹理
+
+        Texture2D tex = null;
+        if (path == null)
+        {
+            return null;
+        }
+
         foreach (var textureInfo in textureCache)
         {
             if (textureInfo.Key == path)
@@ -151,35 +201,41 @@ public class UIAtlasTempTextureManager
 
         return tex;
     }
-    public Texture2D ZoomTexture(string path, float scaleFactor)
-    {//缩放纹理
+
+    public Texture2D GetSpriteZoomTexture(string path)
+    {//获取缩放纹理
 
         Texture2D tex = null;
-        if (textureCache.ContainsKey(path))
+        if(path == null)
         {
-            TempTextureInfo newTexInfo = null;
-            textureCache.TryGetValue(path, out newTexInfo);
-
-            newTexInfo.Texture = ScaleTextureBilinear(newTexInfo.Texture, scaleFactor);
-            byte[] bytes = newTexInfo.Texture.EncodeToPNG();
-            string newPath = Path.GetFileNameWithoutExtension(newTexInfo.TempPath);
-            newPath = UIAtlasEditorConfig.TempPath + newPath + "zoomed.png";
-            System.IO.File.WriteAllBytes(newPath, bytes);
-            bytes = null;
-            //AssetDatabase.DeleteAsset(newTexInfo.TempPath);
-
-            AssetDatabase.ImportAsset(newPath);
-            MakeTextureReadable(newPath, false);
-
-            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-            newTexInfo.Texture = AssetDatabase.LoadAssetAtPath(newPath, typeof(Texture)) as Texture2D;
-
-            tex = newTexInfo.Texture;
+            return null;
         }
+
+        foreach (var textureInfo in textureCache)
+        {
+            if (textureInfo.Key == path)
+            {
+                tex = textureInfo.Value.ZoomTexture;
+                break;
+            }
+        }
+
         return tex;
     }
 
-    //尝试更新所有纹理
+    public List<Texture2D> GetTextureCache()
+    {//获取全部纹理资源
+
+        List<Texture2D> textureList = new List<Texture2D>();
+
+        foreach (KeyValuePair<string, TempTextureInfo> texture in textureCache)
+        {
+            textureList.Add(texture.Value.Texture);
+        }
+
+        return textureList;
+    }
+
     public void Update()
     {//更新全部纹理
 
@@ -211,20 +267,11 @@ public class UIAtlasTempTextureManager
             DirectoryInfo info = new DirectoryInfo(UIAtlasEditorConfig.TempPath);
             DeleteFileByDirectory(info);
         }
-
-        //if (Directory.Exists(UIAtlasEditorConfig.TempPath))
-        //{
-        //    File.SetAttributes(UIAtlasEditorConfig.TempPath, File.GetAttributes(UIAtlasEditorConfig.TempPath) & ~FileAttributes.Hidden);
-        //    File.SetAttributes(UIAtlasEditorConfig.TempPath, File.GetAttributes(UIAtlasEditorConfig.TempPath) & ~(FileAttributes.Archive | FileAttributes.ReadOnly));
-        //    DirectoryInfo.;
-
-        //   // File.SetAttributes(UIAtlasEditorConfig.TempPath, FileAttributes.Normal);
-        //    Directory.Delete(UIAtlasEditorConfig.TempPath, true);
-        //}
     }
 
     public void DeleteFileByDirectory(DirectoryInfo info)
-    {
+    {//删除临时文件夹
+
         foreach (DirectoryInfo newInfo in info.GetDirectories())
         {
             DeleteFileByDirectory(newInfo);
@@ -234,9 +281,9 @@ public class UIAtlasTempTextureManager
             newInfo.Attributes = newInfo.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
             newInfo.Delete();
         }
+
         info.Attributes = info.Attributes & ~(FileAttributes.Archive | FileAttributes.ReadOnly | FileAttributes.Hidden);
         info.Delete();
-
     }
 
     private bool _IsTextureAssetAlreadyExistsInTempFolder(string path,out bool bIsNeedRename)
@@ -275,6 +322,7 @@ public class UIAtlasTempTextureManager
         DateTime assetFileWriteTime = File.GetLastWriteTime(assetFilePath);
         return orginFileWriteTime.Equals(assetFileWriteTime);
     }
+
     private void _TouchTempDir()
     {
         //查看缓存文件夹是否存在
@@ -285,7 +333,8 @@ public class UIAtlasTempTextureManager
     }
 
     private bool MakeTextureReadable(string path, bool force)
-    {
+    {//使纹理可读
+
         if (string.IsNullOrEmpty(path)) return false;
         TextureImporter ti = AssetImporter.GetAtPath(path) as TextureImporter;
         if (ti == null) return false;
@@ -308,11 +357,24 @@ public class UIAtlasTempTextureManager
             ti.SetTextureSettings(settings);
             AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
         }
+
         return true;
     }
 
     private Texture2D ScaleTextureBilinear(Texture2D originalTexture, float scaleFactor)
-    {
+    {//缩放纹理
+
+        if ((originalTexture == null) 
+            || ((-0.000001f < scaleFactor) && (scaleFactor < 0.000001f)))
+        {
+            return null;
+        }
+
+        if (scaleFactor == 1.0f)
+        {
+            return originalTexture;
+        }
+
         Texture2D newTexture = new Texture2D(Mathf.CeilToInt(originalTexture.width * scaleFactor), Mathf.CeilToInt(originalTexture.height * scaleFactor));
         float scale = 1.0f / scaleFactor;
         int maxX = originalTexture.width - 1;
@@ -350,21 +412,16 @@ public class UIAtlasTempTextureManager
 
         return newTexture;
     }
-    public List<Texture2D> GetTextureCache()
-    {
-        List<Texture2D> textureList = new List<Texture2D>();
-
-        foreach (KeyValuePair<string, TempTextureInfo> texture in textureCache)
-        {
-            textureList.Add(texture.Value.Texture);
-        }
-
-        return textureList;
-    }
 
     public bool IsEnableTextureFile(string fileName)
-    {
+    {//判断目标文件是否是纹理
+
         bool bRet = false;
+
+        if(fileName == null)
+        {
+            return false;
+        }
 
         if(fileName.EndsWith(".png") 
            ||fileName.EndsWith(".bmp")
@@ -376,7 +433,9 @@ public class UIAtlasTempTextureManager
 
         return bRet;
     }
+
     private Dictionary<string, TempTextureInfo> textureCache = new Dictionary<string, TempTextureInfo>();
+
     static public UIAtlasTempTextureManager GetInstance()
     {
         if( s_instance == null )

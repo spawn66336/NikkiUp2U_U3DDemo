@@ -51,6 +51,7 @@ public class EditorManager
 
         //初始化控件
         initCallback(newEditor);
+        
 
         if (newEditor.onAwake != null)
         {

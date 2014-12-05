@@ -29,6 +29,9 @@ public class DressPanelController : UIController
 
     //时限显示
     public TimeLimitCtrl timeLimitCtrl;
+
+    //未换衣提示
+    public GameObject youShallNotPassDialog;
      
     //选中类型
     DressType chosenType; 
@@ -86,54 +89,68 @@ public class DressPanelController : UIController
 
     }
 
+    void _PlayCommonBtnSound()
+    {
+        GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.CommonButtonClick);
+    }
+
     public void OnBackBtnClick()
     {
+        _PlayCommonBtnSound();
         GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.AreaMapUI);
     }
 
     public void OnFinishDressBtnClick()
     {
+        GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.DressFinished);
         GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.RatingUI);
     }
 
     public void  OnHairDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Hair;
         _SetNextState(DressPanelState.DressChoose);
     }
     
     public void OnDressDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Dress;
         _SetNextState(DressPanelState.DressChoose);
     }
 
     public void OnCoatDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Coat;
         _SetNextState(DressPanelState.DressChoose);
     }
 
     public void OnTopsDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Tops;
         _SetNextState(DressPanelState.DressChoose);
     }
 
     public void OnBottomsDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Bottoms;
         _SetNextState(DressPanelState.DressChoose);
     }
 
     public void OnSockDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Socks;
         _SetNextState(DressPanelState.DressChoose);
     }
 
     public void OnShoesDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.Shoes;
         _SetNextState(DressPanelState.DressChoose);
     }
@@ -141,57 +158,72 @@ public class DressPanelController : UIController
 
     public void OnAccDressTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         _SetNextState(DressPanelState.AccTypeChoose);
     }
 
     public void OnAccHeadTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccHead;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccEarTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccEar;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccNeckTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccNeck;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccHandTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccHand;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccWaistTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccWaist;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccLegTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccLeg;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccSpecialTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccSpecial;
         _SetNextState(DressPanelState.AccChoose);
     }
 
     public void OnAccFaceTypeBtnClick()
     {
+        _PlayCommonBtnSound();
         chosenType = DressType.AccFace;
         _SetNextState(DressPanelState.AccChoose);
     }
 
+
+    public void OnYouShallNotPassClick()
+    {
+        _PlayCommonBtnSound();
+        youShallNotPassDialog.SetActive(false);
+    }
 
     public void ShowDressDescBox(bool show, Dress dress)
     {
@@ -460,6 +492,7 @@ public class DressPanelController : UIController
 
     public void OnLevelDialogBtnClick()
     {
+        _PlayCommonBtnSound();
         levelDialog.SetActive(true);
     }
 
@@ -470,6 +503,13 @@ public class DressPanelController : UIController
 
     public void OnDressFinishedBtnClick()
     {
+        if( Nikki.GetDressSet().GetCurrDressList().Count == 0 )
+        {
+            youShallNotPassDialog.SetActive(true);
+            return;
+        }
+
+        GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.DressFinished);
         UILocker.GetInstance().Lock(gameObject);
         PlayerUIResource.GetInstance().DressFinished(Nikki.GetDressSet().GetDressSetInfo(), _OnRatingResultCallback);
         PlayerUIResource.GetInstance().CurrLevelDressList = Nikki.GetDressSet().GetCurrDressList();
