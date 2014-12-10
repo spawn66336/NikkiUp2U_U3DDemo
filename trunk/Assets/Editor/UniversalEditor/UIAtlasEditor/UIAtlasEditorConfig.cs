@@ -15,7 +15,7 @@ public class UIAtlasEditorConfig
 
     private static string tempPath = "Assets/Editor/UniversalEditor/UIAtlasEditor/_Temp/";
 
-    private static string imageBasePath = "D:\\Alienbrain\\Resource\\ImageLibary\\";
+    private static string imageBasePath = null;
 
     private static string configPath = "Assets/Editor/UniversalEditor/UIAtlasEditor/Config/UIAtlasConfig.txt";
 
@@ -31,7 +31,7 @@ public class UIAtlasEditorConfig
         fileStream = new FileStream(configPath, FileMode.Create);
         File.SetAttributes(configPath, File.GetAttributes(configPath) & ~FileAttributes.Hidden);
         File.SetAttributes(configPath, File.GetAttributes(configPath) & ~(FileAttributes.Archive | FileAttributes.ReadOnly));
-
+  
         streamW = new StreamWriter(fileStream);
       
         streamW.Write(path);
@@ -65,11 +65,12 @@ public class UIAtlasEditorConfig
             fileStream.Close();
         }
 
-        basePath = basePath.Replace(@"/", @"\");
-        if (basePath.Contains("\\Alienbrain\\Resource\\ImageLibary\\"))
+        if ((basePath != null) && (basePath != ""))
         {
+            basePath = basePath.Replace(@"/", @"\");
             imageBasePath = basePath;
         }
+
 
         return basePath;
     }

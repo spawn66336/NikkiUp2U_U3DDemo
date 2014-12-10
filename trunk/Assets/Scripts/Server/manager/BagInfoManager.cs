@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,15 +26,25 @@ class BagInfoManager : IDataManager
     public int totalColthCount = 0;
     public override void init()
     {
-        bagItemList = (List<BagItemInfo>)XMLTools.readXml(fileName, bagItemList.GetType());
-        foreach (BagItemInfo info in bagItemList)
+        int id=0;
+        try
         {
-            GameItemDataBaseBean bean = GameDataBaseManager.getInstance().getGameItemBean(info.itemId);
-            if (bean.type == GameItemType.Dress)
+            bagItemList = (List<BagItemInfo>)XMLTools.readXml(fileName, bagItemList.GetType());
+            foreach (BagItemInfo info in bagItemList)
             {
-                totalColthCount += info.itemCount;
+                id=info.itemId;
+                GameItemDataBaseBean bean = GameDataBaseManager.getInstance().getGameItemBean(info.itemId);
+                if (bean.type == GameItemType.Dress)
+                {
+                    totalColthCount += info.itemCount;
+                }
             }
         }
+        catch
+        {
+            Debug.Log(id);
+        }
+        
     }
     public override void destroy()
     {

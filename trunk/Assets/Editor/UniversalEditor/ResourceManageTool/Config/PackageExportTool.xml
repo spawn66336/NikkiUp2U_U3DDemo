@@ -1,0 +1,7 @@
+<ExportPackageConfig>
+  <Version>1.0</Version>
+  <Path>
+    <Item>Assets/Editor</Item>
+    <Item>Assets/Scripts</Item>
+  </Path>
+</ExportPackageConfig>

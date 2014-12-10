@@ -15,6 +15,8 @@ public class DialogContentUIInfo
     public bool isKey;
     //Npc名称
     public string npcName;
+    //Npc名牌出现位置
+    public DialogNpcImgShowPos npcNameShowPos;
     //当前对话内容
     public string content;
     //当前Npc图片显示信息
@@ -117,11 +119,46 @@ public class LevelUIResourceManager : UIResourceManager
                 contentUIInfo.npcImgs.Add(npcImgUIInfo);
             }
 
+            _CalcNpcNameShowPos(ref contentUIInfo, content);
+
             newUIInfo.dialogInfo.contents.Add(contentUIInfo);
         }
 
         levelUIInfoCache.Add(info.id, newUIInfo);
         syncCount--;
+    }
+
+    void _CalcNpcNameShowPos( ref DialogContentUIInfo info ,DialogContentInfo contentInfo )
+    {
+        string imgName = "";
+        if( info.npcName.Equals("暖暖") )
+        {
+            imgName = "nikki";
+        }
+        else if( info.npcName.Equals("大喵"))
+        {
+            imgName = "neko";
+        }
+        else if (info.npcName.Equals("优优"))
+        {
+            imgName = "yoyo";
+        }
+        else if (info.npcName.Equals("啪嗒"))
+        {
+            imgName = "pata";
+        }else if( info.npcName.Equals("布朗"))
+        {
+            imgName = "brown";
+        }
+
+        foreach( var c in contentInfo.npcImgInfos )
+        {
+            if( -1 != c.imgPath.IndexOf(imgName) )
+            {
+                info.npcNameShowPos = c.showPos;
+                break;
+            }
+        }
     }
 
     int syncCount = 0;

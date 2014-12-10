@@ -87,6 +87,14 @@ public class BagItemBtnController : MonoBehaviour
         }
     }
 
+    void OnClick()
+    { 
+        if (onClickCallback != null)
+        {
+             onClickCallback(this.gameObject);
+        } 
+    }
+
     void OnPress(bool isPressed)
     {
         if( isPressed )
@@ -100,15 +108,8 @@ public class BagItemBtnController : MonoBehaviour
             int elapseTick = currTick - pressBeginTick;
             float elapseSec = ((float)elapseTick) * 0.001f;
 
-            if (elapseSec < clickThresholdInterval )
-            {
-                if( onClickCallback != null )
-                {
-                    onClickCallback(this.gameObject);
-                }
-            }
-            else
-            {
+            if (elapseSec >= clickThresholdInterval )
+            { 
                 if ( isShowDressDesc && onDressDescEndCallback != null)
                 {
                     onDressDescEndCallback(this.gameObject);

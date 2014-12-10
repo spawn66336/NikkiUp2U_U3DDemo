@@ -230,7 +230,20 @@ public class UIAtlasTempTextureManager
 
         foreach (KeyValuePair<string, TempTextureInfo> texture in textureCache)
         {
-            textureList.Add(texture.Value.Texture);
+            textureList.Add(texture.Value.ZoomTexture);
+        }
+
+        return textureList;
+    }
+    public List<Texture> GetTextureCacheSprite()
+    {//获取全部纹理资源
+
+        List<Texture> textureList = new List<Texture>();
+
+        foreach (KeyValuePair<string, TempTextureInfo> texture in textureCache)
+        {
+            Texture tex = texture.Value.ZoomTexture as Texture;
+            textureList.Add(tex);
         }
 
         return textureList;

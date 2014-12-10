@@ -17,6 +17,7 @@ public class UIElement : MonoBehaviour
     Vector3[] m_Corners = new Vector3[4];
 
     public string FullPathName;
+    public int HierarchyPos = 0;
     
     public string Name
     {

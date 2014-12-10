@@ -32,6 +32,9 @@ public class DressPanelController : UIController
 
     //未换衣提示
     public GameObject youShallNotPassDialog;
+
+    //换装完成特效
+    public SpecialEffect dressFinishedBtnEff;
      
     //选中类型
     DressType chosenType; 
@@ -44,7 +47,9 @@ public class DressPanelController : UIController
         DressTypeChoose = 1,
         AccTypeChoose,
         DressChoose,
-        AccChoose
+        AccChoose,
+        //点击换装完毕后跳转状态
+        DressFinished
     }
 
     DressPanelState prevState = DressPanelState.DressTypeChoose;
@@ -61,17 +66,28 @@ public class DressPanelController : UIController
 
             LevelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.name;
 
+            //是否为限时关卡
             if (currLevelUIInfo.levelInfo.isTimeLimit)
             {
                 timeLimitCtrl.remainingSeconds = currLevelUIInfo.levelInfo.timeLimit;
-                timeLimitCtrl.onTimeUpCallback = OnDressFinishedBtnClick;
+                timeLimitCtrl.onTimeUpCallback = OnDressTimeUpCallback;
                 timeLimitCtrl.gameObject.SetActive(true);
             }
                         
             var contents = currLevelUIInfo.levelInfo.dialogInfo.contents;
             foreach( var c in contents )
             {
-                levelDialogContents.Add(c.content);
+                string finalContent = c.npcName + ":" + c.content;
+                if( c.isKey )
+                {
+                     finalContent = "[ff0000]" + finalContent +"[-]";
+                }
+                else
+                {
+                     finalContent = "[000000]" + finalContent + "[-]";
+                }
+                levelDialogContents.Add(finalContent);
+                levelDialogContents.Add("\n");
             } 
 
             levelDialogContents.scrollValue = 0f;
@@ -324,10 +340,17 @@ public class DressPanelController : UIController
 
     bool _IsAllAnimStable()
     {
-       return 
+       bool stable =  
            _IsAnimStable(dressTypeList) && 
            _IsAnimStable(dressListCtrl.gameObject) && 
-           _IsAnimStable(dressGroup);
+           _IsAnimStable(dressGroup) 
+           ;
+
+        if( dressFinishedBtnEff != null )
+        {
+           stable &= !dressFinishedBtnEff.IsPlaying();
+        } 
+        return stable; 
     }
 
 
@@ -376,9 +399,15 @@ public class DressPanelController : UIController
     {
         if( currState != nextState )
         {
-            if( _IsAnimStable(dressTypeList) && _IsAnimStable(dressListCtrl.gameObject) && _IsAnimStable(dressGroup))
+            if ( _IsAllAnimStable() )
             {
-                currState = nextState;
+                currState = nextState; 
+
+                if( currState == DressPanelState.DressFinished )
+                {//若切换目标状态为换装完毕，则转场
+                    GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.RatingUI);
+                }
+
                 UILocker.GetInstance().UnLock(gameObject);
             }
         }
@@ -515,12 +544,28 @@ public class DressPanelController : UIController
         PlayerUIResource.GetInstance().CurrLevelDressList = Nikki.GetDressSet().GetCurrDressList();
     }
 
+    public void OnDressTimeUpCallback()
+    {
+        GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.DressFinished);
+        UILocker.GetInstance().Lock(gameObject);
+        PlayerUIResource.GetInstance().DressFinished(Nikki.GetDressSet().GetDressSetInfo(), _OnRatingResultCallback);
+        PlayerUIResource.GetInstance().CurrLevelDressList = Nikki.GetDressSet().GetCurrDressList();
+    }
+
     
     void _OnRatingResultCallback( RatingInfo info )
     {
         UILocker.GetInstance().UnLock(gameObject);
         PlayerUIResource.GetInstance().CurrRatingInfo = info;
-        GlobalObjects.GetInstance().GetUISwitchManager().SetNextState(UIState.RatingUI);
+
+
+        _SetNextState(DressPanelState.DressFinished); 
+        //播放特效
+        if(dressFinishedBtnEff != null )
+        {
+            dressFinishedBtnEff.Play();
+        }
+
     }
 
     //开始换装按钮

@@ -8,6 +8,8 @@ public class SpecialEffectEditor
 
     static EditorRoot s_root = null;
 
+    static private string m_helpURL = "http://192.168.2.121:8090/pages/viewpage.action?pageId=6619470";
+
     [MenuItem("H3D/特效编辑/特效编辑器")]
     static void Init()
     {
@@ -452,7 +454,7 @@ public class SpecialEffectEditor
 
     static void OnHelp(EditorControl c)
     {
-
+        System.Diagnostics.Process.Start(m_helpURL);
     }
 
     static void OnUndoBtnClick(EditorControl c)

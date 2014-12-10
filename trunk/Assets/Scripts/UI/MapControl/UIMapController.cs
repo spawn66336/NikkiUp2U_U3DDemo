@@ -15,7 +15,7 @@ public class UIMapController : MonoBehaviour
     public int playerNowSubLevelIndex = 0;//外部获得,player当前所在的关卡
     [System.NonSerialized]
     public int maxSubLevel = 10;//已经完成的最大关卡，也就是下一个需要去完成的关卡
-    List<Transform> buttonTrans = new List<Transform>();
+    public List<Transform> buttonTrans = new List<Transform>();
     public string[] levelSpriteName;
     GameObject playerObj;
     Transform endTrans;
@@ -23,15 +23,22 @@ public class UIMapController : MonoBehaviour
 
     public GameObject beginButton;
     public GameObject nextButton;
+    public GameObject upLevelButton;
     public GameObject lockObj;
+
+
+    int levelBeginIndex=0;
+    bool nextMapIsTrue;
+    bool upMapIsTrue;
     void OnEnable()
     {
         levelNowIndex = PlayerUIResource.GetInstance().CurrAreaMapIndex;
-        maxSubLevel = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos.Count;
+        maxSubLevel = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos.Count; 
         Init(levelNowIndex);
         playerObj = GameObject.FindGameObjectWithTag("Player");
-        playerObj.transform.parent = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex];
-        playerNowSubLevelIndex = PlayerUIResource.GetInstance().CurrLevelIndex;
+        playerObj.transform.parent = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex+levelBeginIndex];
+        playerNowSubLevelIndex = PlayerUIResource.GetInstance().CurrLevelIndex+levelBeginIndex;
+//        Debug.Log("player now  index+++++++++++++++++++++++++++++++  " + playerNowSubLevelIndex);
         playerObj.transform.localPosition = Vector3.zero;
         UIEventListener.Get(nextButton).onClick += ChangeToNextLevel;
         UIEventListener.Get(lockOkButton).onClick += LockButtonEvent;
@@ -39,6 +46,7 @@ public class UIMapController : MonoBehaviour
     }
     void OnDisable()
     {
+
         DisAll();
         buttonTrans.Clear();
         UIEventListener.Get(nextButton).onClick -= ChangeToNextLevel;
@@ -70,12 +78,9 @@ public class UIMapController : MonoBehaviour
             {
                 for (int j = 0; j < childTrans.Length; ++j)
                 {
-                    childTrans[j] = levelUIMapTrans[i].GetChild(j);
-                    if(childTrans[j].gameObject.GetComponent<UIEventListener>()==null)
-                        childTrans[j].gameObject.AddComponent<UIEventListener>();
+                    childTrans[j] = levelUIMapTrans[i].GetChild(j);                   
                     if (!buttonTrans.Contains(childTrans[j]))
-                        buttonTrans.Add(childTrans[j]);
-                    UIEventListener.Get(childTrans[j].gameObject).onClick += ButtonReactEvent;
+                        buttonTrans.Add(childTrans[j]);                   
                 }
             }
         }
@@ -93,118 +98,214 @@ public class UIMapController : MonoBehaviour
                 }
             }
         }
-        levelNameLabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[levelNameIndex].levelInfo.name;
-       /* for (int i = 0; i < buttonTrans.Count; ++i)
+        levelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelAreaMapTitle;
+        
+        if (PlayerUIResource.GetInstance().CurrAreaMapIndex == 0)
         {
-            if (i <= maxSubLevel)
-            {
-                buttonTrans[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                buttonTrans[i].gameObject.SetActive(false);
-            }
-
-        }*/
-        //Debug.Log(buttonTrans.Count + "  111111111111111111111111  " + PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable.Count);
-        for (int i = 0; i < buttonTrans.Count; ++i)
+            buttonTrans[0].gameObject.SetActive(false);
+            buttonTrans.Remove(buttonTrans[0]);
+            levelBeginIndex = 0;
+            upMapIsTrue = false;
+        }
+        else 
         {
-            if (i < PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable.Count)
+            buttonTrans[0].gameObject.SetActive(true);    
+            /*if(buttonTrans[0].GetComponent<UIEventListener>()==null)
+                buttonTrans[0].gameObject.AddComponent<UIEventListener>();
+            UIEventListener.Get(buttonTrans[0].gameObject).onClick += BackToUpLevel;*/
+            if (upLevelButton.GetComponent<UIEventListener>())
+                upLevelButton.AddComponent<UIEventListener>();
+            UIEventListener.Get(upLevelButton).onClick += BackToUpLevel;
+            levelBeginIndex = 1;
+            upMapIsTrue = true;
+        }
+        if (PlayerUIResource.GetInstance().CurrAreaMapIndex == (PlayerUIResource.GetInstance().AreaMapCount - 1))
+        {
+            buttonTrans[(buttonTrans.Count - 1)].gameObject.SetActive(false);
+            buttonTrans.Remove(buttonTrans[(buttonTrans.Count - 1)]);
+            nextMapIsTrue = false;
+        }
+        else
+        {
+            nextMapIsTrue = true;
+        }
+        for (int m = 0; m < buttonTrans.Count; ++m)
+        {
+            buttonTrans[m].name = m.ToString();
+            if (buttonTrans[m].gameObject.GetComponent<UIEventListener>() == null)
+                buttonTrans[m].gameObject.AddComponent<UIEventListener>();
+            UIEventListener.Get(buttonTrans[m].gameObject).onClick += ButtonReactEvent;
+        }
+        int begincountIndex;
+        for (int m = levelBeginIndex; m < buttonTrans.Count; ++m)
+        {
+            begincountIndex =m-levelBeginIndex;
+            if (begincountIndex < PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable.Count)
             {
-                if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[i].state == LevelState.Invisible)
+//                Debug.Log(" level begin now1111111111111111111111111   " + begincountIndex + "  state  " + PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[begincountIndex].state);
+                if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[begincountIndex].state == LevelState.Invisible)
                 {
-                    buttonTrans[i].gameObject.SetActive(false);
+                    buttonTrans[m].gameObject.SetActive(false);
                 }
                 else
                 {
-
-                    buttonTrans[i].gameObject.SetActive(true);
-                    if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[i].state == LevelState.Finished)
+                    buttonTrans[m].gameObject.SetActive(true);
+                    if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[begincountIndex].state == LevelState.Finished)
                     {
-                        buttonTrans[i].GetComponent<UISprite>().spriteName = levelSpriteName[(int)PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[i].highestRank];
-                        buttonTrans[i].GetComponent<UIButton>().normalSprite = levelSpriteName[(int)PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[i].highestRank];
-                        //Debug.Log("1111111111111111111111111  "+(int)PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[i].highestRank);
+                        buttonTrans[m].GetComponent<UISprite>().spriteName = levelSpriteName[(int)PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[begincountIndex].highestRank];
+                        buttonTrans[m].GetComponent<UIButton>().normalSprite = levelSpriteName[(int)PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[begincountIndex].highestRank];
                     }
-                    else if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[i].state == LevelState.Locked)
+                    else if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[begincountIndex].state == LevelState.Locked)
                     {
                        lockObjNow= Object.Instantiate(lockObj, Vector3.zero, Quaternion.identity) as GameObject;
-                       lockObjNow.transform.parent = buttonTrans[i].transform;
+                       lockObjNow.transform.parent = buttonTrans[m].transform;
                        lockObjNow.transform.localPosition = Vector3.zero;
                     }
-                   
                 }
+               
             }
             else
             {
-                buttonTrans[i].gameObject.SetActive(false);
+                if (begincountIndex == (buttonTrans.Count - 1) && begincountIndex == PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable.Count)
+                {
+                    if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable.Count - 1].state == LevelState.Finished)
+                    {
+                        buttonTrans[m].gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        buttonTrans[m].gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    buttonTrans[m].gameObject.SetActive(false);
+                }
             }
+          
+           
         }
+
       
+    }
+
+    private void BackToUpLevel(GameObject go)
+    {
+        buttonTrans.Clear();
+        PlayerUIResource.GetInstance().CurrAreaMapIndex--;
+        DisAll();
+        Init(PlayerUIResource.GetInstance().CurrAreaMapIndex);
+        //PlayerUIResource.GetInstance().CurrLevelIndex = 0;
+
+        PlayerUIResource.GetInstance().CurrLevelIndex = buttonTrans.Count - 1;//1-5 当是0时候开始，最后5时候结束 
+        playerNowSubLevelIndex = buttonTrans.Count-1;
+        Debug.Log("PlayerUIResource.GetInstance().CurrLevelIndex  " + PlayerUIResource.GetInstance().CurrLevelIndex);
+        playerObj.transform.parent = buttonTrans[playerNowSubLevelIndex];
+        playerObj.transform.localPosition = Vector3.zero;
+        nextButton.SetActive(true);
+        beginButton.SetActive(false);
+        upLevelButton.SetActive(false);
+        levelNameLabel.text = "";
+        
     }
     GameObject lockObjNow;
     int subLevelIndex;//配置关卡时候，注意名字一定要正确，名字为对应关卡
 
-    Transform[] movePahts;
+    public Transform[] movePahts;
     int newTransIndex;
     public UILabel lockInfolabel;
     public GameObject lockOkButton;
+    bool normalLevelButton;
+    int lockNumJudege;
     void ButtonReactEvent(GameObject subLevelButton)
     {
-        if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[subLevelIndex].state == LevelState.Locked)
+        subLevelIndex = int.Parse(subLevelButton.name);
+        normalLevelButton = true;
+        beginButton.SetActive(true);
+        nextButton.SetActive(false);
+        upLevelButton.SetActive(false);      
+        
+        PlayerUIResource.GetInstance().CurrLevelIndex = subLevelIndex - levelBeginIndex;
+        levelNameLabel.text = PlayerUIResource.GetInstance().CurrLevelAreaMapTitle;        
+       
+        //证明不是开始和结尾
+        if(nextMapIsTrue)
         {
-            lockInfolabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[subLevelIndex].lockReason;
-            lockInfolabel.gameObject.SetActive(true);
-        }
-        else
-        {
-            subLevelIndex = int.Parse(subLevelButton.name);
-            LoadSubLevel(subLevelIndex);
-            int tempLength;
-            if (subLevelIndex < playerNowSubLevelIndex)
+            if (subLevelIndex == (buttonTrans.Count - 1))
             {
-                tempLength = playerNowSubLevelIndex - subLevelIndex + 1;
-                movePahts = new Transform[tempLength];
-                newTransIndex = 0;
-                for (int i = playerNowSubLevelIndex; i >= subLevelIndex; --i)
-                {
-                    movePahts[newTransIndex] = buttonTrans[i];
-                    ++newTransIndex;
-                }
-                endTrans = buttonTrans[subLevelIndex];
-                StartPlayerMove(movePahts);
-                playerNowSubLevelIndex = subLevelIndex;
-                UILocker.GetInstance().Lock(gameObject);
-            }
-            else if (subLevelIndex > playerNowSubLevelIndex)
-            {
-                tempLength = subLevelIndex - playerNowSubLevelIndex + 1;
-                movePahts = new Transform[tempLength];
-                newTransIndex = 0;
-                for (int i = playerNowSubLevelIndex; i <= subLevelIndex; ++i)
-                {
-                    movePahts[newTransIndex] = buttonTrans[i];
-                    ++newTransIndex;
-                }
-                endTrans = buttonTrans[subLevelIndex];
-                StartPlayerMove(movePahts);
-                playerNowSubLevelIndex = subLevelIndex;
-                UILocker.GetInstance().Lock(gameObject);
-            }
-            PlayerUIResource.GetInstance().CurrLevelIndex = subLevelIndex;
-            levelNameLabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrLevelIndex].levelInfo.name;
-            //PlayerUIResource.GetInstance().CurrLevelId = subLevelIndex + 1;
-            //Debug.Log("****************************************  "+playerNowSubLevelIndex);
-            if (playerNowSubLevelIndex == maxSubLevel)
-            {
-                beginButton.SetActive(false);
+                normalLevelButton = false;
+                upLevelButton.SetActive(false);
                 nextButton.SetActive(true);
-            }
-            else
-            {
-                beginButton.SetActive(true);
-                nextButton.SetActive(false);
+                beginButton.SetActive(false);
+                levelNameLabel.text = "";
+                PlayerUIResource.GetInstance().CurrLevelIndex = (buttonTrans.Count - 1);
+                levelNameLabel.text = "";
             }
         }
+        if (upMapIsTrue)
+        {
+            if (subLevelIndex == 0)
+            {
+                normalLevelButton = false;
+                upLevelButton.SetActive(true);
+                nextButton.SetActive(false);
+                beginButton.SetActive(false);
+                levelNameLabel.text = "";
+                PlayerUIResource.GetInstance().CurrLevelIndex = 0;
+                levelNameLabel.text = "";
+               
+            }
+        }
+        if (normalLevelButton)
+        {
+            lockNumJudege=subLevelIndex-levelBeginIndex;
+            if (PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[lockNumJudege].state == LevelState.Locked)
+            {
+                lockInfolabel.text = PlayerUIResource.GetInstance().CurrAreaMapLevelRecordTable[lockNumJudege].lockReason;
+                lockInfolabel.gameObject.SetActive(true);
+                return;
+            }
+        }
+
+        //Debug.Log("playerNowSubLevelIndex  " + playerNowSubLevelIndex + "  subLevelIndex  " + subLevelIndex);
+        int tempLength;
+        if (subLevelIndex < playerNowSubLevelIndex)
+        {
+            tempLength = playerNowSubLevelIndex  - subLevelIndex + 1;
+            movePahts = new Transform[tempLength];
+            newTransIndex = 0;
+            for (int i = playerNowSubLevelIndex; i >= subLevelIndex; --i)
+            {
+                Debug.Log(newTransIndex + "  000000000000000  " + i + "  " + subLevelIndex);
+                movePahts[newTransIndex] = buttonTrans[i];
+                ++newTransIndex;
+            }
+            endTrans = buttonTrans[subLevelIndex];
+            StartPlayerMove(movePahts);
+            playerNowSubLevelIndex = subLevelIndex;
+            UILocker.GetInstance().Lock(gameObject);
+        }
+        else if (subLevelIndex > playerNowSubLevelIndex)
+        {
+            tempLength = subLevelIndex - (playerNowSubLevelIndex)+ 1;
+            movePahts = new Transform[tempLength];
+            newTransIndex = 0;           
+            for (int i = (playerNowSubLevelIndex); i <= subLevelIndex; ++i) 
+            {
+                Debug.Log(newTransIndex + "  111111111111  " + i + "  " + subLevelIndex);
+                movePahts[newTransIndex] = buttonTrans[i];
+                ++newTransIndex;
+            }
+            endTrans = buttonTrans[subLevelIndex];
+            StartPlayerMove(movePahts);
+            playerNowSubLevelIndex = subLevelIndex;
+            UILocker.GetInstance().Lock(gameObject);
+        }
+      // +" " + PlayerUIResource.GetInstance().CurrAreaMapLevelUIInfos[PlayerUIResource.GetInstance().CurrLevelIndex].levelInfo.name;
+        //PlayerUIResource.GetInstance().CurrLevelId = subLevelIndex + 1;
+        //Debug.Log("****************************************  "+playerNowSubLevelIndex);
+      
+
     }
 
     void LockButtonEvent(GameObject button)
@@ -221,12 +322,14 @@ public class UIMapController : MonoBehaviour
         //PlayerUIResource.GetInstance().CurrLevelIndex = 0;
         playerObj.transform.parent = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex];
         playerObj.transform.localPosition = Vector3.zero;
+        playerNowSubLevelIndex = PlayerUIResource.GetInstance().CurrLevelIndex;
+        nextButton.SetActive(false);
+        beginButton.SetActive(false);
+        upLevelButton.SetActive(true);
+        levelNameLabel.text = "";
+
     }
-    void LoadSubLevel(int sublevelIndex)
-    {
-        //此处与服务器对接用于，加载此关任务
-//        Debug.Log("sub level is " + sublevelIndex);
-    }
+  
     Hashtable args;
     void StartPlayerMove(Transform[] paths)
     {

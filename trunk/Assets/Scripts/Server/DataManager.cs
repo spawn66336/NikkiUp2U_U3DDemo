@@ -449,7 +449,7 @@ public class Reward
 	int id;
 	int num;
 	List<RewardItem> itms = new List<RewardItem>();
-
+    [XmlIgnore]
     public Dictionary<int, int> dicItemRatio = new Dictionary<int, int>();
 	[XmlAttribute]
 	public int Id
@@ -473,7 +473,7 @@ public class Reward
 public class RewardItem
 {
 	int id;
-	int ratio;
+	float ratio;
 	[XmlAttribute]
 	public int Id
 	{
@@ -481,7 +481,7 @@ public class RewardItem
 		set { id = value; }
 	}
 	[XmlAttribute]
-	public int Ratio
+	public float Ratio
 	{
 		get { return ratio; }
 		set { ratio = value; }
@@ -552,7 +552,7 @@ public class DataManager
                 int ratio = 0;
                 foreach (RewardItem item in rewardInfo.RwItems)
                 {
-                    ratio += item.Ratio * 100;
+                    ratio += (int)(item.Ratio * 100);
                     rewardInfo.dicItemRatio.Add(ratio, item.Id);
                 }
             }

@@ -617,8 +617,11 @@ namespace H3DEditor
                         {
                             has_ui = true;
                         }
-                        else if (!(components[i] is Transform) && !(components[i] is UIPanel) && !(components[i] is Camera)
+                        else if (!(components[i] is Transform) 
+                                && !(components[i] is UIPanel) 
+                                && !(components[i] is Camera)
                                 && !(components[i] is UIAnchor))
+                                //&& !(components[i] is BoxCollider))
                         {
                             Object.DestroyImmediate(components[i]);
                             remove_sth = true;
@@ -657,13 +660,13 @@ namespace H3DEditor
             }
         }
 
-        public static bool HasUIRoot(GameObject go)
+        public static bool HasUIRootOrPanel(GameObject go)
         {
             if (go == null)
             {
                 return false;
             }
-            return go.GetComponent<UIRoot>() != null;
+            return go.GetComponent<UIRoot>() != null || go.GetComponent<UIPanel>() != null;
         }
 
         public static bool NeedResetPos(GameObject go)
@@ -748,9 +751,13 @@ namespace H3DEditor
                         path_name_dic.Add(sPathName);
                     }
                 }
+
                 UIElement ui_element = cur_go.AddComponent<UIElement>();
                 ui_element.Hide = !cur_go.activeSelf;
                 UIWidget ui_widget = ui_element.GetWidget();
+
+                if (sPathName.Length == 0 && cur_go.name == "UIRootTempPanel")
+                    sPathName = "UIRootTempPanel";
                 ui_element.FullPathName = sPathName;
                 SetWidgetSelfPivot(ui_widget, UIWidget.Pivot.BottomLeft);
             }
@@ -946,10 +953,10 @@ namespace H3DEditor
                 Vector3 inv_pos_delta = (widget.transform.position - pos);
 
                 widget.transform.position = pos;
-                for (int i = 0; i < children.Length; ++i)
-                {
-                    children[i].transform.Translate(inv_pos_delta);
-                }
+                //for (int i = 0; i < children.Length; ++i)
+                //{
+                //    children[i].transform.Translate(inv_pos_delta);
+                //}
             }
         }
 
@@ -962,10 +969,10 @@ namespace H3DEditor
                 Vector3 inv_pos_delta = (go.transform.position - pos);
 
                 go.transform.position = pos;
-                for (int i = 0; i < children.Length; ++i)
-                {
-                    children[i].transform.Translate(inv_pos_delta);
-                }
+                //for (int i = 0; i < children.Length; ++i)
+                //{
+                //    children[i].transform.Translate(inv_pos_delta);
+                //}
             }
         }
         public static bool LoadWidgetInfo(GameObject go, UIWidget ui)

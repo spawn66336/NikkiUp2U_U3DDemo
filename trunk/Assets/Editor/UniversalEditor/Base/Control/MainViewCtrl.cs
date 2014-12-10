@@ -40,7 +40,7 @@ public class MainViewCtrl : EditorControl
 
 
 
-    public MainViewCtrl() { Init(); }
+    public MainViewCtrl() {}
 
     //在第一次渲染此控件时调用
     public void Init()
@@ -208,6 +208,7 @@ public class MainViewCtrl : EditorControl
 
     public void Resize( Rect viewSize )
     {
+        Init();
         mainViewTexture = new RenderTexture((int)viewSize.width, (int)viewSize.height, 24); 
         mainCam.targetTexture = mainViewTexture;
         mainCam.aspect = viewSize.width / viewSize.height;
@@ -217,11 +218,13 @@ public class MainViewCtrl : EditorControl
     
     public GameObject GetBindingTarget()
     {
+        Init();
         return editObjBindingTarget;
     }
 
     public GameObject GetRefModelBindingTarget()
     {
+        Init();
         return refModelBindingTarget;
     }
 

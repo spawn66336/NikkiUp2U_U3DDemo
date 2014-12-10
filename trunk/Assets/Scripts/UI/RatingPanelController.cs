@@ -45,6 +45,7 @@ public class RatingPanelController : UIController
 	private bool playflag = false;
 	private bool playrank = false;
 	private bool locked = false;
+	private SoundManager.SoundType stype;
 
 	public void Update()
 	{
@@ -80,7 +81,6 @@ public class RatingPanelController : UIController
 			//计分板移动缩放
 			if(fromStarttime >= 2.0 && !playflag)
 			{
-				GlobalObjects.GetInstance().GetSoundManager().Stop(SoundManager.SoundType.ScoreBoardSound);
 				_playAnimation(ScorePanel);
 				playflag = true;
 			}
@@ -105,6 +105,7 @@ public class RatingPanelController : UIController
 			if(fromStarttime >= 1.8)
 			{
 				S_1.SetPos(info.score/10000%10);
+				GlobalObjects.GetInstance().GetSoundManager().Stop(SoundManager.SoundType.ScoreBoardSound);
 			}
 
 			if(locked && playflag && fromStarttime >= 3.0)
@@ -218,19 +219,23 @@ public class RatingPanelController : UIController
 		case LevelRank.SS:
 		case LevelRank.S:
 			rank = "S";
+			stype = SoundManager.SoundType.LevelRankS;
 			break;
 		case LevelRank.A:
 			rank = "A";
+			stype = SoundManager.SoundType.LevelRankABC;
 			break;
 		case LevelRank.B:
 			rank = "B";
+			stype = SoundManager.SoundType.LevelRankABC;
 			break;
-		case LevelRank.C:
-		case LevelRank.D:
+        case LevelRank.C:
 			rank = "C";
+			stype = SoundManager.SoundType.LevelRankABC;
 			break;
 		case LevelRank.F:
 			rank = "F";
+			stype = SoundManager.SoundType.LevelRankF;
 			break;
 		default:
 			rank = "F";
@@ -254,6 +259,8 @@ public class RatingPanelController : UIController
 
 		startTime = Time.time;
 		_playAnimation(Rank.gameObject);
+		GlobalObjects.GetInstance().GetSoundManager().Play(stype);
+
 		playrank = true;
 	}
 

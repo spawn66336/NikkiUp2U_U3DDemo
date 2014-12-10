@@ -136,6 +136,14 @@ public class PlayerUIResource : UIResourceManager
         }
     }
 
+    //区域地图数量
+    public int AreaMapCount
+    {
+        get
+        {
+            return areaMapUIInfos.Count;
+        }
+    }
 
     //当前关卡id 
     private int CurrLevelId
@@ -159,6 +167,19 @@ public class PlayerUIResource : UIResourceManager
     public RatingInfo CurrRatingInfo
     { 
         set { ratingInfo = value; }
+    }
+
+    //当前关卡区域地图标签名
+    public string CurrLevelAreaMapTitle
+    {
+        get
+        {
+            if( CurrLevelUIInfo != null )
+            {
+                return CurrLevelId.ToString("D3") + " " + CurrLevelUIInfo.levelInfo.name;
+            }
+            return "";
+        }
     }
 
     //玩家当前关卡信息

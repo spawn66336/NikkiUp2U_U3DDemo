@@ -8,18 +8,16 @@ public enum LevelRank
     [XmlEnum("0")]
     F = 0,
     [XmlEnum("1")]
-    D,
-    [XmlEnum("2")]
     C,
-    [XmlEnum("3")]
+    [XmlEnum("2")]
     B,
-    [XmlEnum("4")]
+    [XmlEnum("3")]
     A,
-    [XmlEnum("5")]
+    [XmlEnum("4")]
     S,
-    [XmlEnum("6")]
+    [XmlEnum("5")]
     SS,
-    [XmlEnum("7")]
+    [XmlEnum("6")]
     SSS
 }
 

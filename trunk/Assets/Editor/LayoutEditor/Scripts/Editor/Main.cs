@@ -40,11 +40,28 @@ static public class LayoutMenu
         {
             if (!LayoutTool.HasAnchorUI(inst))
             {
+                if (!LayoutTool.HasUIRootOrPanel(inst))
+                {
+                    GameObject objRoot = new GameObject("UIRootTempPanel");
+                    UIPanel uPanel = objRoot.AddComponent<UIPanel>();
+                    if (uPanel != null)
+                    {
+                        uPanel.depth = 1;
+                        string sName = EditorTool.GetCurrentSelectedAssetObj().name;
+                        inst.transform.parent = objRoot.transform;
+                        inst.name = sName;
+                        inst = objRoot;
+                    }
+                    else
+                    {
+                        Debug.Log("Add UIPanel Component Failed");
+                    }
+                }
+
                 Camera camera = LayoutTool.CreateCamera();
                 int max_try = 5;
                 int try_count = 0;
                 bool need_reset_pos = LayoutTool.NeedResetPos(inst);
-
                 if (need_reset_pos)
                 {
                     inst.transform.localPosition = Vector3.zero;
@@ -56,6 +73,7 @@ static public class LayoutMenu
                 {
                     ++try_count;
                 }
+
                 if (LayoutTool.ProcessBeforeExport(inst))
                 {
                     LayoutTool.SaveLayout(layout_file, inst);
@@ -121,6 +139,9 @@ static public class LayoutMenu
         //for (int i = 0; i < all_ui.Length; ++i)
         for (int i = 0; i < all_element.Length; ++i)
         {
+            if (all_element[i].FullPathName == "UIRootTempPanel")
+                continue;
+
             bool bHasUIWidget = true;
             UIWidget widget = all_element[i].GetWidget();
             if (widget == null)

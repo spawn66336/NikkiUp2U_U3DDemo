@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AtlasDialog : EditorWindow
 {
-    public string m_strProjectName = "Hello World";
+    public string m_strProjectName = "New Project";
 
     void OnGUI()
     {
@@ -22,11 +22,16 @@ public class AtlasDialog : EditorWindow
 
         if(GUILayout.Button("确认", GUILayout.Width(76f)))
         {
-            //清除现有工程
-            UIAtlasEditorModel.GetInstance().ClearCurrentProject();
-            //创建新工程
-            UIAtlasEditorModel.GetInstance().NewPorject(m_strProjectName);
-            this.Close();
+            if ((m_strProjectName != null) && (m_strProjectName != ""))
+            {
+                //清除现有工程
+                UIAtlasEditorModel.GetInstance().ClearCurrentProject();
+                //创建新工程
+                UIAtlasEditorModel.GetInstance().NewPorject(m_strProjectName);
+
+                this.Close();
+            }
+
         }
 
         if (GUILayout.Button("取消", GUILayout.Width(76f)))

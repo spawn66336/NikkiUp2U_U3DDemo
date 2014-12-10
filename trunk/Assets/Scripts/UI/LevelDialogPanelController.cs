@@ -77,10 +77,8 @@ public class LevelDialogPanelController : UIController
 
     void ChangeTexes()
     {
-        showNames[0].text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcName;
 
-        showNames[1].gameObject.SetActive(false);
-        showNames[2].gameObject.SetActive(false);
+       
         showall = new bool[3] { false, false, false };
         for (int i = 0; i < PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcImgs.Count; ++i)
         {
@@ -101,6 +99,7 @@ public class LevelDialogPanelController : UIController
                         texes[0].depth = 1;
                         showall[0] = true;
                         texes[0].gameObject.SetActive(true);
+                     
 
                     }
                     break;
@@ -119,6 +118,7 @@ public class LevelDialogPanelController : UIController
                         //texes[1].transform.position = new Vector3(0.3f, texes[1].mainTexture.height * 0.5f, 0);
                         showall[1] = true;
                         texes[1].gameObject.SetActive(true);
+                       
                     }
                     break;
                 case DialogNpcImgShowPos.Middle:
@@ -136,10 +136,32 @@ public class LevelDialogPanelController : UIController
                         //texes[2].transform.position = new Vector3(0, texes[2].mainTexture.height * 0.5f, 0);
                         showall[2] = true;
                         texes[2].gameObject.SetActive(true);
+                       
                     }
                     break;
                 default:
                     Debug.LogError("wrong npcImgs the index is " + i);
+                    break;
+            }
+            switch (PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcNameShowPos)
+            {
+                case DialogNpcImgShowPos.Left:
+                       showNames[0].text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcName;
+                       showNames[0].gameObject.SetActive(true);
+                       showNames[1].gameObject.SetActive(false);
+                       showNames[2].gameObject.SetActive(false);
+                    break;
+                case DialogNpcImgShowPos.Right:
+                     showNames[1].text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcName;
+                     showNames[1].gameObject.SetActive(true);
+                        showNames[0].gameObject.SetActive(false);
+                        showNames[2].gameObject.SetActive(false);
+                    break;
+                case DialogNpcImgShowPos.Middle:
+                     showNames[2].text = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcName;
+                     showNames[2].gameObject.SetActive(true);
+                     showNames[0].gameObject.SetActive(false);
+                     showNames[1].gameObject.SetActive(false);
                     break;
             }
         }

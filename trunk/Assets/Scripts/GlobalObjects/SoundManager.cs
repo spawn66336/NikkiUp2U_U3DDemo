@@ -16,7 +16,13 @@ public class SoundManager : MonoBehaviour
         //奖品音效
         RewardSound,
         //计分板音效
-        ScoreBoardSound
+        ScoreBoardSound,
+		//评级S
+		LevelRankS,
+		//评级ABC
+		LevelRankABC,
+		//评级F
+		LevelRankF
     }
 
 
@@ -98,6 +104,15 @@ public class SoundManager : MonoBehaviour
             case SoundType.ScoreBoardSound:
                 Play("fanye", true);
                 break;
+			case SoundType.LevelRankS:
+				Play("S", false);
+				break;
+			case SoundType.LevelRankABC:
+				Play("ABC",false);
+				break;
+			case SoundType.LevelRankF:
+				Play ("F",false);
+				break;
            default:
                 break;
         }
@@ -122,6 +137,15 @@ public class SoundManager : MonoBehaviour
             case SoundType.ScoreBoardSound:
                 Stop("fanye");
                 break;
+			case SoundType.LevelRankS:
+				Stop("S");
+				break;
+			case SoundType.LevelRankABC:
+				Stop("ABC");
+				break;
+			case SoundType.LevelRankF:
+				Stop("F");
+				break;
             default:
                 break;
         }

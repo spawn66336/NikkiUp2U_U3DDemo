@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.IO;
+
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using YamlDotNet.Serialization;
 
@@ -61,9 +62,16 @@ public class AtlasProject
         }
         else
         {
+            string dirStr = System.IO.Path.GetDirectoryName(path);
+            dirStr = dirStr.Replace(@"/", @"\");
+            if (!dirStr.EndsWith("\\"))
+            {
+                dirStr = dirStr + "\\";
+            }
+
             ImageRelativePath = UIAtlasEditorConfig.ImageBasePath;
             ImageRelativePath = ImageRelativePath.Replace(@"/", @"\");
-            bRet = path.Contains(ImageRelativePath);
+            bRet = dirStr.Contains(ImageRelativePath);
         }
       
         return bRet;
@@ -362,19 +370,66 @@ public class AtlasProject
             return;
         }
 
+//         GameObject go = AssetDatabase.LoadAssetAtPath(outputPath, typeof(GameObject)) as GameObject;
+//         Object prefab = (go != null) ? go : PrefabUtility.CreateEmptyPrefab(outputPath);
+//        
+//         string atlasName = outputPath.Replace(".prefab", "");
+//         atlasName = atlasName.Substring(outputPath.LastIndexOfAny(new char[] { '/', '\\' }) + 1);
+//        
+//         go = new GameObject(atlasName);     
+//         PrefabUtility.ReplacePrefab(go, prefab);
+//         UnityEngine.Object.DestroyImmediate(go);
+//        
+//         AssetDatabase.SaveAssets();
+//         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+
         GameObject go = AssetDatabase.LoadAssetAtPath(outputPath, typeof(GameObject)) as GameObject;
+        string matPath = outputPath.Replace(".prefab", ".mat");
+
+        // Try to load the material
+        Material mat = AssetDatabase.LoadAssetAtPath(matPath, typeof(Material)) as Material;
+
+        // If the material doesn't exist, create it
+        if (mat == null)
+        {
+            Shader shader = Shader.Find(NGUISettings.atlasPMA ? "Unlit/Premultiplied Colored" : "Unlit/Transparent Colored");
+            mat = new Material(shader);
+
+            // Save the material
+            AssetDatabase.CreateAsset(mat, matPath);
+            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+
+            // Load the material so it's usable
+            mat = AssetDatabase.LoadAssetAtPath(matPath, typeof(Material)) as Material;
+        }
+
+        // Create a new prefab for the atlas
         Object prefab = (go != null) ? go : PrefabUtility.CreateEmptyPrefab(outputPath);
-       
+
+        // Create a new game object for the atlas
         string atlasName = outputPath.Replace(".prefab", "");
         atlasName = atlasName.Substring(outputPath.LastIndexOfAny(new char[] { '/', '\\' }) + 1);
-       
-        go = new GameObject(atlasName);     
+        go = new GameObject(atlasName);
+        go.AddComponent<UIAtlas>().spriteMaterial = mat;
+
+        // Update the prefab
         PrefabUtility.ReplacePrefab(go, prefab);
-        UnityEngine.Object.DestroyImmediate(go);
-       
+        GameObject.DestroyImmediate(go);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+
+        // Select the atlas
+        go = AssetDatabase.LoadAssetAtPath(outputPath, typeof(GameObject)) as GameObject;
+        NGUISettings.atlas = go.GetComponent<UIAtlas>();
+        Selection.activeGameObject = go;
+
+        List<UIAtlasMaker.SpriteEntry> sprites = UIAtlasMaker.CreateSprites(UIAtlasTempTextureManager.GetInstance().GetTextureCacheSprite());
+        UIAtlasMaker.ExtractSprites(NGUISettings.atlas, sprites);
+        UIAtlasMaker.UpdateAtlas(NGUISettings.atlas, sprites); ;
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
       }
+
 #endregion
 
 #region 成员变量

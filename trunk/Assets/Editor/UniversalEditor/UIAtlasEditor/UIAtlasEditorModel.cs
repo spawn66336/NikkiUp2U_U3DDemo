@@ -44,6 +44,7 @@ public class UIAtlasEditorModel
         {
             //更新工程路径
             m_Project.Path = projectName;
+            m_Project.Name = Path.GetFileNameWithoutExtension(projectName);
 
             //保存工程
             m_Project.Save();

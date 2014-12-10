@@ -6,7 +6,8 @@ using UnityEditor;
 using System.IO;
 using System;
 using System.Windows.Forms;
-
+using System.Net;
+using System.Text;
 public class UIAtlasEditor 
 {//Atlas编辑器
 
@@ -26,8 +27,10 @@ public class UIAtlasEditor
 
     static private GameObject m_previewObj = null;          //预览区域GameObject
     static private GameObject m_Counter = null;             //命令计数器
-    static private UIAtlasCommandCounter m_CommandCounter = null;   
-    
+    static private UIAtlasCommandCounter m_CommandCounter = null;
+
+    static private string m_helpURL = "http://192.168.2.121:8090/pages/viewpage.action?pageId=6619467";
+
     [UnityEditor.MenuItem("Assets/H3D/Atlas编辑器")]
     [UnityEditor.MenuItem("H3D/UI/Atlas编辑器")]
     static void Init()
@@ -218,10 +221,16 @@ public class UIAtlasEditor
         configImageBaseBtn.Size = btnRect;
         configImageBaseBtn.onClick = OnConfigImageBaseBtn;
 
+        ButtonCtrl helpBtn = new ButtonCtrl();
+        helpBtn.Caption = "帮助";
+        helpBtn.Size = btnRect;
+        helpBtn.onClick += OnHelp;
+
         hb1.Add(addImageBtn);
         hb1.Add(previewBtn);
         hb1.Add(makeAtlasBtn);
         hb1.Add(configImageBaseBtn);
+        hb1.Add(helpBtn);
         #endregion
 
         hb2.Add(vs2_1);
@@ -412,6 +421,8 @@ public class UIAtlasEditor
                 //保存工程
                 UIAtlasEditorModel.GetInstance().SaveProject(fileNames);
 
+                m_projTreeView.GetItemAt(0).name = Path.GetFileNameWithoutExtension(fileNames);
+
                 RequestRepaint();
             }
             else
@@ -579,7 +590,22 @@ public class UIAtlasEditor
         string savePath = EditorUtility.SaveFolderPanel("Image Path Config", "", "");
 
         //将路径写入配置文件
-        UIAtlasEditorModel.GetInstance().WriteImagePathConfig(savePath + "/");
+        if ((savePath != "") && (savePath != null))
+        {
+            if (savePath.EndsWith(":/"))
+            {
+                UIAtlasEditorModel.GetInstance().WriteImagePathConfig(savePath);
+            }
+            else
+            {
+                UIAtlasEditorModel.GetInstance().WriteImagePathConfig(savePath + "/");
+            }
+        }
+    }
+
+    static void OnHelp(EditorControl c)
+    {
+        System.Diagnostics.Process.Start(m_helpURL);   
     }
 
     static void OnAddSpriteImageCommand(bool bResult, string spriteName)

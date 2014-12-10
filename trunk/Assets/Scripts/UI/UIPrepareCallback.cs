@@ -5,7 +5,7 @@ public class UIPrepareCallback
 { 
     public static IEnumerator PrepareLoginScene(OnProgressChange progressCallback ,OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         { 
             finishedCallback();
@@ -14,7 +14,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanLoginScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -30,7 +30,7 @@ public class UIPrepareCallback
             yield return 0;
         }
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -39,7 +39,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanMapScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -54,7 +54,7 @@ public class UIPrepareCallback
             yield return 0;
         }
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -63,7 +63,7 @@ public class UIPrepareCallback
 
     public static IEnumerator CleanCoreGameScene(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();
@@ -91,7 +91,7 @@ public class UIPrepareCallback
 
     public static IEnumerator PrepareLevelDialogUI(OnProgressChange progressCallback, OnPrepareFinished finishedCallback)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
         if (finishedCallback != null)
         {
             finishedCallback();

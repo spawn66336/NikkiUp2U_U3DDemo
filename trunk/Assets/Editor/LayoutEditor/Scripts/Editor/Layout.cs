@@ -43,6 +43,7 @@ public class Layout
             m_dirty = false;
             m_layout_file = layout_file;
             m_name = EditorTool.GetFileName(layout_file, false);
+            UpdateHierarchyInfo(m_root, 0);
         }
 
         return (root != null);
@@ -116,15 +117,37 @@ public class Layout
             return null;
         }
     }
+    private void UpdateHierarchyInfo(GameObject root, int nPos)
+    {
+        UIElement ui = root.GetComponent<UIElement>();
+        if(ui != null)
+        {
+            ui.HierarchyPos = nPos;
+        }
 
+        GameObject[] child = EditorTool.GetSubChildren(root);
+        foreach(GameObject go in child)
+        {
+            UpdateHierarchyInfo(go, nPos + 1);
+        }
+    }
     private int ComparisonFunc(UIWidget w1, UIWidget w2)
     {
         if (w1 == w2)
             return 0;
 
+        UIElement ui_element_1 = w1.GetComponent<UIElement>();
+        UIElement ui_element_2 = w2.GetComponent<UIElement>();
+        if (ui_element_1 != null && ui_element_2 != null && ui_element_1.HierarchyPos != ui_element_2.HierarchyPos)
+        {
+            return ui_element_2.HierarchyPos.CompareTo(ui_element_1.HierarchyPos);
+        }
+
         if(w2.depth != w1.depth)
+        {
             return w2.depth.CompareTo(w1.depth);
-        
+        }
+            
         return MathTool.CompareRect(w1.worldCorners, w2.worldCorners);
     }
 

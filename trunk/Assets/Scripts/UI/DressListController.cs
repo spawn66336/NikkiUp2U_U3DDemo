@@ -12,6 +12,7 @@ public class DressListController : UIController
     //列表中的衣服按钮
     public List<BagItemBtnController> dressBtnList = new List<BagItemBtnController>();
 
+    bool firstTime = true;
 
     public override void OnEnterUI()
     {
@@ -69,10 +70,19 @@ public class DressListController : UIController
        if (dressListScrollbar != null )
        {
            dressListScrollbar.value = 0f;
+           dressListScrollbar.ForceUpdate();
        }
          
        dressListGrid.Reposition(); 
+
        dressBtnList.Add(bagItemCtrl);
+
+       //if( firstTime )
+       //{
+       //    firstTime = false;
+       //    Clear();
+       //    AddDress(dress, used, onClick, onDressDescBegin, onDressDescEnd);
+       //}
     }
 
 
