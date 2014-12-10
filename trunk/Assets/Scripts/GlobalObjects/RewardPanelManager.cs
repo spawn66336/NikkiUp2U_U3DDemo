@@ -10,7 +10,12 @@ public class RewardPanelManager : MonoBehaviour
 
     public UILabel rewardDesc;
 
-    public UITexture rewardIcon;
+    public UITexture rewardIcon;  
+
+    //点击后特效
+    public SpecialEffect rewardSpe;
+
+    Animation rewardAnim;
 
     class RewardNotifyInfo
     {
@@ -31,21 +36,31 @@ public class RewardPanelManager : MonoBehaviour
         s_instance = this;
     }
      
-	void Start () {
-	
+	void Start () 
+    {
+        rewardAnim = rewardBk.GetComponent<Animation>();
 	}
 	 
 	void Update () 
     {
 	    if( currRewardInfo == null )
         {
+            if( !_ExitAnimFinished() )
+            {
+                return;
+            }
+
+            if (UILocker.GetInstance().IsLocked())
+            {
+                rewardSpe.Stop();
+                UILocker.GetInstance().ForceUnlock();
+            }
+
             if( infos.Count > 0 )
             {
                 currRewardInfo = infos[0];
-                infos.RemoveAt(0);
-
-                rewardBk.SetActive(true);
-
+                infos.RemoveAt(0); 
+                rewardBk.SetActive(true); 
                 rewardName.text = currRewardInfo.rewardName;
                 rewardDesc.text = currRewardInfo.rewardDesc;
                 rewardIcon.mainTexture = currRewardInfo.rewardIcon;
@@ -54,10 +69,16 @@ public class RewardPanelManager : MonoBehaviour
             if( currRewardInfo == null )
             {
                 rewardBk.SetActive(false);
-            }
-
+            } 
         }
 	}
+
+    //退出动画播放完毕
+    bool _ExitAnimFinished()
+    {
+        return !rewardAnim.isPlaying;
+    }
+
 
     public void NewReward( string rewardName , string rewardDesc , Texture2D icon )
     {
@@ -68,6 +89,14 @@ public class RewardPanelManager : MonoBehaviour
     public void OnClickRewardPanel()
     {
         GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.RewardSound);
+
+        UILocker.GetInstance().Lock(this.gameObject);
+
+        rewardAnim[rewardAnim.clip.name].normalizedSpeed = 1f;
+        rewardAnim[rewardAnim.clip.name].normalizedTime = 0;
+        rewardAnim.Play();
+
+        rewardSpe.Play();
         currRewardInfo = null;
     }
 

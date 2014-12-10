@@ -30,11 +30,33 @@ public class DressListController : UIController
         dressListGrid = GetComponentInChildren<UIGrid>();
         dressListGrid.onCustomSort = _DressBtnListCompare; 
         dressListGrid.sorting = UIGrid.Sorting.Custom;
+
+
+
 	}
 	 
 	void Update () 
     {
-	    
+	    if( firstTime )
+        {
+            UnityEngine.Object prefab = ResourceManager.GetInstance().Load(ResourceType.UI, "BagItemBtn");
+            GameObject go = GameObject.Instantiate(prefab) as GameObject;
+
+            go.transform.parent = dressListGrid.gameObject.transform;
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localRotation = Quaternion.identity;
+            go.transform.localScale = Vector3.one;
+
+            if (dressListScrollbar != null)
+            {
+                dressListScrollbar.value = 0f;
+                dressListScrollbar.ForceUpdate();
+            }
+
+            dressListGrid.Reposition();
+
+            firstTime = false;
+        }
 	}
 
     public void AddDress(  Dress dress , bool used, 
@@ -75,14 +97,7 @@ public class DressListController : UIController
          
        dressListGrid.Reposition(); 
 
-       dressBtnList.Add(bagItemCtrl);
-
-       //if( firstTime )
-       //{
-       //    firstTime = false;
-       //    Clear();
-       //    AddDress(dress, used, onClick, onDressDescBegin, onDressDescEnd);
-       //}
+       dressBtnList.Add(bagItemCtrl); 
     }
 
 

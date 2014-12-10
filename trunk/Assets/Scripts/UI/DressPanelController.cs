@@ -123,7 +123,7 @@ public class DressPanelController : UIController
     }
 
     public void  OnHairDressTypeBtnClick()
-    {
+    { 
         _PlayCommonBtnSound();
         chosenType = DressType.Hair;
         _SetNextState(DressPanelState.DressChoose);

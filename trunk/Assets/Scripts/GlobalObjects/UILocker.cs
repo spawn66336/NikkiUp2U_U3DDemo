@@ -21,6 +21,11 @@ public class UILocker : MonoBehaviour
 	
 	}
 
+    public bool IsLocked()
+    {
+        return lockCount > 0;
+    }
+
     public void Lock(GameObject obj )
     {
         lockCount++;

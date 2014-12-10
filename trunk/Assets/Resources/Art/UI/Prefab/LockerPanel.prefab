@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400004}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LockerWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,13 +28,13 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LockerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -46,6 +46,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 0
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -58,6 +59,7 @@ Transform:
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -162,7 +164,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 1
+  mDepth: 2000
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11400004

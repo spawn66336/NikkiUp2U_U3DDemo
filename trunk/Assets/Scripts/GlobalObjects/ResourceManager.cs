@@ -44,16 +44,24 @@ public class ResourceManager : MonoBehaviour
 
             if( www.isDone )
             {
-                state = ResourceLoadResult.Ok; 
-                AssetBundle bundle = www.assetBundle;
-                cacheObj = new CacheObject();
-                objs = UnpackBundle<UnityEngine.Object>(bundle);
-                foreach( var o in objs )
+                if ( www.error == null )
                 {
-                    cacheObj.objs.Add(o);
-                } 
-                bundle.Unload(false); 
-                Debug.Log("资源" + path + "读取成功！");
+                    state = ResourceLoadResult.Ok;
+                    AssetBundle bundle = www.assetBundle;
+                    cacheObj = new CacheObject();
+                    objs = UnpackBundle<UnityEngine.Object>(bundle);
+                    foreach (var o in objs)
+                    {
+                        cacheObj.objs.Add(o);
+                    }
+                    bundle.Unload(false);
+                    Debug.Log("资源" + path + "读取成功！");
+                }
+                else
+                {
+                    state = ResourceLoadResult.Failed;
+                    Debug.LogWarning("资源" + path + "读取失败！error = " + www.error );
+                }
             }
             else
             {
