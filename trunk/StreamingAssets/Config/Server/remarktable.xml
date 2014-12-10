@@ -3,14 +3,45 @@
   <!--Id为枚举类型-->
   <Grade Id="0">
     <Descs>
-      <Desc>你真弱啊哈哈哈</Desc>
-      <Desc>你真弱啊哈哈哈</Desc>
+      <Desc>表说我认识你啊啊啊啊</Desc>
+      <Desc>我从来都没有认识过你，嗯，肯定是这样的！</Desc>
     </Descs>
   </Grade>
   <Grade Id="1">
     <Descs>
-      <Desc>你真强啊哈哈哈</Desc>
+      <Desc>平日里一点点儿都木有受到我的影响么。。</Desc>
+      <Desc>街上人来人往的，表和我一起出门。</Desc>
+    </Descs>
+  </Grade>
+  <Grade Id="2">
+    <Descs>
+      <Desc>一般般吧。。。。</Desc>
+      <Desc>还过得去，昂。</Desc>
+    </Descs>
+  </Grade>
+  <Grade Id="3">
+    <Descs>
+      <Desc>果然不愧是我的盆友丫~</Desc>
+      <Desc>好样儿的~</Desc>
+    </Descs>
+  </Grade>
+  <Grade Id="4">
+    <Descs>
+      <Desc>介样纸，以后去哪里都是棒棒哒~</Desc>
+      <Desc>多看杂志果然是没错的。</Desc>
+    </Descs>
+  </Grade>
+  <Grade Id="5">
+    <Descs>
+      <Desc>哇哇哇哇哇哇~~~~~~~</Desc>
+      <Desc>美就一个字儿，~\(≧▽≦)/~</Desc>
+    </Descs>
+  </Grade>
+  <Grade Id="6">
+    <Descs>
+      <Desc>亮瞎了我的钛合金眼</Desc>
       <Desc>你真强啊哈哈哈</Desc>
     </Descs>
   </Grade>
+
 </GradeList>

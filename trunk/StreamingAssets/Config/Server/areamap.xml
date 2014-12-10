@@ -1,174 +1,182 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<AreaMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Map Id="1" Name="英格兰" IconId="air_England">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AreaMaps>
+  <Map Id="1" Name="北京" IconId="iconid">
     <MapUnlockCondition Type="1" Value="1" />
-    <MapUnlockCondition Type="2" Value="2" />
     <ImageList>
-      <Image>3_1_1</Image>
+      <Image>image_name</Image>
     </ImageList>
-    <Level Id="1" Name="初次搭配" FinishGrade="1" LimiteTime="100" RewardId="1" DialogId="1">
+    <Level Id="101" Name="假日游轮" FinishGrade="2" LimiteTime="0" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" value="1" />
+      <UnLockCondition Type="1" Value="2" />
       <RatingFactor>
-        <Style Id="4" Ratio="0.4" />
-        <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem Id="11417" Score="100" />
-        <FixItems>
-          <Item Id="11417" />
-        </FixItems>
+        <Style Id="1" Ratio="-0.5" />
+        <Style Id="2" Ratio="0.5" />
+        <Style Id="3" Ratio="0.5" />
       </RatingFactor>
     </Level>
-    <Level Id="2" Name="对的搭配" FinishGrade="0" LimiteTime="0" RewardId="2" DialogId="2">
+    <Level Id="102" Name="漫天银杏" FinishGrade="2" LimiteTime="2" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="1" Value="3" />
       <RatingFactor>
+        <Style Id="0" Ratio="0.3" />
+        <Style Id="1" Ratio="0.2" />
         <Style Id="4" Ratio="0.4" />
-        <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem Id="11417" Score="100" />
-        <FixItems>
-          <Item Id="11417" />
-        </FixItems>
       </RatingFactor>
     </Level>
-    <Level Id="3" Name="对的时间遇见对的你" FinishGrade="0" LimiteTime="0" RewardId="2" DialogId="1">
+    <Level Id="103" Name="樱花之舞" FinishGrade="2" LimiteTime="2" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="12" />
-      <UnLockCondition Type="2" Value="0,2" />
-      <UnLockCondition Type="3" Value="1,5" />
+      <UnLockCondition Type="1" Value="4" />
       <RatingFactor>
-        <Style Id="4" Ratio="0.4" />
+        <Style Id="2" Ratio="0.35" />
         <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem Id="11417" Score="100" />
-        <FixItems>
-          <Item Id="11417" />
-        </FixItems>
+        <Style Id="9" Ratio="0.4" />
       </RatingFactor>
     </Level>
-    <Level Id="4" Name="喜从天降" FinishGrade="0" LimiteTime="0" RewardId="2" DialogId="1">
+    <Level Id="104" Name="深宫之恋" FinishGrade="2" LimiteTime="2" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="2" Value="1,2" />
       <RatingFactor>
-        <Style Id="4" Ratio="0.4" />
-        <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem Id="11417" Score="100" />
-        <FixItems>
-          <Item Id="11417" />
-        </FixItems>
+        <Style Id="5" Ratio="0.3" />
+        <Style Id="6" Ratio="0.4" />
+        <Style Id="8" Ratio="0.1" />
       </RatingFactor>
     </Level>
-    <Level Id="5" Name="豪华的午睡" FinishGrade="0" LimiteTime="0" RewardId="2" DialogId="1">
+    <Level Id="105" Name="宇宙中心" FinishGrade="2" LimiteTime="2" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="2" Value="1,3" />
       <RatingFactor>
-        <Style Id="4" Ratio="0.4" />
-        <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem Id="11417" Score="100" />
-        <FixItems>
-          <Item Id="11417" />
-        </FixItems>
+        <Style Id="0" Ratio="0.2" />
+        <Style Id="1" Ratio="0.2" />
+        <Style Id="2" Ratio="0.2" />
       </RatingFactor>
     </Level>
-    <Level Id="6" Name="秒速五厘米" FinishGrade="0" LimiteTime="0" RewardId="2" DialogId="1">
+  </Map>
+  <Map Id="2" Name="韩国" IconId="iconid">
+    <MapUnlockCondition Type="1" Value="1" />
+    <ImageList>
+      <Image>image_name</Image>
+    </ImageList>
+    <Level Id="106" Name="东大门之旅" FinishGrade="3" LimiteTime="3" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="2" Value="1,4" />
       <RatingFactor>
-        <Style Id="4" Ratio="0.4" />
-        <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem/>
-        <FixItems/>
+        <Style Id="1" Ratio="0.2" />
+        <Style Id="2" Ratio="0.2" />
+        <Style Id="3" Ratio="0.2" />
+        <Style Id="4" Ratio="0.2" />
       </RatingFactor>
     </Level>
-    <Level Id="7" Name="时尚达人" FinishGrade="0" LimiteTime="0" RewardId="2" DialogId="1">
+    <Level Id="107" Name="欢乐济州岛" FinishGrade="3" LimiteTime="3" RewardId="1" DialogId="1">
       <RatingRule>
-	<GradeInfo Grade="0" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="1" MaxScore="100" UsePower="20" />
-        <GradeInfo Grade="2" MaxScore="1000" UsePower="50" />
-        <GradeInfo Grade="3" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="4" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="5" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="6" MaxScore="100" UsePower="20" />
-	<GradeInfo Grade="7" MaxScore="100" UsePower="20" />
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
       </RatingRule>
-      <UnLockCondition Type="1" Value="1" />
-      <UnLockCondition Type="2" Value="2" />
+      <UnLockCondition Type="3" Value="101,2" />
       <RatingFactor>
-        <Style Id="4" Ratio="0.4" />
-        <Style Id="6" Ratio="0.2" />
-        <Attribute Type="0" Id="6" Ratio="0.15" />
-        <Attribute Type="0" Id="7" Ratio="0.15" />
-        <SpecialItem/>
-        <FixItems/>
+        <Style Id="2" Ratio="0.3" />
+        <Style Id="3" Ratio="0.2" />
+        <Style Id="4" Ratio="0.1" />
+      </RatingFactor>
+    </Level>
+    <Level Id="108" Name="可爱KITTY" FinishGrade="3" LimiteTime="3" RewardId="1" DialogId="1">
+      <RatingRule>
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
+      </RatingRule>
+      <UnLockCondition Type="3" Value="101,2" />
+      <RatingFactor>
+        <Style Id="0" Ratio="0.4" />
+        <Style Id="1" Ratio="0.2" />
+        <Style Id="3" Ratio="0.2" />
+      </RatingFactor>
+    </Level>
+    <Level Id="109" Name="憨憨维尼熊" FinishGrade="3" LimiteTime="3" RewardId="1" DialogId="1">
+      <RatingRule>
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
+      </RatingRule>
+      <UnLockCondition Type="3" Value="101,2" />
+      <RatingFactor>
+        <Style Id="4" Ratio="0.1" />
+        <Style Id="7" Ratio="0.3" />
+      </RatingFactor>
+    </Level>
+    <Level Id="110" Name="魔幻3D" FinishGrade="3" LimiteTime="3" RewardId="1" DialogId="1">
+      <RatingRule>
+        <GradeInfo Grade="0" MaxScore="100" UsePower="1" />
+        <GradeInfo Grade="1" MaxScore="300" UsePower="3" />
+        <GradeInfo Grade="2" MaxScore="500" UsePower="5" />
+        <GradeInfo Grade="3" MaxScore="700" UsePower="7" />
+        <GradeInfo Grade="4" MaxScore="800" UsePower="8" />
+        <GradeInfo Grade="5" MaxScore="1000" UsePower="10" />
+        <GradeInfo Grade="6" MaxScore="1500" UsePower="15" />
+      </RatingRule>
+      <UnLockCondition Type="3" Value="101,2" />
+      <RatingFactor>
+        <Style Id="16" Ratio="0.2" />
       </RatingFactor>
     </Level>
   </Map>

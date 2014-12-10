@@ -76,7 +76,7 @@
       </NPCS>
       <Value> 唉，我也替你们着急呀，真的。 你们就——我以为整天的—— 你们有一个好——全世界跑到什么地方，你们比其他的西方记者，跑得还快！</Value>
       <!--Key是否关键对话(True / False)-->
-      <Key>False</Key>
+      <Key>True</Key>
     </Content> 
 	
 	<Content>

@@ -1,383 +1,3072 @@
-﻿<?xml version="1.0" encoding="gb2312"?>
-<!-- 物品Id ItemId -->
-<!-- 物品名称 ItemName -->
-<!-- 物品类型 ItemType: 0-1   0代表服装 1代表其他-->
-<!-- 物品稀有度 Rareness：0-4 -->
-<!-- 物品描述 Desc -->
-<!-- itemType=0时，服装类型 DresType: 值关联在attribute.xml中的bodypart数据
-0 头发，1 上装，2 外套，3 连衣裙，4 下装，5 袜子，6 鞋子，7 头饰，8 耳饰，9 颈饰，10 手饰，11 腰饰，12 脚饰，13 特殊物品，14 妆容，15背包
--->
-<!-- 改物品的价格，单位金币 PriceGold:0-21亿 -->
-<!-- 该物品的价格，单位钻石 PriceDiamond:0-21亿 -->
-<!-- 该物品在风格上的加权值集 StyleList：attribute.xml表中，style有几种，这里相对应有几条。
-     加权值 ratio:0.00-1
--->
-<!-- 该物品对于服装特质的加权值集 AttributeList
-     服装特质类型 Type:0 特征，1 材料
-     服装特质id Id：type=0取值0-63，type=1取值0-3
--->
-<ArrayOfGameItemDataBaseBean xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <GameItemDataBaseBean ItemId="10001" ItemName="及肩短发" ItemType="0" Rareness="1" Desc="及肩短发" DressType="0" ShowPoition="(656.5,1566)" PriceGold="1000" PriceDiamond="20">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfGameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10001" ItemName="及肩短发" ItemType="0" Rareness="1" Desc="俏丽的发尾一跳一跳的，弯弯曲曲让人忍不住想伸出手指去卷一卷。" DressType="0" Score="1000" ShowPoition="(656.5,1566)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11914" ItemName="摩卡" ItemType="0" Rareness="5" Desc="巧克力色的深系毛衣，保暖有型，领袖与边缘的卷边设计看似普通，实则做工精良。" DressType="1" ShowPoition="(651.5, 1214.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10003" ItemName="简单双马尾" ItemType="0" Rareness="1" Desc="略显稚嫩的发型。简单的同时又不失活泼。" DressType="0" Score="1000" ShowPoition="(638,1555.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11125" ItemName="金属皮革" ItemType="0" Rareness="1" Desc="走摇滚金属风的皮革上衣。虽说是这个风格的，却设计得比较柔和，没有那么咄咄逼人，比较适合女生穿着。" DressType="2" ShowPoition="(646,1277.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10004" ItemName="团子头（伪）" ItemType="0" Rareness="1" Desc="优优不知道从哪里学来的发型，就给暖暖梳了。虽说是团子头，总觉得有点草率。" DressType="0" Score="1000" ShowPoition="(646,1597.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11373" ItemName="落樱缤纷" ItemType="0" Rareness="1" Desc="少女如樱花般美丽娇弱，也如樱花般坚强勇敢。轻纱曼舞，落樱缤纷。" DressType="3" ShowPoition="(645.5,1126)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10005" ItemName="稻香" ItemType="0" Rareness="1" Desc="素雅的颜色配上精巧的发型，有没有一种大家闺秀的感觉呢？" DressType="0" Score="1000" ShowPoition="(656.5,1578.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11417" ItemName="军裤" ItemType="0" Rareness="1" Desc="虽然是略显土气的款式，不过搭配军装上衣一起穿会很显精神哦~暖暖做好了战斗的准备！" DressType="4" ShowPoition="(643,687.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10006" ItemName="俏丽单马尾" ItemType="0" Rareness="1" Desc="采茶姑娘神采飞扬，绿树映衬着俊美的身影，构成一幅美丽动人的图画。" DressType="0" Score="1000" ShowPoition="(668,1555)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10219" ItemName="橘色短袜" ItemType="0" Rareness="1" Desc="柔软的面料，穿起来很舒服哦。" DressType="5" ShowPoition="(649.5,231.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10011" ItemName="班干部" ItemType="0" Rareness="1" Desc="不可以做坏事，会被这个聪明能干的女孩发现哦。" DressType="0" Score="1000" ShowPoition="(616,1483.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11431" ItemName="樱之恋" ItemType="0" Rareness="1" Desc="你知道樱花飘落的速度么？" DressType="6" ShowPoition="(646,230.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10012" ItemName="披肩发" ItemType="0" Rareness="1" Desc="手指轻轻地将柔顺的长发拨向一边，增添了一份柔美。" DressType="0" Score="1000" ShowPoition="(675.5,1496.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10198" ItemName="坂琼" ItemType="0" Rareness="1" Desc="尾部为狐狸毛，头部装饰了花瓣的饰品。这么精贵的东西制作起来是需要花费很大精力的啊。" DressType="7" ShowPoition="(550,1646)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10013" ItemName="旧时代" ItemType="0" Rareness="1" Desc="旧时代青涩的少女，面对时光的洪流，她会做出何种选择？" DressType="0" Score="1000" ShowPoition="(703,1364.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11131" ItemName="兔耳流星" ItemType="0" Rareness="1" Desc="光是兔耳就很萌了，再加上流星点缀——所谓的“萌到起飞”大概就是这样吧。" DressType="8" ShowPoition="(727.5,1754)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10015" ItemName="调色盘·绿黄" ItemType="0" Rareness="1" Desc="释放想象，恣意混合调色盘中的色彩吧，那会带来意想不到的惊喜。" DressType="0" Score="1000" ShowPoition="(629.5,1492)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10493" ItemName="皮绳" ItemType="0" Rareness="1" Desc="一圈一圈又一圈。用最高级的皮革做成，如果打结了的话，可就解不开了哟。" DressType="9" ShowPoition="(632.5,1434)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10092" ItemName="狂热·阳光" ItemType="0" Rareness="1" Desc="颜色让人联想到某种热带水果。像太阳的光芒一样灿烂的亮丽发型，能让你成为目光的焦点哦。" DressType="0" Score="1000" ShowPoition="(648,1533.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="11903" ItemName="暗花手套" ItemType="0" Rareness="1" Desc="名媛今冬最流行的奢华款皮质手套，暗花装饰，低调华丽。" DressType="10" ShowPoition="(648.5, 924.5)" PriceGold="1000" PriceDiamond="20">
+  <GameItemDataBaseBean ItemId="10096" ItemName="活泼短发" ItemType="0" Rareness="1" Desc="活泼可爱，娇俏美丽！可爱的暖暖就算剪了短发也一样可爱哦！" DressType="0" Score="1000" ShowPoition="(651,1605)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
-      <ratio>0.25</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
       <ratio>1</ratio>
-      <ratio>0.8</ratio>
-      <ratio>0.25</ratio>
-      <ratio>0.4</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.95</ratio>
-      <ratio>0.4</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
       <ratio>1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.1</ratio>
-      <ratio>0.45</ratio>
-      <ratio>0.95</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
       <ratio>1</ratio>
       <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
     </StyleList>
     <AttributeList>
-      <Attribute Type="0" Id="1" />
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10150" ItemName="异国少年" ItemType="0" Rareness="1" Desc="金色的短发，让暖暖回想起了童年和伙伴们玩耍的日子。" DressType="0" Score="1000" ShowPoition="(655,1605.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10154" ItemName="精致双马尾" ItemType="0" Rareness="1" Desc="圆滚滚的双马尾完全的Loli范儿，是女孩见了都会说可爱的发型啊。" DressType="0" Score="1000" ShowPoition="(628.5,1429)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10156" ItemName="荒原冒险家" ItemType="0" Rareness="1" Desc="金色的帅气的短发，如果能搭配一身帅气的男装就完美啦！" DressType="0" Score="1000" ShowPoition="(658.5,1592.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10159" ItemName="夕颜" ItemType="0" Rareness="1" Desc="黑夜的优雅攀上了阳光的绚烂，思绪开始沉淀。" DressType="0" Score="1000" ShowPoition="(621,1471)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10161" ItemName="花蕾" ItemType="0" Rareness="1" Desc="怒放的鲜花固然美丽，含苞待放的花蕾也别有一番滋味。" DressType="0" Score="1000" ShowPoition="(633.5,1562.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10330" ItemName="少女之诗" ItemType="0" Rareness="1" Desc="洋溢着少女清纯气质的长发，仿佛一首优雅的诗萦绕在人们的心间。" DressType="0" Score="1000" ShowPoition="(657,1494.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10021" ItemName="云上的四叶草" ItemType="0" Rareness="2" Desc="设计简单却又不失活泼，白色是百搭的颜色。" DressType="1" Score="1000" ShowPoition="(646.5,1257.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10024" ItemName="紧身背心" ItemType="0" Rareness="2" Desc="可爱的白色小背心，适合运动出行。" DressType="1" Score="1000" ShowPoition="(669,1267.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10027" ItemName="普通高领毛衣" ItemType="0" Rareness="2" Desc="质地略显单薄的白色毛衣，比较适合春秋季节。虽然暖暖穿上很合身，可是因为太容易脏让暖暖很苦恼。" DressType="1" Score="1000" ShowPoition="(652.5,1208)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10030" ItemName="梧桐叶" ItemType="0" Rareness="2" Desc="外形让人想到秋天的梧桐叶，同样也适合秋天穿着。" DressType="1" Score="1000" ShowPoition="(650.5,1206.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10033" ItemName="露肩上衣" ItemType="0" Rareness="2" Desc="甜美度很高的一款上衣，适合约会出行。" DressType="1" Score="1000" ShowPoition="(646,1210)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10176" ItemName="拼接毛衣·无领" ItemType="0" Rareness="2" Desc="由大块图块拼接而成的毛衣，文艺范儿十足，当然穿起来也很舒服呢。" DressType="1" Score="1000" ShowPoition="(650.5,1193)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10177" ItemName="粉色梦幻" ItemType="0" Rareness="2" Desc="粉色水手服，令你青春无敌！" DressType="1" Score="1000" ShowPoition="(631.5,1232.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10180" ItemName="休闲上衣·条纹" ItemType="0" Rareness="2" Desc="看上去虽然普通，但穿上还是很显身材的。" DressType="1" Score="1000" ShowPoition="(641,1240)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10226" ItemName="改良水手服·蓝" ItemType="0" Rareness="2" Desc="海水令人心旷神怡，这件蓝色的改良水手服也是如此。" DressType="1" Score="1000" ShowPoition="(629.5,1297.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10366" ItemName="粉色条纹卫衣" ItemType="0" Rareness="2" Desc="摆动间如花摇曳，似杨柳依依的律动。粉色的露肩卫衣让暖暖看起来可爱味十足。" DressType="1" Score="1000" ShowPoition="(643.5,1186)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10367" ItemName="黑色条纹卫衣" ItemType="0" Rareness="2" Desc="那浅藏的撩逗意味令人不禁心驰神摇，露肩装展现女人的婀娜与娇柔，性感与可爱兼备。" DressType="1" Score="1000" ShowPoition="(643.5,1186)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10062" ItemName="甜蜜蜜" ItemType="0" Rareness="2" Desc="秋天的味道就像是熟透了的果实，散发出甜蜜迷人的芬芳。" DressType="2" Score="1000" ShowPoition="(634,1142)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10135" ItemName="薄荷糖" ItemType="0" Rareness="2" Desc="透明清凉，就像吃了一颗薄荷糖一样凉滋滋透到心底。" DressType="2" Score="1000" ShowPoition="(625,1312.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10371" ItemName="登山服" ItemType="0" Rareness="2" Desc="兼具保暖与时尚的登山服，给予主人温柔的保护。" DressType="2" Score="1000" ShowPoition="(645,1209.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10413" ItemName="店员的推荐" ItemType="0" Rareness="2" Desc="可爱的粉色披肩，连店员都有点舍不得卖给暖暖。" DressType="2" Score="1000" ShowPoition="(630,1399)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10422" ItemName="睡莲" ItemType="0" Rareness="2" Desc="轻纱质地，走在水边，享受微风轻拂。" DressType="2" Score="1000" ShowPoition="(662.5,1145)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10761" ItemName="巫女的短衣" ItemType="0" Rareness="2" Desc="穿在绯袴外面的短衣，薄纱制成，称作千旱。只有正式的场合才会被穿戴" DressType="2" Score="1000" ShowPoition="(594,919.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10793" ItemName="草原之花" ItemType="0" Rareness="2" Desc="给漫无边际的草原增添一份色彩吧，象征勇敢与无畏的红色如何？" DressType="2" Score="1000" ShowPoition="(635,1100)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10857" ItemName="勇敢的心·银" ItemType="0" Rareness="2" Desc="纯金的的衣领纽扣雕刻着军队的标志，只有将军才配得上这身银白的军装。将军专用。" DressType="2" Score="1000" ShowPoition="(645.5,1202)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10017" ItemName="普通连衣裙" ItemType="0" Rareness="2" Desc="真的是很普通的连衣裙，看起来就是一块布把身体裹起来。其实剪裁很精良哦。" DressType="3" Score="1000" ShowPoition="(655.5,1131.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10018" ItemName="夏日风尚" ItemType="0" Rareness="2" Desc="很清爽的无袖连衣裙，最适合夏天穿出来。面料虽然薄，但是确实凉快。" DressType="3" Score="1000" ShowPoition="(664.5,1149.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10162" ItemName="粉色短裙" ItemType="0" Rareness="2" Desc="粉色立体剪裁的连衣短裙，穿上它感觉就像个芭比娃娃。" DressType="3" Score="1000" ShowPoition="(665,1186)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10164" ItemName="普通和服" ItemType="0" Rareness="2" Desc="一袭绿色尽显优雅，仿佛诞生于竹林之中的辉夜姬。" DressType="3" Score="1000" ShowPoition="(635,873)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10166" ItemName="普通道服" ItemType="0" Rareness="2" Desc="看上去像是格斗系少女，或是旧式餐馆的服务生？唔……其实它只是一件普通的道服。" DressType="3" Score="1000" ShowPoition="(642,1170)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10168" ItemName="豪门盛宴" ItemType="0" Rareness="2" Desc="贵气逼人的连衣裙。举手投足间充满了霸气女王范。" DressType="3" Score="1000" ShowPoition="(672.5,1118)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10172" ItemName="大黄鸭" ItemType="0" Rareness="2" Desc="很多男孩看到这件衣服会想：总觉得很想买一件送给女朋友穿。" DressType="3" Score="1000" ShowPoition="(647.5,1099.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10278" ItemName="传统鲁巴哈" ItemType="0" Rareness="2" Desc="鲁巴哈是俄罗斯传统的女装，款式丰富，别具一格。此款是简单的基本款。" DressType="3" Score="1000" ShowPoition="(611,902)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10310" ItemName="简单生活·蓝" ItemType="0" Rareness="2" Desc="用蓝色的缎带扎一个普通的蝴蝶结，青春的气息立刻就跳跃出来了，要知道简单也是一种美丽。" DressType="3" Score="1000" ShowPoition="(629.5,1117)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10067" ItemName="水洗牛仔裤" ItemType="0" Rareness="3" Desc="随意休闲的水洗牛仔中裤，很百搭，适合日常出门。" DressType="4" Score="1000" ShowPoition="(659,786)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10068" ItemName="普通短裤·紫" ItemType="0" Rareness="3" Desc="紫色款的短裤，那个性感的洞洞是它的标志。" DressType="4" Score="1000" ShowPoition="(663,1021)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10075" ItemName="白色短裙" ItemType="0" Rareness="3" Desc="用了毛呢制成的短裙，合适搭配温暖的上衣。" DressType="4" Score="1000" ShowPoition="(658.5,1000.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10141" ItemName="天竺·橙色长裤" ItemType="0" Rareness="3" Desc="橙色的贴身长裤，用了上好的布料，搭配乔丽穿着很有韵味哦。" DressType="4" Score="1000" ShowPoition="(650,679.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10230" ItemName="条纹短裙" ItemType="0" Rareness="3" Desc="黑白竖条纹的紧身短裙，热辣的款式。" DressType="4" Score="1000" ShowPoition="(658,990.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10232" ItemName="直筒牛仔裤" ItemType="0" Rareness="3" Desc="走中性路线的牛仔裤，怎么搭都很不错。" DressType="4" Score="1000" ShowPoition="(642,657.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10234" ItemName="梨花白" ItemType="0" Rareness="3" Desc="桃花人面各相红，不及天然玉作容。" DressType="4" Score="1000" ShowPoition="(640,660.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10235" ItemName="烤蛋糕" ItemType="0" Rareness="3" Desc="烤一个松软的蛋糕，在上面涂几圈鲜奶油。如何？看上去就很好吃呢。" DressType="4" Score="1000" ShowPoition="(666,982.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10236" ItemName="休闲短裙" ItemType="0" Rareness="3" Desc="休闲的款式适合日常穿着，感觉自由自在。" DressType="4" Score="1000" ShowPoition="(666.5,967.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10238" ItemName="花瓣裙" ItemType="0" Rareness="3" Desc="宛如盛开的花朵，娇艳动人。" DressType="4" Score="1000" ShowPoition="(673.5,1006)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10318" ItemName="校服长裙" ItemType="0" Rareness="3" Desc="长长的百褶裙，盖住了膝盖。在学校里边常常能见到乖巧的女生穿着这样的裙子。" DressType="4" Score="1000" ShowPoition="(643.5,820.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10131" ItemName="隐形袜" ItemType="0" Rareness="4" Desc="为什么要穿隐形的袜子？因为，出门不穿袜子暖暖不高兴呀！制作组这样讲。" DressType="5" Score="1000" ShowPoition="(650.5,275)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10132" ItemName="粉红幻想" ItemType="0" Rareness="4" Desc="甜美的粉红色及膝袜，充满了少女缤纷的幻想。" DressType="5" Score="1000" ShowPoition="(649.5,398)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10304" ItemName="玫瑰红酒" ItemType="0" Rareness="4" Desc="像一瓶香醇的红酒一样散发着诱人的香味，只有成熟的大姐姐才能衬托出味道来的连身袜。" DressType="5" Score="1000" ShowPoition="(648.5,606.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10305" ItemName="厚实的连裤袜·白" ItemType="0" Rareness="4" Desc="一片洁白的雪色，也象征着纯洁和美好。厚实的款式，穿着让人很安心。" DressType="5" Score="1000" ShowPoition="(649.5,613.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10398" ItemName="条纹连裤袜·棕" ItemType="0" Rareness="4" Desc="竖条纹能够显得腿细，天鹅绒的材质保暖又舒服。此款为百搭的棕色。" DressType="5" Score="1000" ShowPoition="(650,615)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10399" ItemName="贵族真丝长袜" ItemType="0" Rareness="4" Desc="用贵重的真丝制成的袜子，王子出席晚宴的时候常用它来做搭配。" DressType="5" Score="1000" ShowPoition="(650.5,504.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10402" ItemName="过膝学生袜·黑" ItemType="0" Rareness="4" Desc="全棉材质的学生袜，很厚实。此款是黑色。" DressType="5" Score="1000" ShowPoition="(648.5,435.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10403" ItemName="红与灰" ItemType="0" Rareness="4" Desc="经过特殊拼色设计的短袜，尝试搭配穿出时尚感吧。" DressType="5" Score="1000" ShowPoition="(649.5,257)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10406" ItemName="踩脚袜·蓝" ItemType="0" Rareness="4" Desc="试试看特殊构造的踩脚袜吧，能够令你的搭配更加丰富多彩。" DressType="5" Score="1000" ShowPoition="(626,359.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10410" ItemName="砂糖" ItemType="0" Rareness="4" Desc="这双袜子的颜色宛如甜蜜纯净的砂糖，穿上去心情也会变好吧。" DressType="5" Score="1000" ShowPoition="(648,268.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10083" ItemName="白色小皮鞋" ItemType="0" Rareness="4" Desc="暖暖春游时常穿的一双圆头白色小皮鞋。虽然款式简单，但穿起来很舒适。" DressType="6" Score="1000" ShowPoition="(644,233)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10084" ItemName="圆头厚底鞋" ItemType="0" Rareness="4" Desc="轻熟女风格的厚底鞋，不过颜色是低调的褐色，搭配平日的装束也不会觉得奇怪。" DressType="6" Score="1000" ShowPoition="(643.5,220.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10078" ItemName="普通长靴" ItemType="0" Rareness="4" Desc="亮丽的粉色长靴，好看是好看，也要注意搭配哦。" DressType="6" Score="1000" ShowPoition="(642.5,338.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10079" ItemName="象姬·素白" ItemType="0" Rareness="4" Desc="充满了泰式风情的鞋子。简单大方的款式，也适合平时穿着哦。" DressType="6" Score="1000" ShowPoition="(651,224)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10080" ItemName="普通拖鞋" ItemType="0" Rareness="4" Desc="普通的人字拖，适合去楼下的便利店买东西的时候穿。" DressType="6" Score="1000" ShowPoition="(639.5,210.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10081" ItemName="普通家居鞋" ItemType="0" Rareness="4" Desc="家里穿的拖鞋，亮丽的色彩令人心情愉快。" DressType="6" Score="1000" ShowPoition="(641,225)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10082" ItemName="粉色高跟凉鞋" ItemType="0" Rareness="4" Desc="穿起来十分方便，最关键是物美价廉。" DressType="6" Score="1000" ShowPoition="(645,210.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10085" ItemName="薄荷冰激凌" ItemType="0" Rareness="4" Desc="冰激凌色的小皮鞋，夏天穿拥有清凉的功效哦。" DressType="6" Score="1000" ShowPoition="(649,231)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10086" ItemName="清新单鞋" ItemType="0" Rareness="4" Desc="舍弃鲜艳的色彩，泡一杯茶，享受一段轻松闲适的时光吧。" DressType="6" Score="1000" ShowPoition="(644,230)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10241" ItemName="普通帆布鞋" ItemType="0" Rareness="4" Desc="衣柜里总要有一双适合出行的帆布鞋，穿起来舒适又时尚。" DressType="6" Score="1000" ShowPoition="(646.5,284.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10045" ItemName="红色小礼帽" ItemType="0" Rareness="1" Desc="暖暖总感觉戴上这顶小礼帽好像小学生一样。" DressType="7" Score="1000" ShowPoition="(656,1678.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10048" ItemName="卖萌猫耳" ItemType="0" Rareness="1" Desc="戴上它化身喵星人吧！喵~~~" DressType="7" Score="1000" ShowPoition="(692,1699)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10125" ItemName="幸运发带" ItemType="0" Rareness="1" Desc="四叶草主题的发带，据说只要戴着它就能带来好运。" DressType="7" Score="1000" ShowPoition="(678,1659)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10188" ItemName="普通发箍" ItemType="0" Rareness="1" Desc="好像每个女孩的衣橱里都有三两个这样的发箍。适合很多场合。在毕业之前好好利用它吧！" DressType="7" Score="1000" ShowPoition="(658,1653.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10381" ItemName="水晶耳环" ItemType="0" Rareness="2" Desc="晶莹剔透的耳环，在夜店舞池灯光的照射下散发出迷人的光彩。" DressType="8" Score="1000" ShowPoition="(651.5,1514)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10507" ItemName="豪门盛宴·耳环" ItemType="0" Rareness="2" Desc="黄金制成的耳环，彰显出佩戴者不凡的身份。" DressType="8" Score="1000" ShowPoition="(646,1513.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10572" ItemName="天竺·镏金耳环" ItemType="0" Rareness="2" Desc="印度风的镏金耳环，镶嵌着红宝石，给人一种华贵的美感。" DressType="8" Score="1000" ShowPoition="(649.5,1503)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="11194" ItemName="舞娘的热情" ItemType="0" Rareness="2" Desc="象征着舞娘似火热情的耳环，是舞娘必备的装饰品之一。" DressType="8" Score="1000" ShowPoition="(659,1515.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10037" ItemName="普通手镯" ItemType="0" Rareness="3" Desc="在学校周围的饰品店售卖的普通手镯。因为便宜所以买的人很多。" DressType="10" Score="1000" ShowPoition="(496,970.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10041" ItemName="黑曜石手链" ItemType="0" Rareness="3" Desc="由黑曜石制成的手链，象征着友善的爱心和希望，有助于消除压力哦" DressType="10" Score="1000" ShowPoition="(495.5,969.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10044" ItemName="糖果项链" ItemType="0" Rareness="3" Desc="如同糖果一样，有着可爱颜色的项链。让人忍不住都想去咬一口。" DressType="9" Score="1000" ShowPoition="(625,1430)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10101" ItemName="菠萝颈圈" ItemType="0" Rareness="3" Desc="很有热带风情的一款颈饰，于是商家以某种热带水果为它命名了。" DressType="9" Score="1000" ShowPoition="(626,1463.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10295" ItemName="海洋之心" ItemType="0" Rareness="3" Desc="二手店老板声称用蓝宝石做成的漂亮项链。不过这个价钱，你以为买到的真的是蓝宝石吗？" DressType="9" Score="1000" ShowPoition="(629.5,1424.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10498" ItemName="登山手套" ItemType="0" Rareness="3" Desc="保暖效果一流的羊绒手套，分指设计非常方便在冬天里写字。设计感也很不错哦。" DressType="10" Score="1000" ShowPoition="(648,919)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10582" ItemName="斗士·灰色护腕" ItemType="0" Rareness="3" Desc="泰拳格斗时覆盖手腕部分的绑带，跟随主人久经战场，颜色已经由白色变成了灰色。" DressType="10" Score="1000" ShowPoition="(647.5,997.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10804" ItemName="飞天·臂饰" ItemType="0" Rareness="3" Desc="古人有关飞天的想象总是辉煌而又大气，正如这款臂饰一般。" DressType="10" Score="1000" ShowPoition="(656.5,1114.5)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10863" ItemName="紫罗兰之握" ItemType="0" Rareness="3" Desc="这双手套上的花纹代表了一个时代的繁荣与财富。" DressType="10" Score="1000" ShowPoition="(647,1080)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
 </ArrayOfGameItemDataBaseBean>
