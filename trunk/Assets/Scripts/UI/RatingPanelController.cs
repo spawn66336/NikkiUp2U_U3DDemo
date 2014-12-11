@@ -87,7 +87,6 @@ public class RatingPanelController : UIController
 			//计分板停止
 			if(fromStarttime >= 1.0)
 			{
-				Defen.gameObject.SetActive(false);
 				S_5.SetPos(info.score%10);
 			}
 			if(fromStarttime >= 1.2)
@@ -106,6 +105,7 @@ public class RatingPanelController : UIController
 			{
 				S_1.SetPos(info.score/10000%10);
 				GlobalObjects.GetInstance().GetSoundManager().Stop(SoundManager.SoundType.ScoreBoardSound);
+				Defen.gameObject.SetActive(false);
 			}
 
 			if(locked && playflag && fromStarttime >= 3.0)
@@ -216,7 +216,13 @@ public class RatingPanelController : UIController
 		switch(info.levelRank)
 		{
 		case LevelRank.SSS:
+			rank = "SSS";
+			stype = SoundManager.SoundType.LevelRankS;
+			break;
 		case LevelRank.SS:
+			rank = "SS";
+			stype = SoundManager.SoundType.LevelRankS;
+			break;
 		case LevelRank.S:
 			rank = "S";
 			stype = SoundManager.SoundType.LevelRankS;

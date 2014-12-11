@@ -620,8 +620,8 @@ namespace H3DEditor
                         else if (!(components[i] is Transform) 
                                 && !(components[i] is UIPanel) 
                                 && !(components[i] is Camera)
-                                && !(components[i] is UIAnchor))
-                                //&& !(components[i] is BoxCollider))
+                                && !(components[i] is UIAnchor)
+                                && !(components[i] is BoxCollider))
                         {
                             Object.DestroyImmediate(components[i]);
                             remove_sth = true;
@@ -969,6 +969,17 @@ namespace H3DEditor
                 Vector3 inv_pos_delta = (go.transform.position - pos);
 
                 go.transform.position = pos;
+
+                BoxCollider box = ui.GetComponent<BoxCollider>();
+                if(box != null)
+                {
+                    BoxCollider box_go = go.GetComponent<BoxCollider>();
+                    if(box_go != null)
+                    {
+                        box_go.center = box.center;
+                        box_go.size = box.size;
+                    }
+                }
                 //for (int i = 0; i < children.Length; ++i)
                 //{
                 //    children[i].transform.Translate(inv_pos_delta);

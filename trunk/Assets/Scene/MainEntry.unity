@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 97662590}
   - 114: {fileID: 97662591}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: eff_card_light_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - 198: {fileID: 136507506}
   - 199: {fileID: 136507505}
   - 114: {fileID: 136507504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Par02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1536,6 +1536,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13933d875a3d83d4793dc89e2b4daafe, type: 2}
   m_RootGameObject: {fileID: 2024996628}
@@ -1700,6 +1720,10 @@ Prefab:
     - target: {fileID: 400002, guid: f8ed8e4f43ce91c4999be50b9bfde269, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: f8ed8e4f43ce91c4999be50b9bfde269, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8ed8e4f43ce91c4999be50b9bfde269, type: 2}
@@ -2088,7 +2112,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 570982851}
   m_GameObject: {fileID: 773915196}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 640, y: 1136, z: 0}
@@ -2190,7 +2214,7 @@ GameObject:
   - 198: {fileID: 819017671}
   - 199: {fileID: 819017670}
   - 114: {fileID: 819017669}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Par01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3827,7 +3851,7 @@ GameObject:
   - 198: {fileID: 1288650535}
   - 199: {fileID: 1288650534}
   - 114: {fileID: 1288650533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Par04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5487,7 +5511,7 @@ GameObject:
   - 23: {fileID: 1672656213}
   - 95: {fileID: 1672656212}
   - 114: {fileID: 1672656211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Quad_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

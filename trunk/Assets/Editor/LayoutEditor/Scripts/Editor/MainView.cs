@@ -137,7 +137,6 @@ public class MainView
                 cur_layout.DisableAnchor();
             }
             
-
             m_view_controller.OnGUI(cur_layout);
 
             List<UIElement> all_uis = cur_layout.GetAllUIs(true);
@@ -148,7 +147,15 @@ public class MainView
 
                 if (cur_layout.IsElementSelected(w))
                 {
-                    RenderWorldRect(w.worldCorners, Color.white);
+                    if (w.IsEditBoxCollider())
+                    {
+                        RenderWorldRect(w.worldCorners, Color.yellow);
+                    }
+                    else
+                    {
+                        RenderWorldRect(w.worldCorners, Color.white);
+                    }
+
                     if (cur_layout.FirstUI == w)
                     {
                         RenderKnob(w.worldCorners, m_view_controller.m_knob_sel_res.m_knob_index);
@@ -156,7 +163,14 @@ public class MainView
                 }
                 else if (ShowBorder)
                 {
-                    RenderWorldRect(w.worldCorners, Color.green);
+                    if (w.IsEditBoxCollider())
+                    {
+                        RenderWorldRect(w.worldCorners, Color.yellow);
+                    }
+                    else
+                    {
+                        RenderWorldRect(w.worldCorners, Color.green);
+                    }
                 }
             }
         }

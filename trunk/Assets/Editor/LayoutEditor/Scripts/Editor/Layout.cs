@@ -109,7 +109,7 @@ public class Layout
         {
             for (int i = 0; i < m_sel_elements.Count; ++i)
             {
-                if (m_sel_elements[i].IsUI)
+                if (m_sel_elements[i].IsUI || m_sel_elements[i].CanEdit)
                 {
                     return m_sel_elements[i];
                 }
@@ -131,54 +131,72 @@ public class Layout
             UpdateHierarchyInfo(go, nPos + 1);
         }
     }
-    private int ComparisonFunc(UIWidget w1, UIWidget w2)
+    private int ComparisonFunc(UIElement ui_element_1, UIElement ui_element_2)
     {
-        if (w1 == w2)
+        if (ui_element_1 == ui_element_2)
             return 0;
 
-        UIElement ui_element_1 = w1.GetComponent<UIElement>();
-        UIElement ui_element_2 = w2.GetComponent<UIElement>();
-        if (ui_element_1 != null && ui_element_2 != null && ui_element_1.HierarchyPos != ui_element_2.HierarchyPos)
+        if (ui_element_1.HierarchyPos != ui_element_2.HierarchyPos)
         {
             return ui_element_2.HierarchyPos.CompareTo(ui_element_1.HierarchyPos);
         }
 
-        if(w2.depth != w1.depth)
+        UIWidget w1 = ui_element_1.GetComponent<UIWidget>();
+        UIWidget w2 = ui_element_2.GetComponent<UIWidget>();
+        if(w1 != null && w2 != null)
         {
-            return w2.depth.CompareTo(w1.depth);
+            if (w2.depth != w1.depth)
+            {
+                return w2.depth.CompareTo(w1.depth);
+            }
+
+            return MathTool.CompareRect(w1.worldCorners, w2.worldCorners);
         }
-            
-        return MathTool.CompareRect(w1.worldCorners, w2.worldCorners);
+
+        return 0;
     }
 
     public UIElement RayTest(Vector3 mousePos)
     {
-        List<UIWidget> widget_list = new List<UIWidget>();
-        UIWidget[] widgets = m_root.GetComponentsInChildren<UIWidget>();
-
-        for (int i = 0; i < widgets.Length; ++i)
+        List<UIElement> uiele_list = new List<UIElement>();
+        UIElement[] eles = m_root.GetComponentsInChildren<UIElement>();
+        for (int i = 0; i < eles.Length; ++i)
         {
-            UIWidget w = widgets[i];
-            UIElement ui_element = w.GetComponent<UIElement>();
-
-            if (ui_element != null && !ui_element.Freeze)
+            UIElement ui = eles[i];
+            UIWidget w = ui.GetComponent<UIWidget>();
+            BoxCollider box = ui.GetComponent<BoxCollider>();
+            if(w != null || box != null)
             {
-                widget_list.Add(w);
+                if(!ui.Freeze)
+                {
+                    uiele_list.Add(ui);
+                }
             }
         }
         //widget_list.Sort(delegate(UIWidget w1, UIWidget w2) { return w2.depth.CompareTo(w1.depth); });
-        widget_list.Sort(ComparisonFunc);
+        uiele_list.Sort(ComparisonFunc);
 
-        for (int i = 0; i < widget_list.Count; ++i)
+        for (int i = 0; i < uiele_list.Count; ++i)
         {
-            UIWidget w = widget_list[i];
-            Vector3[] corners = w.worldCorners;
+            UIElement ui_element = uiele_list[i];
+            UIElement ui = ui_element;
+            UIWidget w = ui_element.GetComponent<UIWidget>();
+
+            Vector3[] corners = null;
+            if(w != null)
+            {
+                corners = w.worldCorners;
+            }
+            else
+            {
+                corners = ui_element.worldCorners;
+            }
+            if (corners == null)
+                continue;
 
             if (MathTool.IsPointInConvexPoly(mousePos, corners))
             {
-                UIElement ui_element = w.GetComponent<UIElement>();
                 UIElement topmost_lock_ui = null;
-
                 while (ui_element != null)
                 {
                     if (ui_element.Lock)
@@ -188,7 +206,7 @@ public class Layout
                     ui_element = (ui_element.transform.parent != null ? ui_element.transform.parent.GetComponent<UIElement>() : null);
                 }
 
-                return (topmost_lock_ui != null ? topmost_lock_ui : w.GetComponent<UIElement>());
+                return (topmost_lock_ui != null ? topmost_lock_ui : ui);
             }
         }
 
@@ -219,7 +237,7 @@ public class Layout
                             stack.Push(children[i]);
                         }
                     }
-                    if (ui_element.IsUI && (include_freeze || !ui_element.Freeze) && ui_element.VisbleGolbal)
+                    if (ui_element.CanEdit && (include_freeze || !ui_element.Freeze) && ui_element.VisbleGolbal)
                     {
                         all_ui_list.Add(ui_element);
                     }
@@ -237,7 +255,7 @@ public class Layout
         {
             UIElement w = m_sel_elements[i];
 
-            if (w.IsUI)
+            if (w.CanEdit)
             {
                 bool has_parent_in_list = false;
                 Transform parent = w.transform.parent;

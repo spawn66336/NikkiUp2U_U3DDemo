@@ -23,25 +23,26 @@ public class UILocker : MonoBehaviour
 
     public bool IsLocked()
     {
-        return lockCount > 0;
+        return gameObject.activeInHierarchy;
+        //return lockCount > 0;
     }
 
     public void Lock(GameObject obj )
     {
-        lockCount++;
-        if( lockCount > 0 )
-        {
+        //lockCount++;
+        //if( lockCount > 0 )
+        //{
             gameObject.SetActive(true);
-        }
+        //}
     }
 
     public void UnLock(GameObject obj)
     {
-        lockCount--;
-        if( lockCount <= 0 )
-        {
+        //lockCount--;
+        //if( lockCount <= 0 )
+        //{
             gameObject.SetActive(false);
-        }
+        //}
     }
 
     public void ForceUnlock()

@@ -13,17 +13,19 @@ public class TempTextureInfo
     private Texture2D m_ZoomTexture = null;     //缩放纹理
     private string m_sourcePath = null;         //源文件绝对路径
     private string m_tempPath = null;           //Temp文件路径
-
+    private string m_tempPathZoom = null;
+  
     public Texture2D Texture { get { return m_texture; } set { m_texture = value; } }
     public Texture2D ZoomTexture { get { return m_ZoomTexture; } set { m_ZoomTexture = value; } }
-
     public string SourcePath { get { return m_sourcePath; } set { m_sourcePath = value; } }
     public string TempPath { get { return m_tempPath; } set { m_tempPath = value; } }
+    public string TempPathZoom { get { return m_tempPathZoom; } set { m_tempPathZoom = value; } }
 
 }
 public class UIAtlasTempTextureManager
 {//Temp文件夹资源
 
+    private string m_zoomStr = "zoomed";
     public UIAtlasTempTextureManager() { }
 
     public Texture2D LoadTexture( string path )
@@ -32,7 +34,11 @@ public class UIAtlasTempTextureManager
         _TouchTempDir();
 
         string fileName = Path.GetFileName(path);
+        string extension = Path.GetExtension(path);
+        string fileNameWithoutext = Path.GetFileNameWithoutExtension(path);
+
         string zoomedName = null;
+
         bool isNeedRename = false;
         TempTextureInfo retTexInfo = null;
 
@@ -54,6 +60,7 @@ public class UIAtlasTempTextureManager
             if (_IsTextureAssetAlreadyExistsInTempFolder(fileName, out isNeedRename))
             {
                 AssetDatabase.DeleteAsset(UIAtlasEditorConfig.TempPath + fileName);
+                AssetDatabase.DeleteAsset(UIAtlasEditorConfig.TempPath + m_zoomStr + extension);
             }
             return null;
         }
@@ -72,26 +79,24 @@ public class UIAtlasTempTextureManager
             needCopy = true;
         }
 
-
         if (needCopy)
         {
-            string oldname = Path.GetFileNameWithoutExtension(path);
-            string extension = Path.GetExtension(path);
-
             if (isNeedRename)
             {
-                fileName = oldname + "副本" + extension;
-                zoomedName = oldname + "副本" + "zoomed.png";
-                File.Copy(path, UIAtlasEditorConfig.AbsTempPath + fileName, true);
-                File.Copy(path, UIAtlasEditorConfig.AbsTempPath + zoomedName, true);
+                fileName = fileNameWithoutext + "副本" + extension;
+                zoomedName = fileNameWithoutext + "副本" + m_zoomStr + extension;
             }
             else
             {
-                zoomedName = oldname + "zoomed.png";
-                File.Copy(path, UIAtlasEditorConfig.AbsTempPath + fileName, true);
-                File.Copy(path, UIAtlasEditorConfig.AbsTempPath + zoomedName, true);
-
+                zoomedName = fileNameWithoutext + m_zoomStr + extension;
             }
+
+            UniversalEditorUtility.MakeFileWriteable(UIAtlasEditorConfig.AbsTempPath + fileName);
+            File.Copy(path, UIAtlasEditorConfig.AbsTempPath + fileName, true);
+
+            UniversalEditorUtility.MakeFileWriteable(UIAtlasEditorConfig.AbsTempPath + zoomedName);       
+            File.Copy(path, UIAtlasEditorConfig.AbsTempPath + zoomedName, true);
+
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
         }
 
@@ -103,7 +108,9 @@ public class UIAtlasTempTextureManager
             TempTextureInfo newTexInfo = new TempTextureInfo();
             newTexInfo.SourcePath = path;
             newTexInfo.TempPath = UIAtlasEditorConfig.TempPath + fileName;
+            newTexInfo.TempPathZoom = UIAtlasEditorConfig.TempPath + zoomedName;
             newTexInfo.Texture = AssetDatabase.LoadAssetAtPath(newTexInfo.TempPath, typeof(Texture)) as Texture2D;
+
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
 
             if (newTexInfo.Texture != null)
@@ -136,6 +143,8 @@ public class UIAtlasTempTextureManager
             if (textureInfo.Key == path)
             {
                 AssetDatabase.DeleteAsset(textureInfo.Value.TempPath);
+                AssetDatabase.DeleteAsset(textureInfo.Value.TempPathZoom);
+               
                 textureCache.Remove(path);
                 bRet = true;
                 break;
@@ -166,8 +175,12 @@ public class UIAtlasTempTextureManager
 
             byte[] bytes = sourceTexInfo.ZoomTexture.EncodeToPNG();
             string newPath = Path.GetFileNameWithoutExtension(sourceTexInfo.TempPath);
-            newPath = UIAtlasEditorConfig.TempPath + newPath + "zoomed.png";
+            string extension = Path.GetExtension(sourceTexInfo.TempPath);
+            newPath = UIAtlasEditorConfig.TempPath + newPath + m_zoomStr + extension;
+
+            UniversalEditorUtility.MakeFileWriteable(newPath);
             System.IO.File.WriteAllBytes(newPath, bytes);
+      
             bytes = null;
 
             AssetDatabase.ImportAsset(newPath);

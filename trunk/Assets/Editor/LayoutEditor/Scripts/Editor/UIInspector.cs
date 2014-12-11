@@ -351,7 +351,7 @@ public class UIInspector
 
         //ComponentSelector.Draw<UIFont>(mLabel.font, OnSelectFont);
 
-        if (mLabel.font != null)
+        //if (mLabel.font != null)
         {
             GUI.skin.textArea.wordWrap = true;
             string text = string.IsNullOrEmpty(mLabel.text) ? "" : mLabel.text;
@@ -436,8 +436,8 @@ public class UIInspector
 
 
         }
-        else
-            EditorGUILayout.Space();
+        //else
+        //    EditorGUILayout.Space();
 
         EditorGUILayout.EndVertical();
     }

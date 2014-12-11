@@ -23,8 +23,8 @@ public class ResourceManageConfig
 
     public void Save()
     {
-        _TouchConfigDir(); 
-
+        _TouchConfigDir();
+        UniversalEditorUtility.MakeFileWriteable(_GetConfigFilePath());
         var configWriter =  File.CreateText(_GetConfigFilePath());
         Serializer yamlSerialzer = new Serializer();
         yamlSerialzer.Serialize(configWriter, Paths);

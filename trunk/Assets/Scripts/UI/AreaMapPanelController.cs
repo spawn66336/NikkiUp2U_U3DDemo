@@ -12,16 +12,15 @@ public class AreaMapPanelController : UIController
     public GameObject enterButton;
     public SpecialEffect enterButtoneffect;
     bool playing;
+    
     public void OnClickEnterLevelBtn(GameObject button)
     {
-        enterButtoneffect.gameObject.SetActive(true);
         if (!enterButtoneffect.IsPlaying())
         {
+            GlobalObjects.GetInstance().GetSoundManager().Play(SoundManager.SoundType.CommonButtonClick2);
             enterButtoneffect.Play();
             playing = true;
-            //Invoke("ChangeToLevelDialog", 1);
         }
-        //bigMapName.text=PlayerUIResource.GetInstance()
     }
     void ChangeToLevelDialog()
     {
@@ -31,7 +30,6 @@ public class AreaMapPanelController : UIController
     void OnEnable()
     {
         playing = false;
-        enterButtoneffect.gameObject.SetActive(false);
         mapName.text = PlayerUIResource.GetInstance().CurrAreaMapUIInfo.name;
         sNum.text = PlayerUIResource.GetInstance().CurrAreaMapRankSLevelCount.ToString() + "/" + PlayerUIResource.GetInstance().CurrAreaMapFinishedLevelCount.ToString();
         UIEventListener.Get(enterButton).onClick += OnClickEnterLevelBtn;
@@ -44,7 +42,7 @@ public class AreaMapPanelController : UIController
     void Update()
     {
         if (playing)
-        {
+        { 
             if (!enterButtoneffect.IsPlaying())
             {
                 playing = false;

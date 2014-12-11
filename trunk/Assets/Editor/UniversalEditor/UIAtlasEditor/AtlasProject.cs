@@ -354,6 +354,7 @@ public class AtlasProject
             //创建png文件
             byte[] bytes = tex.EncodeToPNG();
             newPath = atlasSavePath + name + ".png";
+            UniversalEditorUtility.MakeFileWriteable(newPath);
             System.IO.File.WriteAllBytes(newPath, bytes);
             bytes = null;
             bRet = true;
@@ -369,19 +370,6 @@ public class AtlasProject
         {
             return;
         }
-
-//         GameObject go = AssetDatabase.LoadAssetAtPath(outputPath, typeof(GameObject)) as GameObject;
-//         Object prefab = (go != null) ? go : PrefabUtility.CreateEmptyPrefab(outputPath);
-//        
-//         string atlasName = outputPath.Replace(".prefab", "");
-//         atlasName = atlasName.Substring(outputPath.LastIndexOfAny(new char[] { '/', '\\' }) + 1);
-//        
-//         go = new GameObject(atlasName);     
-//         PrefabUtility.ReplacePrefab(go, prefab);
-//         UnityEngine.Object.DestroyImmediate(go);
-//        
-//         AssetDatabase.SaveAssets();
-//         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
 
         GameObject go = AssetDatabase.LoadAssetAtPath(outputPath, typeof(GameObject)) as GameObject;
         string matPath = outputPath.Replace(".prefab", ".mat");
@@ -423,12 +411,142 @@ public class AtlasProject
         NGUISettings.atlas = go.GetComponent<UIAtlas>();
         Selection.activeGameObject = go;
 
-        List<UIAtlasMaker.SpriteEntry> sprites = UIAtlasMaker.CreateSprites(UIAtlasTempTextureManager.GetInstance().GetTextureCacheSprite());
+        List<UIAtlasMaker.SpriteEntry> sprites = CreateSprites(UIAtlasTempTextureManager.GetInstance().GetTextureCacheSprite());
         UIAtlasMaker.ExtractSprites(NGUISettings.atlas, sprites);
         UIAtlasMaker.UpdateAtlas(NGUISettings.atlas, sprites); ;
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
       }
+
+    static public List<UIAtlasMaker.SpriteEntry> CreateSprites(List<Texture> textures)
+    {
+        List<UIAtlasMaker.SpriteEntry> list = new List<UIAtlasMaker.SpriteEntry>();
+
+        foreach (Texture tex in textures)
+        {
+            Texture2D oldTex = NGUIEditorTools.ImportTexture(tex, true, false, true);
+            if (oldTex == null) oldTex = tex as Texture2D;
+            if (oldTex == null) continue;
+
+            // If we aren't doing trimming, just use the texture as-is
+            if (!NGUISettings.atlasTrimming && !NGUISettings.atlasPMA)
+            {
+                UIAtlasMaker.SpriteEntry sprite = new UIAtlasMaker.SpriteEntry();
+                sprite.SetRect(0, 0, oldTex.width, oldTex.height);
+                sprite.tex = oldTex;
+                if (oldTex.name.EndsWith("zoomed"))
+                {
+                    sprite.name = oldTex.name.Substring(0, oldTex.name.Length - "zoomed".Length);
+                }
+                else
+                {
+                    sprite.name = oldTex.name;
+                }
+                sprite.temporaryTexture = false;
+                list.Add(sprite);
+                continue;
+            }
+
+            // If we want to trim transparent pixels, there is more work to be done
+            Color32[] pixels = oldTex.GetPixels32();
+
+            int xmin = oldTex.width;
+            int xmax = 0;
+            int ymin = oldTex.height;
+            int ymax = 0;
+            int oldWidth = oldTex.width;
+            int oldHeight = oldTex.height;
+
+            // Find solid pixels
+            if (NGUISettings.atlasTrimming)
+            {
+                for (int y = 0, yw = oldHeight; y < yw; ++y)
+                {
+                    for (int x = 0, xw = oldWidth; x < xw; ++x)
+                    {
+                        Color32 c = pixels[y * xw + x];
+
+                        if (c.a != 0)
+                        {
+                            if (y < ymin) ymin = y;
+                            if (y > ymax) ymax = y;
+                            if (x < xmin) xmin = x;
+                            if (x > xmax) xmax = x;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                xmin = 0;
+                xmax = oldWidth - 1;
+                ymin = 0;
+                ymax = oldHeight - 1;
+            }
+
+            int newWidth = (xmax - xmin) + 1;
+            int newHeight = (ymax - ymin) + 1;
+
+            if (newWidth > 0 && newHeight > 0)
+            {
+                UIAtlasMaker.SpriteEntry sprite = new UIAtlasMaker.SpriteEntry();
+                sprite.x = 0;
+                sprite.y = 0;
+                sprite.width = oldTex.width;
+                sprite.height = oldTex.height;
+
+                // If the dimensions match, then nothing was actually trimmed
+                if (!NGUISettings.atlasPMA && (newWidth == oldWidth && newHeight == oldHeight))
+                {
+                    sprite.tex = oldTex;
+                    if (oldTex.name.EndsWith("zoomed"))
+                    {
+                        sprite.name = oldTex.name.Substring(0, oldTex.name.Length - "zoomed".Length);
+                    }
+                    else
+                    {
+                        sprite.name = oldTex.name;
+                    }
+                    sprite.temporaryTexture = false;
+                }
+                else
+                {
+                    // Copy the non-trimmed texture data into a temporary buffer
+                    Color32[] newPixels = new Color32[newWidth * newHeight];
+
+                    for (int y = 0; y < newHeight; ++y)
+                    {
+                        for (int x = 0; x < newWidth; ++x)
+                        {
+                            int newIndex = y * newWidth + x;
+                            int oldIndex = (ymin + y) * oldWidth + (xmin + x);
+                            if (NGUISettings.atlasPMA) newPixels[newIndex] = NGUITools.ApplyPMA(pixels[oldIndex]);
+                            else newPixels[newIndex] = pixels[oldIndex];
+                        }
+                    }
+
+                    // Create a new texture
+                    sprite.temporaryTexture = true;
+                    if (oldTex.name.EndsWith("zoomed"))
+                    {
+                        sprite.name = oldTex.name.Substring(0, oldTex.name.Length - "zoomed".Length);
+                    }
+                    else
+                    {
+                        sprite.name = oldTex.name;
+                    }
+                    sprite.tex = new Texture2D(newWidth, newHeight);
+                    sprite.tex.SetPixels32(newPixels);
+                    sprite.tex.Apply();
+
+                    // Remember the padding offset
+                    sprite.SetPadding(xmin, ymin, oldWidth - newWidth - xmin, oldHeight - newHeight - ymin);
+                }
+                list.Add(sprite);
+            }
+        }
+        return list;
+    }
 
 #endregion
 

@@ -264,6 +264,8 @@ public class UIAtlasEditor
         m_Counter.hideFlags = HideFlags.HideAndDontSave;
         m_Counter.AddComponent<UIAtlasCommandCounter>();
         m_CommandCounter = m_Counter.GetComponent<UIAtlasCommandCounter>();
+
+        EditorHelper.debugMode = false;
     }
 
     static void OnEnable(EditorRoot root)
@@ -709,7 +711,7 @@ public class UIAtlasEditor
         {
             //提示生成成功
             EditorUtility.DisplayDialog("生成成功",
-                                         "Atlas、Prefab生成完",
+                                         "Atlas、Prefab生成完毕、\n\n" + "文件保存至\"" + UIAtlasEditorModel.GetInstance().GetAtlasSavePath() + "\"",
                                          "确认");
         }
         else
@@ -719,13 +721,14 @@ public class UIAtlasEditor
             {//未指定Atlas输出路径
 
                 //显示选择路径对话框
-                string savePath = EditorUtility.SaveFolderPanel("SaveAtlas", "Assets/", "");
+                string savePath = EditorUtility.SaveFolderPanel("请选择Atlas文件的输出路径", "Assets/", "");
 
                 if (savePath.Contains("/Assets"))
                 {//路径合法(Unity相对路径)
 
                     //获取Unity相对路径
-                    savePath = savePath.Substring(savePath.LastIndexOfAny("/Assets".ToCharArray()) - "Assets".Length + 1);
+                    savePath = savePath.Substring(UnityEngine.Application.dataPath.Length - "Assets".Length);
+
                     //设定Atlas输出路径
                     UIAtlasEditorModel.GetInstance().SetAtlasSavePath(savePath + "/");
                    

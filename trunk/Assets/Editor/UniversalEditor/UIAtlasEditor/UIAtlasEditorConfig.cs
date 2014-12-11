@@ -28,10 +28,8 @@ public class UIAtlasEditorConfig
         FileStream fileStream = null;
         StreamWriter streamW = null;
 
+        UniversalEditorUtility.MakeFileWriteable(configPath);
         fileStream = new FileStream(configPath, FileMode.Create);
-        File.SetAttributes(configPath, File.GetAttributes(configPath) & ~FileAttributes.Hidden);
-        File.SetAttributes(configPath, File.GetAttributes(configPath) & ~(FileAttributes.Archive | FileAttributes.ReadOnly));
-  
         streamW = new StreamWriter(fileStream);
       
         streamW.Write(path);
@@ -51,8 +49,7 @@ public class UIAtlasEditorConfig
 
         if(File.Exists(configPath))
         {
-            File.SetAttributes(configPath, File.GetAttributes(configPath) & ~FileAttributes.Hidden);
-            File.SetAttributes(configPath, File.GetAttributes(configPath) & ~(FileAttributes.Archive | FileAttributes.ReadOnly));
+            UniversalEditorUtility.MakeFileWriteable(configPath);
             fileStream = new FileStream(configPath, FileMode.Open);
             streamR = new StreamReader(fileStream);
 
@@ -74,4 +71,5 @@ public class UIAtlasEditorConfig
 
         return basePath;
     }
+
 }

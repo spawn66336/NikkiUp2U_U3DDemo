@@ -246,6 +246,9 @@ public class SpecialEffectEditor
         timelineView.onItemSelected += OnTimeLineSelectChange; 
 
         vb3.Add(timelineView);
+
+        //add by liteng for hide mainviewroot
+        EditorHelper.debugMode = false;
     }
 
 

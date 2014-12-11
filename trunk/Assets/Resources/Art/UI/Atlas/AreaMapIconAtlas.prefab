@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: fa9eaecb54793fa4cab06cfd1f98222e, type: 2}
   mSprites:
   - name: A
-    x: 795
-    y: 1052
+    x: 503
+    y: 47
     width: 126
     height: 70
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: B
-    x: 605
-    y: 3
+    x: 630
+    y: 48
     width: 126
     height: 70
     borderLeft: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: buyDiamondTargetNum
-    x: 1436
-    y: 1248
+    x: 630
+    y: 3
     width: 127
     height: 44
     borderLeft: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: C
-    x: 605
-    y: 74
+    x: 630
+    y: 119
     width: 127
     height: 70
     borderLeft: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: coins_icon
     x: 442
-    y: 1012
+    y: 1063
     width: 35
     height: 45
     borderLeft: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: d_name
-    x: 1717
-    y: 1626
+    x: 1424
+    y: 1275
     width: 216
     height: 34
     borderLeft: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: diamond
     x: 442
-    y: 1058
+    y: 1109
     width: 53
     height: 46
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ding
-    x: 795
-    y: 1245
+    x: 783
+    y: 1262
     width: 640
     height: 47
     borderLeft: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: dl_jdk
-    x: 1717
-    y: 1661
+    x: 819
+    y: 1326
     width: 313
     height: 54
     borderLeft: 0
@@ -171,9 +171,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: eff_yuanhuanguang_01
+    x: 319
+    y: 383
+    width: 122
+    height: 122
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 3
+    paddingTop: 3
+    paddingBottom: 3
   - name: F
-    x: 605
-    y: 145
+    x: 503
+    y: 118
     width: 126
     height: 71
     borderLeft: 0
@@ -198,8 +211,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 19
   - name: flyflower_light
-    x: 693
-    y: 814
+    x: 684
+    y: 813
     width: 84
     height: 84
     borderLeft: 0
@@ -224,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: j3_5_quxiao
-    x: 442
-    y: 1105
+    x: 1975
+    y: 1665
     width: 50
     height: 50
     borderLeft: 0
@@ -237,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: k_a
-    x: 1584
-    y: 1318
+    x: 503
+    y: 190
     width: 157
     height: 62
     borderLeft: 0
@@ -250,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: k_a1
-    x: 1057
-    y: 1141
+    x: 1299
+    y: 1158
     width: 132
     height: 52
     borderLeft: 0
@@ -263,7 +276,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: k_k
-    x: 1418
+    x: 819
     y: 1381
     width: 354
     height: 244
@@ -276,8 +289,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 4
   - name: k_l
-    x: 605
-    y: 217
+    x: 1884
+    y: 1344
     width: 157
     height: 62
     borderLeft: 0
@@ -289,8 +302,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: k_l1
-    x: 1190
-    y: 1142
+    x: 1432
+    y: 1159
     width: 132
     height: 51
     borderLeft: 15
@@ -302,21 +315,21 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lastMap
-    x: 503
-    y: 1293
-    width: 318
-    height: 332
+    x: 1717
+    y: 1630
+    width: 257
+    height: 85
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: 28
+    paddingRight: 33
+    paddingTop: 114
+    paddingBottom: 133
   - name: left_button
-    x: 684
-    y: 700
+    x: 1884
+    y: 1515
     width: 110
     height: 110
     borderLeft: 0
@@ -328,7 +341,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: leftbutton
-    x: 1773
+    x: 1466
     y: 1398
     width: 227
     height: 227
@@ -342,7 +355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mission_normal
     x: 319
-    y: 173
+    y: 506
     width: 179
     height: 185
     borderLeft: 0
@@ -355,7 +368,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: mission_touched
     x: 319
-    y: 506
+    y: 173
     width: 179
     height: 185
     borderLeft: 0
@@ -393,8 +406,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pink button_line
-    x: 503
-    y: 1001
+    x: 1174
+    y: 1334
     width: 291
     height: 291
     borderLeft: 0
@@ -419,7 +432,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pink button_snow
-    x: 822
+    x: 503
     y: 1310
     width: 315
     height: 315
@@ -458,8 +471,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: s
-    x: 442
-    y: 938
+    x: 2011
+    y: 1629
     width: 36
     height: 35
     borderLeft: 0
@@ -471,8 +484,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: S
-    x: 795
-    y: 1123
+    x: 783
+    y: 1140
     width: 126
     height: 70
     borderLeft: 0
@@ -484,8 +497,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: S_0
-    x: 1138
-    y: 1304
+    x: 503
+    y: 988
     width: 279
     height: 321
     borderLeft: 0
@@ -497,8 +510,8 @@ MonoBehaviour:
     paddingTop: 47
     paddingBottom: 47
   - name: shops
-    x: 503
-    y: 811
+    x: 1694
+    y: 1436
     width: 189
     height: 189
     borderLeft: 0
@@ -510,10 +523,36 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shops_name
-    x: 922
-    y: 1140
+    x: 1164
+    y: 1157
     width: 134
     height: 53
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ss
+    x: 1037
+    y: 1140
+    width: 126
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sss
+    x: 910
+    y: 1140
+    width: 126
+    height: 70
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -562,8 +601,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 18
   - name: strength_icon
-    x: 684
-    y: 633
+    x: 679
+    y: 638
     width: 73
     height: 66
     borderLeft: 0
@@ -575,8 +614,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sure
-    x: 1418
-    y: 1314
+    x: 1466
+    y: 1331
     width: 165
     height: 66
     borderLeft: 0
@@ -588,8 +627,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: title
-    x: 442
-    y: 974
+    x: 1975
+    y: 1627
     width: 35
     height: 37
     borderLeft: 0
@@ -628,7 +667,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: zhix_1
     x: 503
-    y: 454
+    y: 631
     width: 175
     height: 175
     borderLeft: 0
@@ -640,8 +679,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zhix_2
-    x: 679
-    y: 522
+    x: 1884
+    y: 1407
     width: 107
     height: 107
     borderLeft: 0
@@ -667,7 +706,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: zhix_4
     x: 503
-    y: 630
+    y: 807
     width: 180
     height: 180
     borderLeft: 0
@@ -680,7 +719,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: zhix_5
     x: 503
-    y: 280
+    y: 457
     width: 173
     height: 173
     borderLeft: 0
@@ -693,7 +732,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: zjm_appraise
     x: 503
-    y: 76
+    y: 253
     width: 101
     height: 101
     borderLeft: 0
@@ -705,8 +744,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_appraise_an
-    x: 693
-    y: 899
+    x: 605
+    y: 355
     width: 101
     height: 101
     borderLeft: 0
@@ -718,8 +757,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_dress
-    x: 503
-    y: 178
+    x: 605
+    y: 253
     width: 101
     height: 101
     borderLeft: 0
@@ -731,8 +770,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_dress_an
-    x: 677
-    y: 352
+    x: 503
+    y: 355
     width: 101
     height: 101
     borderLeft: 0
@@ -744,8 +783,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_shop_virtual
-    x: 1877
-    y: 1296
+    x: 679
+    y: 705
     width: 103
     height: 101
     borderLeft: 0
@@ -757,8 +796,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_shop_virtual_an
-    x: 1773
-    y: 1296
+    x: 677
+    y: 529
     width: 103
     height: 101
     borderLeft: 0
@@ -770,8 +809,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_t
-    x: 795
-    y: 962
+    x: 684
+    y: 898
     width: 89
     height: 89
     borderLeft: 0
@@ -783,8 +822,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_title
-    x: 795
-    y: 1194
+    x: 783
+    y: 1211
     width: 400
     height: 50
     borderLeft: 0
@@ -796,8 +835,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: zjm_tk
-    x: 319
-    y: 395
+    x: 1694
+    y: 1325
     width: 121
     height: 110
     borderLeft: 0

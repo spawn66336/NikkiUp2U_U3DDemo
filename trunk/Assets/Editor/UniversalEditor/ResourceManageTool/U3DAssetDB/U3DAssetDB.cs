@@ -427,7 +427,7 @@ public class U3DAssetDB : IDisposable
     public void Save()
     {
         _TouchCacheFolder();
-         
+        UniversalEditorUtility.MakeFileWriteable(_GetCacheFilePath());
         StreamWriter yamlWriter = File.CreateText(_GetCacheFilePath());
         Serializer yamlSerializer = new Serializer(); 
         object obj = _GetSerializeObject(); 

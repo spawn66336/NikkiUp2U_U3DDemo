@@ -16,6 +16,7 @@ public class RewardPanelManager : MonoBehaviour
     public SpecialEffect rewardSpe;
 
     Animation rewardAnim;
+     
 
     class RewardNotifyInfo
     {
@@ -49,7 +50,7 @@ public class RewardPanelManager : MonoBehaviour
             {
                 return;
             }
-
+             
             if (UILocker.GetInstance().IsLocked())
             {
                 rewardSpe.Stop();
@@ -92,12 +93,12 @@ public class RewardPanelManager : MonoBehaviour
 
         UILocker.GetInstance().Lock(this.gameObject);
 
-        rewardAnim[rewardAnim.clip.name].normalizedSpeed = 1f;
+        rewardAnim[rewardAnim.clip.name].speed = 1f;
         rewardAnim[rewardAnim.clip.name].normalizedTime = 0;
         rewardAnim.Play();
 
         rewardSpe.Play();
-        currRewardInfo = null;
+        currRewardInfo = null; 
     }
 
     

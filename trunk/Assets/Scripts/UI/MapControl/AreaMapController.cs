@@ -3,7 +3,9 @@ using System.Collections;
 
 public class AreaMapController : MonoBehaviour 
 {
-    public Transform followTarget;
+    Transform followTarget;
+    [System.NonSerialized]
+    public bool canFollow;
 
     Transform trans;
     UIRect contentRect;
@@ -15,6 +17,7 @@ public class AreaMapController : MonoBehaviour
     {
         if( mPanel == null )
         mPanel = UIPanel.Find(gameObject.transform.parent);
+        followTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
      
@@ -26,16 +29,7 @@ public class AreaMapController : MonoBehaviour
 	}
 	
     void Update()
-    {
-        if( followTarget != null )
-        {
-            FindPanel();
-            Vector3 targetWorldPos = followTarget.position;
-            Transform t = mPanel.cachedTransform;
-            Matrix4x4 toLocal = t.worldToLocalMatrix;
-            Vector3 targetLocalPos = toLocal.MultiplyPoint3x4(targetWorldPos);
-            trans.localPosition -= targetLocalPos;
-        }
+    { 
     }
 
     void UpdateBounds()
@@ -56,7 +50,17 @@ public class AreaMapController : MonoBehaviour
     }
 
     void LateUpdate()
-    { 
+    {
+        if (followTarget != null)
+        {
+            FindPanel();
+            Vector3 targetWorldPos = followTarget.position;
+            Transform t = mPanel.cachedTransform;
+            Matrix4x4 toLocal = t.worldToLocalMatrix;
+            Vector3 targetLocalPos = toLocal.MultiplyPoint3x4(targetWorldPos);
+            trans.localPosition -= targetLocalPos;
+        }
+
         UpdateBounds(); 
         mPanel.ConstrainTargetToBounds(trans, ref mBounds, true);
 

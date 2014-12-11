@@ -19,7 +19,8 @@ public class TypewriterEffect : MonoBehaviour
 	string mText;
 	int mOffset = 0;
 	float mNextChar = 0f;
-	bool mReset = true;
+    [System.NonSerialized]
+	public bool mReset = true;
     void Awake()
     {
         mLabel = GetComponent<UILabel>();
@@ -82,6 +83,6 @@ public class TypewriterEffect : MonoBehaviour
     {
         mText = str;
         mReset = true;
-        rightNowIndex = 1;
+        
     }
 }

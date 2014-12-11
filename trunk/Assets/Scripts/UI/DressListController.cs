@@ -14,6 +14,8 @@ public class DressListController : UIController
 
     bool firstTime = true;
 
+    bool isDirty = false;
+
     public override void OnEnterUI()
     {
         base.OnEnterUI(); 
@@ -29,10 +31,7 @@ public class DressListController : UIController
     {
         dressListGrid = GetComponentInChildren<UIGrid>();
         dressListGrid.onCustomSort = _DressBtnListCompare; 
-        dressListGrid.sorting = UIGrid.Sorting.Custom;
-
-
-
+        dressListGrid.sorting = UIGrid.Sorting.Custom; 
 	}
 	 
 	void Update () 
@@ -56,6 +55,12 @@ public class DressListController : UIController
             dressListGrid.Reposition();
 
             firstTime = false;
+        }
+
+        if( isDirty )
+        {
+            isDirty = false;
+            dressListGrid.Reposition();
         }
 	}
 
@@ -93,11 +98,11 @@ public class DressListController : UIController
        {
            dressListScrollbar.value = 0f;
            dressListScrollbar.ForceUpdate();
-       }
-         
-       dressListGrid.Reposition(); 
+       } 
 
-       dressBtnList.Add(bagItemCtrl); 
+       dressBtnList.Add(bagItemCtrl);
+
+       isDirty = true;
     }
 
 
@@ -121,7 +126,8 @@ public class DressListController : UIController
         foreach( var btn in btnList )
         {
             GameObject.DestroyImmediate(btn.gameObject);
-        } 
-        dressListGrid.Reposition();
+        }
+
+        isDirty = true; 
     }
 }

@@ -42,6 +42,17 @@ public class UIElement : MonoBehaviour
             gameObject.SetActive(Visible);
         }
     }
+
+    public bool CanEdit
+    {
+        get
+        {
+            if(GetComponent<BoxCollider>() != null)
+                return true;
+
+            return IsUI;
+        }
+    }
     public bool IsUI
     {
         get { return (Lock ? !CanRemove() : GetWidget() != null); }
@@ -203,8 +214,35 @@ public class UIElement : MonoBehaviour
             else
             {
                 UIWidget w = GetWidget();
+                if(w != null)
+                {
+                    return w.worldCorners;
+                }
+                else
+                {
+                    BoxCollider box = GetComponent<BoxCollider>();
+                    if(box != null)
+                    {
+                        Vector3[] corner = new Vector3[4];
+                        Vector3 pos = this.gameObject.transform.position;
+                        pos += box.center;
 
-                return (w != null ? w.worldCorners : m_Corners);
+                        corner[0] = pos - box.size/2;
+                        corner[2] = pos + box.size/2;
+                        corner[1] = pos;
+                        corner[1].x -= box.size.x/2;
+                        corner[1].y += box.size.y/2;
+                        corner[3] = pos;
+                        corner[3].x += box.size.x/2;
+                        corner[3].y -= box.size.y/2;
+                        return corner;
+                        
+                    }
+                    else
+                    {
+                        return m_Corners;
+                    }
+                }
             }
         }
     }
@@ -309,6 +347,16 @@ public class UIElement : MonoBehaviour
     }
     public void Move(Vector3 move_delta)
     {
+        if(!Lock)
+        {
+            BoxCollider box = GetComponent<BoxCollider>();
+            if (box != null)
+            {
+                box.center += move_delta;
+                return;
+            }
+        }
+        
         transform.position += GetRealMoveDelta(GetParentUI(), this, move_delta);
     }
     public bool SetWidthDelta(int scale, float delta)
@@ -335,6 +383,33 @@ public class UIElement : MonoBehaviour
                         Move(new Vector3(w.width - new_width, 0));
                     }
                     w.width = new_width;
+                }
+            }
+            else
+            {
+                BoxCollider box = GetComponent<BoxCollider>();
+                if(box != null)
+                {
+                    float fMove = delta;
+                    if (scale != 0 && Mathf.Abs(fMove) > float.Epsilon)
+                    {
+                        Vector3 center = box.center;
+                        center.x += fMove / 2;
+                        box.center = center;
+
+                        Vector3 size = box.size;
+                        if(scale < 0)
+                        {
+                            size.x -= fMove;
+                        }
+                        else
+                        {
+                            size.x += fMove;
+                        }
+                        box.size = size;
+
+                        res = true;
+                    }
                 }
             }
         }
@@ -365,6 +440,33 @@ public class UIElement : MonoBehaviour
                         Move(new Vector3(0, w.height - new_height));
                     }
                     w.height = new_height;
+                }
+            }
+            else
+            {
+                BoxCollider box = GetComponent<BoxCollider>();
+                if (box != null)
+                {
+                    float fMove = delta;
+                    if (scale != 0 && Mathf.Abs(fMove) > float.Epsilon)
+                    {
+                        Vector3 center = box.center;
+                        center.y += fMove / 2;
+                        box.center = center;
+
+                        Vector3 size = box.size;
+                        if (scale < 0)
+                        {
+                            size.y -= fMove;
+                        }
+                        else
+                        {
+                            size.y += fMove;
+                        }
+                        box.size = size;
+
+                        res = true;
+                    }
                 }
             }
         }
@@ -519,5 +621,16 @@ public class UIElement : MonoBehaviour
         y_delta = (move_delta.y > 0 ? Mathf.Min(move_delta.y, Mathf.Max(y_delta, 0)) : Mathf.Max(move_delta.y, Mathf.Min(y_delta, 0)));
 
         return new Vector3(x_delta, y_delta);
+    }
+
+    public bool IsEditBoxCollider()
+    {
+        if (GetComponent<UIWidget>() != null)
+            return false;
+
+        if (GetComponent<BoxCollider>() != null)
+            return true;
+
+        return false;
     }
 }

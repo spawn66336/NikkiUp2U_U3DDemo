@@ -99,6 +99,7 @@ class BagInfoManager : IDataManager
             newInfo.itemId = itemId;
             newInfo.itemCount = count;
             typenum = count;
+            bagItemList.Add(newInfo);
         }
 
         GameItemDataBaseBean itemBean = GameDataBaseManager.getInstance().getGameItemBean(itemId);

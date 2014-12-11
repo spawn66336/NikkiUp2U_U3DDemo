@@ -42,10 +42,13 @@ public class RatingSysModuleServer : ModuleServer
             info.levelRank = (LevelRank)finalGrade.Grade;
             info.score = score;
             List<LevelRewardInfo> rewardList=new List<LevelRewardInfo>();
-            LevelRewardInfo reward = new LevelRewardInfo();
-            reward.itemId=10001;
-            reward.itemCount=1;
-            rewardList.Add(reward);
+            foreach (int rewardId in DataManager.GetInstance().getRewardList(levelInfo.RewardId))
+            {
+                LevelRewardInfo reward = new LevelRewardInfo();
+                reward.itemId = rewardId;
+                reward.itemCount = 1;
+                rewardList.Add(reward);
+            }
             info.rewards.AddRange(rewardList);
             info.comment = DataManager.GetInstance().getGradeComment(finalGrade.Grade);
             PlayerInfoManager.getInstance().finishLevel(levelInfo, dressSet.dressList, info,finalGrade.UsePower);

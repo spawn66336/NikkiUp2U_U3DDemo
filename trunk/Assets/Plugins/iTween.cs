@@ -3551,7 +3551,8 @@ public class iTween : MonoBehaviour{
 		//build calculated path:
 		vector3s = new Vector3[suppliedPath.Length+offset];
 		if(plotStart){
-			vector3s[1]=thisTransform.position;
+			//vector3s[1]=thisTransform.position;
+            vector3s[1] = thisTransform.localPosition;
 			offset=2;
 		}else{
 			offset=1;

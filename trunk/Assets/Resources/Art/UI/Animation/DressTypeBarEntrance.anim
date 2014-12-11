@@ -18,13 +18,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: {x: 115.745697, y: 0, z: 0}
-        inSlope: {x: -397.523743, y: 0, z: 0}
-        outSlope: {x: -397.523743, y: 0, z: 0}
+        inSlope: {x: -695.666504, y: 0, z: 0}
+        outSlope: {x: -695.666504, y: 0, z: 0}
         tangentMode: -1008213109
-      - time: .583333313
+      - time: .333333343
         value: {x: -116.143143, y: 0, z: 0}
-        inSlope: {x: -397.523743, y: 0, z: 0}
-        outSlope: {x: -397.523743, y: 0, z: 0}
+        inSlope: {x: -695.666504, y: 0, z: 0}
+        outSlope: {x: -695.666504, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -37,10 +37,13 @@ AnimationClip:
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .583333313
+    m_StopTime: .333333343
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -60,13 +63,13 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 115.745697
-        inSlope: -397.523743
-        outSlope: -397.523743
+        inSlope: -695.666504
+        outSlope: -695.666504
         tangentMode: 10
-      - time: .583333313
+      - time: .333333343
         value: -116.143143
-        inSlope: -397.523743
-        outSlope: -397.523743
+        inSlope: -695.666504
+        outSlope: -695.666504
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -82,7 +85,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .583333313
+      - time: .333333343
         value: 0
         inSlope: 0
         outSlope: 0
@@ -101,7 +104,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .583333313
+      - time: .333333343
         value: 0
         inSlope: 0
         outSlope: 0

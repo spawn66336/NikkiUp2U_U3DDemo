@@ -21,6 +21,8 @@ public class LevelDialogPanelController : UIController
     public float[] yValue;//0 nikki 1 yoyo 2 neko
     public string[] containsName;
     public GameObject backMapButton;
+
+    public GameObject tiaoGuoButton;
     public override void OnEnterUI()
     {
         base.OnEnterUI();
@@ -34,13 +36,30 @@ public class LevelDialogPanelController : UIController
         }
 
         dialogLength = dialogStrs.Length;
-        mTypewriterEffect.SetInit(dialogStrs[0]);
+        mTypewriterEffect.SetInit(dialogStrs[0]);        
+        mTypewriterEffect.rightNowIndex = 0;
         bkImg.mainTexture = PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.bkImg;
         ChangeTexes();
+        mTypewriterEffect.rightNowIndex = 1;
         UIEventListener.Get(sureObj).onClick += EnsureButton;
         UIEventListener.Get(cancelObj).onClick += CancelButton;
         kaishiRenwuObj.SetActive(false);
         UIEventListener.Get(backMapButton).onClick += BackToMapEvent;
+        UIEventListener.Get(tiaoGuoButton).onClick += JumpToChange;
+//        Debug.Log("***************************currlevel index  " + PlayerUIResource.GetInstance().CurrLevelIndex + "   " + PlayerUIResource.GetInstance().CurrAreaMapFinishedLevelCount);
+        if (PlayerUIResource.GetInstance().CurrLevelIndex < (PlayerUIResource.GetInstance().CurrAreaMapFinishedLevelCount))
+        {
+            tiaoGuoButton.SetActive(true);
+        }
+        else
+        {
+            tiaoGuoButton.SetActive(false);
+        }
+    }
+
+    private void JumpToChange(GameObject go)
+    {        
+        kaishiRenwuObj.SetActive(true);
     }
     
     public override void OnLeaveUI()
@@ -49,6 +68,7 @@ public class LevelDialogPanelController : UIController
         UIEventListener.Get(sureObj).onClick -= EnsureButton;
         UIEventListener.Get(cancelObj).onClick -= CancelButton;
         UIEventListener.Get(backMapButton).onClick -= BackToMapEvent;
+        UIEventListener.Get(tiaoGuoButton).onClick -= JumpToChange;
     }
     public void OnClickBackground()
     {
@@ -56,7 +76,7 @@ public class LevelDialogPanelController : UIController
         {
             ChangeTexes();
             mTypewriterEffect.ChangeNextTex(dialogStrs[mTypewriterEffect.rightNowIndex]);
-
+//            Debug.Log(" 00000  mTypewriterEffect.rightNowIndex  " + mTypewriterEffect.rightNowIndex + " dialog length  " + dialogLength);
             
         }
         else
@@ -64,12 +84,19 @@ public class LevelDialogPanelController : UIController
 
             if (mTypewriterEffect.rightNowIndex == dialogLength)
             {
-                mTypewriterEffect.ShowLastTex();
-                //ChangeTexes();
+                //Debug.Log("index is last   " + dialogLength + "  reset  " + mTypewriterEffect.mReset + "  rightnow index  " + mTypewriterEffect.rightNowIndex);
+                if (mTypewriterEffect.mReset)
+                {
+                    mTypewriterEffect.ShowLastTex();
+                }
+                else
+                {
+
+                    kaishiRenwuObj.SetActive(true);
+                }
             }
             else
             {
-                //TweenScale.Begin(kaishiRenwuObj,0.5f,)
                 kaishiRenwuObj.SetActive(true);
             }
         }
@@ -77,7 +104,7 @@ public class LevelDialogPanelController : UIController
 
     void ChangeTexes()
     {
-
+        //Debug.Log("1111111111111   "+mTypewriterEffect.rightNowIndex);
        
         showall = new bool[3] { false, false, false };
         for (int i = 0; i < PlayerUIResource.GetInstance().CurrLevelUIInfo.levelInfo.dialogInfo.contents[mTypewriterEffect.rightNowIndex].npcImgs.Count; ++i)
