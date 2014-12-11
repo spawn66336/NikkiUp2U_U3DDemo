@@ -359,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -336.999969, y: 63, z: 0}
+  m_LocalPosition: {x: -395, y: -422, z: 0}
   m_LocalScale: {x: 1.00024796, y: 1.00024796, z: 1.00024796}
   m_Children:
   - {fileID: 400034}
@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65, y: 225, z: 0}
+  m_LocalPosition: {x: -395, y: 405, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400022}
@@ -397,7 +397,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 217, y: 225, z: 0}
+  m_LocalPosition: {x: 87, y: 448, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400010}
@@ -410,7 +410,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 321, y: 272, z: 0}
+  m_LocalPosition: {x: 445, y: 474, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -423,7 +423,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 350, y: 319, z: 0}
+  m_LocalPosition: {x: 636, y: 544, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400036}
@@ -436,7 +436,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -139, y: 225, z: 0}
+  m_LocalPosition: {x: -669, y: 99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400024}
@@ -485,7 +485,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -247, y: 183.999985, z: 0}
+  m_LocalPosition: {x: -682, y: -148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400028}
@@ -551,8 +551,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500004
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -563,8 +563,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500006
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -575,8 +575,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500010
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -587,8 +587,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500012
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -599,8 +599,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500014
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -611,8 +611,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500016
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -623,8 +623,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.6878586, y: 29.8265896, z: 0}
-  m_Center: {x: -.156069756, y: -.0867052078, z: 0}
+  m_Size: {x: 125.271675, y: 69.5953751, z: 0}
+  m_Center: {x: -.364162445, y: -.202312469, z: 0}
 --- !u!65 &6500020
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a9724fa5e6a7f4497135fae3ab8d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followTarget: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -678,13 +679,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 26
+  mWidth: 126
+  mHeight: 70
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.07692313
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
   mSpriteName: favorability_leverup_light
   mType: 0
@@ -775,13 +776,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 26
+  mWidth: 126
+  mHeight: 70
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.07692313
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
   mSpriteName: favorability_leverup_light
   mType: 0
@@ -825,13 +826,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 26
+  mWidth: 126
+  mHeight: 70
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.07692313
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
   mSpriteName: favorability_leverup_light
   mType: 0
@@ -897,8 +898,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -947,8 +948,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -997,13 +998,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 26
+  mWidth: 126
+  mHeight: 70
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.07692313
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
   mSpriteName: favorability_leverup_light
   mType: 0
@@ -1069,8 +1070,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1141,8 +1142,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1213,8 +1214,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1263,8 +1264,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1357,13 +1358,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 26
+  mWidth: 126
+  mHeight: 70
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.07692313
+  aspectRatio: 1.79999995
   mAtlas: {fileID: 11400000, guid: 86140dd440177e4419e4d81828043828, type: 2}
   mSpriteName: favorability_leverup_light
   mType: 0
@@ -1457,8 +1458,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 54
-  mHeight: 30
+  mWidth: 126
+  mHeight: 70
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0

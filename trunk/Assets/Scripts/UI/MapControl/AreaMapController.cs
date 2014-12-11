@@ -3,9 +3,7 @@ using System.Collections;
 
 public class AreaMapController : MonoBehaviour 
 {
-    Transform followTarget;
-    [System.NonSerialized]
-    public bool canFollow;
+    public Transform followTarget; 
 
     Transform trans;
     UIRect contentRect;
@@ -16,20 +14,25 @@ public class AreaMapController : MonoBehaviour
     void FindPanel()
     {
         if( mPanel == null )
-        mPanel = UIPanel.Find(gameObject.transform.parent);
-        followTarget = GameObject.FindGameObjectWithTag("Player").transform;
+        mPanel = UIPanel.Find(gameObject.transform.parent); 
+    }
+
+    void Awake()
+    {
+        trans = gameObject.transform;
+        contentRect = GetComponent<UIRect>();
     }
 
      
 	// Use this for initialization
 	void Start () 
     {
-        trans = gameObject.transform; 
-        contentRect = GetComponent<UIRect>();
+     
 	}
 	
     void Update()
-    { 
+    {
+
     }
 
     void UpdateBounds()
@@ -49,6 +52,18 @@ public class AreaMapController : MonoBehaviour
         trans.localPosition += offset;
     }
 
+    public void SetLookAt( Transform target )
+    { 
+        Vector3 targetWorldPos = target.position;
+        Matrix4x4 toLocal = trans.worldToLocalMatrix;
+        Vector3 targetLocalPos = toLocal.MultiplyPoint3x4(targetWorldPos);
+        trans.localPosition = -targetLocalPos; 
+
+        UpdateBounds();
+        mPanel.ConstrainTargetToBounds(trans, ref mBounds, true); 
+    }
+
+
     void LateUpdate()
     {
         if (followTarget != null)
@@ -57,12 +72,12 @@ public class AreaMapController : MonoBehaviour
             Vector3 targetWorldPos = followTarget.position;
             Transform t = mPanel.cachedTransform;
             Matrix4x4 toLocal = t.worldToLocalMatrix;
+            toLocal = trans.worldToLocalMatrix;
             Vector3 targetLocalPos = toLocal.MultiplyPoint3x4(targetWorldPos);
-            trans.localPosition -= targetLocalPos;
+            trans.localPosition = -targetLocalPos;
         }
 
-        UpdateBounds(); 
-        mPanel.ConstrainTargetToBounds(trans, ref mBounds, true);
-
+        UpdateBounds();
+        mPanel.ConstrainTargetToBounds(trans, ref mBounds, true); 
     }
 }

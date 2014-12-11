@@ -45,11 +45,11 @@ public class UIMapController : MonoBehaviour
         playerAnim = playerObj.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
 
         Init(levelNowIndex); 
-
-        //playerObj.transform.parent = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex+levelBeginIndex];
-        playerNowSubLevelIndex = PlayerUIResource.GetInstance().CurrLevelIndex+levelBeginIndex;
-        //playerObj.transform.position = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex + levelBeginIndex].position;
+         
+        playerNowSubLevelIndex = PlayerUIResource.GetInstance().CurrLevelIndex+levelBeginIndex; 
         playerObj.transform.localPosition = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex + levelBeginIndex].localPosition;
+
+        mAreaMapController.SetLookAt(playerObj.transform);
 
         UIEventListener.Get(nextButton).onClick += ChangeToNextLevel;
         UIEventListener.Get(lockOkButton).onClick += LockButtonEvent;
@@ -92,27 +92,15 @@ public class UIMapController : MonoBehaviour
         levelNow = Object.Instantiate(levels[levelNameIndex], Vector3.zero, Quaternion.identity) as GameObject;//创建此关位置，看资源管理
         buttonTrans.Clear();
         levelNow.transform.parent = transform;
-        //levelNow.transform.localScale = Vector3.one*2;
+        levelNow.transform.localPosition = Vector3.zero;
+        levelNow.transform.localScale = Vector3.one;
+        levelNow.transform.localRotation = Quaternion.identity;
+
         levelNow.name = levelNowIndex.ToString();
         if (levelNow.GetComponent<AreaMapController>() != null)
             mAreaMapController = levelNow.GetComponent<AreaMapController>();
-        //levelUIMapTrans = new Transform[levelNow.transform.childCount];
-        //for (int i = 0; i < levelNow.transform.childCount; ++i)
-        //{
-        //    levelUIMapTrans[i] = levelNow.transform.GetChild(i);
-        //    Transform[] childTrans = new Transform[levelUIMapTrans[i].childCount];
-        //    if (childTrans.Length > 0)
-        //    {
-        //        for (int j = 0; j < childTrans.Length; ++j)
-        //        {
-        //            childTrans[j] = levelUIMapTrans[i].GetChild(j);                   
-        //            if (!buttonTrans.Contains(childTrans[j]))
-        //                buttonTrans.Add(childTrans[j]);                   
-        //        }
-        //    }
-        //}
 
-        UIButton[] levelPoints =  transform.GetComponentsInChildren<UIButton>(); 
+        UIButton[] levelPoints = levelNow.transform.GetComponentsInChildren<UIButton>(); 
         foreach( var point in levelPoints )
         {
             if (!buttonTrans.Contains(point.transform))
@@ -144,10 +132,7 @@ public class UIMapController : MonoBehaviour
         }
         else 
         {
-            buttonTrans[0].gameObject.SetActive(true);    
-            /*if(buttonTrans[0].GetComponent<UIEventListener>()==null)
-                buttonTrans[0].gameObject.AddComponent<UIEventListener>();
-            UIEventListener.Get(buttonTrans[0].gameObject).onClick += BackToUpLevel;*/
+            buttonTrans[0].gameObject.SetActive(true);     
             if (upLevelButton.GetComponent<UIEventListener>())
                 upLevelButton.AddComponent<UIEventListener>();
             UIEventListener.Get(upLevelButton).onClick += BackToUpLevel;
@@ -243,14 +228,12 @@ public class UIMapController : MonoBehaviour
         PlayerUIResource.GetInstance().CurrAreaMapIndex--;
         DisAll();
         Init(PlayerUIResource.GetInstance().CurrAreaMapIndex);
-        //PlayerUIResource.GetInstance().CurrLevelIndex = 0;
 
         PlayerUIResource.GetInstance().CurrLevelIndex = buttonTrans.Count - 1;//1-5 当是0时候开始，最后5时候结束 
-        playerNowSubLevelIndex = buttonTrans.Count-1;
-       // Debug.Log("PlayerUIResource.GetInstance().CurrLevelIndex  " + PlayerUIResource.GetInstance().CurrLevelIndex);
-        //playerObj.transform.parent = buttonTrans[playerNowSubLevelIndex];
-        //playerObj.transform.localPosition = Vector3.zero;
-        playerObj.transform.position = buttonTrans[playerNowSubLevelIndex].position;
+        playerNowSubLevelIndex = buttonTrans.Count-1; 
+        playerObj.transform.localPosition = buttonTrans[playerNowSubLevelIndex].localPosition;
+        mAreaMapController.SetLookAt(playerObj.transform);
+
         nextButton.SetActive(true);
         beginButton.SetActive(false);
         upLevelButton.SetActive(false);
@@ -393,9 +376,10 @@ public class UIMapController : MonoBehaviour
         PlayerUIResource.GetInstance().CurrLevelIndex = 0;
         DisAll();
         Init(PlayerUIResource.GetInstance().CurrAreaMapIndex);
-        //PlayerUIResource.GetInstance().CurrLevelIndex = 0;
-        //playerObj.transform.parent = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex];
-        //playerObj.transform.localPosition = Vector3.zero;
+        PlayerUIResource.GetInstance().CurrLevelIndex = 0; 
+        playerObj.transform.localPosition = buttonTrans[PlayerUIResource.GetInstance().CurrLevelIndex].localPosition; 
+        mAreaMapController.SetLookAt(playerObj.transform);
+
         playerNowSubLevelIndex = PlayerUIResource.GetInstance().CurrLevelIndex;
         nextButton.SetActive(false);
         beginButton.SetActive(false);
@@ -418,7 +402,7 @@ public class UIMapController : MonoBehaviour
         args = new Hashtable();
         args.Add("path", pathPoints);
         args.Add("easeType", iTween.EaseType.linear);
-        args.Add("speed",200f);
+        args.Add("speed",600f);
         args.Add("movetopath", false);
         args.Add("oncomplete","CompleteMove");
         args.Add("oncompletetarget",gameObject);
@@ -427,7 +411,7 @@ public class UIMapController : MonoBehaviour
         iTween.MoveTo(playerObj, args);
         if (mAreaMapController != null)
         {
-            mAreaMapController.canFollow = true;
+            mAreaMapController.followTarget = playerObj.transform;
         }
         movingnowplayer = true;
         
@@ -436,13 +420,11 @@ public class UIMapController : MonoBehaviour
     void CompleteMove()
     {
         // complete event
-        lcokObjBox.SetActive(false);
-        //playerObj.transform.parent = endTrans;
-        //UILocker.GetInstance().UnLock(gameObject);
+        lcokObjBox.SetActive(false); 
         playerAnim.SetBool("walk", false);
         if (mAreaMapController != null)
         {
-            mAreaMapController.canFollow = false;
+            mAreaMapController.followTarget = null;
         }
         movingnowplayer = false;
     }
@@ -454,14 +436,7 @@ public class UIMapController : MonoBehaviour
     bool movingnowplayer;
     void Update()
     {
-        if (movingnowplayer)
-        {
-            Debug.Log("player obj  " + playerObj.transform.position );
-            foreach (Transform o in movePahts)
-            {
-                Debug.Log(o.name + "   " + o.transform.position);
-            }
-        }
+ 
         if (nextLevelEffectBool)
         {
             if (!enterButtoneffect.IsPlaying())

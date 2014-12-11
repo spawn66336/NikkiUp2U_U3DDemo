@@ -112,7 +112,7 @@ GameObject:
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
   - 114: {fileID: 11400018}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Par04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 198: {fileID: 19800002}
   - 199: {fileID: 19900002}
   - 114: {fileID: 11400020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Par02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400016}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Quad_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - 198: {fileID: 19800004}
   - 199: {fileID: 19900004}
   - 114: {fileID: 11400022}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Par01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400020}
   - 114: {fileID: 11400024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: eff_card_light_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ MonoBehaviour:
   mFont: {fileID: 0}
   mText: "\u606D\u559C\u83B7\u5F97\u91D1\u5E01\u5956\u52B1586"
   mFontSize: 16
-  mFontStyle: 1
+  mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
   mMaxLineCount: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
   mApplyGradient: 1
   mGradientTop: {r: 0, g: 0, b: 0, a: 1}
   mGradientBottom: {r: 0, g: 0, b: 0, a: 1}
-  mSpacingX: 0
+  mSpacingX: 3
   mSpacingY: 0
   mShrinkToFit: 0
   mMaxLineWidth: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
   mApplyGradient: 1
   mGradientTop: {r: 0, g: 0, b: 0, a: 1}
   mGradientBottom: {r: 0, g: 0, b: 0, a: 1}
-  mSpacingX: 0
+  mSpacingX: 3
   mSpacingY: 0
   mShrinkToFit: 0
   mMaxLineWidth: 0

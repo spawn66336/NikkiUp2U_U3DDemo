@@ -4,89 +4,163 @@
     <Content>
       <NPCS>
 	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
+        <NPC Name="大喵" ImageId="neko1" Position="1" />
       </NPCS>
-      <Value>今天天气真好呀呀呀呀呀呀呀</Value>
+      <Value>暖暖，暖暖，暖暖，我的脸不见了。怎么不见了。。</Value>
       <!--Key是否关键对话(True / False)-->
       <Key>False</Key>
     </Content>
     <Content>
       <NPCS>
-        <NPC Name="暖暖" ImageId="nikki1" Position="2" />
-        <NPC Name="大喵" ImageId="neko2" Position="1" />
+	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
+        <NPC Name="暖暖" ImageId="nikki6" Position="3" />
       </NPCS>
-      <Value>你好漂亮啊啊啊啊啊</Value>
+      <Value>嗯，咳咳，我来看一看，丫。谁放了块布在你脸上，【偷笑】</Value>
+      <!--Key是否关键对话(True / False)-->
+      <Key>False</Key>
+    </Content>
+    <Content>
+      <NPCS>
+	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
+        <NPC Name="大喵" ImageId="neko5" Position="1" />
+        <NPC Name="暖暖" ImageId="nikki6" Position="3" />
+      </NPCS>
+      <Value>OMG，吓死我啦啦啦啦，我的脸终于回来了</Value>
+      <!--Key是否关键对话(True / False)-->
+      <Key>False</Key>
+    </Content>
+    <Content>
+      <NPCS>
+        <NPC Name="暖暖" ImageId="nikki6" Position="3" />
+        <NPC Name="大喵" ImageId="neko3" Position="1" />
+      </NPCS>
+      <Value>好啦好啦。大喵，我带你去做游轮好不啦好不啦，表桑心了，昂。</Value>
       <Item>1147936</Item>
+      <Key>False</Key>
+    </Content>
+    <Content>
+      <NPCS>
+	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
+        <NPC Name="大喵" ImageId="neko4" Position="1" />
+        <NPC Name="暖暖" ImageId="nikki6" Position="3" />
+      </NPCS>
+      <Value>哇，游轮，暖暖，快去换一下适合大海的衣服吧~</Value>
+      <!--Key是否关键对话(True / False)-->
       <Key>True</Key>
     </Content>
   </LevelDialog>
   
-    <LevelDialog Id="2" BackgroundImageId="4_1_1_i5">
+  <LevelDialog Id="2" BackgroundImageId="4_1_1_i5">
     <Content>
       <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
+        <NPC Name="优优" ImageId="yoyo5" Position="1" />
       </NPCS>
-      <Value>123456</Value>
-      <!--Key是否关键对话(True / False)-->
+      <Value>今天天气真好哎，APCE蓝果然不同凡响~</Value>
       <Key>False</Key>
     </Content> 
-	    <Content>
+    <Content>
       <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
+        <NPC Name="暖暖" ImageId="nikki4" Position="3" />
+        <NPC Name="优优" ImageId="yoyo5" Position="1" />
       </NPCS>
-      <Value>我讲的意思，不是钦点他（用手指着座位上的董建华）当下一任。 你问我支持不支持，我说支持。 我就明确给你、告诉你。</Value>
-      <!--Key是否关键对话(True / False)-->
+      <Value>是的呢，不如我们一起去看看银杏吧~</Value>
       <Key>False</Key>
     </Content> 
-	    <Content>
+    <Content>
       <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
+        <NPC Name="优优" ImageId="yoyo5" Position="1" />
       </NPCS>
-      <Value>但是你们吧，你们——我感觉你们新闻界，还要学习一个 你们非常熟悉西方的那一套的理论，你们毕竟还too young!——明白这意思吗？！ </Value>
-      <!--Key是否关键对话(True / False)-->
-      <Key>False</Key>
-    </Content> 
-	<Content>
-      <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
-      </NPCS>
-      <Value>我告诉你们，我是身经百战了！见得多了！西方的哪个国家我没去过？！</Value>
-      <!--Key是否关键对话(True / False)-->
-      <Key>False</Key>
-    </Content>  
-	
-	<Content>
-      <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
-      </NPCS>
-      <Value> 你们要知道，美国的华莱士，那比你们不知要高到哪里去了！ 嗯，我跟他谈笑风声。 就是说媒体呀，还是要提高自己的知识水平。 （用粤语讲）懂不懂呀？</Value>
-      <!--Key是否关键对话(True / False)-->
-      <Key>False</Key>
-    </Content> 
-	
-	<Content>
-      <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
-      </NPCS>
-      <Value> 唉，我也替你们着急呀，真的。 你们就——我以为整天的—— 你们有一个好——全世界跑到什么地方，你们比其他的西方记者，跑得还快！</Value>
-      <!--Key是否关键对话(True / False)-->
+      <Value>好主意，那就这样说定啦。等我回去换个衣服，啊，暖暖，你也去换一下适合出去踏青的衣服吧，清新一点哟~~</Value>
       <Key>True</Key>
     </Content> 
-	
-	<Content>
+  </LevelDialog>
+  
+  <LevelDialog Id="3" BackgroundImageId="4_1_1_i5">
+    <Content>
       <NPCS>
-	<!--Name NPC名称，Imageid NPC图片文件名(string);Position NPC位置(int > 0)-->
-        <NPC Name="暖暖" ImageId="nikki2" Position="2" />
+        <NPC Name="暖暖" ImageId="nikki4" Position="1" />
       </NPCS>
-      <Value>但是问来问去的问题呀，都too simple!啊~ sometimes naive!</Value>
-      <!--Key是否关键对话(True / False)-->
+      <Value>我听说日本的樱花每年这个时候最美了~~</Value>
       <Key>False</Key>
     </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="酱酱" ImageId="jiang1" Position="3" />
+      </NPCS>
+      <Value>是的呢，每每这个时候，樱花树下的妹纸是最多的呢~</Value>
+      <Key>False</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="暖暖" ImageId="nikki2" Position="1" />
+        <NPC Name="酱酱" ImageId="jiang1" Position="3" />
+      </NPCS>
+      <Value>那我们一起去看樱花吧，我还没有去过呢。【ps:哼，就知道女生女生，我一定要穿的可爱一点，不然满眼里的樱花妹纸，哪里还能看到我呢。】</Value>
+      <Key>True</Key>
+    </Content> 
+  </LevelDialog>
+  
+    <LevelDialog Id="4" BackgroundImageId="4_1_1_i5">
+    <Content>
+      <NPCS>
+        <NPC Name="大喵" ImageId="neko4" Position="1" />
+      </NPCS>
+      <Value>我要吃五花肉五花肉五花肉~~~</Value>
+      <Key>False</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="暖暖" ImageId="nikki3" Position="3" />
+      </NPCS>
+      <Value>这巍峨的宫殿，这华丽的宫装，却救赎不了终日只为皇恩争斗的美艳女子。唉</Value>
+      <Key>False</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="大喵" ImageId="neko4" Position="1" />
+        <NPC Name="暖暖" ImageId="nikki2" Position="3" />
+      </NPCS>
+      <Value>暖暖，你在感慨什么呐，这些衣服好漂亮哎，你去找些相似的衣服来穿好不好？不晓得古风适不适合你丫~</Value>
+      <Key>True</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="暖暖" ImageId="nikki3" Position="3" />
+      </NPCS>
+      <Value>也不知道，那些女子是何等艳丽，这些衣服竟如此美丽~</Value>
+      <Key>False</Key>
+    </Content> 
+  </LevelDialog>
+  
+    <LevelDialog Id="5" BackgroundImageId="4_1_1_i5">
+    <Content>
+      <NPCS>
+        <NPC Name="优优" ImageId="yoyo4" Position="1" />
+      </NPCS>
+      <Value>张根硕欧巴，尊的是太帅了，还有寅成欧巴的大长腿~~~</Value>
+      <Key>False</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="布朗" ImageId="brown2" Position="2" />
+      </NPCS>
+      <Value>总看这些没用的。。。。。</Value>
+      <Key>False</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="大喵" ImageId="neko4" Position="3" />
+        <NPC Name="优优" ImageId="yoyo4" Position="1" />
+      </NPCS>
+      <Value>姐姐，欧巴你是看不了了，不如我们去吃点韩餐丫~~~</Value>
+      <Key>False</Key>
+    </Content> 
+    <Content>
+      <NPCS>
+        <NPC Name="优优" ImageId="yoyo4" Position="1" />
+      </NPCS>
+      <Value>啊，这样也不错呢。我也要和韩国欧尼们一样优雅美丽~~</Value>
+      <Key>True</Key>
+    </Content>
   </LevelDialog>
 </LevelDialogList>

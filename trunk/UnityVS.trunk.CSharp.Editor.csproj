@@ -123,6 +123,7 @@
     <Compile Include="Assets\Editor\UniversalEditor\Base\EditorRoot.cs" />
     <Compile Include="Assets\Editor\UniversalEditor\Base\Tools\Drawing.cs" />
     <Compile Include="Assets\Editor\UniversalEditor\Base\UnityInternalIconCache.cs" />
+    <Compile Include="Assets\Editor\UniversalEditor\Base\UniversalEditorUtility.cs" />
     <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ButtonRenderStrategy.cs" />
     <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ColorCtrlRenderStrategy.cs" />
     <Compile Include="Assets\Editor\UniversalEditor\Base\Visitor\CtrlRenderStrategy\ComboBoxRenderStrategy.cs" />

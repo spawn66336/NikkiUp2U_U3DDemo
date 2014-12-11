@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RewardList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Reward Id="1" Num="1">
-    <Item Id="10001" Ratio="1" />
+    <Item Id="10003" Ratio="1" />
   </Reward>
   <Reward Id="2" Num="1">
-    <Item Id="10198" Ratio="1" />
+    <Item Id="10213" Ratio="1" />
   </Reward>
 </RewardList>

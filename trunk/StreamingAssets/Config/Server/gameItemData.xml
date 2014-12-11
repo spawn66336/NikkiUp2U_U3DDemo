@@ -825,7 +825,7 @@
       <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10226" ItemName="改良水手服·蓝" ItemType="0" Rareness="2" Desc="海水令人心旷神怡，这件蓝色的改良水手服也是如此。" DressType="1" Score="1000" ShowPoition="(629.5,1297.5)" PriceGold="1000" PriceDiamond="0">
+  <GameItemDataBaseBean ItemId="10226" ItemName="改良水手服·蓝" ItemType="0" Rareness="2" Desc="海水令人心旷神怡，这件蓝色的改良水手服也是如此。" DressType="2" Score="1000" ShowPoition="(629.5,1297.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
       <ratio>1</ratio>
       <ratio>0.5</ratio>
@@ -957,40 +957,7 @@
       <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10135" ItemName="薄荷糖" ItemType="0" Rareness="2" Desc="透明清凉，就像吃了一颗薄荷糖一样凉滋滋透到心底。" DressType="2" Score="1000" ShowPoition="(625,1312.5)" PriceGold="1000" PriceDiamond="0">
-    <StyleList>
-      <ratio>1</ratio>
-      <ratio>0.5</ratio>
-      <ratio>0.5</ratio>
-      <ratio>0.5</ratio>
-      <ratio>0.85</ratio>
-      <ratio>1</ratio>
-      <ratio>0.85</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.85</ratio>
-      <ratio>0.5</ratio>
-      <ratio>0.5</ratio>
-      <ratio>1</ratio>
-      <ratio>0.5</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.5</ratio>
-      <ratio>0.2</ratio>
-      <ratio>1</ratio>
-      <ratio>1</ratio>
-      <ratio>1</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.2</ratio>
-      <ratio>0.5</ratio>
-    </StyleList>
-    <AttributeList>
-      <Attribute Type="0" Id="7" />
-    </AttributeList>
-  </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10371" ItemName="登山服" ItemType="0" Rareness="2" Desc="兼具保暖与时尚的登山服，给予主人温柔的保护。" DressType="2" Score="1000" ShowPoition="(645,1209.5)" PriceGold="1000" PriceDiamond="0">
+  <GameItemDataBaseBean ItemId="10371" ItemName="登山服" ItemType="0" Rareness="2" Desc="兼具保暖与时尚的登山服，给予主人温柔的保护。" DressType="1" Score="1000" ShowPoition="(645,1209.5)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
       <ratio>1</ratio>
       <ratio>0.5</ratio>
@@ -1122,7 +1089,7 @@
       <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10793" ItemName="草原之花" ItemType="0" Rareness="2" Desc="给漫无边际的草原增添一份色彩吧，象征勇敢与无畏的红色如何？" DressType="2" Score="1000" ShowPoition="(635,1100)" PriceGold="1000" PriceDiamond="0">
+  <GameItemDataBaseBean ItemId="10793" ItemName="草原之花" ItemType="0" Rareness="2" Desc="给漫无边际的草原增添一份色彩吧，象征勇敢与无畏的红色如何？" DressType="3" Score="1000" ShowPoition="(635,1100)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
       <ratio>1</ratio>
       <ratio>0.5</ratio>
@@ -1155,7 +1122,7 @@
       <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10857" ItemName="勇敢的心·银" ItemType="0" Rareness="2" Desc="纯金的的衣领纽扣雕刻着军队的标志，只有将军才配得上这身银白的军装。将军专用。" DressType="2" Score="1000" ShowPoition="(645.5,1202)" PriceGold="1000" PriceDiamond="0">
+  <GameItemDataBaseBean ItemId="10857" ItemName="勇敢的心·银" ItemType="0" Rareness="2" Desc="纯金的的衣领纽扣雕刻着军队的标志，只有将军才配得上这身银白的军装。将军专用。" DressType="1" Score="1000" ShowPoition="(645.5,1202)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
       <ratio>1</ratio>
       <ratio>0.5</ratio>
@@ -1452,7 +1419,7 @@
       <Attribute Type="0" Id="7" />
     </AttributeList>
   </GameItemDataBaseBean>
-  <GameItemDataBaseBean ItemId="10310" ItemName="简单生活·蓝" ItemType="0" Rareness="2" Desc="用蓝色的缎带扎一个普通的蝴蝶结，青春的气息立刻就跳跃出来了，要知道简单也是一种美丽。" DressType="3" Score="1000" ShowPoition="(629.5,1117)" PriceGold="1000" PriceDiamond="0">
+  <GameItemDataBaseBean ItemId="10310" ItemName="简单生活·蓝" ItemType="0" Rareness="2" Desc="用蓝色的缎带扎一个普通的蝴蝶结，青春的气息立刻就跳跃出来了，要知道简单也是一种美丽。" DressType="2" Score="1000" ShowPoition="(629.5,1117)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
       <ratio>1</ratio>
       <ratio>0.5</ratio>
@@ -2575,6 +2542,39 @@
     </AttributeList>
   </GameItemDataBaseBean>
   <GameItemDataBaseBean ItemId="10125" ItemName="幸运发带" ItemType="0" Rareness="1" Desc="四叶草主题的发带，据说只要戴着它就能带来好运。" DressType="7" Score="1000" ShowPoition="(678,1659)" PriceGold="1000" PriceDiamond="0">
+    <StyleList>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.85</ratio>
+      <ratio>1</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.85</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.5</ratio>
+      <ratio>1</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+      <ratio>0.2</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>1</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.2</ratio>
+      <ratio>0.5</ratio>
+    </StyleList>
+    <AttributeList>
+      <Attribute Type="0" Id="7" />
+    </AttributeList>
+  </GameItemDataBaseBean>
+  <GameItemDataBaseBean ItemId="10213" ItemName="登山帽" ItemType="0" Rareness="1" Desc="攀登海拔较高的山的话戴上帽子就不冷啦！" DressType="7" Score="1000" ShowPoition="(644,1642)" PriceGold="1000" PriceDiamond="0">
     <StyleList>
       <ratio>1</ratio>
       <ratio>0.5</ratio>

@@ -256,6 +256,12 @@ public class DressPanelController : UIController
 
     void _SetNextState( DressPanelState state )
     {
+        if( state == DressPanelState.DressFinished )
+        {
+            nextState = state;
+            return;
+        }
+
         if( !_IsAllAnimStable() )
         {
             return;
@@ -397,7 +403,7 @@ public class DressPanelController : UIController
 
     void _UpdateState()
     {
-        if( currState != nextState )
+        if( currState != nextState || nextState == DressPanelState.DressFinished )
         {
             if ( _IsAllAnimStable() )
             {
